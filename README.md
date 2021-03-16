@@ -42,7 +42,9 @@ $$
 $$  
 für alle $x\in[a,b]$ und Konstanten $m$ und $M$.
 
-Hier ist $m\geq0$ vorausgesetzt.
+Hier ist $m\geq0$ vorausgesetzt, damit ist $f(x)\geq0$ für alle $x\in[a,b]$. Das bestimmte Integral ist dann als Flächeninhalt interpretierbar.
+$$
+  A=\int_{a}^b{f(x)}\,\mathrm{d}x
 
 
 Flächeninhalt
