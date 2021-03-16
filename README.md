@@ -7,8 +7,6 @@ version:  0.0.1
 
 language: de
 
-logo:     https://liascript.github.io/img/bg-masthead.jpg
-
 comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Fahrzeugtechnik im 2. Semester.
 
 script:   https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle-for-browser.js
