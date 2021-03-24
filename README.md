@@ -50,6 +50,7 @@ $$
 $$
 Ziel ist, einen Näherungswert für den Flächeninhalt zu ermitteln.
 
+
 Abschätzung des gesuchten Flächeninhaltes $A$
 =============================================
 
@@ -65,13 +66,14 @@ Abschätzung des gesuchten Flächeninhaltes $A$
 
 Die Verwendung von Ober- bzw. Untersummen zur Berechnung eines bestimmten Integrals ist auch erklärt in
 
-!?[youtube](https://www.youtube.com/watch?v=2bW8Zr7oTlY)<!-- style="width: 60%"-->
+!?[youtube](https://www.youtube.com/watch?v=2bW8Zr7oTlY)
 
 die Verwendung der Obersumme zur Zerlegungszahl $n$ bzw. für den Grenzübergang $n\to\infty$ an einem Beispiel in
 
-!?[youtube](https://www.youtube.com/watch?v=wyG4IJmmAmY)<!-- style="width: 60%"-->
+!?[youtube](https://www.youtube.com/watch?v=wyG4IJmmAmY)
 
-!?[youtube](https://www.youtube.com/watch?v=MBsHRSxuDKM)<!-- style="width: 60%"-->
+!?[youtube](https://www.youtube.com/watch?v=MBsHRSxuDKM)
+
 
 Einige numerische Berechnungsmethoden
 =====================================
@@ -109,14 +111,57 @@ Wie bei den vorstehenden Methoden liefert diese Formel eine näherungsweise Bere
 
 ~~Bemerkung.~~ Die Näherungsformeln der Trapez- und Simpson-Regel gelten unabhängig ihrer geometrischen Interpretation für jede auf dem Intervall $[a,b]$ stetige Funktion $f$. Beide Näherungen konvergieren für $n\to\infty$ gegen den Wert des bestimmten Integrals.
 
----
 
-[^1] Für zwei beliebige Zerlegungen $Z$ und $Z'$ und für die gemeinsame Verfeinerung $Z^\star$ gilt stets $$ s_Z\leq s_{Z^\star}\leq A\leq S_{Z^\star}\leq S_{Z'} $$
+Sicher gewusst?
+===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
+~~Frage 1.~~ Die Berechnung des bestimmten Integrals $$ \int_a^b{f(x)}\,\mathrm{d}x $$ einer reellen Funktion einer reellen Variablen mittels der Simpson-Regel ist __exakt__ für
+
+[( )] keine Funktion $f$.
+[( )] jede auf dem Intervall $[a,b]$ stetige Funktion $f$.
+[(X)] beliebige quadratische Funktion $f$.
+[( )] jede lineare Funktion $f$.
+[[?]] Bei Anwendung der Simpson-Regel lässt sich der Graph des Integranden $f$ im Integrationsintervall $[a,b]$ durch Parabelbögen durch je drei benachbarte Stützpunkte genähert interpretieren.
+****************************************
+
+Die Graphen quadratischer reeller Funktionen $f:x\mapsto y=a\cdot x^2+b\cdot x+c$, $D\subseteq\mathbb{R}$, sind Parabeln / -bögen, die mit den stückweise definierten quadratischen Funktionen übereinstimmen.
+
+****************************************
+
+~~Frage 2.~~ Der bei der Berechnung des bestimmten Integrals $$ \int_0^\pi{\sin{x}}\,\mathrm{d}x $$ mittels Trapez-Regel für $n=2$ entstandene Fehler beträgt rund
+
+[( )] $0.1$
+[( )] $0.04$
+[(X)] $0.4$
+[[?]] Das bestimmte Integral kann als Flächeninhalt zwischen Sinuskurve und $x$-Achse interpretiert werden. Durch Anwendung der Trapez-Regel ergibt sich ein Dreieck mit den Eckpunkten $$ (0,0)\,,\quad \left(\frac{\pi}{2},1\right)\,,\quad (\pi,0) $$ als Ersatzfläche.
+****************************************
+
+Das bestimmte Integral berechnet sich unmittelbar zu $$\int_0^\pi{\sin{x}}\,\mathrm{d}x=2 $$ Durch Anwendung der Trapezregel für $n=2$ wird dieser Wert durch $\frac{\pi}{2}\approx1.57$ (Flächeninhalt) genähert.
+
+****************************************
+
+~~Frage 3.~~ Ermitteln Sie - falls existent - den Grenzwert $$ \lim_{n\to\infty}{\frac{\pi}{2\cdot n}\cdot\left(\cos{\frac{\pi}{2\cdot n}}+\cos{\frac{2\cdot\pi}{2\cdot n}}+\cos{\frac{3\cdot\pi}{2\cdot n}}+\ldots+\cos{\frac{n\cdot\pi}{2\cdot n}}\right)} $$ unter Benutzung der geometrischen Interpretation der Rechteck-Regel.
+
+[(X)] $1$
+[( )] $\infty$
+[( )] $2$
+[[?]] Fassen Sie den Grenzwert (einer Summe) als bestimmtes Integral $$ \int_0^{\frac{\pi}{2}}{f(x)}\,\mathrm{d}x $$ auf. Bestimmen Sie $f(x)$.
+****************************************
+
+Die Summanden haben die Form $h\cdot\cos{\left(k\cdot h\right)} $ mit $$ h=\frac{\pi}{2\cdot n}=\frac{\frac{\pi}{2}-0}{n} $$ Die Summe im Argument des Limes kann als Inhaltssumme von $n$ im Intervall $$ \left[0,\frac{\pi}{2}\right] $$ entlang der $x$-Achse zusammenhängenden, achsenparallelen Rechtecken der Breite $h$ und der Höhe $y_k=\cos{(k\cdot h)}$ aufgefasst werden, also $$\int_0^{\frac{\pi}{2}}{\cos{x}}\,\mathrm{d}x=1 $$
+
+****************************************
+
+
+[^1]: Für zwei beliebige Zerlegungen $Z$ und $Z'$ und für die gemeinsame Verfeinerung $Z^\star$ gilt stets $$ s_Z\leq s_{Z^\star}\leq A\leq S_{Z^\star}\leq S_{Z'} $$
 
 
 ### Trapezregel
 
 Die Berechnung eines Näherungswertes für das bestimmte Integral $$ \int_a^b{f(x)\,\mathrm{d}x} $$ über die Funktion $f$ mit $$ x\mapsto y=f(x)\,,\quad [a,b]\subseteq D_f\,,\quad f(x)\geq0\;\;\forall x\in[a,b] $$ mit Hilfe der Trapezformel erfolgt durch nachstehende Rechenschritte.
+
 
 Rechenverfahren Trapezregel
 ----------------------------
@@ -129,7 +174,7 @@ Rechenverfahren Trapezregel
 
 Eine Erklärung der Trapezregel zur näherungsweisen Berechnung des bestimmten Integrals ist erklärt in
 
-!?[youtube](https://www.youtube.com/watch?v=6hqHufW0dD4)<!-- style="width: 60%"-->
+!?[youtube](https://www.youtube.com/watch?v=6hqHufW0dD4)
 
 ~~Bemerkung.~~ Die vorstehende Formel ist ein Spezialfall der _Gaußschen Trapezformel_, mit der sich der Flächeninhalt $A$ eines einfachen Polygons berechnen lässt. $$ 2\cdot A=\sum_{i=1}^n{\left(y_i+y_{i+1}\right)\cdot\left(x_i-x_{i+1}\right)} $$ Die Koordinaten $x_i$ und $y_i$ mit $i\in\{1,2,\ldots,n\}$ bezeichnen darin die Koordinaten der Eckpunkte des Polygons, des Weiteren sind in der Formel $x_{n+1}=x_1$ und $y_{n+1}=y_1$ zu setzen. Siehe auch [wikipedia](https://de.wikipedia.org/wiki/Gaußsche_Trapezformel).
 
@@ -156,11 +201,11 @@ Halbiert man die Länge der Teilintervalle, d. h. verdoppelt man die Anzahl $n$ 
 Verfahrensfehler Trapezregel
 -----------------------------
 
-Der mittels Trapezregel berechnete der Näherungswert $T_n(f)$ für das bestimmte Integral lässt sich darstellen $$ \int_a^b{f(x)}\,\mathrm{d}x = T_n(f)+\delta_n(f) $$ worin $\delta_n(f)$ den gemachten __Verfahrensfehler__ bezeichnet. $\delta_n(f)$ ist um so kleiner, je kleiner die Länge $h$ der Teilintervalle ist.
+Der mittels Trapezregel berechnete der Näherungswert $T_n(f)$ für das bestimmte Integral lässt sich darstellen $$ \int_a^b{f(x)}\,\mathrm{d}x = T_n(f)+\delta_n(f) $$ worin $\delta_n(f)$ den gemachten __Verfahrensfehler__ bezeichnet.
 
 >Ist $f$ zweimal differenzierbar, so kann der Verfahrensfehler abgeschätzt werden mittels $$ |\delta_n(f)|\leq\frac{b-a}{12}\cdot h^2\cdot\max_{a\leq x\leq b}{|f^{\prime\prime}(x)|} $$
 
-Hieraus lässt sich schließen, dass sich bei Halbierung der Länge der Teilintervalle die obere Schranke für $|\delta_n(f)|$ mit dem Faktor $\frac{1}{4}$ verkleinert.
+Hieraus lässt sich schließen, dass sich bei Halbierung der Länge der Teilintervalle die obere Schranke für $|\delta_n(f)|$ mit dem Faktor $\frac{1}{4}$ verkleinert. Durch sukzessives Verkleinern der Länge $h$ der Teilintervalle kann der Verfahrensfehler beliebig klein gemacht werden.
 
 
 ### Simpson-Regel
@@ -173,6 +218,7 @@ Zunächst ist die in der Simpson-Regel verwendete Approximation zu betrachten.
 * das bestimmte Integral auf der linken Seite mittels Hauptsatz der Differential- und Integralrechnung zu berechnen $$ \int_{x_0}^{x_2}{(a\cdot x^2+b\cdot x+c)}\,\mathrm{d}x=\frac{a}{3}\cdot \left(x_2^3-x_0^3\right)+\frac{b}{2}\cdot \left(x_2^2-x_0^2\right)+c\cdot\left(x_2-x_0\right) $$
 * in der linken Seite $y_i=a\cdot x_i^2+b\cdot x_i+c$ mit $i\in\{0,1,2\}$ zu setzen sowie $x_1=\frac{1}{2}\cdot(x_0+x_2)$ zu verwenden
 um die Gleichheit nachzuweisen. Die konkrete Gestalt der Koeffizienten wird hierfür nicht benötigt. $\square$
+
 
 Rechenverfahren Simpson-Regel
 ----------------------------
@@ -188,7 +234,7 @@ Die Berechnung eines Näherungswertes für das bestimmte Integral $$ \int_a^b{f(
 
 Eine Erklärung der Simpson-Regel zur näherungsweisen Berechnung des bestimmten Integrals ist erklärt in
 
-!?[youtube](https://www.youtube.com/watch?v=N0kFSTDvDcw)<!-- style="width: 60%"-->
+!?[youtube](https://www.youtube.com/watch?v=N0kFSTDvDcw)
 
 ~~Beispiel.~~ Weitgehend analog zum Beispiel in Abschnitt [Trapezregel](#Trapezregel) ist ein Näherungswert des bestimmten Integrals $$ \int_{0}^1{\exp{\left(x^2\right)}}\,\mathrm{d}x $$ für eine Zerlegung des Integrationsintervalls in $n=4$ (gerade Anzahl!) Teilintervalle gleicher Länge mithilfe der Simpson-Regel zu berechnen.
 
@@ -201,6 +247,7 @@ float(h/3*(exp(0)+exp(1)+4*sum(subst((2*i-1)*h,x,f),i,1,n)+2*sum(subst((2*k)*h,x
 ```
 @Algebrite.eval
 
+
 Verfahrensfehler Simpson-Regel
 ------------------------------
 
@@ -208,7 +255,7 @@ Der mittels Simpson-Rregel berechnete der Näherungswert $S_n(f)$ für das besti
 
 >Ist $f$ viermal differenzierbar, so kann der Verfahrensfehler abgeschätzt werden mittels $$ |\delta_n(f)|\leq\frac{b-a}{180}\cdot h^4\cdot\max_{a\leq x\leq b}{|f^{(4)}(x)|} $$
 
-Hieraus lässt sich schließen, dass sich bei Halbierung der Länge der Teilintervalle die obere Schranke für $|\delta_n(f)|$ mit dem Faktor $\frac{1}{16}$ verkleinert.
+Hieraus lässt sich schließen, dass sich bei Halbierung der Länge der Teilintervalle die obere Schranke für $|\delta_n(f)|$ mit dem Faktor $\frac{1}{16}$ verkleinert. Durch sukzessives Verkleinern der Länge $h$ der Teilintervalle kann der Verfahrensfehler beliebig klein gemacht werden.
 
 [^1]: Die Anzahl der Teilintervall muss hier aufgrund der Interpolation der Stützpunkte $(x_i,y_i)\in G_f$ mittels Parabeln als gerade natürliche Zahl vorausgesetzt werden.
 
@@ -251,7 +298,7 @@ defint(f,x,-1,3)
 
 Im nachstehenden Video wird das Verfahren zur Inhaltsberechnung einer durch $G_f$ und der $x$-Achse begrenzten Fläche mit Hilfe bestimmter Integrale erklärt.
 
-!?[youtube](https://www.youtube.com/watch?v=2zVgFO-z-nY)<!-- style="width: 60%"-->
+!?[youtube](https://www.youtube.com/watch?v=2zVgFO-z-nY)
 
 
 Von zwei Funktionsgraphen begrenzte Fläche
@@ -283,5 +330,30 @@ defint(g-f,x,-1,4)
 ```
 @Algebrite.eval
 
+
+Sicher gewusst?
+===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
+~~Frage.~~ Welchen Inhalt besitzt die Fläche, die vom Graph der Funktion $$ f:x\mapsto y=f(x)=x^3-3\cdot x^2+2\cdot x\,,\quad x\in\mathbb{R} $$ und der $x$-Achse eingeschlossen wird?
+
+```javascript
+f=x^3-3*x^2+2*x
+roots(f=0)
+factor(f)
+defint(f,x,a,b)
+```
+@Algebrite.eval
+
+[( )] $-\frac{1}{2}$
+[( )] $0$
+[(X)] $\frac{1}{2}$
+[[?]] Berechnen Sie die Nullstellen der Funktion $f$ und untersuchen Sie die Funktionswerte zwischen benachbarten Nullstellen.
+****************************************
+
+Die Funktion besitzt die Nullstellen $0$, $1$ und $2$. Wegen $$ f(x)=x\cdot(x-1)\cdot(x-2) $$ gelten offensichtlich $$ \left\{\begin{array}{rcl} f(x)\geq0 & \text{falls} & x\in[0,1] \\ f(x)<0 & \text{falls} & x\in(1,2) \end{array}\right. $$ Der Inhalt der von $G_f$ und $x$-Achse begrenzten Fläche berechnet sich somit $$ A=\int_0^1{f(x)}\,\mathrm{d}x-\int_1^2{f(x)}\,\mathrm{d}x=\frac{1}{4}-\left(-\frac{1}{4}\right)=\frac{1}{2} $$
+
+****************************************
 
 [^1]: Es ist ausreichend, die Argumente der gemeinsamen Punkte von $G_f$ und $G_g$ zu bestimmen.
