@@ -581,6 +581,13 @@ $$
 
 ## Differentialrechnung reeller Funktionen mehrerer Veränderlicher
 
+Thema dieses Kapitels ist die Übertragung der Differentialrechnung auf reelle Funktionen mehrerer reeller Veränderlicher.
+
+Schwerpunkte sind u. a. die Übertragung von zentralen Begriffen wie Ableitung, Differential einer Funktion, lokale Extrema.
+
+Darüber hinaus werden neue Begriffe eingeführt wie Extremwertaufgaben unter Nebenbedingungen. Diese werden systematisch im Kontext der Differentialrechnung für reelle Funktionen mehrerer reeller Variablen behandelt.
+
+
 ### Grundbegriffe
 
 Hängt eine Zielgröße funktional von mehreren unabhängigen Einflussgrößen ab, so spricht man von Funktionen mehrerer unabhängiger Veränderlicher. Im Folgenden werden reelle Funktionen $$
