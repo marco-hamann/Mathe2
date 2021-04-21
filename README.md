@@ -1308,11 +1308,7 @@ $$
 $$
 transformiert werden kann. die Lösungen dieses Systems linearer Gleichungen bilden die stationären Stellen der Funktion $F$.
 
-
-Nachweis der Extrema
---------------------
-
-Zum Nachweis der Art der Extrema wird die Hesse-Matrix der Funktion $F$ in den stationären Stellen berechnet. Die partiellen zweiten Ableitungen von $F$ nach $b_0$ bzw. $b_1$ berechnen sich unter benutzung des [Satz von Schwarz](#Partielle-Ableitungen)
+**Nachweis der Extrema.** Zum Nachweis der Art der Extrema wird die Hesse-Matrix der Funktion $F$ in den stationären Stellen berechnet. Die partiellen zweiten Ableitungen von $F$ nach $b_0$ bzw. $b_1$ berechnen sich unter Benutzung des [Satz von Schwarz](#Partielle-Ableitungen)
 $$
   \begin{array}{rclclcl}
     F_{b_0b_0}(b_0,b_1) & = & 2\cdot\sum_{i=1}^M{1}=2\cdot M > 0 \\
@@ -1324,7 +1320,80 @@ wobei die partiellen zweiten Ableitungen von $F$ nur von den Koordinaten der Mes
 $$
   H(b_0,b_1)=\begin{pmatrix} 2\cdot M & 2\cdot\sum_{i=1}^M{x_i} \\ 2\cdot\sum_{i=1}^M{x_i} & 2\cdot\sum_{i=1}^M{(x_i^2)} \end{pmatrix}
 $$
-Für die determinante der Hesse-matrix 
+Für die Determinante der Hesse-Matrix ergibt nach einiger Rechnung
+$$
+  \det{H(b_0,b_1)}=2\cdot\sum_{i=1}^M\sum_{k=1}^M{(x_i-x_k)^2}>0
+$$
+woraus sich die Existenz lokaler Extrema in den stationären Stellen ergibt. Wegen $F_{b_0b_0}>0$ ($F_{b_1b_1}>0$) liegt an diesen Stellen ein lokales Minimum vor.
+
+**Beispiel.** Für die sechs in der nachstehenden Wertetabelle angegebenen Messpunkte soll die Regressionsgerade berechnet werden.
+
+<!-- data-type="none" -->
+| $x$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+| :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
+| $y$ | $0$ | $2$ | $3$ | $1$ | $-1$ | $-3$ |
+
+Die Gleichung für die Regressionsgerade ist $y=b_0+b_1\cdot x$ mit zu bestimmenden Koeffizienten $b_0$ und $b_1$. Diese berechnen sich unter Benutzung der Methode der kleinsten Quadrate als Lösungen des Systems linearer Gleichungen
+$$
+\begin{array}{lclcl}
+  \sum_{i=1}^M{y_i} & = & b_0\cdot M & + & b_1\cdot\left(\sum_{i=1}^M{x_i}\right) \\
+  \sum_{i=1}^M{(x_i\cdot y_i)} & = & b_0\cdot\left(\sum_{i=1}^M{x_i}\right) & + &  b_1\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)
+\end{array}
+$$
+worin sich die auftretenden Koeffizienten direkt aus den Koordinaten der Messpunkte berechnen lassen.
+$$
+  \sum_{i=1}^6{y_i}=2\,,\quad \sum_{i=1}^6{x_i}=15\,,\quad
+  \sum_{i=1}^6{(x_i)^2}=55\,,\quad \sum_{i=1}^6{(x_i\cdot y_i)}=-8
+$$
+Damit hat das vorstehende System linearer Gleichungen die Gestalt
+$$
+\begin{array}{rclcl}
+  2 & = & b_0\cdot 6 & + & b_1\cdot 15 \\
+  -8 & = & b_0\cdot 15 & + &  b_1\cdot 55
+\end{array}
+$$
+Zur Berechnung der Lösung dieses Systems kann vom $5$-fachen der ersten Gleichung das $2$-fache der zweiten Gleichung subtrahiert werden.
+$$
+  26= 0\cdot b_0-35\cdot b_1\quad\leftrightarrow\quad b_1=-\frac{26}{35}
+$$
+anderseits kann $b_0$ berechnet werden mithilfe der Differenz des $3$-fachen der zweiten Gleichung vom $11$-fachen der zweiten Gleichung
+$$
+  46=21\cdot b_0+0\cdot b_1\quad\leftrightarrow\quad b_0=\frac{46}{21}
+$$
+Die einzige stationäre Stelle berechnet sich also zu
+$$
+  (b_0,b_1)=\left(\frac{46}{21},-\frac{26}{35}\right)
+$$
+Der Nachweis für ein lokales Minimum an dieser Stelle wurde bereits erbracht, so dass die Gleichung der Regressionsgerade angegeben werden kann zu
+$$
+  y=\frac{46}{21}-\frac{26}{35}\cdot x\approx 2.2-0.7\cdot x
+$$
+
+
+Regressionspolynom
+------------------
+
+Wählt man den Grad des Regressionspolynoms $N>1$, so besitzt die Ausgleichsfunktion die Darstellung
+$$
+  x\mapsto y=p_N(x)=b_0+\sum_{i=1}^N{b_i\cdot x^i}
+$$
+mit zu bestimmenden Koeffizienten $b_j\in\mathbb{R}$ mit $j\in\{0,1,...,N\}$. Für $N=2$ ist eine Regressionsparabel zu berechnen, für $N=3$ eine kubische Regressionskurve.
+
+Bei der Approximation der Messpunkte $P_i(x_i,y_i)$ mit $i\in\{1,...,M\}$ ergibt sich der Fehler
+$$
+  F(b_0,b_1,\ldots,b_N)=\sum_{i=1}^M{\left[y_i-p_N(x_i)\right]^2}
+$$
+Die stationären Stellen der Funktion $F$ ergeben sich als Lösungen des nachstehenden Systems linearer Gleichungen.
+$$
+  \begin{array}{lllllllll}
+     \textcolor{magenta}{b_0}\cdot M & + &  \textcolor{magenta}{b_1}\cdot\sum_{i=1}^M{x_i} & + & \ldots & + & \textcolor{magenta}{b_N}\cdot\sum_{i=1}^M{x_i^N} & = & \sum_{i=1}^M{y_i} \\
+     \textcolor{magenta}{b_0}\cdot\sum_{i=1}^M{x_i} & + &  \textcolor{magenta}{b_1}\cdot\sum_{i=1}^M{x_i^1} & + & \ldots & + & \textcolor{magenta}{b_N}\cdot\sum_{i=1}^M{x_i^{N+1}} & = & \sum_{i=1}^M{x_i\cdot y_i} \\ & \vdots & \\
+     \textcolor{magenta}{b_0}\cdot\sum_{i=1}^M{x_i^N} & + &  \textcolor{magenta}{b_1}\cdot\sum_{i=1}^M{x_i^{N+1}} & + & \ldots & + & \textcolor{magenta}{b_N}\cdot\sum_{i=1}^M{x_i^{2\cdot N}} & = & \sum_{i=1}^M{x_i^N\cdot y_i}
+  \end{array}
+$$
+Auf den Nachweis der Art des Extremums wird hier verzichtet.
+
+Eine graphische Deutung der Methode der kleinsten Quadrate zur Berechnung einer Ausgleichskurve findet sich für die *lineare* Regression ($N=1$), die *quadratische* Regression ($N=2$) und die *kubische* Regression ($N=3$) unter [Regression](https://www.geogebra.org/m/HXWB4cMz).
 
 [^1]: Hier werden also die Abstände der Messpunkte $(x_i,y_i)$ von den Punkten auf der Ausgleichsgerade mit gleicher Abszisse $x_i$ betrachtet, d. h. die Abstände entlang der $y$-Achse.
 
