@@ -1004,7 +1004,7 @@ Hieraus lässt sich unmittelbar eine Gleichung der Tangentialebene an den Funkti
 $$
   \mathrm{d}y=y-f(-1,2.5)=y-\exp{\left(-\frac{19}{4}\right)}\,,\quad
   \mathrm{d}x_1=x_1-x_1^\star=x_1+1\,,\quad
-  \mathrm{d}x_1=x_2-x_2^\star=x_2-2.5
+  \mathrm{d}x_2=x_2-x_2^\star=x_2-2.5
 $$
 so formt sich die Gleichung des totalen Differentials unmittelbar um zu
 $$
@@ -1132,6 +1132,41 @@ $$
 $$
 Die absoluten Maximalfehler der Messgrößen addieren sich in diesem Fall zum absoluten Maximalfehler der mittelbaren Größe $t$.
 
+**Beispiel 4.** Gegeben sind die Messergebnisse für die elektrische Spannung sowie für die elektrische Stromstärke
+$$
+  u=(220\pm2) \mathrm{V}\,,\quad i=(20\pm0.5) \mathrm{A}
+$$
+Unter Verwendung des totalen Differential für die Funktion
+$$
+  f:(u,i)\mapsto R=f(u,i)=\frac{u}{i}
+$$
+ist ein Näherungswert für den relativen Maximalfehler zu berechnen.
+
+Für die partiellen Ableitungen der Funktion $f$ ergeben sich an den Stellen $(u^\star,i^\star)=(220,20)$
+$$
+  f_u(u^\star,i^\star)=\frac{1}{i^\star}=\frac{1}{20}\,,\quad f_i(u^\star,i^\star)=-\frac{u^\star}{(i^\star)^2}=-\frac{220}{400}=-\frac{11}{20}
+$$
+wonach sich das totale Differential von $f$ an der Stelle $(u^\star,i^\star)$ berechnet zu
+$$
+  \mathrm{d}R=\frac{1}{i^\star}\cdot\mathrm{d}u-\frac{u^\star}{(i^\star)^2}\cdot\mathrm{d}i=\frac{1}{20}\cdot\mathrm{d}u-\frac{11}{20}\cdot\mathrm{d}i
+$$
+Der absoluten Maximalfehler $\delta{R}$ ergibt sich hieraus mittels der Abschätzung
+$$
+  \delta{R}=\left|\frac{1}{i^\star}\right|\cdot\delta{u}+\left|-\frac{u^\star}{(i^\star)^2}\right|\cdot\delta{i}=
+  \frac{1}{20}\cdot 2+\frac{11}{20}\cdot 0.5=\frac{3}{8}\,(\Omega)
+$$
+worin $\delta{u}=2$ und $\delta{i}=0.5$ festgesetzt sind.
+
+Der relative Maximalfehler berechnet sich indes
+$$
+  \frac{\delta{R}}{|R|}=\left|\frac{i^\star}{u^\star}\right|\cdot\left(\left|\frac{1}{i^\star}\right|\cdot\delta{u}+\left|-\frac{u^\star}{(i^\star)^2}\right|\cdot\delta{i}\right)=
+  \frac{\delta{u}}{\left|u^\star\right|}+\frac{\delta{i}}{\left|i^\star\right|}=
+\frac{2}{220}+\frac{0.5}{20}=\frac{3}{88}
+$$
+dieser entspricht der Summe der relativen Maximalfehler der Messgrößen $u$ und $i$.
+
+Allgemein gelten:
+
 >**Satz 1.** Der absolute Maximalfehler einer Differenz oder Summe ist gleich der Summe der absoluten Maximalfehler der Einflussgrößen.
 
 >**Satz 2.** Der relative Maximalfehler eines Produktes oder Quotienten ist gleich der Summe der relativen Maximalfehler der Einflussgrößen.
@@ -1139,6 +1174,20 @@ Die absoluten Maximalfehler der Messgrößen addieren sich in diesem Fall zum ab
 >**Satz 3.** Sind $u=u(v)$ und $v=v(x_1,...,x_k)$ zwei verkettete, mittelbare Größen und $x_j$ die Einflussgrößen, so gilt $$
   \delta{u}=\left|\frac{\mathrm{d}u}{\mathrm{d}v}\right|\cdot\left(\sum_{j=1}^k\left|\frac{\partial{v}}{\partial{x_j}}\right|\cdot\delta{x_j}\right)
 $$ (Kettenregel).
+
+**Beweis.** Hier für Satz 3.
+
+Mit Hilfe der Kettenregel und dem totalen Differential der Funktion $v$ berechnet sich
+$$
+  \mathrm{d}u=\frac{\mathrm{d}u}{\mathrm{d}v}\cdot\mathrm{d}v=
+  \frac{\mathrm{d}u}{\mathrm{d}v}\cdot\left(\sum_{i=1}^k{\frac{\partial{v}}{\partial{x_i}}\cdot\mathrm{d}x_i}\right)
+$$
+Hieraus lässt sich der absolute Maximalfehler $\delta{u}$ abschätzen
+$$
+  |\Delta{u}|\approx|\mathrm{d}u|=\frac{\mathrm{d}u}{\mathrm{d}v}\cdot\mathrm{d}v=\left|\frac{\mathrm{d}u}{\mathrm{d}v}\right|\cdot\left|\sum_{i=1}^k{\frac{\partial{v}}{\partial{x_i}}\cdot\mathrm{d}x_i}\right|\leq\left|\frac{\mathrm{d}u}{\mathrm{d}v}\right|\cdot\left(\sum_{i=1}^k{\left|\frac{\partial{v}}{\partial{x_i}}\right|\cdot\delta{x_i}}\right)=\delta{u}
+$$
+$\square$
+
 
 Sicher gewusst?
 ===============
@@ -1161,8 +1210,286 @@ $$ und beschreibt die näherungsweise Änderung des Gasdrucks bei geringfügiger
 
 Die ersten beiden Antwortoptionen betrachten jeweils nur das Differential der partiellen Funktionen $T\mapsto p=f(V^\star,T)$ beziehungsweise $V\mapsto p=f(V,T^\star)$.
 
-In der letzten Antwortotion sind die gebildeten partiellen Ableitungen falsch zugeordnet.
+In der letzten Antwortoption sind die gebildeten partiellen Ableitungen falsch zugeordnet.
 
 ****************************************
 
 [^1]: Der Funktionsgraph der Funktion $f$ ist eine Fläche im $\mathbb{R}^3$.
+
+
+### Lokale Extrema
+
+In diesem Abschnitt werden die Begriffe lokale Extrema - das sind lokale Maxima bzw. lokale Minima - einer reellen Funktion mehrerer reeller Veränderlicher untersucht.
+
+Hierfür wird im Folgenden die Funktion
+$$
+  f:(x_1,...,x_k)\mapsto y=f(x_1,...,x_k)\,,\quad (x_1,...,x_k)\in D\subseteq\mathbb{R}^k
+$$
+betrachtet. Wir setzen der besseren Lesbarkeit wegen $x=(x_1,...,x_k)$.
+
+>**Definition 1.** Eine reelle Funktion $f$ besitzt an der Stelle $x^\star=(x_1^\star,...,x_k^\star)\in D$ ein **lokales Maximum**, falls eine Umgebung $U(x^\star)\subset D$ existiert, so dass $$
+  f(x^\star)>f(x)\;\;\forall x\in U(x^\star)\setminus\{x^\star\}
+$$ gilt. Analoges gilt für ein lokales Minimum von $f$ an einer Stelle $x^\star$.
+
+**Bemerkung.** Gilt die in der vorstehenden Definition aufgeführte Ungleichung für alle $x\in D$, so liegt an der Stelle $x^\star$ ein **globales Maximum** vor. Analoges gilt für ein globales Minimum.
+
+
+Der Fall $k=1$
+==============
+
+Für ein Verständnis und eine geometrische Vorstellung der zu übertragenden Begriffsbildung werden zunächst noch einmal reelle Funktionen einer reellen Variablen betrachtet.
+
+Wird $f$ differenzierbar vorausgesetzt, so bildet die Bedingung
+$$
+  f^\prime(x^\star)=0\,,\quad x^\star\in D
+$$
+die *notwendige* Bedingung für ein lokales Extremum. Jede Lösung $x^\star$ der vorstehenden Gleichung heißt eine stationäre Stelle. Der Graph $G_f\subset\mathbb{R}^2$ der Funktion besitzt eine zur $x$-Achse parallele Tangente im Punkt $P(x^\star,f(x^\star))$, die analytisch durch das Differential der Funktion
+$$
+  \mathrm{d}y=f^\prime(x^\star)\cdot\mathrm{d}x=0
+$$
+beschrieben ist. Wird $\mathrm{d}y=y-f(x^\star)$ gesetzt, ergibt sich hieraus $y=f(x^\star)$.
+
+Der Nachweis eines lokalen Extremums kann vermöge der zweiten Ableitung von $f$ nach $x$ in $x^\star$ erfolgen. Es gilt
+$$
+f^{\prime\prime}(x^\star)\left\{
+  \begin{array}{ll}
+    >0 & f(x^\star)\;\;\text{lokales Minimum} \\ <0 & f(x^\star)\;\;\text{lokales Maximum}
+  \end{array}\right.
+$$
+
+Der Fall $k>1$
+==============
+
+>**Satz.** Falls $f$ in $x^\star\in D$ stetig partiell differenzierbar ist und in $x^\star$ ein lokales Extremum besitzt, so gelten $$
+  \frac{\partial{f}}{\partial{x_j}}(x^\star)=0\;\;\forall j\in\{1,...,k\}
+$$ d. h. die partiellen ersten Ableitungen von $f$ sind in $x^\star$ gleich Null.
+
+Der vorstehende Satz beschreibt die notwendige Bedingung für lokale Extrema. Jede Lösung $x^\star$ der Gleichungen $$
+  \frac{\partial{f}}{\partial{x_j}}(x^\star)=0
+$$ heißt eine stationäre Stelle. Die Tangentialebene / -hyperebene an den Graph der Funktion $f$ im Punkt $P\left(x^\star,f(x^\star)\right)$
+
+
+Methode der kleinsten Quadrate
+==============================
+
+Ein Beispiel der Bestimmung lokaler Extrema einer Funktion ist die *Methode der kleinsten Quadrate*. Sie wird hier im Zusammenhang der Berechnung einer Regressionsfunktion zu gegebenen Messpunkten behandelt.
+
+Gegeben sind die Messpunkte $P_i(x_i,y_i)$ mit Index $i\in\{1,...,M\}$ und $M\in\mathbb{N}$, $M>0$, sowie $x_i\not=x_j$ für alle $i\not=j$. Gesucht ist ein Polynom $p$ vom Grad $N$, dass alle $M$ Punkte "möglichst gut" approximiert.
+
+
+Regressionsgerade
+-----------------
+
+Hier soll zunächst ein die Messpunkte approximierendes Polynom zum Grad $N=1$, d. h. eine Gerade bestimmt werden. Diese soll die Lage aller (!) Messpunkte ausgleichen, falls die Summe der Fehler $|y_i-p(x_i)|$ über alle $i$ möglichst klein ist.[^1] Die Gerade wird [Ausgleichsgerade](https://www.geogebra.org/m/uRXrq7yY) (Regressionsgerade, Trendgerade) genannt.
+
+Die Regressionsgerade besitzt unter den genannten Voraussetzungen die Gleichung
+$$
+  y=p_1(x)=b_0+b_1\cdot x
+$$
+worin die reellen Koeffizienten $b_0$ und $b_1$ zu bestimmen sind. Hierfür wird der Ansatz
+$$
+  F:(b_0,b_1)\mapsto F(b_0,b_1)=\sum_{i=1}^M{[y_i-(b_0+b_1\cdot x_i)]^2}\;\;\to\;\;\text{minimal}
+$$
+verwendet, worin jedem Paar $(b_0,b_1)\in\mathbb{R}^2$ die Summe $F(b_0,b_1)$ der Quadrate der eingeführten Abstände zugeordnet wird.[^2] die Funktion $F$ ist auf lokale Minima zu untersuchen.
+
+**Stationäre Stellen.** Die partiellen ersten Ableitungen der Funktion $F$ nach den Variablen $b_0$ bzw. $b_1$ berechnen sich zu
+$$
+  \begin{array}{lcc}
+    F_{b_0}(b_0,b_1)=\sum_{i=1}^M{2\cdot[y_i-(b_0+b_1\cdot x_i)]\cdot(-1)} & = & 0 \\
+    F_{b_1}(b_0,b_1)=\sum_{i=1}^M{2\cdot[y_i-(b_0+b_1\cdot x_i)]\cdot(-x_i)} & = & 0
+  \end{array}
+$$
+und werden Null gesetzt. Dies ergibt ein System linearer Gleichungen in $b_0$ bzw. $b_1$, welches äquivalent in die Form
+$$
+\begin{array}{lclcl}
+  \sum_{i=1}^M{y_i} & = & b_0\cdot M & + & b_1\cdot\left(\sum_{i=1}^M{x_i}\right) \\
+  \sum_{i=1}^M{(x_i\cdot y_i)} & = & b_0\cdot\left(\sum_{i=1}^M{x_i}\right) & + &  b_1\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)
+\end{array}
+$$
+transformiert werden kann. die Lösungen dieses Systems linearer Gleichungen bilden die stationären Stellen der Funktion $F$.
+
+
+Nachweis der Extrema
+--------------------
+
+Zum Nachweis der Art der Extrema wird die Hesse-Matrix der Funktion $F$ in den stationären Stellen berechnet. Die partiellen zweiten Ableitungen von $F$ nach $b_0$ bzw. $b_1$ berechnen sich unter benutzung des [Satz von Schwarz](#Partielle-Ableitungen)
+$$
+  \begin{array}{rclclcl}
+    F_{b_0b_0}(b_0,b_1) & = & 2\cdot\sum_{i=1}^M{1}=2\cdot M > 0 \\
+    F_{b_1b_1}(b_0,b_1) & = & 2\cdot\sum_{i=1}^M{(x_i^2)} > 0 \\
+    F_{b_0b_1}(b_0,b_1) & = & 2\cdot\sum_{i=1}^M{x_i}= F_{b_1b_0}
+  \end{array}
+$$
+wobei die partiellen zweiten Ableitungen von $F$ nur von den Koordinaten der Messpunkte abhängen, also konstant sind. Die Hesse-Matrix besitzt demnach die die Gestalt
+$$
+  H(b_0,b_1)=\begin{pmatrix} 2\cdot M & 2\cdot\sum_{i=1}^M{x_i} \\ 2\cdot\sum_{i=1}^M{x_i} & 2\cdot\sum_{i=1}^M{(x_i^2)} \end{pmatrix}
+$$
+Für die determinante der Hesse-matrix 
+
+[^1]: Hier werden also die Abstände der Messpunkte $(x_i,y_i)$ von den Punkten auf der Ausgleichsgerade mit gleicher Abszisse $x_i$ betrachtet, d. h. die Abstände entlang der $y$-Achse.
+
+[^2]: Durch die Quadrate der Abstände $$
+  (|y_i-p(x_i)|)^2=(y_i-p(x_i))^2
+$$ können die Absolutbeträge weggelassen werden.
+
+
+### Gradient
+
+Definition
+==========
+
+In diesem Abschnitt wird der Zusammenhang zwischen den lokalen Extrema einer Funktion $f$ und dem Gradientenvektor hergestellt.
+
+Hierfür wird erneut eine Funktion
+$$
+  f:(x_1,...,x_k)\mapsto y=f(x_1,...,x_k)\,,\quad (x_1,...,x_k)\in D\subseteq\mathbb{R}^k
+$$
+betrachtet. Wir setzen der besseren Lesbarkeit wegen $x=(x_1,...,x_k)$. Die Funktion $f$ wird an der Stelle $x^\star=(x_1^\star,...,x_k^\star)$ partiell differenzierbar vorausgesetzt.
+
+> **Definition 1.** Der Vektor $\mathrm{grad}{f(x_1^\star,...,x_k^\star)}=:\nabla f(x_1^\star,...,x_k^\star)$ (lies: Nabla) mit $$
+  \mathrm{grad}{f(x_1^\star,...,x_k^\star)}=\left(\begin{array}{c} \frac{\partial{f}}{\partial{x_1}} \\ \vdots \\\frac{\partial{f}}{\partial{x_k}} \end{array}\right)(x_1^\star,...,x_k^\star)
+$$ heißt **Gradientenvektor** von $f$ an der Stelle $x^\star=(x_1^\star,...,x_k^\star)\in D$.[^1]
+
+**Bemerkung.** Für eine *geometrische Interpretation* des Gradientenvektors ist hier $k=2$ angenommen. Bei einer Änderung der Argumente in $x^\star$ in einer beliebigen Richtung
+$$
+  \mathrm{d}x=\left(\begin{array}{c} x_1-x_1^\star \\ x_2-x_2^\star \end{array}\right)
+$$
+wird die Änderung des Funktionswertes $y=f(x^\star)$ näherungsweise entlang der Tangentialebene bestimmt mittels
+$$
+  \mathrm{d}y=\frac{\partial{f}}{\partial{x_1}}(x^\star)\cdot\mathrm{d}x_1+\frac{\partial{f}}{\partial{x_2}}(x^\star)\cdot\mathrm{d}x_2
+$$
+Siehe Abschnitt [Totale Differenzierbarkeit](#Totale-Differenzierbarkeit). Die rechte Seite lässt sich deuten als [Skalarprodukt](https://de.wikipedia.org/wiki/Skalarprodukt) des Änderungsvektors $\mathrm{d}x$ der Argumente mit dem Gradientenvektor
+$$
+  \mathrm{grad}{f(x^\star)}=\left(\begin{array}{c} \frac{\partial{f}}{\partial{x_1}} \\ \frac{\partial{f}}{\partial{x_2}} \end{array}\right)(x^\star)
+$$
+interpretieren. Zeigt $\mathrm{d}x$ beispielsweise in tangentialer Richtung der Niveaulinie durch $P(x^\star,f(x^\star))$, so ist $\mathrm{d}y=0$. Der Gradientenvektor $\mathrm{grad}{f(x^\star)}$ ist hier orthogonal zu $\mathrm{d}x$.
+
+~~Der Gradientenvektor zeigt in Richtung des (steilsten) Anstiegs des y-Wertes auf der Tangentialebene an den Funktionsgraph. Seine Länge entspricht der Stärke des Anstiegs.~~[^2]
+
+Eine interaktive Darstellung von Gradientenvektoren und Niveaulinien zu einem selbstgewähltem Beispiel zu betrachten unter [Gradientenvektorfeld](https://www.geogebra.org/m/EhxYnn5B).
+
+In den folgenden Videos werden unterschiedliche Schreibweisen sowie die geometrische Interpretation des Gradienten erläutert. Des Weiteren der Zusammenhang zu den partiellen ersten Ableitungen einer reellen Funktion.
+
+!?[Gradient1](https://www.youtube.com/watch?v=Iav4s81ctWI)
+
+!?[Gradient2](https://www.youtube.com/watch?v=sDXlFuma7CY)
+
+**Beispiel 1.** Für die Funktion $f$ mit
+$$
+  f:(x_1,x_2)\mapsto y=f(x_1,x_2)=\sqrt{1-x_1^2-x_2^2}\,,\quad 1-x_1^2-x_2^2>0
+$$
+berechnet sich der Gradientenvektor zu
+$$
+  \mathrm{grad}{f(x_1^\star,x_2^\star)}=\begin{pmatrix}
+    -\frac{x_1^\star}{\sqrt{1-(x_1^\star)^2-(x_2^\star)^2}} \\ -\frac{x_2^\star}{\sqrt{1-(x_1^\star)^2-(x_2^\star)^2}}
+  \end{pmatrix}
+$$
+die Änderung des Funktionswertes in Richtung
+$$
+  \mathrm{d}x=\left(\begin{array}{c} x_1-x_1^\star \\ x_2-x_2^\star \end{array}\right)
+$$
+berechnet sich mithilfe des totalen Differentials
+$$
+  \mathrm{d}y=-\frac{x_1^\star}{\sqrt{1-(x_1^\star)^2-(x_2^\star)^2}}\cdot(x_1-x_1^\star)-\frac{x_2^\star}{\sqrt{1-(x_1^\star)^2-(x_2^\star)^2}}\cdot(x_2-x_2^\star)
+$$
+
+Die Berechnung des Gradientenvektors $\mathrm{grad}{f(x^\star)}$, der Näherung $\mathrm{d}y$ für die - / der exakten Änderung des Funktionswertes $y=f(x^\star)$ ist für individuell wählbare Werte
+$$
+  x^\star=(x_1^\star,x_2^\star)\in D\,,\quad (\mathrm{d}x_1,\mathrm{d}x_2)=(x_1-x_1^\star,x_2-x_2^\star)
+$$
+nachfolgend ausgeführt.
+
+```javascript
+f=sqrt(1-x^2-y^2)
+x0=0.2
+y0=0.3
+x1=0.21
+y1=0.32
+g=d(f,[x,y])
+g0=subst(x0,x,subst(y0,y,g))
+g0
+delta=[x1-x0,y1-y0]
+dot(g0,delta)
+subst(y1,y,subst(x1,x,f))-subst(y0,y,subst(x0,x,f))
+```
+@Algebrite.eval
+
+Im folgenden Video wird an Beispielen der Zusammenhang zwischen dem Gradientenvektor und dem totalen Differential einer reellen Funktion erläutert, welches zur Berechnung einer Gleichung der Tangentialebene / Tangentialhyperebene an den Funktionsgraph benutzt werden kann.
+
+!?[Gradient und totales Differential](https://www.youtube.com/watch?v=gpWbvsyn2jo)
+
+>**Satz.** Sind $f$ und $g$ partiell differenzierbare, reelle Funktionen über demselben Definitionsbereich, so gilt $$
+  \mathrm{grad}{(f\cdot g)}=(\mathrm{grad}{f})\cdot g+f\cdot \mathrm{grad}\,{g}
+$$ Sind $\alpha$ und $\beta$ reelle Konstanten, so gilt desweiteren $$
+  \mathrm{grad}{(\alpha\cdot f+\beta\cdot g)}=\alpha\cdot\mathrm{grad}{f}+\beta\cdot\mathrm{grad}{g}
+$$ Ist $h$ eine reelle Funktion für die Werte von $f$, so gilt $$
+  \mathrm{grad}{(h(f))}=\frac{\mathrm{d}h}{\mathrm{d}f}\cdot\mathrm{grad}{f}
+$$
+
+Mit Hilfe des Gradientenvektors an einer Stelle des Definitionsbereiches lässt sich nun erklären:
+
+>**Definition 2.** Existiert an jeder Stelle $x^\star\in D$ der Gradientenvektor $\mathrm{grad}{f(x^\star)}$, so heißt $$
+  \mathrm{grad}f:D\to \mathbb{R}^k, (x_1,...,x_k)\mapsto \mathrm{grad}{f(x_1,..,x_k)}
+$$ das **Gradientenvektorfeld** von $f$ in $D$.
+
+
+Lokale Extrema
+==============
+
+Damit gilt für die Festlegung / Berechnung lokaler Extrema einer Funktion:
+
+1. Besitzt $f$ in $x^\star\in D$ ein lokales Extremum, so ist $\mathrm{grad}{f(x^\star)}=o$ (Nullvektor).
+2. Jede Lösung $x$ der vektorwertigen Gleichung $\mathrm{grad}{f(x)}=o$ mit $x\in D$ und einer existierenden Umgebung $U(x)\subset D$ liefert eine stationäre Stelle.
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Berechnen Sie den Gradienten der reellen Funktion
+$$
+  f:(x_1,x_2)\mapsto y=f(x_1,x_2)=\sin{x_1}\cdot\cos{x_2}+2\,,\quad (x_1,x_2)\in\mathbb{R}^2
+$$
+an der Stelle $(0,0)$.
+
+[( )] $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$
+[(X)] $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$
+[( )] $\begin{pmatrix} 0 \\ 0 \end{pmatrix}$
+[[?]] Der Gradient von $f(x_1^\star,x_2^\star)$ berechnet sich mittels $$
+  \mathrm{grad}{f(x_1^\star,x_2^\star)}=\begin{pmatrix} \frac{\partial{f}}{\partial{x_1}} \\ \frac{\partial{f}}{\partial{x_2}} \end{pmatrix}(x_1^\star,x_2^\star)
+$$ d. h. unter Benutzung der partiellen ersten Ableitungen von $f$.
+****************************************
+
+Die partiellen ersten Ableitungen von $f$ sind $$
+  \frac{\partial{f}}{\partial{x_1}}=\cos{x_1}\cdot\cos{x_2}\quad\text{und}\quad \frac{\partial{f}}{\partial{x_2}}=-\sin{x_1}\cdot\sin{x_2}
+$$ An der Stelle $(0,0)$ ergibt sich der Gradient $$
+  \mathrm{grad}{f(0,0)}=\begin{pmatrix} \frac{\partial{f}}{\partial{x_1}} \\ \frac{\partial{f}}{\partial{x_2}} \end{pmatrix}(0,0)=\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+$$
+
+****************************************
+
+**Frage 2.** Ist der Gradient einer reellen Funktion über $\mathbb{R}^2$ durch
+$$
+  \mathrm{grad}{f(x_1,x_2)}=\begin{pmatrix} \cos{x_1}\cdot\cos{x_2} \\ \sin{x_1}\cdot\sin{x_2} \end{pmatrix}
+$$ gegeben, so sind folgende Stellen stationär.
+
+[[X]] $x_1=\frac{2\cdot k+1}{2}\cdot\pi\;\;\wedge\;\;x_2=m\cdot\pi$ mit Parametern $(k,m)\in\mathbb{Z}^2$
+[[ ]] $x_1=k\cdot\pi\;\;\wedge\;\;x_2=m\cdot\pi$ mit Parametern $(k,m)\in\mathbb{Z}^2$
+[[X]] $x_1=k\cdot\pi\;\;\wedge\;\;x_2=\frac{2\cdot m+1}{2}\cdot\pi$ mit Parametern $(k,m)\in\mathbb{Z}^2$
+[[ ]] $x_1=\frac{2\cdot k+1}{2}\cdot\pi\;\;\wedge\;\;x_2=\frac{2\cdot m+1}{2}\cdot\pi$ mit Parametern $(k,m)\in\mathbb{Z}^2$
+[[ ]] Es gibt keine stationären Stellen.
+[[?]] Jede Lösung $(x_1,x_2)\in\mathbb{R}^2$ der Gleichung $$ \mathrm{grad}{f(x_1,x_2)}=o$$ (Nullvektor) heißt stationäre Stelle.
+****************************************
+
+Das System trigonometrischer Gleichungen $$
+  [\cos{x_1}\cdot\cos{x_2}=0\,,\,\sin{x_1}\cdot\sin{x_2}=0]\quad\leftrightarrow\quad[\cos{x_1}=0\,,\,\sin{x_2}=0]\quad\vee\quad[\cos{x_2}=0\,,\,\sin{x_1}=0]
+$$ besitzt die Lösungen $$
+  x_1=\frac{2\cdot k+1}{2}\cdot\pi\;\;\wedge\;\;x_2=m\cdot\pi
+$$ und $$
+  x_1=k\cdot\pi\;\;\wedge\;\;x_2=\frac{2\cdot m+1}{2}\cdot\pi
+$$ mit Parametern $(k,m)\in\mathbb{Z}^2$.
+
+****************************************
+
+[^1]: Die Komponenten des Gradientenvektors an einer Stelle $x^\star$ des Definitionsbereiches $D$ sind also die partiellen ersten Ableitungen der Funktion $f$, ausgewertet an der Stelle $x^\star\in D$.
+
+[^2]: Für ein räumliches skalares Feldes lässt sich der Gradientenvektor entsprechend deuten. Ist dieser verschieden vom Nullvektor, so steht er senkrecht auf der Äquipotentialfläche, ist also ein Normalenvektor der Äquipotentialfläche.
