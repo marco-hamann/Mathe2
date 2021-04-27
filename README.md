@@ -1739,7 +1739,7 @@ Substitutionsmethode
 
 **Beispiel 1.** Ein Balken mit rechteckigem Profil soll aus einem kreisrunden Querschnitt gefertigt werden, so dass das Widerstandsmoment maximal ist.
 
-![Balken](img/mat-bild-2v2.png "Balken mit rechteckigem Profil mit Breite $b$ und Höhe $h$ zu kreisrundem Querschnitt mit Mittelpunkt $M$ und Radius $R$.")<!-- style="width: 100%"-->
+![Balken](img/mat-bild-2-v2.png "Balken mit rechteckigem Profil mit Breite $b$ und Höhe $h$ zu kreisrundem Querschnitt mit Mittelpunkt $M$ und Radius $R$.")<!-- style="width: 100%"-->
 
 Das Widerstandsmoment $W$ des Balkens ist lässt sich als Funktion
 $$
@@ -1771,7 +1771,7 @@ $$
   \frac{2}{3}\cdot\left(\frac{2}{3}\cdot\sqrt{3}\cdot R\right)\cdot R-\frac{1}{6}\cdot\left(\frac{2}{3}\cdot\sqrt{3}\cdot R\right)^2=\left(\frac{2}{3}\cdot R\right)^3\cdot\sqrt{3}
 $$
 
-**Bemerkung.** Die Berechnung des lokalen Extremums der Funktion $f$ in den reellen Variablen $b$ und $h$ mit der Kopplungsbedingung $\phi(b,h)=0$ erfolgt hier mittels **Substitution** von $h$ in $f(b,h)$: Hierzu ist die Kopplungsbedingung nach $h$ aufzulösen.
+**Bemerkung 1.** Die Berechnung des lokalen Extremums der Funktion $f$ in den reellen Variablen $b$ und $h$ mit der Kopplungsbedingung $\phi(b,h)=0$ erfolgt hier mittels **Substitution** von $h$ in $f(b,h)$: Hierzu ist die Kopplungsbedingung nach $h$ aufzulösen.
 
 Ein weiteres Beispiel für die Substitutionsmethode zu Lösung einer Extremwertaufgabe mit Nebenbedingung für reelle Funktionen zweier reeller Variablen ist im nachstehenden Video erläutert.
 
@@ -1786,7 +1786,11 @@ Probleme in Verallgemeinerung des dargestellten Vorgehens aus dem vorstehenden B
 Methode der Lagrange-Multiplikatoren
 ====================================
 
-Ziel der nach [Joseph-Louis Lagrange](https://de.wikipedia.org/wiki/Lagrange-Multiplikator) entwickelten Methode ist es, Extremwerte reeller Funktionen unter ein oder mehreren Nebenbedingungen zu bestimmen. Diese wird hier zunächst für Funktionen zweier reeller Veränderlicher dargestellt.
+Ziel der nach [Joseph-Louis Lagrange](https://de.wikipedia.org/wiki/Lagrange-Multiplikator) entwickelten Methode ist es, Extremwerte reeller Funktionen unter ein oder mehreren Nebenbedingungen zu bestimmen. Diese wird hier zunächst für Funktionen zweier reeller Veränderlicher dargestellt. Anschließend wird der allgemeinere Fall für Funktionen in $n\geq 2$ reellen Veränderlichen und $m<n$ Koppelbedingungen dieser Variablen skizziert.
+
+
+Der Fall $n=2$ mit einer Koppelbedingung
+----------------------------------------
 
 Gegeben ist eine reelle Funktion $f$ zweier reeller Veränderlicher
 $$
@@ -1797,10 +1801,6 @@ $$
   \phi(x,y)=0
 $$
 in impliziter Form. Die Funktion $f$ wird wie auch $\phi$ - als Funktion in $x$ und $y$ - in $D$ hinreichend oft partiell differenzierbar vorausgesetzt.
-
-
-Stationäre Stellen
-------------------
 
 Zunächst werden die totalen Differentiale aufgestellt
 $$
@@ -1829,4 +1829,207 @@ $$
 $$
 worin $x$, $y$ und $\lambda$ die Unbekannten bezeichnen.
 
->**Methode der Lagrange-Multiplikatoren.** ...
+>**Methode der Lagrange-Multiplikatoren.** Die stationären Stellen einer Funktion $f$ mit $$
+  f:D\to\mathbb{R},(x,y)\mapsto z=f(x,y)\,,\quad (x,y)\in D\subseteq\mathbb{R}^2
+$$ deren unabhängige Variablen $x$ und $y$ in der Koppelbedingung $\phi(x,y)=0$ gebunden sind, lassen sich nach dem folgenden Schema bestimmen:
+>
+>*Schritt 1.* Aus dem Funktionsterm $z=f(x,y)$ und der (implizit gegebenen!) Koppelbedingung $\phi(x,y)=0$ wird die reelle Hilfsfunktion $$
+  F:(x,y,\lambda)\mapsto F(x,y,\lambda)=f(x,y)+\lambda\cdot\phi(x,y)
+$$ gebildet. Der darin auftretende Faktor $\lambda$ heißt **Lagrange-Multiplikator**.
+>
+>*Schritt 2.* Die stationären Stellen der Funktion $F$ werden berechnet.[^1] Diese entsprechen den Lösungen des nachfolgend aufgeführten Gleichungssystems $$
+  \begin{array}{ccllrrr}
+    F_x(x,y,\lambda) & = & f_x(x,y) & + & \lambda\cdot \phi_x(x,y) & = & 0 \\
+    F_y(x,y,\lambda) & = & f_y(x,y) & + & \lambda\cdot \phi_y(x,y) & = & 0 \\
+    F_\lambda(x,y,\lambda) & = & \phi(x,y) & & & = & 0
+  \end{array}
+$$
+
+**Beispiel 2.** Zum im Beispiel 1 betrachteten Paar aus reeller Funktion $f$ und der Koppelbedingung werden die lokalen Extrema berechnet.
+
+*Schritt 1.* Hierzu ist zunächst die Hilfsfunktion $F$ mit
+$$
+  F(b,h,\lambda)=f(b,h)+\lambda\cdot\phi(b,h)=\frac{1}{6}\cdot b\cdot h^2+\lambda\cdot\left(b^2+h^2-4\cdot R^2\right)
+$$
+mit zu bestimmenden Lagrange-Multiplikator $\lambda$ zu bilden. Zu beachten ist, dass der Term $b^2+h^2-4\cdot R^2$ der linken Seite der Koppelbedingung $\phi(b,h)=0$ entspricht.
+
+*Schritt 2.* Für die Berechnung der stationären Stellen sind zunächst die partiellen ersten Ableitungen von $F$ zu bestimmen. Mit Hilfe der Summenregel berechnen sich die Null zusetzenden Ableitungen
+$$
+  F_b(b,h,\lambda)=\frac{1}{6}\cdot h^2+2\cdot\lambda\cdot b=0
+$$
+beziehungsweise
+$$
+  F_h(b,h,\lambda)=\frac{1}{3}\cdot b\cdot h+2\cdot\lambda\cdot h=0
+$$
+beziehungsweise
+$$
+  F_\lambda(b,h,\lambda)=b^2+h^2-4\cdot R^2=0
+$$
+Letztere entspricht der Koppelbedingung $\phi(b,h,\lambda)=0$.
+
+Um die Lösung des Gleichungssystems zu berechnen, löst man beispielsweise zunächst die zweite Gleichung nach dem Lagrange-Multiplikator auf
+$$
+  \frac{1}{3}\cdot b\cdot h+2\cdot\lambda\cdot h=0\quad\leftarrow\quad
+  \lambda=-\frac{1}{6}\cdot b
+$$
+diese Lösung in die erste Gleichung eingesetzt liefert
+$$
+  \frac{1}{6}\cdot h^2+2\cdot\left(-\frac{1}{6}\cdot b\right)\cdot b=0\quad\leftrightarrow\quad h^2=2\cdot b^2
+$$
+Schließlich lässt sich $h^2=2\cdot b^2$ in die dritte Gleichung einsetzen, um $b$ zu berechnen.
+$$
+  b^2+\left(2\cdot b^2\right)-4\cdot R^2=3\cdot b^2-4\cdot R^2=0\quad\leftrightarrow\quad b=\pm\frac{2}{3}\cdot\sqrt{3}\cdot R
+$$
+Da $b>0$ vorausgesetzt ist, entfällt die negative Lösung. Hieraus kann nun $h$ mittels der zuvor gewonnenen Beziehung $h^2=2\cdot b^2$ berechnet werden.
+$$
+  h^2=2\cdot\left(\frac{4}{3}\cdot R^2\right)=\frac{8}{3}\cdot R^2\quad\leftrightarrow\quad h=\pm\frac{2}{3}\cdot\sqrt{6}\cdot R
+$$
+Da auch $h>0$ vorausgesetzt ist, entfällt auch hier wieder die negative Lösung. Der Lagrange-Multiplikator lässt sich einsichtig zu
+$$
+  \lambda=-\frac{1}{9}\cdot\sqrt{3}\cdot R
+$$
+berechnen.
+
+Schließlich kann das Widerstandsmoment $W$ an dieser Stelle berechnet werden.
+$$
+  W=f\left(\frac{2}{3}\cdot\sqrt{3}\cdot R,\frac{2}{3}\cdot\sqrt{6}\cdot R\right)=\frac{1}{6}\cdot\left(\frac{2}{3}\cdot\sqrt{3}\cdot R\right)\left(\frac{8}{3}\cdot R^2\right)=\frac{8}{27}\cdot\sqrt{3}\cdot R^3
+$$
+
+Der Nachweis für die Existenz eines lokalen Maximums unter der Koppelbedingung kann hier graphisch anhand des Funktionsgraphen $G_f$ erfolgen. Siehe nachstehende Abbildung.
+
+![Extrema unter Koppelbedingungen](img/mat-bild-3.png "Graph der Funktion $f$ (weiß) und Flächenkurve zu gegebener Koppelbedingung $\phi(x,y)=0$ (magenta) sowie Punkt (blau) zu stationärer Stelle. Die stationäre Stelle gehört zu einem lokalen Maximum.[^2]")
+
+Die Rechnung kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) nachvollzogen werden.
+
+```javascript
+f=1/6*x*y^2
+phi=x^2+y^2-4*R^2
+R=1
+F=f+lambda*phi
+
+A=d(F,[x,y,lambda])
+lambda0=roots(A[2],lambda)
+y2=roots(subst(lambda0,lambda,A[1]),y^2)
+x2=roots(subst(y2,y^2,A[3]),x^2)
+x0=sqrt(x2)
+y0=sqrt(subst(x2,x^2,y2))
+
+subst(y0,y,subst(x0,x,f))
+```
+@Algebrite.eval
+
+**Bemerkung 2.** Der Lagrange-Multiplikator ist oft ohne nähere Bedeutung.
+
+**Bemerkung 3.** Der Nachweis eines Extremums unter Nebenbedingung einer reellen Funktion $f$ in zwei reellen Veränderlichen lässt sich unter Verwendung des Niveaulinienplans von $G_f$ führen.[^3] Siehe [Extrema unter Nebenbedingung und Niveaulinien](https://www.geogebra.org/m/ugWHZuJC).
+
+Ein weiteres Beispiel zur Berechnung der stationären Stellen unter Nebenbedingungen ist im nachstehenden Video erläutert.
+
+!?[Extrema und Nebenbedingung](https://www.youtube.com/watch?v=6GOwRXK17Ds)
+
+
+Der Fall $n>2$ mit $m<n$ Koppelbedingungen
+------------------------------------------
+
+Gegeben seien eine reelle Funktion in $n\geq2$ reellen Variablen
+$$
+  f:\left(x_1,x_2,\ldots,x_n\right)\mapsto y=f\left(x_1,x_2,\ldots,x_n\right)
+$$
+sowie die $m<n$ Nebenbedingungen
+$$
+  \phi_i\left(x_1,x_2,\ldots,x_n\right)\equiv0,\;\;i\in\{1,2,\ldots,m\}
+$$
+Die stationären Stellen von $f$ unter den Nebenbedingungen lassen sich nach folgendem Schema berechnen.
+
+*Schritt 1.* Bilde die Hilfsfunktion $F$ mit
+$$
+  F\left(x_1,x_2,\ldots,x_n,\lambda_1,\lambda_2,\ldots,\lambda_m\right)=f\left(x_1,x_2,\ldots,x_n\right)+\sum_{i=1}^{m}{\left(\lambda_i\cdot\phi_i\left(x_1,x_2,\ldots,x_n\right)\right)}
+$$
+Die Koeffizienten $\lambda_i$ in der Linearkombination heißen Lagrange-Multiplikatoren.
+
+*Schritt 2.* Berechne $x_1$, ..., $x_n$, $\lambda_1$, ..., $\lambda_m$ aus den Null gesetzten partiellen Ableitungen
+$$
+  F_{x_1}=0,\; \ldots,\; F_{x_n}=0\quad\text{sowie}\quad F_{\lambda_1}=\phi_1=0,\; \ldots,\; F_{\lambda_m}=\phi_m=0
+$$
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Gegeben ist die Funktion $f:\mathbb{R}^2\to\mathbb{R}$ mit
+$$
+  f:(x,y)\mapsto z=f(x,y)=x+y
+$$
+unter der Nebenbedingung
+$$
+  x^2+y^2=1
+$$
+Bestimmen Sie die Hilfsfunktion $F$ nach der Methode der Lagrange-Multiplikatoren.
+
+[[X]] $$ F(x,y,\lambda)=x+y+\lambda\cdot(x^2+y^2-1) $$
+[[ ]] $$ F(x,y,\lambda)=x^2+y^2-1+\lambda\cdot(x+y) $$
+[[ ]] $$ F(x,y,\lambda)=x+y+\lambda\cdot(x^2+y^2) $$
+[[X]] $$ F(x,y,\lambda)=x+y+\lambda\cdot(1-x^2-y^2) $$
+[[?]] Die Nebenbedingung $\phi$ muss in impliziter Form vorliegen.
+****************************************
+
+In der ersten Antwortoption ist die Zuordnung von $f$ und $\phi$ korrekt vorgenommen, $\lambda$ bezeichnet den Lagrange-Multiplikator.
+
+In der zweiten Antwortoption sind Funktion $f$ und Nebenbedingung $\phi$ vertauscht. Der Lagrange-Multiplikator ist Koeffizient am falschen Term.
+
+In der dritten Antwortoption liegt die Nebenbedingung nicht in impliziter Form vor. (Die rechte Seite ist in nicht korrekter Weise "abgeschnitten".)
+
+Natürlich lässt sich die Nebenbedingung auch $\phi(x,y)=1-x^2-y^2$ angeben. Korrekt!
+
+****************************************
+
+**Frage 2.** Gegeben ist die Funktion $f:\mathbb{R}^2\to\mathbb{R}$ mit
+$$
+  f:(x,y)\mapsto z=f(x,y)=x+y
+$$
+unter der Nebenbedingung
+$$
+  x^2+y^2=1
+$$
+Berechnen Sie alle stationären Stellen von $f$ unter der Nebenbedingung nach der Methode der Lagrange-Multiplikatoren.
+
+[( )] $x_1=y_1=\frac{1}{2}\cdot\sqrt{2}$
+[( )] $x_1=-y_1=\frac{1}{2}\cdot\sqrt{2}$ und $x_2=-y_2=-\frac{1}{2}\cdot\sqrt{2}$
+[(X)] $x_1=y_1=\frac{1}{2}\cdot\sqrt{2}$ und $x_2=y_2=-\frac{1}{2}\cdot\sqrt{2}$
+[[?]] Stellen Sie die Hilfsfunktion $F(x,y,\lambda)=f(x,y)+\lambda\cdot\phi(x,y)$ auf und berechnen Sie die partiellen ersten Ableitungen dieser Funktion. Elliminieren Sie möglichst früh den Lagrange-Multiplikator $\lambda$ beim Lösen des Gleichungssystems der Null gesetzten partiellen Ableitungen.
+****************************************
+
+Aus der Berechnung der partiellen Ableitungen von $F$ ergeben sich die Gleichungen
+$$
+  \begin{array}{lllll}
+    F_x(x,y,\lambda) & = & 1+2\cdot\lambda\cdot x & = & 0 \\
+    F_y(x,y,\lambda) & = & 1+2\cdot\lambda\cdot y & = & 0 \\
+    F_\lambda(x,y,\lambda) & = & x^2+y^2-1 & = & 0
+  \end{array}
+$$
+Aus $y\cdot F_x-x\cdot F_y=0$ folgt $x=y$, eingesetzt in die dritte Gleichung $$
+  x=y=\pm\frac{1}{2}\cdot\sqrt{2}
+$$
+
+****************************************
+
+**Frage 3.** Geben Sie den Niveaulinienplan der Funktion $f:\mathbb{R}^2\to\mathbb{R}$ mit
+$$
+  f:(x,y)\mapsto z=f(x,y)=x+y
+$$
+an.
+
+[( )] $$ \left\{(x,y)\in\mathbb{R}^2\;\left(y=x+c\;\wedge\; c\in\mathbb{R}\right)\right\} $$
+[(X)] $$ \left\{(x,y)\in\mathbb{R}^2\;\left(y=-x+c\;\wedge\; c\in\mathbb{R}\right)\right\} $$
+[( )] $$ \left\{(x,y)\in\mathbb{R}^2\;\left(y=c\cdot x\;\wedge\; c\in\mathbb{R}\right)\right\} $$
+[[?]] Die Niveaulinie einer Funktion $f$ zum Parameter $c\in W_f$ (Wertebereich von $f$) ist die Menge aller Argumente $(x,y)\in D_f$ mit $f(x,y)=c$.
+****************************************
+
+$$ f(x,y)=x+y=c\quad\leftrightarrow\quad y=-x+c $$
+
+****************************************
+
+[^1]: D. h. die partiellen Ableitungen von $F$ nach $x$ bzw. $y$ bzw. $\lambda$ werden gebildet und Null gesetzt. Das sich hieraus ergebende Gleichungssystem besteht im Allgemeinen aus nichtlinearen Gleichungen.
+
+[^2]: Der Grundriss der Flächenkurve ist ein Kreis.
+
+[^3]: Analytisch lässt sich der Nachweis auch unter Benutzung der  [geränderten Hesse-Matrix](https://de.wikipedia.org/wiki/Ger%C3%A4nderte_Hesse-Matrix) für die Funktion $F$ führen. Diese Methode wird im Themenkomplex der linearen Algebra erneut aufgegriffen.
