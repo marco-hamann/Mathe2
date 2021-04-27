@@ -624,9 +624,12 @@ Funktionstabelle
 
 Für die Funktion $f$ kann folgende Tabelle angegeben werden. Die Einträge in der Tabelle entsprechen entsprechen den Funktionswerten $$ z=f(x,y)=\sqrt{25-x^2-y^2} $$ für die Argumente $x$ in der $0$-ten Spalte und $y$ in der $0$-ten Zeile.
 
-<!-- data-type="none" -->
+<!--  
+data-type="none"
+data-title="Funktionswerte"
+-->
 | $(x,y)$   | $-5$   | $-3$   | $-1$   | $0$   | $1$   | $3$   | $5$   |
-| :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | $-5$     |       |       |       | 0    |       |       |      |
 | $-3$     |       | $\sqrt{7}$     | $\sqrt{15}$     | $4$    | $\sqrt{15}$     | $\sqrt{7}$     |     |
 | $-1$     |       | $\sqrt{15}$     | $\sqrt{23}$     | $2\cdot\sqrt{6}$    | $\sqrt{23}$     | $\sqrt{15}$     |     |
@@ -1269,18 +1272,17 @@ Der vorstehende Satz beschreibt die notwendige Bedingung für lokale Extrema. Je
 $$ heißt eine stationäre Stelle. Die Tangentialebene / -hyperebene an den Graph der Funktion $f$ im Punkt $P\left(x^\star,f(x^\star)\right)$
 
 
-Methode der kleinsten Quadrate
-==============================
+### Methode der kleinsten Quadrate
 
-Ein Beispiel der Bestimmung lokaler Extrema einer Funktion ist die *Methode der kleinsten Quadrate*. Sie wird hier im Zusammenhang der Berechnung einer Regressionsfunktion zu gegebenen Messpunkten behandelt.
+Eine wichtige Anwendung der Bestimmung lokaler Extrema einer Funktion ist die *Methode der kleinsten Quadrate*. Sie wird hier im Zusammenhang der Berechnung einer Regressionsfunktion zu gegebenen Messpunkten behandelt.
 
 Gegeben sind die Messpunkte $P_i(x_i,y_i)$ mit Index $i\in\{1,...,M\}$ und $M\in\mathbb{N}$, $M>0$, sowie $x_i\not=x_j$ für alle $i\not=j$. Gesucht ist ein Polynom $p$ vom Grad $N$, dass alle $M$ Punkte "möglichst gut" approximiert.
 
 
 Regressionsgerade
------------------
+=================
 
-Hier soll zunächst ein die Messpunkte approximierendes Polynom zum Grad $N=1$, d. h. eine Gerade bestimmt werden. Diese soll die Lage aller (!) Messpunkte ausgleichen, falls die Summe der Fehler $|y_i-p(x_i)|$ über alle $i$ möglichst klein ist.[^1] Die Gerade wird [Ausgleichsgerade](https://www.geogebra.org/m/uRXrq7yY) (Regressionsgerade, Trendgerade) genannt.
+Zunächst soll ein die Messpunkte approximierendes Polynom zum Grad $N=1$, d. h. eine Gerade bestimmt werden. Diese soll die Lage aller (!) Messpunkte ausgleichen, falls die Summe der Fehler $|y_i-p(x_i)|$ über alle $i$ möglichst klein ist.[^1] Die Gerade wird [Ausgleichsgerade](https://www.geogebra.org/m/uRXrq7yY) (Regressionsgerade, Trendgerade) genannt.
 
 Die Regressionsgerade besitzt unter den genannten Voraussetzungen die Gleichung
 $$
@@ -1306,7 +1308,7 @@ $$
   \sum_{i=1}^M{(x_i\cdot y_i)} & = & b_0\cdot\left(\sum_{i=1}^M{x_i}\right) & + &  b_1\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)
 \end{array}
 $$
-transformiert werden kann. die Lösungen dieses Systems linearer Gleichungen bilden die stationären Stellen der Funktion $F$.
+transformiert werden kann. Dieses System linearer Gleichungen lässt sich eindeutig lösen, die Lösungen bilden die stationären Stellen der Funktion $F$.
 
 **Nachweis der Extrema.** Zum Nachweis der Art der Extrema wird die Hesse-Matrix der Funktion $F$ in den stationären Stellen berechnet. Die partiellen zweiten Ableitungen von $F$ nach $b_0$ bzw. $b_1$ berechnen sich unter Benutzung des [Satz von Schwarz](#Partielle-Ableitungen)
 $$
@@ -1320,18 +1322,51 @@ wobei die partiellen zweiten Ableitungen von $F$ nur von den Koordinaten der Mes
 $$
   H(b_0,b_1)=\begin{pmatrix} 2\cdot M & 2\cdot\sum_{i=1}^M{x_i} \\ 2\cdot\sum_{i=1}^M{x_i} & 2\cdot\sum_{i=1}^M{(x_i^2)} \end{pmatrix}
 $$
-Für die Determinante der Hesse-Matrix ergibt nach einiger Rechnung
-$$
-  \det{H(b_0,b_1)}=2\cdot\sum_{i=1}^M\sum_{k=1}^M{(x_i-x_k)^2}>0
-$$
-woraus sich die Existenz lokaler Extrema in den stationären Stellen ergibt. Wegen $F_{b_0b_0}>0$ ($F_{b_1b_1}>0$) liegt an diesen Stellen ein lokales Minimum vor.
 
-**Beispiel.** Für die sechs in der nachstehenden Wertetabelle angegebenen Messpunkte soll die Regressionsgerade berechnet werden.
+Die Determinante der Hesse-Matrix berechnet sich
+$$
+  \det{H(b_0,b_1)}=4\cdot M\cdot\sum_{i=1}^M{x_i^2}-4\cdot\left(\sum_{i=1}^M{x_i}\right)^2
+$$
+Unter Benutzung einer Indexsubstitution sowie der Umformung
+$$
+  M\cdot\sum_{i=1}^M{x_i^2}=\sum_{k=1}^M{\left(\sum_{i=1}^M{x_i^2}\right)}=\sum_{k=1}^M{\sum_{i=1}^M{x_i^2}}
+$$
+in eine Doppelsumme lässt sich die Determinante umformen in
+$$
+  \det{H(b_0,b_1)}=2\cdot\left(
+    \sum_{k=1}^M{\sum_{i=1}^M{x_i^2}}+\sum_{i=1}^M{\sum_{k=1}^M{x_k^2}}-2\cdot\left(\sum_{i=1}^M{x_i}\right)\cdot\left(\sum_{k=1}^M{x_k}\right)
+  \right)
+$$
+Der Subtrahend in der Klammer der vorstehenden Formel kann durch Ausmultiplizieren ebenso in eine Doppelsumme umgeformt werden
+$$
+  \left(\sum_{i=1}^M{x_i}\right)\cdot\left(\sum_{k=1}^M{x_k}\right)=\sum_{i=1}^M{\sum_{k=1}^M{\left(x_i\cdot x_k\right)}}
+$$
+woraus sich schließlich unter Benutzung der [Binomischen Formel](https://de.wikipedia.org/wiki/Binomische_Formeln) die Form
+$$
+  \det{H(b_0,b_1)}=2\cdot \sum_{i=1}^M{\sum_{k=1}^M{\left(x_i^2+x_k^2-2\cdot x_i\cdot x_k\right)}}=2\cdot\sum_{i=1}^M\sum_{k=1}^M{(x_i-x_k)^2}>0
+$$
+ergibt. Hieraus lässt sich unmittelbar die Existenz lokaler Extrema in den stationären Stellen begründen. Wegen $F_{b_0b_0}>0$ ($F_{b_1b_1}>0$) liegt an diesen Stellen ein lokales Minimum vor.
 
-<!-- data-type="none" -->
-| $x$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ |
-| :--------- | :--------- | :--------- | :--------- | :--------- | :--------- | :--------- |
-| $y$ | $0$ | $2$ | $3$ | $1$ | $-1$ | $-3$ |
+Die Methode der kleinsten Quadrate zur Berechnung der Regressionsgerade zu vorgegebenen Messpunkten ist in nachstehendem Video erklärt. Neben der Herleitung des Systems linearer Gleichungen zur Berechnung der stationären Stellen sowie einem Beispiel wird auch ein nichtlinearer Regressionsansatz motiviert und erläutert.
+
+!?[Methode der kleinsten Quadrate](https://www.youtube.com/watch?v=Ekbw28n6IX0)
+
+**Beispiel 1.** Für die sechs in der nachstehenden Wertetabelle angegebenen Messpunkte soll die *Regressionsgerade* berechnet werden.
+
+<!--
+data-type="scatterplot"
+data-xlabel="x"
+data-ylabel="y"
+data-title="Messpunkte"
+-->
+| $x$ | $y$ |
+| :---: | :---: |
+| $0$ | $0$ |
+| $1$ | $2$ |
+| $2$ | $3$ |
+| $3$ | $1$ |
+| $4$ | $-1$ |
+| $5$ | $-3$ |
 
 Die Gleichung für die Regressionsgerade ist $y=b_0+b_1\cdot x$ mit zu bestimmenden Koeffizienten $b_0$ und $b_1$. Diese berechnen sich unter Benutzung der Methode der kleinsten Quadrate als Lösungen des Systems linearer Gleichungen
 $$
@@ -1368,10 +1403,11 @@ Der Nachweis für ein lokales Minimum an dieser Stelle wurde bereits erbracht, s
 $$
   y=\frac{46}{21}-\frac{26}{35}\cdot x\approx 2.2-0.7\cdot x
 $$
+deren Funktionsgraph die Regressionsparabel bildet.
 
 
 Regressionspolynom
-------------------
+==================
 
 Wählt man den Grad des Regressionspolynoms $N>1$, so besitzt die Ausgleichsfunktion die Darstellung
 $$
@@ -1387,7 +1423,7 @@ Die stationären Stellen der Funktion $F$ ergeben sich als Lösungen des nachste
 $$
   \begin{array}{lllllllll}
      \textcolor{magenta}{b_0}\cdot M & + &  \textcolor{magenta}{b_1}\cdot\sum_{i=1}^M{x_i} & + & \ldots & + & \textcolor{magenta}{b_N}\cdot\sum_{i=1}^M{x_i^N} & = & \sum_{i=1}^M{y_i} \\
-     \textcolor{magenta}{b_0}\cdot\sum_{i=1}^M{x_i} & + &  \textcolor{magenta}{b_1}\cdot\sum_{i=1}^M{x_i^1} & + & \ldots & + & \textcolor{magenta}{b_N}\cdot\sum_{i=1}^M{x_i^{N+1}} & = & \sum_{i=1}^M{x_i\cdot y_i} \\ & \vdots & \\
+     \textcolor{magenta}{b_0}\cdot\sum_{i=1}^M{x_i} & + &  \textcolor{magenta}{b_1}\cdot\sum_{i=1}^M{x_i^2} & + & \ldots & + & \textcolor{magenta}{b_N}\cdot\sum_{i=1}^M{x_i^{N+1}} & = & \sum_{i=1}^M{x_i\cdot y_i} \\ & & & & & & & \vdots & \\
      \textcolor{magenta}{b_0}\cdot\sum_{i=1}^M{x_i^N} & + &  \textcolor{magenta}{b_1}\cdot\sum_{i=1}^M{x_i^{N+1}} & + & \ldots & + & \textcolor{magenta}{b_N}\cdot\sum_{i=1}^M{x_i^{2\cdot N}} & = & \sum_{i=1}^M{x_i^N\cdot y_i}
   \end{array}
 $$
@@ -1395,11 +1431,136 @@ Auf den Nachweis der Art des Extremums wird hier verzichtet.
 
 Eine graphische Deutung der Methode der kleinsten Quadrate zur Berechnung einer Ausgleichskurve findet sich für die *lineare* Regression ($N=1$), die *quadratische* Regression ($N=2$) und die *kubische* Regression ($N=3$) unter [Regression](https://www.geogebra.org/m/HXWB4cMz).
 
+**Beispiel 2.** Für die sechs in der nachstehenden Wertetabelle angegebenen Messpunkte soll die *Regressionsparabel* berechnet werden.
+
+<!--
+data-type="scatterplot"
+data-xlabel="x"
+data-ylabel="y"
+data-title="Messpunkte"
+-->
+| $x$ | $y$ |
+| :---: | :---: |
+| $0$ | $0$ |
+| $1$ | $2$ |
+| $2$ | $3$ |
+| $3$ | $1$ |
+| $4$ | $-1$ |
+| $5$ | $-3$ |
+
+Die reellen Koeffizienten der zu bestimmenden quadratischen Funktion
+$$
+  x\mapsto y=p_2(x)=b_0+b_1\cdot x+b_2\cdot x^2
+$$
+lassen sich berechnen mit Hilfe des Systems linearer Gleichungen
+$$
+  \begin{array}{lllllll}
+     b_0\cdot M & + &  b_1\cdot\textcolor{red}{\left(\sum_{i=1}^6{x_i}\right)} & + & b_2\cdot\textcolor{magenta}{\left(\sum_{i=1}^6{x_i^2}\right)} & = & \sum_{i=1}^6{y_i} \\
+     b_0\cdot\textcolor{red}{\left(\sum_{i=1}^6{x_i}\right)} & + &  b_1\cdot\textcolor{magenta}{\left(\sum_{i=1}^6{x_i^2}\right)} & + & b_2\cdot\textcolor{blue}{\left(\sum_{i=1}^6{x_i^3}\right)} & = & \sum_{i=1}^6{y_i\cdot x_i} \\
+     b_0\cdot\textcolor{magenta}{\left(\sum_{i=1}^6{x_i^2}\right)} & + &  b_1\cdot\textcolor{blue}{\left(\sum_{i=1}^6{x_i^3}\right)} & + & b_2\cdot\left(\sum_{i=1}^6{x_i^4}\right) & = & \sum_{i=1}^6{y_i\cdot x_i^2}
+  \end{array}
+$$
+worin sich die Koeffizienten als Summen von Potenzen / Produkten der Koordinaten der Messpunkte berechnen lassen
+$$
+  \sum_{i=1}^6{x_i}=15\,,\quad
+  \sum_{i=1}^6{x_i^2}=55\,,\quad
+  \sum_{i=1}^6{x_i^3}=225\,,\quad
+  \sum_{i=1}^6{x_i^4}=979
+$$
+sowie
+$$
+  \sum_{i=1}^6{y_i}=2\,,\quad
+  \sum_{i=1}^6{y_i\cdot x_i}=-8\,,\quad
+  \sum_{i=1}^6{y_i\cdot x_i^2}=-68
+$$
+Damit stellt sich das System linearer Gleichungen dar
+$$
+  \begin{array}{lllllll}
+     b_0\cdot 6 & + &  b_1\cdot 15 & + & b_2\cdot 55 & = & 2 \\
+     b_0\cdot 15 & + &  b_1\cdot 55 & + & b_2\cdot 225 & = & -8 \\
+     b_0\cdot 55 & + &  b_1\cdot 225 & + & b_2\cdot 979 & = & -68
+  \end{array}
+$$
+
+Die Berechnung der Koeffizienten dieses Systems dreier linearer Gleichungen erfolgt beispielsweise mit dem aus der Schulmathematik bekannten Einsetzungsverfahren.[^3]
+
+```javascript
+p1=6*b0+15*b1+55*b2-2
+p2=15*b0+55*b1+225*b2+8
+p3=55*b0+225*b1+979*b2+68
+
+x0=roots(p1,b0)
+x1=roots(subst(x0,b0,p2),b1)
+B2=roots(subst(x1,b1,subst(x0,b0,p3)),b2)
+B1=subst(B2,b2,x1)
+B0=subst(B1,b1,subst(B2,b2,x0))
+
+B0
+B1
+B2
+```
+@Algebrite.eval
+
+Die Regressionsfunktion besitzt damit die Darstellung
+$$
+  x\mapsto y=p_2(x)=\frac{2}{7}+\frac{74}{35}\cdot x-\frac{4}{7}\cdot x^2
+$$
+
+
+Sicher gewusst?
+===============
+
+**Frage.** Zu den Messpunkten mit den in der Tabelle aufgeführten Koordinaten soll mit Hilfe der Methode der kleinsten Quadrate eine Regressionsparabel
+
+$$
+  x\mapsto y=p_2(x)=b_0+b_1\cdot x+b_2\cdot x^2\,,\quad x\in\mathbb{R}
+$$
+
+mit reellen Koeffizienten bestimmt werden.
+
+<!--
+data-type="scatterplot"
+data-xlabel="x"
+data-ylabel="y"
+data-title="Messpunkte"
+-->
+| $x$ | $y$ |
+| :---: | :---: |
+| $-1$ | $4$ |
+| $0$ | $3$ |
+| $1$ | $4$ |
+| $2$ | $5$ |
+
+Welches der nachstehenden Systeme linearer Gleichungen kann zur Berechnung der Koeffizienten $b_0$, $b_1$ und $b_2$ der Regressionsfunktion verwendet werden?
+
+[( )] $$   \begin{array}{lllllll} b_2\cdot 2 & + &  b_1\cdot 1 & + & b_0\cdot 3 & = & 8 \\ b_2\cdot 1 & + &  b_1\cdot 3 & + & b_0\cdot 4 & = & 5 \\ b_2\cdot 3 & + &  b_1\cdot 4 & + & b_0\cdot 9 & = & 14 \end{array} $$
+[( )] $$   \begin{array}{lllllll} b_0\cdot 2 & + &  b_1\cdot 1 & = & 8 \\ b_0\cdot 1 & + &  b_1\cdot 3 & = & 5 \end{array} $$
+[(X)] $$   \begin{array}{lllllll} b_0\cdot 2 & + &  b_1\cdot 1 & + & b_2\cdot 3 & = & 8 \\ b_0\cdot 1 & + &  b_1\cdot 3 & + & b_2\cdot 4 & = & 5 \\ b_0\cdot 3 & + &  b_1\cdot 4 & + & b_2\cdot 9 & = & 14 \end{array} $$
+[[?]] Nutzen Sie den Ansatz zur Aufstellung des Systems linearer Gleichungen zur Berechnung der stationären Stellen der zu minimierenden Fehlerfunktion $$ (b_0,b_1,b_2)\mapsto F(b_0,b_1,b_2)=\sum_{i=1}^M{\left(y_i-p_2(x_i)\right)^2} $$
+****************************************
+
+Der Ansatz zur Berechnung der stationären Stellen für die Funktion $F$ lautet $$ \begin{array}{lllllll}
+     b_0\cdot M & + &  b_1\cdot{\left(\sum_{i=1}^6{x_i}\right)} & + & b_2\cdot{\left(\sum_{i=1}^6{x_i^2}\right)} & = & \sum_{i=1}^6{y_i} \\
+     b_0\cdot{\left(\sum_{i=1}^6{x_i}\right)} & + &  b_1\cdot{\left(\sum_{i=1}^6{x_i^2}\right)} & + & b_2\cdot{\left(\sum_{i=1}^6{x_i^3}\right)} & = & \sum_{i=1}^6{y_i\cdot x_i} \\
+     b_0\cdot{\left(\sum_{i=1}^6{x_i^2}\right)} & + &  b_1\cdot{\left(\sum_{i=1}^6{x_i^3}\right)} & + & b_2\cdot\left(\sum_{i=1}^6{x_i^4}\right) & = & \sum_{i=1}^6{y_i\cdot x_i^2}
+  \end{array} $$ mit den Koeffizienten $$
+    \sum_{i=1}^4{x_i}=2\,,\quad
+    \sum_{i=1}^4{x_i^2}=6\,,\quad
+    \sum_{i=1}^4{x_i^3}=8\,,\quad
+    \sum_{i=1}^4{x_i^4}=18 $$ sowie $$ \sum_{i=1}^4{y_i}=16\,,\quad
+    \sum_{i=1}^4{y_i\cdot x_i}=10\,,\quad
+    \sum_{i=1}^4{y_i\cdot x_i^2}=28 $$ Das Gleichungssystem der zweiten Auswahloption besitzt die falsche Dimension, im Gleichungssystem der ersten Auswahloption sind die Koeffizienten nicht korrekt zugeordnet.
+
+****************************************
+
+
 [^1]: Hier werden also die Abstände der Messpunkte $(x_i,y_i)$ von den Punkten auf der Ausgleichsgerade mit gleicher Abszisse $x_i$ betrachtet, d. h. die Abstände entlang der $y$-Achse.
 
 [^2]: Durch die Quadrate der Abstände $$
   (|y_i-p(x_i)|)^2=(y_i-p(x_i))^2
 $$ können die Absolutbeträge weggelassen werden.
+
+[^3]: Im Abschnitt zu Systemen linearer Gleichungen werden Lösungsverfahren für große Zahlen linearer Gleichungen bzw. gesuchten Variablen entwickelt.
 
 
 ### Gradient
@@ -1562,3 +1723,110 @@ $$ mit Parametern $(k,m)\in\mathbb{Z}^2$.
 [^1]: Die Komponenten des Gradientenvektors an einer Stelle $x^\star$ des Definitionsbereiches $D$ sind also die partiellen ersten Ableitungen der Funktion $f$, ausgewertet an der Stelle $x^\star\in D$.
 
 [^2]: Für ein räumliches skalares Feldes lässt sich der Gradientenvektor entsprechend deuten. Ist dieser verschieden vom Nullvektor, so steht er senkrecht auf der Äquipotentialfläche, ist also ein Normalenvektor der Äquipotentialfläche.
+
+
+### Extremwerte unter Nebenbedingungen
+
+Bei der Berechnung lokaler Extremwerte einer reellen Funktion waren die unabhängigen Variablen bisher keinen Einschränkungen unterworfen. Speziell bei Funktionen einer unabhängigen reellen Variablen war diese als "frei" von Nebenbedingungen anzunehmen. Wir sprechen im Folgenden von Extremwerten **ohne** Nebenbedingungen.
+
+Hier sollen nun reelle Funktionen mehrerer reeller Variablen, deren unabhängige Variablen durch eine / mehrere Kopplungsbedingungen miteinander verbunden sind, auf das Vorhandensein von Extremwerten untersucht werden. Im Unterschied zu obigen wird hier von Extremwertaufgaben **mit** Nebenbedingungen gesprochen.
+
+Ein Beispiel zur Verdeutlichung der Begriffsbildung ist unter [Berliner Bogen](https://www.geogebra.org/m/amhmmqpk) zu finden.
+
+
+Substitutionsmethode
+====================
+
+**Beispiel 1.** Ein Balken mit rechteckigem Profil soll aus einem kreisrunden Querschnitt gefertigt werden, so dass das Widerstandsmoment maximal ist.
+
+![Balken](img/mat-bild-2v2.png "Balken mit rechteckigem Profil mit Breite $b$ und Höhe $h$ zu kreisrundem Querschnitt mit Mittelpunkt $M$ und Radius $R$.")<!-- style="width: 100%"-->
+
+Das Widerstandsmoment $W$ des Balkens ist lässt sich als Funktion
+$$
+  f:(b,h)\mapsto W=f(b,h)=\frac{1}{6}\cdot b\cdot h^2\,,\quad (b,h)\in(0,\infty)^2
+$$
+betrachten. Hierin sind die Breite $b$ und die Höhe $h$ unabhängige Variablen von $f$. Wegen der Kopplung des rechteckigen Profils an den kreisrunden Querschnitt - letzterer ist Umkreis des rechteckigen Profils - besteht zwischen den Größen $b$ und $h$ die **Kopplungsbedingung** (Nebenbedingung)
+$$
+  \phi(b,h)=b^2+h^2-4\cdot R^2=0
+$$
+D. h. wird $b$ im Intervall $(0,2\cdot R)$ beliebig aber fest gewählt, so berechnet sich die Größe $h$ als positive Wurzel aus
+$$
+  h^2=4\cdot R^2-b^2
+$$
+Eingesetzt in den Funktionsterm $f$ ergibt sich schließlich $W$ als Funktion in der einzigen unabhängigen Variablen $b$
+$$
+  W=g(b)=\frac{1}{6}\cdot b\cdot (4\cdot R^2-b^2)=\frac{2}{3}\cdot b\cdot R^2-\frac{1}{6}\cdot b^3
+$$
+Die stationäre Stelle der Funktion $g$ berechnet sich vermöge der ersten Ableitung der Funktion $g$ nach der Variablen $b$
+$$
+  \frac{\mathrm{d}g}{\mathrm{d}b}(b)=\frac{2}{3}\cdot R^2-\frac{1}{2}\cdot b^2=0\quad\leftrightarrow\quad b^2=\frac{4}{3}\cdot R^2\quad\leftarrow\quad b=\frac{2}{3}\cdot\sqrt{3}\cdot R
+$$
+der Nachweis des Maximums vermöge der zweiten Ableitung von $g$ nach $b$
+$$
+  \frac{\mathrm{d}^2g}{\mathrm{d}b^{\,2}}(b)=-b<0
+$$
+An der stationären Stelle besitzt das Widerstandsmoment $W$ demnach einen Maximalwert
+$$
+  W_{max}=g\left(\frac{2}{3}\cdot\sqrt{3}\cdot R\right)=
+  \frac{2}{3}\cdot\left(\frac{2}{3}\cdot\sqrt{3}\cdot R\right)\cdot R-\frac{1}{6}\cdot\left(\frac{2}{3}\cdot\sqrt{3}\cdot R\right)^2=\left(\frac{2}{3}\cdot R\right)^3\cdot\sqrt{3}
+$$
+
+**Bemerkung.** Die Berechnung des lokalen Extremums der Funktion $f$ in den reellen Variablen $b$ und $h$ mit der Kopplungsbedingung $\phi(b,h)=0$ erfolgt hier mittels **Substitution** von $h$ in $f(b,h)$: Hierzu ist die Kopplungsbedingung nach $h$ aufzulösen.
+
+Ein weiteres Beispiel für die Substitutionsmethode zu Lösung einer Extremwertaufgabe mit Nebenbedingung für reelle Funktionen zweier reeller Variablen ist im nachstehenden Video erläutert.
+
+!?[Substitutionsmethode](https://www.youtube.com/watch?v=3eyQgrPpY7g)
+
+Probleme in Verallgemeinerung des dargestellten Vorgehens aus dem vorstehenden Beispiel treten auf, falls
+
+1. die Kopplungsbedingung nicht oder nur unter großem Aufwand nach einer unabhängigen Variablen auflösbar ist
+2. nach Substitution die Ableitungen nur schwer bildbar sind.
+
+
+Methode der Lagrange-Multiplikatoren
+====================================
+
+Ziel der nach [Joseph-Louis Lagrange](https://de.wikipedia.org/wiki/Lagrange-Multiplikator) entwickelten Methode ist es, Extremwerte reeller Funktionen unter ein oder mehreren Nebenbedingungen zu bestimmen. Diese wird hier zunächst für Funktionen zweier reeller Veränderlicher dargestellt.
+
+Gegeben ist eine reelle Funktion $f$ zweier reeller Veränderlicher
+$$
+  f:(x,y)\mapsto z=f(x,y)\,,\quad (x,y)\in D\subseteq\mathbb{R}^2
+$$
+sowie eine Kopplungsbedingung der reellen Veränderlichen $x$ und $y$
+$$
+  \phi(x,y)=0
+$$
+in impliziter Form. Die Funktion $f$ wird wie auch $\phi$ - als Funktion in $x$ und $y$ - in $D$ hinreichend oft partiell differenzierbar vorausgesetzt.
+
+
+Stationäre Stellen
+------------------
+
+Zunächst werden die totalen Differentiale aufgestellt
+$$
+  \mathrm{d}f=f_x(x,y)\cdot\mathrm{d}x+f_y(x,y)\cdot\mathrm{d}y\quad\text{und}\quad
+  \mathrm{d}\phi=\phi_x(x,y)\cdot\mathrm{d}x+\phi_y(x,y)\cdot\mathrm{d}y
+$$
+Wegen der Nebenbedingung $\phi(x,y)=0$ folgt $\mathrm{d}\phi=0$ für das totale Differential. Hingegen verschwindet das totale Differential $\mathrm{d}f$ nur in den stationären Stellen $(x_0,y_0)\in D$, d. h.
+$$
+  f_x(x_0,y_0)\cdot\mathrm{d}x+f_y(x_0,y_0)\cdot\mathrm{d}y=0\quad\text{und}\quad
+  \phi_x(x_0,y_0)\cdot\mathrm{d}x+\phi_y(x_0,y_0)\cdot\mathrm{d}y=0
+$$
+Dies ist ein System linearer Gleichungen in den Differentialen $\mathrm{d}x$ und $\mathrm{d}y$. Neben den trivialen Lösungen $\mathrm{d}x=0$ und $\mathrm{d}y=0$ existieren weitere Lösungen des Gleichungssystems, falls
+$$
+  (-1)\cdot f_x(x_0,y_0)\cdot \lambda=\phi_x(x_0,y_0)\quad\text{und}\quad
+  (-1)\cdot f_y(x_0,y_0)\cdot \lambda=\phi_y(x_0,y_0)
+$$
+für ein $\lambda\in\mathbb{R}$ gelten, d. h. wenn die zweite Gleichung ein Vielfaches der ersten Gleichung ist.
+
+Hieraus ergibt sich ein System von im Allgemeinen nichtlinearen Gleichungen zur Berechnung der stationären Stellen der Funktion $f$ in den reellen Variablen $x$ und $y$, die der Kopplungsbedingung $\phi(x,y)=0$ unterliegen
+$$
+  \begin{array}{llrrr}
+    f_x(x,y) & + & \lambda\cdot \phi_x(x,y) & = & 0 \\
+    f_y(x,y) & + & \lambda\cdot \phi_y(x,y) & = & 0 \\
+    & & \phi(x,y) & = & 0
+  \end{array}
+$$
+worin $x$, $y$ und $\lambda$ die Unbekannten bezeichnen.
+
+>**Methode der Lagrange-Multiplikatoren.** ...
