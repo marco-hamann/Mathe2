@@ -2033,3 +2033,63 @@ $$ f(x,y)=x+y=c\quad\leftrightarrow\quad y=-x+c $$
 [^2]: Der Grundriss der Flächenkurve ist ein Kreis.
 
 [^3]: Analytisch lässt sich der Nachweis auch unter Benutzung der  [geränderten Hesse-Matrix](https://de.wikipedia.org/wiki/Ger%C3%A4nderte_Hesse-Matrix) für die Funktion $F$ führen. Diese Methode wird im Themenkomplex der linearen Algebra erneut aufgegriffen.
+
+
+## Mehrfachintegrale
+
+Ziel dieses Kapitels ist die Übertragung der Integration von reellen Funktionen einer reellen Variablen auf Funktionen in mehreren reellen Variablen.
+
+Schwerpunkte sind u. a. die Berechnung von Mehrfachintegralen unter Benutzung der gewöhnlichen Integration, die Verwendung verschiedener Koordinaten sowie die Transformation von Integralen.
+
+Ebenso sollen verschiedene Anwendungen von Mehrfachintegralen diskutiert werden.
+
+
+### Begriffsbildung
+
+Gegeben ist eine reelle Funktion $f$ in $n$ reellen unabhängigen Veränderlichen
+$$
+  f:(x_1,...,x_n)\mapsto y=f(x_1,..,x_n)\,,\quad D\subseteq\mathbb{R}^n\,,\; W\subset\mathbb{R}
+$$
+die auf einem abgeschlossenen, einfach zusammenhängendem Bereich $B\subseteq D$ des Definitionsbereiches $D$ stetig vorausgesetzt wird.
+
+Gesucht ist eine Festlegung des Begriffs 'Bereichsintegral'
+$$
+  \iint..\int_B{f(x_1,..,x_n)}\,\mathrm{d}x_1...\,\mathrm{d}x_n
+$$
+für eine Funktion $f$.
+
+
+Summendefinition und Grenzwert
+==============================
+
+Für einen geometrischen Zugang wird zunächst eine reelle Funktion $f$ zweier reeller Veränderlicher betrachtet
+$$
+  f:(x_1,x_2)\mapsto y=f(x_1,x_2)\,,\quad D\subseteq\mathbb{R}^n\,,\; W\subset\mathbb{R}
+$$
+Hier wird $f(x_1,x_2)\geq0$ für alle $(x_1,x_2)\in B$ vorausgesetzt. Gesucht ist der Inhalt des Volumens "unter" dem Graph $G_f$, dass zusätzlich von der Ebene $y=0$ und dem auf dieser aufrecht stehenden Zylinder / Prisma durch den Rand $\delta{B}$ des Bereiches $B$ begrenzt wird.
+
+
+Schritt 1
+---------
+
+Das zu bestimmende Volumen $V$ wird zerlegt in "Zylindervolumen" über einer Zerlegung
+$$
+  Z_n=B_1\cup B_2\cup...\cup B_n
+$$
+des Bereiches $B$ in die Teilbereiche $B_i$: Es gelten - bis auf den Rand -
+$$
+  B_i\cap B_j=\emptyset\;\;\text{für}\;\;i\not= j\quad\text{sowie}\quad\bigcup_{i=1}^n{B_i}=B
+$$
+dass heißt, B ist disjunkte Vereinigung aller Teilbereiche $B_i$.
+
+
+Schritt 2
+---------
+
+Das Volumen $V_i$ des Zylinders über dem Teilbereich $B_i$ berechnet sich ...
+
+Eine Visualisierung des "unter" dem Funktionsgraph einer reellen Funktion zweier reeller Veränderlicher begrenzten Volumens ist unter [Doppelintegral](https://www.geogebra.org/m/tkQW0ybs) dargestellt.
+
+Eine Gegenüberstellung der Integration zur Inhaltsberechnung "unter" dem Funktionsgraphen einer reellen Funktion einer bzw. zweier reeller Veränderlicher ist im nachstehendem Video erläutert.
+
+!?[Doppelintegral](https://www.youtube.com/watch?v=jZAiGrJenDw)
