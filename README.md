@@ -2267,4 +2267,4 @@ $$
   =\left[\frac{1}{4}\cdot\sin{(2\cdot  x_2)}\right]_{x_2=0}^{\frac{\pi}{4}}=\frac{1}{4}
 $$
 
-**Bemerkung 3.** Die Reihenfolge der Integration ist durch die Reihenfolge der Differential eindeutig festgelegt. Sie ist nur dann vertauschbar, wenn alle Integrationsgrenzen konstant sind.
+**Bemerkung 3.** Die Reihenfolge der Integration ist durch die Reihenfolge der Differentiale eindeutig festgelegt. Für konstante Integrationsgrenzen kann diese vertauscht werden.
