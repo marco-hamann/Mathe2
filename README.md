@@ -2142,6 +2142,10 @@ $$
 $$
 Es lässt sich als differentielles (achsenparalleles) Rechteck mit den Abmessungen $\mathrm{d}x_1$ und $\mathrm{d}x_2$ interpretieren.
 
+Im nachstehenden Video werden Flächenelemente in kartesischen Koordinaten sowie andere differentielle Elemente in verschiedenen Koordinatensystemen anschaulich erklärt.
+
+!?[Differentielle Elemente](https://www.youtube.com/watch?v=7VMsSM5mAX0)
+
 
 Bezeichnungen
 =============
@@ -2179,7 +2183,7 @@ $$
   k_l:[c,d]\to\mathbb{R},x_2\mapsto k_l(x_2)\quad\text{bzw.}\quad
   k_r:[c,d]\to\mathbb{R},x_2\mapsto k_r(x_2)
 $$
-*linke* beziehungsweise *rechte Randkurve* genannt, die zusammen mit den zur $x_1$-Achse parallelen Geraden $x_2=c$ und $x_2=d$ einen ebenen Normelbereich $B$ bezüglich der $x_2$-Achse begrenzen.
+*linke* beziehungsweise *rechte Randkurve* genannt, die zusammen mit den zur $x_1$-Achse parallelen Geraden $x_2=c$ und $x_2=d$ einen ebenen Normalbereich $B$ bezüglich der $x_2$-Achse begrenzen.
 
 Zur Berechnung eines ebenen Bereichsintegrals
 $$
@@ -2267,4 +2271,217 @@ $$
   =\left[\frac{1}{4}\cdot\sin{(2\cdot  x_2)}\right]_{x_2=0}^{\frac{\pi}{4}}=\frac{1}{4}
 $$
 
+```javascript
+f=x*cos(2*y)
+defint(f,y,0,pi/4,x,0,1)
+defint(f,x,0,1,y,0,pi/4)
+```
+@Algebrite.eval
+
 **Bemerkung 3.** Die Reihenfolge der Integration ist durch die Reihenfolge der Differentiale eindeutig festgelegt. Für konstante Integrationsgrenzen kann diese vertauscht werden.
+
+
+Sicher gewusst?
+===============
+
+**Frage.** Gegeben ist ein ebener Bereich $B$, der durch die Geraden $$
+  x_1=0\,,\quad x_2=0\,,\quad x_2=-2\cdot x_1+2
+$$ Zu bestimmen ist das Doppelintegral $$
+  \int_{a}^b{\int_{c}^d{f(x_1,x_2)}\,\mathrm{d}x_1}\mathrm{d}x_2=
+  \int_{m}^n{\int_{q}^r{f(x_1,x_2)}\,\mathrm{d}x_2}\mathrm{d}x_1
+$$
+worin in den Grenzen die Platzhalter $a$, $b$, $c$ und $d$ sowie $m$, $n$, $q$ und $r$ eingetragen sind.
+
+Geben Sie alle Grenzen korrekt an.
+
+[( )] $$ (a,b,c)=(0,1,0)\,,\;\; d=-2\cdot x_1+2\quad\text{sowie}\quad (m,n,q)=(0,2,0)\,,\;\;r=-\frac{1}{2}\cdot x_2+1 $$
+[( )] $$ (a,b,c,d)=(0,1,0,2)\quad\text{sowie}\quad (m,n,q,r)=(0,2,0,1) $$
+[(X)] $$ (a,b,c)=(0,2,0)\,,\;\; d=-\frac{1}{2}\cdot x_2+1\quad\text{sowie}\quad (m,n,q)=(0,1,0)\,,\;\;r=-2\cdot x_1+2 $$
+[( )] $$ (a,b,c,d)=(0,2,0,1)\quad\text{sowie}\quad (m,n,q,r)=(0,1,0,2) $$
+[[?]] Die Reihenfolge der Differentiale im Doppelintegral bestimmt die Reihenfolge bei der Integration. Die Doppelintegrale in der vorstehenden Formelzeile beziehen sich auf Normalbereiche in kartesischen Koordinaten bezogen auf die $x_1$-Achse beziehungsweise bezogen auf die $x_2$-Achse.
+****************************************
+
+Die begrenzende Gerade zur Gleichung $$
+  x_2=-2\cdot x_1+2\quad\leftrightarrow\quad x_1=-\frac{1}{2}\cdot x_2+1
+$$ scheidet die $x_1$-Achse im Punkt $(1,0)$ und die $x_2$-Achse im Punkt $(0,2)$. Zusammen mit den Koordinatenachsen begrenzt diese das Dreieck $B$.
+
+****************************************
+
+
+### Dreifachintegrale
+
+Dreifachintegrale in kartesischen Koordinaten lassen sich analog zu Doppelintegralen einführen. Sie stellen sich dar als
+$$
+  \iiint_B{f(x_1,x_2,x_3)}\,\mathrm{d}b=\iint_B{f(x_1,x_2,x_3)}\,\mathrm{d}x_1\mathrm{d}x_2\mathrm{d}x_3
+$$
+Für das (gerichtete) Volumenelement in kartesischen Koordinaten gilt hier
+$$
+  \mathrm{d}b=\mathrm{d}x_1\mathrm{d}x_2\mathrm{d}x_3
+$$
+Es lässt sich als differentieller (achsenparalleler) Quader mit den Abmessungen $\mathrm{d}x_1$, $\mathrm{d}x_2$ und $\mathrm{d}x_3$ interpretieren.
+
+
+Bezeichnungen
+=============
+
+Die Bezeichnungen der im räumlichen Bereichsintegral in kartesischen Koordinaten auftretenden Symbole sind in der nachstehenden Tabelle aufgeführt.
+
+| Symbol | Bedeutung   |
+| :--- | :--- |
+| $x_1, x_2, x_3$ | (kartesische) Integrationsvariablen |
+| $f(x_1,x_2,x_3)$ | Integrand |
+| $\mathrm{d}x_1\mathrm{d}x_2\mathrm{d}x_3$ | Volumendifferential |
+| $B\subset D\subseteq\mathbb{R}^3$ | Integrationsbereich |
+
+
+Berechnung für kartesische Normalbereiche
+=========================================
+
+Eine Berechnung mittels dreimaliger (gewöhnlicher) Integration ist für kartesische Normalbereiche möglich, die sich auf Basis ebener Normalbereiche in kartesischen Koordinaten konstruieren lassen.
+
+Konstruktionsprinzip
+--------------------
+
+Durch die folgenden Schritte wird ein räumlicher Bereich $B_3$ festgelegt.
+
+1. Begonnen wird mit einem ebenen Normalbereich $B_2$ in einer der Koordinatenebenen $x_i=0$, $i\in\{1,2,3\}$. Hier zum Beispiel: $$
+  B_2=\left\{(x_1,x_2)\in\mathbb{R}^2\;\;\left(a\leq x_1\leq b\;\wedge\;h_u(x_1)\leq x_2\leq h_o(x_1)\right)\right\}
+$$ d. h. einem Normalbereich in der $x_1x_2$-Ebene mit der Gleichung $x_3=0$.
+2.Anschließend wird über $B_2$ der "Zylinder" in Richtung der $x_i$-Achse gebildet. Hier also in Richtung der $x_3$-Achse. Der Zylinder wird begrenzt durch die Ebenen $$
+  x_1=a\quad\text{und}\quad x_1=b
+$$ sowie durch die Zylinderflächen $$
+  x_2=h_u(x_1)\quad\text{und}\quad x_2=h_o(x_1)
+$$ Die Funktionen $h_u$ und $h_o$ werden auf $[a,b]\ni x_1$ stetig vorausgesetzt.
+3. Der Zylinder wird hier in $x_3$-Richtung durch die steigen Funktionen $$
+  k_j:(x_1,x_2)\mapsto x_3=k_j(x_1,x_2)\,,\quad (x_1,x_2)\in B_2
+$$ mit $j\in\{1,2\}$ und $$
+  k_1(x_1,x_2)\leq k_2(x_1,x_2)\quad\forall\,(x_1,x_2)\in B_2
+$$ begrenzt / geschnitten.
+
+>**Definition.** Eine zu einem ebenen Normalbereich $$
+  B_2=\left\{(x_1,x_2)\in\mathbb{R}^2\;\;\left(a\leq x_1\leq b\;\wedge\;h_1(x_1)\leq x_2\leq h_2(x_1)\right)\right\}
+$$ gehörende Teilmenge $B$ des dreidimensionalen Raumes $\mathbb{R}^3$ mit $$
+  B=\left\{(x_1,x_2,x_3)\in\mathbb{R}^3\;\;\left((x_1,x_2)\in B_2\;\wedge\;k_1(x_1,x_2)\leq x_3\leq k_2(x_1,x_2)\right)\right\}
+$$ heißt **räumlicher Normalbereich** in kartesischen Koordinaten.
+>
+>Entsprechend ergeben sich durch Permutieren in den Koordinaten weitere räumliche Normalbereiche.
+
+**Bemerkung 1.** Die Graphen der als stetig vorausgesetzten Funktionen
+$$
+  h_1:[a,b]\to\mathbb{R},x_1\mapsto x_2=h_1(x_1)\quad\text{bzw.}\quad
+  h_2:[a,b]\to\mathbb{R},x_1\mapsto x_2=h_2(x_1)
+$$
+aus der vorstehenden Definition können als begrenzende Flächen von $B$ in "Richtung" der $x_2$-Achse interpretiert werden. (Die Koordinate $x_3$ darf beliebig gewählt werden.)
+
+Analog begrenzen die auf $B_2$ stetig angenommenen Funktionen $k_1$ und $k_2$ den Normalbereich $B$ in Richtung der $x_3$-Achse.
+
+Zusammen mit den zur Koordinatenebene $x_1=0$ parallelen Ebenen $x_1=a$ und $x_1=b$ begrenzen die Graphen dieser Funktionen einen räumlichen Normalbereich $B$ in den kartesischen Koordinaten $x_1$, $x_2$ und $x_3$.
+
+Zur Berechnung eines räumlichen Bereichsintegrals
+$$
+  I=\iiint_B{f(x_1,x_2,x_3)}\,\mathrm{d}x_1\mathrm{d}x_2\mathrm{d}x_3
+$$
+muss des Integrationsgebiet $B\subset\mathbb{R}^3$ als räumlicher Normalbereich beziehungsweise als Vereinigung mehrerer räumlicher Normalbereiche modelliert werden.
+
+Ist das Integrationsgebiet $B$ ein räumlicher Normalbereich wie beispielsweise in der vorstehenden Definition, so berechnet sich $$
+  I=\int_{x_1=a}^b{\left(\textcolor{magenta}{\int_{x_2=h_1(x_1)}^{h_2(x_1)}}
+  \textcolor{blue}{\int_{x_3=k_1(x_1,x_2)}^{k_2(x_1,x_2)}{f(x_1,x_2,x_3)}\,\mathrm{d}x_3}\,
+  \textcolor{magenta}{\mathrm{d}x_2}\right)}\mathrm{d}x_1
+$$ Hierin stellen $$
+  \textcolor{blue}{I_{12}(x_1,x_2)=\int_{x_2=k_1(x_1,x_2)}^{k_2(x_1,x_2)}{{f(x_1,x_2,x_3)}\,\mathrm{d}x_3}}
+$$ das "innere" Integral sowie $$
+  \textcolor{magenta}{I_1(x_1)=\int_{x_2=h_1(x_1)}^{h_2(x_1)}{I_{12}(x_1,x_2)\,\mathrm{d}x_2}}
+$$ das "mittlere" Integral dar, wohingegen $$
+  I=\int_{x_1=a}^b{I_1(x_1)\,\mathrm{d}x_1}\;\;(\in\mathbb{R})
+$$ als "äußeres" Integral bezeichnet wird. Die Berechnung des Doppelintegrals erfolgt durch gewöhnliche Integration "von innen nach außen".
+
+**Bemerkung 2.** Nach dem ersten Integrationsschritt (Integration nach $x_3$) hängt $I_{12}$ noch von den Variablen $x_1$, $x_2$ ab, nach dem zweiten Integrationsschritt (Integration nach $x_2$) hängt $I_{1}$ noch von der Variablen $x_1$ ab. Nach erfolgtem dritten (und letzten) Integrationsschritt (Integration nach $x_1$) wird $I\in\mathbb{R}$ erhalten.
+
+**Beispiel 1.** Gesucht ist ein Dreifachintegral zur Berechnung des Volumens des [Tetraeders](https://de.wikipedia.org/wiki/Tetraeder) $B$ mit den Eckpunkten $$
+  A(0,0,0)\,,\quad B(1,0,0)\,,\quad C(0,1,0)\quad\text{und}\quad D(0,0,1)
+$$ das Integral ist zu berechnen.
+
+Je drei der Punkte liegen in einer Koordinatenebene, in diesen wird $B$ durch gleichschenklig rechtwinklige Dreiecke (mit Kathetenlängen $1$) begrenzt. Zusätzlich bilden die Punkte $B$, $C$ und $D$ ein gleichseitiges Dreieck (Seitenlänge $\frac{1}{2}\cdot\sqrt{2}$) in der Ebene zur Gleichung $$ x_1+x_2+x_3=1 $$ Somit kann $B$ auf $2\cdot 3=6$ verschiedene Weisen[^1] als räumlicher Normalbereich festgelegt werden. Dessen Volumen lässt sich unter Verwendung der [Volumenformel für Pyramiden](https://de.wikipedia.org/wiki/Volumen#Volumen-Berechnung) direkt angeben
+$$
+  V=\frac{1}{3}\cdot G\cdot h=\frac{1}{3}\cdot \frac{1}{2}\cdot 1=\frac{1}{6}
+$$
+Hierin bezeichnen $G$ den Inhalt der / einer Grundfläche und $h$ die Höhe der Pyramide bezogen auf die Grundfläche. Das Ergebnis der Rechnung steht also bereits fest.
+
+Wird als ebener Normalbereich $B_2$ zu $B$ beispielsweise das begrenzende Dreieck in der Ebene $x_3=0$ gewählt, und dieses als beispielsweise als Normalbereich bezogen auf die $x_1$-Achse gewählt, so ergibt sich $$
+  B_2=\left\{
+    (x_1,x_2)\in\mathbb{R}^2\;\;\left(
+        0\leq x_1\leq 1\;\;\wedge\;\; 0\leq x_2\leq 1-x_1
+      \right)
+    \right\}
+$$ Hieraus ergibt sich $B$ als Normalbereich bezogen auf $B_2$
+$$
+B=\left\{
+  (x_1,x_2,x_3)\in\mathbb{R}^3\;\;\left(
+      (x_1,x_2)\in B_2\;\;\wedge\;\; 0\leq x_3\leq 1-x_1-x_2
+    \right)
+  \right\}
+$$
+Als Volumendifferential ist somit $\mathrm{d}b=\mathrm{d}x_3\mathrm{d}x_2\mathrm{d}x_1$ zu wählen.
+
+Zur Berechnung des Volumens von $B$ ist der Integrand $f(x_1,x_2,x_3)=1$ zu wählen. Vergleiche hierzu Abschnitt [Doppelintegrale in kartesischen Koordinaten](#Doppelintegrale-in-kartesischen-Koordinaten). In der Wahl der Integrationsreihenfolge, im Übertragen der Grenzen von $B$ und dem gewählten Integranden ergibt sich das Zielintegral[^2]
+$$
+  I=\int_{x_1=0}^1{\left(
+    \textcolor{magenta}{\int_{x_2=0}^{1-x_1}}
+      \textcolor{blue}{\int_{x_3=0}^{1-x_1-x_2}{1}\,\mathrm{d}x_3}\,
+    \textcolor{magenta}{\mathrm{d}x_2}
+    \right)}\mathrm{d}x_1
+$$
+Einsichtig berechnen sich schrittweise
+$$
+  \textcolor{blue}{I_{12}(x_1,x_2)\int_{x_3=0}^{1-x_1-x_2}{1}\,\mathrm{d}x_3}=\left[x_3\right]_{x_3=0}^{1-x_1-x_2}=1-x_1-x_2
+$$
+sowie
+$$
+  \textcolor{magenta}{I_{1}(x_1)=\int_{x_2=0}^{1-x_1}{\left(1-x_1-x_2\right)}\mathrm{d}x_2}=\left[(1-x_1)\cdot x_2-\frac{1}{2}\cdot x_2^2\right]_{x_2=0}^{1-x_1}=\frac{1}{2}\cdot(1-x_1)^2
+$$
+Schließlich berechnet sich
+$$
+  I=\int_{x_1=0}^1{\left(\frac{1}{2}\cdot(1-x_1)^2\right)}\mathrm{d}x_1=
+  \left[-\frac{1}{6}\cdot(1-x_1)^3\right]_0^1=\frac{1}{6}
+$$
+
+Das Dreifachintegral lässt sich mithilfe mathematischer Software berechnen, hier unter Benutzung der Java Bibliothek *Algebrite* für symbolisches Rechnen. (Beachten Sie die Notation zum Ausführen der drei Integrationsschritte.)
+
+```javascript
+f=1
+defint(f,z,0,1-x-y,y,0,1-x,x,0,1)
+```
+@Algebrite.eval
+
+Sicher gewusst?
+===============
+
+**Frage.** Der Bereich $B$ aus Beispiel 1 wird begrenzt durch die Ebenen
+$$
+  x_1=0\,,\quad x_2=0\,,\quad x_3=0\quad\text{und}\quad x_1+x_2+x_3=1
+$$
+Stellen Sie das Dreifachintegral
+$$
+  I=\int_{x_1=a}^b{
+      \int_{x_2=c}^{d}{
+        \int_{x_3=m}^{n}{f(x_1,x_2,x_3)}\,\mathrm{d}x_2}\,
+      \mathrm{d}x_1}\,
+    \mathrm{d}x_3
+$$
+auf und geben Sie die Grenzen an.
+
+[(X)] $$ (a,b,c,d,m,n)=(0,1,0,1-x_3,0,1-x_1-x_3) $$
+[( )] $$ (a,b,c,d,m,n)=(0,1,0,1-x_2,0,1-x_1-x_2) $$
+[( )] $$ (a,b,c,d,m,n)=(0,1-x_1-x_3,0,1-x_3,0,1) $$
+[[?]] Die Reihenfolge der Differentiale im Dreifachintegral bestimmt die Reihenfolge der Integrationsschritte. Die Anzahl der verbleibenden Variablen muss sich bei jedem Integrationsschritt verringern.
+****************************************
+
+Die begrenzende Ebene zur Gleichung $$
+  x_1+x_2+x_3=1\quad\leftrightarrow\quad x_2=1-x_1-x_3
+$$ schneidet die Koordinatenebene $x_2=0$ in der Geraden $$ x_1=1-x_3 $$ Zusammen mit den Koordinatenachsen begrenzt diese den zu $B$ gehörenden ebenen Normalbereich $B_2$ in der Ebene $x_2=0$.
+
+****************************************
+
+[^1]: Das Tetraeder $B$ wird in den Koordinatenebenen durch Dreiecke begrenzt. Gemäß Definition lassen sich somit je zwei ebene Normalbereiche $B_2$ pro Koordinatenebene $x_j=0$ mit $j\in\{1,2,3\}$ zur Festlegung von $B$ als räumlichen Normalbereich verwenden.
+
+[^2]: Ein Bereichsintegral besitzt einen (möglicherweise negativen) reellen Wert. Zur Berechnung eines Inhaltes muss ggf. der Absolutbetrag des Integrals betrachtet werden.
