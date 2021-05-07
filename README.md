@@ -1260,6 +1260,8 @@ f^{\prime\prime}(x^\star)\left\{
   \end{array}\right.
 $$
 
+![Maximum](img/mat-bild-4.png "text")<!-- style="scale:0.75"-->
+
 Der Fall $k>1$
 ==============
 
@@ -2676,7 +2678,6 @@ $$ d. h. $B$ stellt sich in Polarkoordinaten als Normalbereich sowohl bezüglich
 Die zweite Anwortoption beschreibt $B$ ohne Ränder, die dritte die "obere" Hälfte des Kreisrings.
 
 ****************************************
-
 
 [^1]: Analog lassen sich die Zylinderkoordinaten bezüglich einer anderen Koordinatenachse angeben.
 
