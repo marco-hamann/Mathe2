@@ -2458,7 +2458,7 @@ defint(f,z,0,1-x-y,y,0,1-x,x,0,1)
 Sicher gewusst?
 ===============
 
-**Frage.** Der Bereich $B$ aus Beispiel 1 wird begrenzt durch die Ebenen
+**Frage 1.** Der Bereich $B$ aus Beispiel 1 wird begrenzt durch die Ebenen
 $$
   x_1=0\,,\quad x_2=0\,,\quad x_3=0\quad\text{und}\quad x_1+x_2+x_3=1
 $$
@@ -2483,6 +2483,24 @@ Die begrenzende Ebene zur Gleichung $$
 $$ schneidet die Koordinatenebene $x_2=0$ in der Geraden $$ x_1=1-x_3 $$ Zusammen mit den Koordinatenachsen begrenzt diese den zu $B$ gehörenden ebenen Normalbereich $B_2$ in der Ebene $x_2=0$.
 
 ****************************************
+
+**Frage 2.** Geben Sie den Wert des bestimmten Integrals $$
+  \iiint_{B}{(x_1\cdot x_2\cdot x_3)}\,\mathrm{d}x_1\mathrm{d}x_2\mathrm{d}x_3
+$$ über den Bereich $$
+  B=[0,1]^3\subset\mathbb{R}^3
+$$
+
+[( )] $\frac{1}{2}$
+[( )] $\frac{1}{4}$
+[(X)] $\frac{1}{8}$
+[[?]] Die Berechnung des bestimmten Integrals kann durch wiederholte "einfache" Integration von $$ x_i\mapsto g_i(x_i)=\lambda_i\cdot x_i $$ nach $x_1$, $x_2$ bzw. $x_3$ erfolgen, worin der Parameter $\lambda_i$ nicht von $x_i$ abhängt.
+****************************************
+
+$$ \int_{x_3=0}^1{\left(\int_{x_2=0}^1{\left(\int_{x_1=0}^1{(x_1\cdot x_2\cdot x_3)}\,\mathrm{d}x_1\right)}\mathrm{d}x_2\right)}\mathrm{d}x_3=\left(\frac{1}{2}\right)^3=\frac{1}{8}
+$$
+
+****************************************
+
 
 [^1]: Das Tetraeder $B$ wird in den Koordinatenebenen durch Dreiecke begrenzt. Gemäß Definition lassen sich somit je zwei ebene Normalbereiche $B_2$ pro Koordinatenebene $x_j=0$ mit $j\in\{1,2,3\}$ zur Festlegung von $B$ als räumlichen Normalbereich verwenden.
 
@@ -2578,9 +2596,11 @@ z[3]
 ```
 @Algebrite.eval
 
-Im nachstehenden Video werden Polar- und Zylinderkoordinaten eines Punktes der Ebene / des dreidimensionalen Raumes erläutert.
+In den nachstehenden Videos werden Polar- und Zylinderkoordinaten eines Punktes der Ebene / des dreidimensionalen Raumes erläutert.
 
 !?[Zylinderkoordinaten](https://www.youtube.com/watch?v=3lFxl9fGhgY)
+
+!?[Zylinderkoordinaten2](https://www.youtube.com/watch?v=Dl4nfuYSfNE)
 
 
 Kugelkoordinaten
@@ -2679,6 +2699,203 @@ Die zweite Anwortoption beschreibt $B$ ohne Ränder, die dritte die "obere" Häl
 
 ****************************************
 
+**Frage 2.** Durch die Transformation $$
+  g:(u,v)\mapsto (x,y)
+$$ mit den Gleichungen in kartesischen Koordinaten $(x,y)$ $$
+  x=u^2-v^2\,,\quad y=u\cdot v
+$$ lassen sich 'neue' Koordinaten $(u,v)$ in der Ebene einführen.
+
+Bestimmen Sie eine Gleichung der Koordinatenlinie $u=1$ in kartesischen Koordinaten.
+
+[( )] $x=y^2-1$
+[( )] $y=1-x^2$
+[(X)] $x=1-y^2$
+[[?]] Setzen Sie in den Transformationsgleichungen $u=1$ und eliminieren Sie anschließend die Variable $v$.
+****************************************
+
+Nach Ersetzen von $u=1$ in den Transformationsgleichungen $u=1$ ergibt sich das Gleichungssystem
+$$
+  \left\{\begin{array}{lll} x & = & 1-v^2 \\ y & = & v \end{array}\right.
+$$ Nach Einsetzen der zweiten in die erste Gleichung ($v$ wird ersetzt) wird die Gleichung $$
+  x=1-y^2
+$$ erhalten. Diese Gleichung beschreibt eine Normalparabel zur $x$-Achse als Parabelachse, die in Richtung der negativen $x$-Achse geöffnet ist und um eine Einheit aus dem Koordinatenursprung in Richtung der positiven $x$-Achse verschoben ist.
+
+****************************************
+
 [^1]: Analog lassen sich die Zylinderkoordinaten bezüglich einer anderen Koordinatenachse angeben.
 
 [^2]: Die mathematische Funktion $\arctan2$ ist eine Erweiterung der inversen Winkelfunktion *Arkustangens*. Siehe [Arkustangens](https://de.wikipedia.org/wiki/Arctan2)
+
+
+### Substitutionsregel
+
+In diesem Abschnitt wird eine Substitutionsregel für Mehrfachintegrale entwickelt, wenn von einem in ein anderes Koordinatensystem gewechselt wird. Soll beispielsweise über einen Bereich integriert werden, der sich in kartesischen Koordinaten nicht als Normalbereich darstellen lässt, wohl aber in Zylinderkoordinaten, so bietet es sich an, das Mehrfachintegral in Zylinderkoordinaten zu transformieren.
+
+Wie in den Abschnitten zuvor wird als Integrand eine reelle Funktion $f$ in $n\in\mathbb{N}$ reellen unabhängigen Veränderlichen betrachtet $$
+  f:(x_1,...,x_n)\mapsto y=f(x_1,...,x_n)
+$$
+die im betrachteten Integrationsgebiet $B\subseteq D\subset\mathrm{R}^n$ stetig vorausgesetzt wird.
+
+
+Der Fall $n=1$
+==============
+
+Für $n=1$ ist $f$ reelle Funktion einer reellen unabhängigen Variablen. Diese wird auf einem Intervall $(a,b)\subseteq D$ stetig vorausgesetzt.
+
+Nun wird eine stetig differenzierbare Substitutionsfunktion
+$$
+  g:t\mapsto x=g(t)\,,\quad t\in(\alpha,\beta)
+$$
+mit Werten
+$$
+  g(\alpha)=a\quad\text{und}\quad g(\beta)=b
+$$
+betrachtet. Deren Differential stellt sich dar als
+$$
+  \mathrm{d}x=\frac{\mathrm{d}g}{\mathrm{d}t}(t_0)\cdot\mathrm{d}t=:\dot{g}(t_0)\cdot\mathrm{d}t\,,\quad t_0\in(\alpha,\beta)
+$$
+Die Funktion $g$ ist auf $I=(\alpha,\beta)$ als umkehrbar vorauszusetzen, woraus folgt
+$$
+  \dot{g}(t)\not=0\quad\forall\; t\in(\alpha,\beta)
+$$
+
+Das bestimmte Integral kann (durch die bekannte Substitutionsregel) transformiert werden in
+$$
+  \int_{x=a}^b{f(x)}\,\mathrm{d}x=\int_{t=\alpha}^\beta{f(g(t))\cdot\dot{g}(t)}\,\mathrm{d}t
+$$
+d. h. im bestimmten Integral auf der linken Seite sind zu ersetzen
+
+1. die unabhängige Variable $x$ im Integranden durch den Term der Substitutionsfunktion $x=g(t)$
+2. das Differential $\mathrm{d}x$ durch das Differential der Substitutionsfunktion $\mathrm{d}x=\dot{g}(t_0)\cdot\mathrm{d}t$
+3. die untere Grenze $$
+  x=g(\alpha)=a\;\;\leftrightarrow\;\;t=g^{-1}(a)=\alpha
+$$ sowie die obere Grenze $$
+  x=g(\beta)=b\;\;\leftrightarrow\;\;t=g^{-1}(b)=\beta
+$$
+
+Zur Berechnung des bestimmten Integrals über dem Intervall $f(I)$ sind die nachstehenden Fälle zu unterschieden.
+
+1. Es wird $\dot{g}(t)>0$ für alle $t\in (\alpha,\beta)$ angenommen, womit $a<b$ und somit $$
+  \int{g(I)}{f(x)}\,\mathrm{d}x=\int_{x=a}^b{f(x)}\,\mathrm{d}x=
+  \int_{t=\alpha}^\beta{f(g(t))\cdot\dot{g}(t)}\,\mathrm{d}t=
+  \int_{t=\alpha}^\beta{f(g(t))\cdot\left|\dot{g}(t)\right|}\,\mathrm{d}t
+$$ folgen.
+2. Es wird $\dot{g}(t)<0$ für alle $t\in (\alpha,\beta)$ angenommen, womit $a>b$ und somit $$
+  \int{g(I)}{f(x)}\,\mathrm{d}x=\int_{x=b}^a{f(x)}\,\mathrm{d}x=
+  -\int_{x=a}^b{f(x)}\,\mathrm{d}x=
+  -\int_{t=\alpha}^\beta{f(g(t))\cdot\dot{g}(t)}\,\mathrm{d}t=
+  \int_{t=\alpha}^\beta{f(g(t))\cdot\left|\dot{g}(t)\right|}\,\mathrm{d}t
+$$ folgen.
+
+**Beispiel 1.** Zu berechnen ist das bestimmte Integral $$
+  \int_{t=\frac{\pi}{6}}^{\frac{\pi}{3}}{\tan{t}}\,\mathrm{d}t
+$$
+
+Mit der Definition des Tangens $$ \tan{t}=\frac{\sin{t}}{\cos{t}} $$ lässt sich der Integrand umformen. Wird anschließend substituiert mittels
+$$
+  x=g(t)=\cos{t}\quad\text{mit}\quad \mathrm{d}x=-\sin{t}\,\mathrm{d}t
+$$
+so lässt sich dass unbestimmte Integral transformieren in
+$$
+  \int{\tan{t}}\,\mathrm{d}t=-\int{-\frac{\sin{t}}{\cos{t}}}\,\mathrm{d}t=-\int{\frac{1}{x}}\,\mathrm{d}x
+$$
+Wegen $g(t)<0$ für alle Werte im Integrationsintervall, gilt
+$$
+  \left(\frac{\pi}{6}<\frac{\pi}{3}\right)\quad\leftrightarrow\quad
+  \left(g\left(\frac{\pi}{6}\right)=
+  \cos{\left(\frac{\pi}{6}\right)}=
+  \frac{1}{2}\cdot\sqrt{3}>\frac{1}{2}=\cos{\left(\frac{\pi}{3}\right)}=g\left(\frac{\pi}{3}\right)\right)
+$$
+Hieraus folgt für die Berechnung des bestimmten Integrals
+$$
+  \int_{t=\frac{\pi}{6}}^{\frac{\pi}{3}}{\tan{t}}\,\mathrm{d}t=-\int_{x=\frac{1}{2}\cdot\sqrt{3}}^{\frac{1}{2}}{\left(\frac{1}{x}\right)}\,\mathrm{d}x=
+  \int_{x=\frac{1}{2}}^{\frac{1}{2}\cdot\sqrt{3}}{\left(\frac{1}{x}\right)}\,\mathrm{d}x=\left[\ln{\left|x\right|}\right]_{x=\frac{1}{2}}^{\frac{1}{2}\cdot\sqrt{3}}=\frac{1}{2}\cdot\ln{3}
+$$
+
+Das Ergebnis der Rechnung kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) nachvollzogen werden.
+
+```javascript
+defint(tan(t),t,pi/6,pi/3)
+```
+@Algebrite.eval
+
+
+In den nachstehenden Videos wird die Substitutionsmethode für reelle Funktionen einer reellen Variablen an Beispielen erläutert. Machen Sie sich noch einmal bewusst.
+
+1. Nach Substitution dürfen Integrand und Differential nur noch von der (neuen) Substitutionsvariablen abhängen.
+2. Die Grenzen der bestimmten Integration sind vermöge der Substitutionsfunktion zu transformieren.[^1]
+
+!?[Substitution1](https://www.youtube.com/watch?v=RBmd786shrQ)
+
+!?[Substitution2](https://www.youtube.com/watch?v=3tVvI5I49uU)
+
+!?[Substitution3](https://www.youtube.com/watch?v=FAO1aFB1fmg)
+
+
+Der Fall $n>1$
+==============
+
+In diesem Abschnitt wird in Analogie zum Fall $n=1$ die Substitutionmethode zur Berechnung von Mehrfachintegralen über reelle Funktionen mehrerer reeller Veränderlicher diskutiert. Ziel ist es, die Berechnung des Mehrfachintegrals durch Übergang zu neuen Integrationsvariablen zu vereinfachen.
+
+
+Vorstellung
+-----------
+
+Die Substitutionsformel soll für den Fall $n=2$ plausibel gemacht werden.
+
+1. Ausgehend von kartesischen Koordinaten der Ebene $(x_1,x_2)\in\mathbb{R}^2$ lassen sich die Koordinatenlinien $$
+  x_1=x_1^\star\quad\text{beziehungsweise}\quad x_2=x_2^\star
+$$ (konstant) zu verschiedenen Werten $x_j^\star$ als ~~geradliniges Koordinatennetz~~ auffassen. Das Flächenelement $\mathrm{d}x_1\mathrm{d}x_2$ gestattet eine Deutung als differentielles achsenparalleles Rechteck. Siehe Abschnitt [Doppelintegrale in kartesischen Koordinaten](#Doppelintegrale-in-kartesischen-Koordinaten).
+2. Nun werden neue Koordinaten $(u,v)$ vermöge der Funktion $$
+  g:(u,v)\mapsto(x_1,x_2)=g(u,v)\,,\quad (u,v)\in D
+$$ eingeführt, wobei die Funktion $g$ in $D$ stetig partiell differenzierbar vorausgesetzt wird. Die Gleichungen $$ u=u^\star\quad\text{beziehungsweise}\quad v=v^\star $$ (konstant) zu verschiedenen Werten $u^\star$ beziehungsweise $v^\star$ bilden ein im Allgemeinen ~~krummliniges Koordinatennetz~~. Durch die Koordinatenlinien $$
+  u=u^\star\,,\quad v=v^\star\,,\quad u=u^\star+\Delta u\quad\text{und}\quad v=v^\star +\Delta v
+$$ ist ein Flächenelement bestimmt, dessen Inhalt näherungsweise unter Verwendung der Tangentenvektoren $$
+  \begin{pmatrix}
+    \frac{\partial{x_1}}{\partial{u}} \\ \frac{\partial{x_2}}{\partial{u}}
+  \end{pmatrix}\cdot\Delta{u}\quad\text{sowie}\quad
+  \begin{pmatrix}
+    \frac{\partial{x_1}}{\partial{v}} \\ \frac{\partial{x_2}}{\partial{v}}
+  \end{pmatrix}\cdot\Delta{v}
+$$ bestimmt werden kann. Diese spannen ein Parallelogramm auf, dessen Flächeninhalt über die Norm des Vektorproduktes (Kreuzproduktes) $$
+  \left\Vert\begin{pmatrix}
+    \frac{\partial{x_1}}{\partial{u}} \\ \frac{\partial{x_2}}{\partial{u}} \\ 0
+  \end{pmatrix}\cdot\Delta{u}\times
+  \begin{pmatrix}
+    \frac{\partial{x_1}}{\partial{v}} \\ \frac{\partial{x_2}}{\partial{v}} \\ 0
+  \end{pmatrix}\cdot\Delta{v}\right\Vert=
+  \left\Vert\begin{pmatrix}
+    0 \\ 0 \\ \left(\frac{\partial{x_1}}{\partial{u}}\cdot\frac{\partial{x_2}}{\partial{v}}-\frac{\partial{x_2}}{\partial{u}}\cdot\frac{\partial{x_1}}{\partial{v}}\right)\cdot\Delta{u}\cdot\Delta{v}
+  \end{pmatrix}\right\Vert=
+  \left\vert
+    \left(\frac{\partial{x_1}}{\partial{u}}\cdot\frac{\partial{x_2}}{\partial{v}}-\frac{\partial{x_2}}{\partial{u}}\cdot\frac{\partial{x_1}}{\partial{v}}\right)
+  \right\vert\cdot\Delta{u}\cdot\Delta{v}
+$$ berechnet werden kann. Hierbei entspricht $$
+  D:=\frac{\partial{x_1}}{\partial{u}}\cdot\frac{\partial{x_2}}{\partial{v}}-\frac{\partial{x_2}}{\partial{u}}\cdot\frac{\partial{x_1}}{\partial{v}}=\det{
+    \begin{pmatrix}
+      \frac{\partial{x_1}}{\partial{u}} & \frac{\partial{x_2}}{\partial{u}} \\
+      \frac{\partial{x_1}}{\partial{v}} & \frac{\partial{x_2}}{\partial{v}}
+    \end{pmatrix}
+  }
+$$ der Determinante einer zweireihigen Matrix.[^2] Diese wird **Funktional-Determinante** $D$ der Funktion $g:(u,v)\mapsto (x_1,x_2)(u,v)$.
+
+**Beispiel 2.** Für den Übergang von kartesischen in Polarkoordinaten der Ebene $$
+  g:(r,\varphi)\mapsto (x_1,x_2)=(r\cdot \cos{\varphi},r\cdot \sin{\varphi})
+$$ berechnet sich die Funktionaldeterminante $$
+  D=\det{
+    \begin{pmatrix}
+    \frac{\partial{x_1}}{\partial{r}} & \frac{\partial{x_2}}{\partial{r}} \\
+    \frac{\partial{x_1}}{\partial{\varphi}} & \frac{\partial{x_2}}{\partial{\varphi}}
+    \end{pmatrix}
+  }=\det{
+    \begin{pmatrix}
+    \cos{\varphi} & \sin{\varphi} \\ -r\cdot\sin{\varphi} & r\cdot\cos{\varphi}
+    \end{pmatrix}
+  }=
+  r\cdot\left(\cos{\varphi}\right)^2+r\cdot\left(\sin{\varphi}\right)^2=r\cdot\left(\cos^2{\varphi}+\sin^2{\varphi}\right)=r
+$$
+
+
+[^1]: Wird vor dem Einsetzen der Grenzen zurück ersetzt (Rücksubstitution), so können die Grenzen der "ursprünglichen" Integrationsvariablen eingesetzt werden.
+
+[^2]: Die Berechnung einer Determinante ist bereits im Abschnitt [Lokale Extrema](#Lokale-Extrema) zum Nachweis lokaler Extrema von reellen Funktionen zweier reeller Veränderlicher verwendet worden. Determinanten werden im folgenden Kapitel zur Linearen Algebra untersucht.
