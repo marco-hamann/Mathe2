@@ -1,5 +1,2 @@
-# But not these files...
-!*.png
-
-# Ignore everything
-*
+*.ggb
+*.dxf
