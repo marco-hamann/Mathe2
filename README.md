@@ -3107,3 +3107,368 @@ $$ ist.
 [^2]: Die Berechnung einer Determinante ist bereits im Abschnitt [Lokale Extrema](#Lokale-Extrema) zum Nachweis lokaler Extrema von reellen Funktionen zweier reeller Veränderlicher verwendet worden. Determinanten werden im folgenden Kapitel zur Linearen Algebra untersucht.
 
 [^3]: Im Gegensatz hierzu ist $B$ in diesem Beispiel kein Normalbereich in kartesischen Koordinaten.
+
+
+## Lineare Algebra
+
+### Matrizen
+
+Definition und Eigenschaften
+============================
+
+>**Definition 1.** Ein rechteckiges Zahlenschema der Form $$
+  A=\begin{pmatrix}
+    a_{11} & a_{12} & ... & a_{1n} \\
+    a_{21} & a_{22} & ... & a_{2n} \\
+    \vdots & \vdots & & \vdots \\
+    a_{m1} & a_{m2} & ... & a_{mn}
+  \end{pmatrix}=\left(a_{ij}\right)_{i=1,...,m,\; j=1,...,n}\quad (m,n)\in\left(\mathbb{N}^\times\right)^2
+$$ mit Zahlen $a_{ij}\in\mathbb{R}$ (bzw. Körper $K$) heißt reelle **Matrix** vom Typ $(m,n)$.
+>
+>Die Menge aller reellen Matrizen vom gleichen Typ $(m,n)$ wird mit $R^{m,n}$ bezeichnet.
+
+Hierin werden folgende Bezeichnungen vereinbart.
+
+1. Die Matrix $A$ aus Definition 1 besitzt $m$ Zeilen und $n$ Spalten.
+2. Der Index $i$ an ~~erster~~ Stelle der Indizierung bezeichnet die Zeilennummer und wird Zeilenindex genannt.
+3. Der Index $j$ an ~~zweiter~~ Stelle der Indizierung bezeichnet die Spaltennummer und wird Spaltenindex genannt.
+4. $a_{ij}$ bezeichnet die Komponente in der $i$-ten Zeile und in der $j$-ten Spalte der Matrix $A$.
+
+**Bemerkung 1.** Vektoren aus dem Vektorraum $\mathbb{R}^m$ sind als Matrizen vom Typ $(m,1)$ ($1$ Spalte) beziehungsweise $(1,m)$ ($1$ Zeile) interpretierbar / darstellbar.
+
+Umgekehrt lassen sich Matrizen vom Typ $(m,n)$ durch ihre $n$ Spaltenvektoren darstellen $$
+  A=(a_1,a_2,...,a_n)\quad\text{mit}\quad a_j\in\mathbb{R}^m\;\forall\; j\in\{1,2,...,n\}
+$$ die *Spaltenvektordarstellung* von $A$ genannt wird.
+
+**Beispiel 1.** Die reelle Matrix
+
+1. $$
+  O=\begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+$$ heißt *Nullmatrix* vom Typ $(2,3)$.
+2. $$  
+  A=\begin{pmatrix} 1 \\ 4 \\ 0 \\ 3 \end{pmatrix}
+$$ heißt *Spaltenmatrix* vom Typ $(4,1)$.
+3. $$
+  M=(s_1,s_2)\quad\text{mit}\quad s_1=\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}\in\mathbb{R}^3 \quad\text{und}\quad s_2=\begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}
+$$ heißt *Spaltendarstellung* einer Matrix vom Typ $(3,2)$.
+4. $$
+  D= \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 7 \end{pmatrix}=:\mathrm{diag}(1,2,0,7)
+$$ wird *Diagonalmatrix* vom Typ $(4,4)$ genannt.
+
+>**Definition 2.**
+>
+>1. Eine reelle Matrix $A$ vom Typ $(m,m)$, d. h. für $m=n$, heißt **quadratisch** vom Typ $m$.
+>2. Eine reelle quadratische Matrix $$
+  D=\left(a_{ij}\right)_{i,j=1,...,m}
+$$ mit $a_{ij}=0$ für alle $i\neq j$ und mindestens einem $a_{ii}\neq0$ heißt **Diagonalmatrix** vom Typ $(m,m)$ beziehungsweise $m$-reihig $$
+  D=\begin{pmatrix}
+      a_{11} & 0 & 0 & \ldots & 0 & 0 \\ 0 & a_{22} & 0 & \ldots & 0 & 0 \\
+      \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & 0 & \ldots & 0 & a_{mm}
+  \end{pmatrix}=
+  \mathrm{diag}{\left(a_{11},a_{22},\ldots,a_{mm}\right)}
+$$ Das $m$-Tupel $\left(a_{11},a_{22},\ldots,a_{mm}\right)$ bildet die Hauptdiagonale von $D$.
+>3. Eine $m$-reihige Diagonalmatrix $\mathrm{diag}{\left(1,1,\ldots,1\right)}$ heißt **Einheitsmatrix** vom Typ $m$.
+>4. Eine reelle quadratische $m$-reihige Matrix der Form $$
+  \begin{pmatrix}
+    a_{11} & a_{12} & \ldots & a_{1m} \\
+    0 & a_{22} & \ldots & a_{2m} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \ldots & a_{mm}
+  \end{pmatrix}\,,\quad
+  \begin{pmatrix}
+    a_{11} & 0 & \ldots & 0 \\
+    a_{21} & a_{22} & \ldots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \ldots & a_{mm}
+   \end{pmatrix}
+$$ wird **obere** beziehungsweise **untere Dreiecksmatrix** genannt.[^1]
+
+>**Definition 3.** Werden bei einer Matrix $A$ Zeilen und Spalten vertauscht, entsteht die *Transponierte* $A^\top$ der Matrix $A$. Die Abbildung $$
+  A\to A^\top
+$$ heißt *Transposition*.
+
+**Beispiel 2.** Durch Transposition gehen ineinander über die reellen Matrizen
+
+1. $$
+  A=\begin{pmatrix} 1 & 3 \\ 4 & 2 \\ 0 & -8 \end{pmatrix}\quad\leftrightarrow\quad
+  A^\top=\begin{pmatrix} 1 & 4 & 0 \\ 3 & 2 & -8 \end{pmatrix}
+$$ $A$ ist vom Typ $(3,2)$, deren Transponierte $A^\top$ hingegen vom Typ $(2,3)$.
+2. $$
+  B=\begin{pmatrix} 1 \\ 2 \\ 9 \end{pmatrix}\quad\leftrightarrow\quad
+  B^\top=\begin{pmatrix} 1 & 2 & 9 \end{pmatrix}
+$$ Die Matrix $B$ ist vom Typ $(3,1)$ (Spaltenvektor), deren transponierte Matrix $B^\top$ hingegen vom Typ $(1,3)$ (Zeilenvektor).
+
+Die Rechnung kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) nachvollzogen werden.
+
+```javascript
+A=[[a,b],[c,d],[e,f]]
+B=transpose(A)
+shape(A)
+shape(B)
+transpose(transpose(A))-A
+```
+@Algebrite.eval
+
+Allgemein kann festgehalten werden
+
+>**Proposition 1.** Durch Transposition wird der Typ $(m,n)$ der Matrix $A$ in den Typ $(n,m)$ der transponierten Matrix $A^\top$ übergeführt. Des Weiteren gilt $$
+  A\quad\stackrel{\top}{\to}\quad A^\top\quad\stackrel{\top}{\to}\quad A
+$$ für die Transposition einer Matrix. $A$.
+
+Außerdem lässt sich für die Gleichheit von Matrizen festlegen:
+
+>**Definition 4.** Zwei Matrizen $$
+  A=(a_{ij})_{i=1,...,m,\; j=1,...,n}\quad\text{und}\quad B=(b_{kl})_{k=1,...,p\; l=1,...,r}
+$$ heißen **gleich**, falls folgende Bedingungen erfüllt sind.
+>
+>1. Die Matrizen $A$ und $B$ besitzen den gleichen Typ, d. h. falls $m=p$ und $n=r$ gelten.
+>2. Es gilt $$
+  a_{ij}=b_{ij}\quad\forall\; i\in\{1,...,m\}\;\forall\; j\in\{1,...,n\}
+$$ für die Komponenten der Matrizen $A$ und $B$.
+
+
+Matrizen als Vektoren
+=====================
+
+Für Matrizen vom Typ $(m,n)$ über einem Körper $K$ lassen sich in gleicher wie für Vektoren aus $K^m$ zwei Operationen erklären: Addition und Vielfachbildung mit einem Skalar.
+
+>**Definition 5.** Für beliebige Matrizen $$
+  A=(a_{ij})_{i=1,...,m,\; j=1,...,n}\in K^{m,n}\,,\quad B=(b_{ij})_{i=1,...,m,\; j=1,...,n}\in K^{m,n}
+$$ und Skalare $\lambda\in K$ sind erklärt
+>
+>1. *Addition* $$
+  +:K^{m,n}\times K^{m,n}\to K^{m,n},(A,B)\mapsto C=A+B
+$$ mit Summe $C=(c_{ij})_{i=1,...,m,\; j=1,...,n}$ und $$
+  c_{ij}=a_{ij}+b_{ij}\quad\forall\; i\in\{1,...,m\}\quad\forall\; j\in\{1,...,n\}
+$$ d. h. die Matrizen $A$ und $B$ werden ~~komponentenweise~~ addiert.
+>2. *Vielfachbildung mit einem Skalar* $$
+  \cdot:K\times K^{m,n}\to K^{m,n},(\lambda,B)\mapsto F=\lambda\cdot B
+$$ mit Skalarvielfachem $F=(f_{ij})_{i=1,...,m,\; j=1,...,n}$ und $$
+  f_{ij}=\lambda\cdot b_{ij}\quad\forall\; i\in\{1,...,m\}\quad\forall\; j\in\{1,...,n\}
+$$ d. h. die Matrix $B$ wird ~~komponentenweise~~ mit $\lambda$ multipliziert.
+
+**Beispiel 3.** Zu berechnen sind:
+
+1. Die Summe $$
+  \begin{pmatrix} 2 & -3 & 4 \\ 0 & 1 & -2 \end{pmatrix}+
+  \begin{pmatrix} -2 & 2 & -3 \\ 1 & 2 & 2 \end{pmatrix}=
+  \begin{pmatrix} 0 & -1 & 1 \\ 1 & 3 & 0 \end{pmatrix}
+$$ Im Unterschied hierzu ist die Summe $$
+  \begin{pmatrix} 2 & -3 & 4 \\ 0 & 1 & -2 \end{pmatrix}+
+  \begin{pmatrix} -2 & 2 \\ 1 & 2 \end{pmatrix}
+$$ nach der vorangestellten Definition nicht erklärt.
+2. Das Skalarfache $$
+  (-2)\cdot
+  \begin{pmatrix} -1 & 0 \\ 0 & 1 \\ 2 & \frac{1}{2} \end{pmatrix}=
+  \begin{pmatrix} 2 & 0 \\ 0 & -2 \\ -4 & -1 \end{pmatrix}
+$$ Im Unterschied hierzu ist das Produkt $$
+  \begin{pmatrix} 1 & -2 \end{pmatrix}\cdot
+  \begin{pmatrix} -1 & 0 \\ 0 & 1 \\ 2 & \frac{1}{2} \end{pmatrix}
+$$ zweier Matrizen nach der vorangestellten Definition nicht erklärt.[^2]
+
+>**Satz 2.** Die Menge aller Matrizen aus $K^{m,n}$ bildet mit den in Definition 5 eingeführten Operationen einen Vektorraum über $K$.
+
+**Beweisidee.** Es sind die Vektorraumaxiome zu überprüfen.
+
+Bezeichnen $A$, $B$ und $C$ drei beliebige Matrizen aus $K^{m,n}$ sowie $\lambda$ und $\mu$ zwei beliebige Skalare aus $K$, so sind die folgenden Rechenregeln nachzuweisen.
+
+1. $A+B=B+A$ Kommutativität bezüglich der Addition
+2. $A+(B+C)=(A+B)+C$ Assoziativität bezüglich der Addition
+3. Es gibt ein bezüglich der Addition neutrales Element $O\in K^{m,n}$ mit $$
+  A+O=A
+$$ Die Matrix $O$ ist die Nullmatrix vom Typ $(m,n)$.
+4. Zu jedem $A$ existiert genau ein $(-A)\in K^{m,n}$ mit $A+(-A)=O$.[^3] Die bezüglich der Addition inverse Matrix ist $$
+  -A=\left((-1)\cdot a_{ij}\right)_{i=1,...,m,\; j=1,...,n}
+$$
+5. $\lambda\cdot(A+B)=\lambda\cdot A+\lambda\cdot B$
+6. $(\lambda+\mu)\cdot A=\lambda\cdot A+\mu\cdot A$
+7. $(\lambda\cdot\mu)\cdot A=\lambda\cdot(\mu\cdot A)$
+8. $1\cdot A=A$
+
+Da die Addition und Skalarvielfachbildung komponentenweise erklärt ist und - bezogen auf jede Komponente - in $K$ die genannten Eigenschaften gelten, übertragen sich die vorstehenden Rechenregeln auf das Rechnen mit Matritzen in $K^{m,n}$.
+
+**Bemerkung 2.** Mit dem vorstehenden Satz lassen sich aus der Vektorrechnung bekannte Begriffe wie
+
+1. Linearkombination von Vektoren
+2. Lineare Unabhängigkeit / - Abhängigkeit von Vektoren
+3. Basis eines Vektorraumes
+4. Dimension eines Vektorraumes
+
+auf den Vektorraum $K^{m,n}$ aller Matrizen anwenden.
+
+**Beispiel 4.** Im Vektorraum der reellen Matrizen vom Typ $(2,2)$ können die Matrizen $$
+  E_{11}=\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\,,\quad
+  E_{12}=\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\,,\quad
+  E_{21}=\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}\quad\text{und}\quad
+  E_{22}=\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
+$$ verwendet werden, um jede reelle Matrix vom gleichen Typ als Linearkombination eindeutig darzustellen: Es gilt $$
+  A=\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}=
+  \sum_{i,j}{(a_{ij}\cdot E_{ij})}
+$$ Die Matrizen $\{E_{11},E_{12},E_{21},E_{22}\}$ sind linear unabhängig, da gilt $$
+  \lambda_{11}\cdot E_{11}+
+  \lambda_{12}\cdot E_{12}+
+  \lambda_{21}\cdot E_{21}+
+  \lambda_{22}\cdot E_{22}=\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}\quad\leftrightarrow\quad
+  \lambda_{ij}=0\quad\forall\; ij\in\{11,12,21,22\}
+$$ (Bitte nachrechnen!) Auf der linken Seite dieser Äquivalenz bildet die Nullmatrix vom Typ $(2,2)$ das neutrale Element.
+
+Die Matrizen $E_{11}$, $E_{12}$, $E_{21}$ und $E_{22}$ bilden die natürliche Basis des Vektorraumes $\mathbb{R}^{2,2}$ aller reellen Matritzen vom Typ $(2,2)$, wonach $\mathbb{R}^{2,2}$ die reelle Dimension $\dim{\mathbb{R}^{2,2}}=4$ besitzt.
+
+
+Matrixmultiplikation
+====================
+
+>**Definition 6.** Seien Matrizen $$
+  A=(a_{ij})_{i=1,...,m,\; j=1,...,n}\quad
+  B=(b_{jl})_{j=1,...,n,\; l=1,...,p}
+$$ gegeben. Dann ist ein Matrixprodukt erklärt, $C=A\cdot B$ mit $$
+  C=(c_{il})_{i=1,...,m,\; l=1,...,p}\quad\text{und}\quad
+  c_{il}=\sum_{j=1}^n{(a_{ij}\cdot b_{jl})}
+$$ *Kurz*: "$i$-te Zeile von $A$ 'mal' $l$-te Spalte von $B$"
+
+Die Definition kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) nachvollzogen werden.
+
+```javascript
+A=[[a,b],[c,d]]
+B=[[m,n,p],[q,r,s]]
+C=inner(A,B)
+C[2][1]
+inner(A[2],transpose(B)[1])
+```
+@Algebrite.eval
+
+**Bemerkung 3.** Zur übersichtlichen Berechnung des Matrixproduktes kann das [Falksche Schema](https://de.wikipedia.org/wiki/Falksches_Schema) verwendet werden.
+
+**Beispiel 5.** Zu berechnen sind die nachstehenden Matrixprodukte
+
+1. $$
+  \begin{pmatrix} 1 & 4 & 2 \\ 4 & 0 & -3 \end{pmatrix}\cdot
+  \begin{pmatrix} 1 & 1 & 0 \\ -2 & 3 & 5 \\ 0 & 1 & 4 \end{pmatrix}=
+  \begin{pmatrix} -7 & 15 & 28 \\ 4 & 1 & -12 \end{pmatrix}
+$$ Linker bzw. rechter Faktor sind Matrizen vom Typ $(2,3)$ bzw. $(3,3)$, während das Produkt den Typ $(2,3)$ besitzt.
+2. Das Produkt $$
+  a\cdot b^\top=\begin{pmatrix} 1 \\ 2 \end{pmatrix}\cdot
+  \begin{pmatrix} -3 & 2 \end{pmatrix}=
+  \begin{pmatrix} -3 & 2 \\ -6 & 4 \end{pmatrix}
+$$ Linker bzw. rechter Faktor sind Matrizen vom Typ $(2,1)$ bzw. $(1,2)$, während das Produkt den Typ $(2,2)$ besitzt.
+3. $$
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix}\cdot
+  \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}=
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+$$ Der rechte Faktor verhält sich im Matrixprodukt wie die Eins beim Multiplizieren reeller Zahlen: daher der Name zweireihige Einheitsmatrix $E$. Vergleiche Definition 2.
+
+**Beispiel 6.** Unter Benutzung spezieller Matrixprodukte lassen sich Drehungen der Ebene um den Koordinatenursprung eines kartesischen Koordinatensystems darstellen.
+
+1. Die Drehung eines Punktes $$
+  P(x,y)\mapsto P^\prime\left(x^\prime,y^\prime\right)
+$$ um den Koordinatenursprung $O(0,0)$ ist beschrieben durch das Matrixprodukt in $$
+  \begin{pmatrix} x^\prime \\ y^\prime \end{pmatrix}=
+  \begin{pmatrix}
+    \textcolor{magenta}{\cos{\varphi}} & \textcolor{magenta}{-\sin{\varphi}} \\ \textcolor{magenta}{\sin{\varphi}} & \textcolor{magenta}{\cos{\varphi}}
+  \end{pmatrix}\cdot
+  \begin{pmatrix}
+    \textcolor{blue}{x} \\ \textcolor{blue}{y}
+  \end{pmatrix}=
+  \begin{pmatrix}
+    \textcolor{magenta}{\cos{\varphi}}\cdot \textcolor{blue}{x} - \textcolor{magenta}{\sin{\varphi}}\cdot \textcolor{blue}{y} \\ \textcolor{magenta}{\sin{\varphi}}\cdot \textcolor{blue}{x} + \textcolor{magenta}{\cos{\varphi}}\cdot \textcolor{blue}{y}
+  \end{pmatrix}
+$$ worin $\varphi$ den Drehwinkel bezeichnet.
+2. Für die Hintereinanderausführung zweier Drehungen um $O$ mit Drehwinkeln $\varphi$ bzw. $\psi$ gelten $$
+  \begin{pmatrix}
+    \textcolor{magenta}{\cos{\varphi}} & \textcolor{magenta}{-\sin{\varphi}} \\ \textcolor{magenta}{\sin{\varphi}} & \textcolor{magenta}{\cos{\varphi}}
+  \end{pmatrix}\cdot
+  \begin{pmatrix}
+    \textcolor{blue}{\cos{\psi}} & \textcolor{blue}{-\sin{\psi}} \\ \textcolor{blue}{\sin{\psi}} & \textcolor{blue}{\cos{\psi}}
+  \end{pmatrix}=
+  \begin{pmatrix}
+    \textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}-\textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\sin{\psi}} &
+    -\textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}-\textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\sin{\psi}} \\
+    \textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}+\textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\sin{\psi}} &
+    \textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}-\textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\sin{\psi}}
+  \end{pmatrix}
+$$ wobei mit Hilfe der Additionstheoreme für Sinus und Kosinus gilt $$
+  \begin{pmatrix}
+    \textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}-\textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\sin{\psi}} &
+    -\textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}-\textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\sin{\psi}} \\
+    \textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}+\textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\sin{\psi}} &
+    \textcolor{magenta}{\cos{\varphi}}\cdot\textcolor{blue}{\cos{\psi}}-\textcolor{magenta}{\sin{\varphi}}\cdot\textcolor{blue}{\sin{\psi}}
+  \end{pmatrix}=
+  \begin{pmatrix}
+    \cos{\left(\varphi+\psi\right)} & -\sin{\left(\varphi+\psi\right)} \\ \sin{\left(\varphi+\psi\right)} & \cos{\left(\varphi+\psi\right)}
+  \end{pmatrix}
+$$ d. h. das Matrixprodukt ist erneut eine Matrix von gleicher Bauart zum Parameter $\varphi+\psi$.
+
+Die Rechnung kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) nachvollzogen werden.
+
+```javascript
+D=[[cos(t),-sin(t)],[sin(t),cos(t)]]
+D1=subst(u,t,D)
+D2=subst(v,t,D)
+inner(D1,D2)
+```
+@Algebrite.eval
+
+Für die Matrixmultiplikation gelten die folgenden Rechenregeln.
+
+>**Satz 3.** Es bezeichnen ${A}$ bzw. ${B}$ bzw. ${C}$ Matrizen vom Typ $$
+  (m,n)\quad\text{bzw.}\quad (n,p)\quad\text{bzw.}\quad (p,r)
+$$ Außerdem ist $\lambda\in\mathbb{R}$. Dann gelten die  folgenden Rechenregeln.
+>
+>1. $A\cdot(B\cdot C)=(A\cdot B)\cdot C$, d. h. die Matrixmultiplikation ist assoziativ.
+>2. $\lambda\cdot\left(A\cdot B\right)=\left(\lambda\cdot A\right)\cdot B= A\cdot\left(\lambda\cdot B \right)$
+>3. $\left(A\cdot B\right)^\top= B^\top\cdot A^\top$[^4]
+>
+>Ist ${A}$ speziell eine quadratische Matrix vom Typ $(n,n)$, so gelten außerdem:
+>
+>4. ${A}\cdot{E}={E}\cdot{A}={A}$ für die $n$-reihige Einheitsmatrix ${E}$
+>5. ${A}\cdot{O}={O}\cdot{A}={O}$ für die $n$-reihige Nullmatrix ${O}$
+>
+>Außerdem gelten die Distributivregeln
+>
+>6. ${A}\cdot\left({B}+{C}\right)={A}\cdot{B}+{A}\cdot{C}$ falls gleicher Typ $(n,p)=(p,r)$
+>7. $\left({A}+{B}\right)\cdot{C}={A}\cdot{C}+{B}\cdot{C}$ falls gleicher Typ $(m,n)=(n,p)$
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Gegeben ist eine reelle Matrix $A$ vom Typ $(m,n)$.
+
+[(X)] $A$ hat $m$ Zeilen und $n$ Spalten.
+[( )] $A$ hat $n$ Zeilen und $m$ Spalten.
+[( )] Die Zeile von $A$ haben die Länge $m$ und die Spalten von $A$ haben die Länge $n$.
+****************************************
+
+Die gegebene Matrix $A$ hat $m$ Zeilen und $n$ Spalten. Jeder Spaltenvektor ist ein Vektor aus $\mathbb{R}^m$, besitzt also die Länge $m$. Umgekehrt ist jeder Zeilenvektor ein Vektor aus $\mathbb{R}^n$, besitzt also die Länge $n$.
+
+****************************************
+
+**Frage 2.** Welche der folgenden Eigenschaften besitzt die Matrixmultiplikation ~~nicht~~?
+
+[( )] Assoziativität
+[(X)] Kommutativität
+[( )] Distributivität
+[[?]] Matrixmultiplikation und -addition sind nicht für beliebige Paare von Matrizen definiert: Das Matrixprodukt zweier Matrizen ist erklärt, wenn die Spaltenzahl des linken Faktors mit der Zeilenzahl des rechten Faktors übereinstimmt. Die Summe zweier Matrizen ist für typgleiche Matrizen erklärt.
+****************************************
+
+Werden beispielsweise $$
+  A=\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}\quad\text{und}\quad
+  B=\begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}
+$$ gewählt, so berechnen sich $$
+  A\cdot B=\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}\cdot
+  \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}=
+  \begin{pmatrix} 2 & 0 \\ 0 & 0 \end{pmatrix}
+$$ währenddessen $$
+  B\cdot A=\begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}\cdot \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}=
+  \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}
+$$ Das Matrixprodukt ist für quadratische Matrizen gleichen Typs in der Form $A\cdot B$ und $B\cdot A$ erklärt, jedoch gilt ~~nicht immer~~ $A\cdot B=B\cdot A$.
+
+****************************************
+
+[^1]: Alle Elemente unterhalb beziehungsweise oberhalb der Hauptdiagonalen sind gleich Null und mindestens eines der anderen verschieden von Null.
+
+[^2]: Die Multiplikation zweier Matrizen ist hiervon unberührt.
+
+[^3]: Statt $A+(-B)$ schreibt man kurz $A-B$.
+
+[^4]: Zu beachten ist, dass auf der rechten Seite der Gleichung sich die Reihenfolge der Faktoren ändert.
