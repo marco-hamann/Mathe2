@@ -3150,16 +3150,16 @@ $$ heißt *Nullmatrix* vom Typ $(2,3)$.
 $$ heißt *Spaltenmatrix* vom Typ $(4,1)$.
 3. $$
   M=(s_1,s_2)\quad\text{mit}\quad s_1=\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}\in\mathbb{R}^3 \quad\text{und}\quad s_2=\begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}
-$$ heißt *Spaltendarstellung* einer Matrix vom Typ $(3,2)$.
+$$ heißt *Spaltenvektordarstellung* einer Matrix vom Typ $(3,2)$.
 4. $$
   D= \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 7 \end{pmatrix}=:\mathrm{diag}(1,2,0,7)
 $$ wird *Diagonalmatrix* vom Typ $(4,4)$ genannt.
 
 >**Definition 2.**
 >
->1. Eine reelle Matrix $A$ vom Typ $(m,m)$, d. h. für $m=n$, heißt **quadratisch** vom Typ $m$.
->2. Eine reelle quadratische Matrix $$
-  D=\left(a_{ij}\right)_{i,j=1,...,m}
+>1. Eine Matrix $A$ vom Typ $(m,m)$, d. h. für $m=n$, heißt **quadratisch** vom Typ $m$.
+>2. Eine quadratische Matrix $$
+  D=\left(a_{ij}\right)_{i=1,...,m,j=1,...,m}
 $$ mit $a_{ij}=0$ für alle $i\neq j$ und mindestens einem $a_{ii}\neq0$ heißt **Diagonalmatrix** vom Typ $(m,m)$ beziehungsweise $m$-reihig $$
   D=\begin{pmatrix}
       a_{11} & 0 & 0 & \ldots & 0 & 0 \\ 0 & a_{22} & 0 & \ldots & 0 & 0 \\
@@ -3168,7 +3168,7 @@ $$ mit $a_{ij}=0$ für alle $i\neq j$ und mindestens einem $a_{ii}\neq0$ heißt 
   \end{pmatrix}=
   \mathrm{diag}{\left(a_{11},a_{22},\ldots,a_{mm}\right)}
 $$ Das $m$-Tupel $\left(a_{11},a_{22},\ldots,a_{mm}\right)$ bildet die Hauptdiagonale von $D$.
->3. Eine $m$-reihige Diagonalmatrix $\mathrm{diag}{\left(1,1,\ldots,1\right)}$ heißt **Einheitsmatrix** vom Typ $m$.
+>3. Die $m$-reihige Diagonalmatrix $\mathrm{diag}{\left(1,1,\ldots,1\right)}$ heißt **Einheitsmatrix** vom Typ $m$.
 >4. Eine reelle quadratische $m$-reihige Matrix der Form $$
   \begin{pmatrix}
     a_{11} & a_{12} & \ldots & a_{1m} \\
@@ -3206,7 +3206,7 @@ A=[[a,b],[c,d],[e,f]]
 B=transpose(A)
 shape(A)
 shape(B)
-transpose(transpose(A))-A
+transpose(transpose(A))
 ```
 @Algebrite.eval
 
@@ -3250,7 +3250,7 @@ $$ d. h. die Matrix $B$ wird ~~komponentenweise~~ mit $\lambda$ multipliziert.
 
 **Beispiel 3.** Zu berechnen sind:
 
-1. Die Summe $$
+1. Die Summe vermöge $$
   \begin{pmatrix} 2 & -3 & 4 \\ 0 & 1 & -2 \end{pmatrix}+
   \begin{pmatrix} -2 & 2 & -3 \\ 1 & 2 & 2 \end{pmatrix}=
   \begin{pmatrix} 0 & -1 & 1 \\ 1 & 3 & 0 \end{pmatrix}
@@ -3258,7 +3258,7 @@ $$ Im Unterschied hierzu ist die Summe $$
   \begin{pmatrix} 2 & -3 & 4 \\ 0 & 1 & -2 \end{pmatrix}+
   \begin{pmatrix} -2 & 2 \\ 1 & 2 \end{pmatrix}
 $$ nach der vorangestellten Definition nicht erklärt.
-2. Das Skalarfache $$
+2. Das Skalarfache vermöge $$
   (-2)\cdot
   \begin{pmatrix} -1 & 0 \\ 0 & 1 \\ 2 & \frac{1}{2} \end{pmatrix}=
   \begin{pmatrix} 2 & 0 \\ 0 & -2 \\ -4 & -1 \end{pmatrix}
@@ -3472,3 +3472,291 @@ $$ Das Matrixprodukt ist für quadratische Matrizen gleichen Typs in der Form $A
 [^3]: Statt $A+(-B)$ schreibt man kurz $A-B$.
 
 [^4]: Zu beachten ist, dass auf der rechten Seite der Gleichung sich die Reihenfolge der Faktoren ändert.
+
+
+### Determinanten
+
+Jede quadratische Matrix $A$ über einem Körper $K$ besitzt eine Determinante $\det{A}\in K$. Der Begriff wird hier zunächst im Zusammenhang der Lösung [linearer Gleichungssysteme](#Lineare-Gleichungssysteme) eingeführt und entwickelt.
+
+
+Determinanten zweiter Ordnung
+=============================
+
+Begriff
+-------
+
+**Beispiel 1.** Zu berechnen sind die gemeinsamen Punkte zweier Geraden $g_1$ und $g_2$.
+
+1. Die Geraden besitzen die Gleichungen $$
+  \left.\begin{array}{rrrrr}
+    2\cdot x & + & y & = & 5 \\ -x & + & 2\cdot y & = & -5
+  \end{array}\right\}\quad\stackrel{\textcolor{magenta}{Z_2-2\cdot Z_1\to Z_2}}{\longleftrightarrow}\quad
+  \left\{\begin{array}{rrrrr}
+    2\cdot x & + & y & = & 5 \\ \textcolor{magenta}{-5\cdot x} & \textcolor{magenta}{+} & & \textcolor{magenta}{=} & \textcolor{magenta}{-15}
+  \end{array}\right.
+$$ Das System linearer Gleichungen besitzt die eindeutige Lösung $$
+  L=\{x=3\;\wedge\; y=-1\}
+$$
+2. Abweichend besitzen die Geraden die Gleichungen $$
+\left.\begin{array}{rrrrr}
+  2\cdot x & + & y & = & 5 \\ 4\cdot x & + & 2\cdot y & = & 20
+\end{array}\right\}\quad\stackrel{\textcolor{magenta}{Z_2-2\cdot Z_1\to Z_2}}{\longrightarrow}\quad
+\left\{\begin{array}{rrrrr}
+  2\cdot x & + & y & = & 5 \\ & & \textcolor{magenta}{0} & \textcolor{magenta}{=} & \textcolor{magenta}{10}
+\end{array}\right.
+$$ Das System linearer Gleichungen besitzt demnach die keine Lösung $$
+  L=\emptyset
+$$
+3. Abweichend besitzen die Geraden die Gleichungen $$
+\left.\begin{array}{rrrrr}
+  2\cdot x & + & y & = & 5 \\ 4\cdot x & + & 2\cdot y & = & 10
+\end{array}\right\}\quad\stackrel{\textcolor{magenta}{Z_2-2\cdot Z_1\to Z_2}}{\longleftrightarrow}\quad
+\left\{\begin{array}{rrrrr}
+  2\cdot x & + & y & = & 5 \\ & & \textcolor{magenta}{0} & \textcolor{magenta}{=} & \textcolor{magenta}{0}
+\end{array}\right.
+$$ Das System linearer Gleichungen besitzt demnach eine einparametrige Lösung $$
+  L=\left\{\begin{pmatrix} x \\ y \end{pmatrix}=\begin{pmatrix} 0 \\ 5 \end{pmatrix}+\lambda\cdot\begin{pmatrix} 1 \\ -2 \end{pmatrix}\;\wedge\;\lambda\in\mathbb{R}\right\}
+$$
+
+Die Verschiedenheit der Lösungsmengen $L$ lässt sich unmittelbar geometrisch mithilfe der relativen Lagen der Geraden $g_1$ und $g_2$ unter Benutzung der [Normalenform](https://de.wikipedia.org/wiki/Normalenform) der Gleichungen begründen.
+
+1. Beide Geraden sind zueinander nicht parallel und schneiden sich im Punkt $S(3,-1)$.
+2. Beide Geraden sind zueinander parallel und nicht identisch, besitzen demnach keine gemeinsamen Punkte.
+3. Beide Geraden sind zueinander parallel und identisch. Jeder Punkt der Geraden ist ein gemeinsamer Punkt.
+
+Die Systeme linearer Gleichungen lassen sich unter Benutzung des [Matrixproduktes](#Matrizen) darstellen.
+
+1. $$ \begin{pmatrix} 2 & 1 \\ -1 & 2 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}=\begin{pmatrix} 5 \\ -5\end{pmatrix}
+$$
+2. $$ \begin{pmatrix} 2 & 1 \\ 4 & 2 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}=\begin{pmatrix} 5 \\ 20\end{pmatrix}
+$$
+3. $$ \begin{pmatrix} 2 & 1 \\ 4 & 2 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}=\begin{pmatrix} 5 \\ 10\end{pmatrix}
+$$
+
+**Bemerkung 1.** Die Koeffizientenmatrix in den Matrixdarstellungen besteht im ersten Beispiel aus linear unabhängigen Zeilen bzw. Spalten, im zweiten und dritten Beispiel nicht. Ziel wird es sein, das Lösungsverhalten eines Systems linearer Gleichungen anhand u. a. der zugehörigen Koeffizientenmatrix zu untersuchen.
+
+**Beispiel 2.** Gegeben ist ein allgemeines System $A\cdot x=b$ zweier linearer Gleichungen in den beiden Unbekannten $x_1$ und $x_2$, worin $$
+  A=\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}\in\mathbb{R}^{2,2}\,,\quad
+  x=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\in\mathbb{R}^{2}\quad\text{bzw.}\quad
+  b=\begin{pmatrix} b_1 \\ b_2 \end{pmatrix}\in\mathbb{R}^{2}
+$$ die reelle *Koeffizientenmatrix*, den *Lösungsvektor* beziehungsweise den Vektor der *Absolutglieder* bezeichnen. $A\cdot x=b$ wird Matrixdarstellung des Gleichungssystems genannt.
+
+Die Lösung des Gleichungssystems kann - dort, wo möglich (!) - durch Multiplikation linker und rechter Seite mit der Matrix $$
+  B=\frac{1}{a_{11}\cdot a_{22}-a_{12}\cdot a_{21}}\cdot\begin{pmatrix} a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{pmatrix}
+$$ von links erfolgen, denn $$
+  x=E\cdot x=(\textcolor{magenta}{B}\cdot A)\cdot x=\textcolor{magenta}{B}\cdot (A\cdot x)= \textcolor{magenta}{B}\cdot b
+$$ worin $E$ die zweireihige Einheitsmatrix bezeichnet.[^1]
+
+>**Definition 1.** Für eine quadratische Matrix $A\in K^{2,2}$ mit Komponenten $a_{ij}\in K$ heißt $$
+  \det{A}=\det{\begin{pmatrix} \textcolor{magenta}{a_{11}} & \textcolor{blue}{a_{12}} \\ \textcolor{blue}{a_{21}} & \textcolor{magenta}{a_{22}}  \end{pmatrix}}=\textcolor{magenta}{a_{11}\cdot a_{22}}-\textcolor{blue}{a_{12}\cdot a_{21}}\in K
+$$ die Determinante von $A$ (zweiter Ordnung).
+
+Neben der Schreibweise $\det{A}$ sind auch $$
+  D\,,\quad |A|\,,\quad\left|(a_{ij})_{i=1,2\,,\,j=1,2}\right|
+$$ übliche Schreibweisen für die Determinante einer Matrix $A$, letzte auch als $\left|(a_{ij})\right|$, falls sich Spalten-/Zeilenzahl aus dem Kontext ablesen lassen.
+
+Die Komponenten $\textcolor{magenta}{a_{ii}}$ bilden die Hauptdiagonale, $\textcolor{blue}{a_{ij}}$ mit $i\not=j$ die Nebendiagonale der Matrix $A$. Entsprechend bildet sich die Determinante von $A$ durch Differenz des Produktes der Nebendiagonalelemente vom Produkt der Hauptdiagonalelemente.
+
+>**Satz 1.** Sei $A\in K^{2,2}$ eine quadratische Matrix in Spaltenvektordarstellung $$
+  A=(s_1,s_2)\quad\text{mit}\quad
+  s_1=\begin{pmatrix} a_{11} \\ a_{21} \end{pmatrix}\quad\text{und}\quad
+  s_2=\begin{pmatrix} a_{12} \\ a_{22} \end{pmatrix}
+$$ Dann gilt $$
+  \det{A}=0\quad\leftrightarrow\quad \{s_1,s_2\} \;\text{linear abhängig}
+$$
+
+**Beweis.** Für den Nachweis der Äquivalenz sind beide Implikationen nachzuweisen.
+
+1. $(\leftarrow)$ Sind $\{s_1,s_2\}$ linear abhängig, so existiert ein Paar $(\lambda_1,\lambda_2)\not=(0,0)$ mit $$
+  \lambda_1\cdot s_1+\lambda_2\cdot s_2=o
+$$ dem Nullvektor als Linearkombination. Ist $\lambda_1\not=0$, so folgt $$
+  s_1=-\frac{\lambda_2}{\lambda_1}\cdot s_2=:\lambda\cdot s_2\quad\leftrightarrow\quad\left\{\begin{array}{ll} a_{11}=\lambda\cdot a_{12} \\ a_{21}=\lambda\cdot a_{22} \end{array}\right.
+$$ andernfalls unter der Annahme $\lambda_2\not=0$ $$
+  s_2=-\frac{\lambda_1}{\lambda_2}\cdot s_1=\lambda^{-1}\cdot s_1\quad\leftrightarrow\quad\left\{\begin{array}{ll} a_{12}=\lambda^{-1}\cdot a_{11} \\ a_{22}=\lambda^{-1}\cdot a_{21} \end{array}\right.
+$$ Somit ist $$
+  \det{A}=\lambda\cdot a_{12}\cdot a_{22}-a_{12}\cdot\lambda\cdot a_{22}=0
+$$ beziehungsweise $$
+  \det{A}=a_{11}\cdot\lambda^{-1}\cdot a_{21}-\lambda^{-1}\cdot a_{11}\cdot a_{21}=0
+$$
+2. $(\rightarrow)$ Aus $\det{A}=0$ folgt unmittelbar $$
+  a_{11}\cdot a_{22}=a_{12}\cdot a_{21}
+$$ Sind linke (und damit rechte) Seite ungleich Null, so folgt hieraus $$
+  \frac{a_{11}}{a_{12}}=\frac{a_{21}}{a_{22}}=\mu\in\mathbb{R}\setminus0\quad\leftrightarrow\quad s_1=\mu\cdot s_2
+$$ d. h. die Spaltenvektoren $\{s_1,s_2\}$ sind linear abhängig. Analog ist die lineare Abhängigkeit im Fall 'gleich Null' zu diskutieren.  $\square$
+
+**Bemerkung 2.** Satz 1 lässt sich in gleicher Weise unter Benutzung der Zeilenvektoren der Matrix $$
+  A=\left(a_{ij}\right)_{i=1,2\;,\;j=1,2}
+$$ das heißt unter Verwendung von $$
+  z_1=\begin{pmatrix} a_{11} & a_{12} \end{pmatrix}\quad\text{und}\quad
+  z_2=\begin{pmatrix} a_{21} & a_{22} \end{pmatrix}
+$$ formulieren und beweisen: Es gilt $$
+    \det{A}=0\quad\leftrightarrow\quad \{z_1,z_2\} \;\text{linear abhängig}
+$$
+
+**Beispiel 3.** Unter Benutzung von Satz 1 ist zu begründen:
+
+1. $$ \det{\begin{pmatrix} 1 & 5 \\ 0 & 0 \end{pmatrix}}=0 $$ da für die Zeilen- bzw. Spaltenvektoren gelten: $$
+  \left\{\begin{pmatrix} 1 & 5 \end{pmatrix}, \begin{pmatrix} 0 & 0 \end{pmatrix}\right\}\quad\text{bzw.}\quad
+  \left\{\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 5 \\ 0 \end{pmatrix}\right\}
+$$ sind jeweils linear abhängig.
+2. $$ \det{\begin{pmatrix} 4 & 2 \\ 8 & 4 \end{pmatrix}}=0 $$ da für die Zeilen- bzw. Spaltenvektoren gelten: $$
+  \left\{\begin{pmatrix} 4 & 2 \end{pmatrix}, \begin{pmatrix} 8 & 4 \end{pmatrix}\right\}\quad\text{bzw.}\quad
+  \left\{\begin{pmatrix} 4 \\ 8 \end{pmatrix}, \begin{pmatrix} 2 \\ 4 \end{pmatrix}\right\}
+$$ sind jeweils linear abhängig.
+3. $$ \det{\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}}=0 $$ da für die Zeilen- bzw. Spaltenvektoren gelten: $$
+  \left\{\begin{pmatrix} 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \end{pmatrix}\right\}\quad\text{bzw.}\quad
+  \left\{\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \end{pmatrix}\right\}
+$$ sind jeweils linear abhängig (Einer der beiden Vektoren ist jeweils der Nullvektor).
+
+
+Rechenregeln
+------------
+
+>**Satz 2.** Es bezeichne $$  
+  A=\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}=
+  \begin{pmatrix} s_{1} & s_{2} \end{pmatrix}\in K^{2,2}
+$$ eine zweireihige Matrix über $K$ mit den Spaltenvektoren $s_1$, $s_2$. Dann gelten die folgenden Rechenregeln:
+>
+>1. $$ \det{A}=\det{A^\top} $$
+>2. Durch einmaliges Tauschen beider Spalten wird die Determinante mit dem Faktor 'Minus Eins' multipliziert $$
+  \det{A}=-\det{B} \quad\text{mit}\quad B=\begin{pmatrix} s_{2} & s_{1} \end{pmatrix}
+$$
+>3. Wird eine der Spaltenvektoren der Matrix $A$ mit dem Faktor $\lambda\in K$ multipliziert, so ändert sich die Determinante mit dem Faktor $\lambda$ $$
+  \lambda\cdot\det{A}=\det{C}\quad\text{mit}\quad C=\begin{pmatrix} \lambda\cdot s_{1} & s_{2} \end{pmatrix}\quad\text{bzw.}\quad C=\begin{pmatrix} s_{1} & \lambda\cdot s_{2} \end{pmatrix}
+$$
+>4. Wird zu einem der Spaltenvektoren der Matrix $A$ ein Vielfaches des anderen Spaltenvektors von $A$ addiert, so ändert sich die Determinante von $A$ nicht, d. h. $$
+  \det{A}=\det{D}\quad\text{mit}\quad D=\begin{pmatrix} s_{1}+\mu\cdot s_2 & s_{2} \end{pmatrix}\quad\text{bzw.}\quad D=\begin{pmatrix} s_{1} & s_{2}+\mu\cdot s_1  \end{pmatrix}
+$$ für beliebige Skalare $\mu\in K$.
+
+Der Beweis der vorstehenden Aussagen kann leicht unter Benutzung der Definition der Determinante zweiter Ordnung einer zweireihigen Matrix geführt werden. Das direkte 'Nachrechnen' ist eine Übungsaufgabe.
+
+Eine Kontrolle der Aussagen kann nachfolgend unter Verwendung der Javascript Bibliothek [Algebrite](http://algebrite.org/) vorgenommen werden.
+
+```javascript
+A=[[a,b],[c,d]]
+det(A)-det(transpose(A))
+B=[A[2],A[1]]
+det(B)+det(A)
+C=[lambda*A[1],A[2]]
+simplify(det(C)/det(A))
+D=[A[1]+mu*A[2],A[2]]
+det(D)-det(A)
+```
+@Algebrite.eval
+
+**Bemerkung 3.** Mit der ersten Aussage des vorstehenden Satzes gelten die für Spaltenvektoren formulierten Aussagen sinngemäß auch für Zeilenvektoren in $$  
+  A=\begin{pmatrix} z_{1} & z_{2} \end{pmatrix}^\top\in K^{2,2}\quad\text{mit}\quad
+  z_1=\begin{pmatrix} a_{11} \\ a_{12} \end{pmatrix}\,,\quad
+  z_2=\begin{pmatrix} a_{21} \\ a_{22} \end{pmatrix}
+$$
+
+>**Satz 3.** Für beliebige Matrizen $A\in K^{2,2}$ und $B\in K^{2,2}$ gilt $$
+  \det{A}\cdot\det{B}=\det{(A\cdot B)}
+$$ Diese Aussage wird **Multiplikationssatz** für Determinanten (zweiter Ordnung) genannt.
+
+Der Multiplikationssatz kann nachfolgend unter Verwendung der Javascript Bibliothek [Algebrite](http://algebrite.org/) verifiziert werden.
+
+```javascript
+A=[[a11,a12],[a21,a22]]
+B=[[b11,b12],[b21,b22]]
+C=inner(A,B)
+det(C)-det(A)*det(B)
+```
+@Algebrite.eval
+
+**Beweis.** Für zwei Matrizen $A\in K^{2,2}$ und $B\in K^{2,2}$ mit $$
+  A=\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}\quad\text{und}\quad
+  B=\begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{pmatrix}
+$$ berechnen sich einerseits die Determinanten unmittelbar zu $$
+  \det{A}=a_{11}\cdot a_{22}-a_{21}\cdot a_{12}\quad\text{und}\quad
+  \det{B}=b_{11}\cdot b_{22}-b_{21}\cdot b_{12}
+$$ Andererseits berechnet sich die Produktmatrix $$
+  C=A\cdot B=\begin{pmatrix}
+      a_{11}\cdot b_{11}+a_{12}\cdot b_{21} &
+      a_{11}\cdot b_{12}+a_{12}\cdot b_{22} \\
+      a_{21}\cdot b_{11}+a_{22}\cdot b_{21} &
+      a_{21}\cdot b_{12}+a_{22}\cdot b_{22} \\
+     \end{pmatrix}
+$$ und mithin die Determinante $$
+\begin{array}{rl}
+  \det{C} & =\left(a_{11}\cdot b_{11}+a_{12}\cdot b_{21}\right)\cdot
+  \left(a_{21}\cdot b_{12}+a_{22}\cdot b_{22}\right) \\
+  & -\left(a_{21}\cdot b_{11}+a_{22}\cdot b_{21}\right)\cdot\left(a_{11}\cdot b_{12}+a_{12}\cdot b_{22}\right)\\
+  & = a_{11}\cdot a_{22}\cdot\left(b_{11}\cdot b_{22}-b_{21}\cdot b_{12}\right) + a_{12}\cdot a_{21}\cdot\left(b_{21}\cdot b_{12}-b_{11}\cdot b_{22}\right) \\
+  & + a_{11}\cdot a_{21}\cdot\left(b_{11}\cdot b_{12}-b_{11}\cdot b_{12}\right) + a_{12}\cdot a_{22}\cdot\left(b_{21}\cdot b_{22}-b_{21}\cdot b_{22}\right) \\
+  & = \det{A}\cdot\det{B}
+\end{array}
+$$ $\square$
+
+**Beispiel 4.** Für die beiden reellen Matrizen $$
+  A=\begin{pmatrix} 1 & 4 \\ 5 & -2 \end{pmatrix}\quad\text{und}\quad
+  B=\begin{pmatrix} -2 & -3 \\ 4 & 1 \end{pmatrix}
+$$ ist die Determinante $\det{A\cdot B}$ zu berechnen.
+
+1. Es berechnen sich schrittweise $$
+  \det{A}=1\cdot(-2)-5\cdot 4=-22\quad\text{und}\quad
+  \det{B}=(-2)\cdot 1-(-3)\cdot 4=10
+$$ Unter Benutzung des Multiplikationssatzes für Determinanten ergibt sich schließlich $$
+  \det{(A\cdot B)}=\det{A}\cdot\det{B}=-220
+$$
+2. Alternativ lässt sich zunächst das Produkt $$
+  A\cdot B=
+  \begin{pmatrix} 1 & 4 \\ 5 & -2 \end{pmatrix}\cdot\begin{pmatrix} -2 & -3 \\ 4 & 1 \end{pmatrix}=\begin{pmatrix} 14 & 1 \\ -18 & -17 \end{pmatrix}
+$$ berechnen. Hiermit berechnet sich die Determinante $$
+  \det{(A\cdot B)}=14\cdot (-17)-(-18)\cdot 1=-220
+$$
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Entscheiden Sie möglichst ohne direkte Berechnung, welche der nachstehenden Determinanten zweiter Ordnung Null beziehungsweise von Null verschieden ist.[^2]
+
+[[$\det{A}=0$] [$\det{A}\not=0$]]
+[( ) (X)]  $$ A=\begin{pmatrix} 2 & 1 \\ -1 & 2 \end{pmatrix} $$
+[(X) ( )]  $$ A=\begin{pmatrix} 2 & 1 \\ 4 & 2 \end{pmatrix} $$
+[[?]] Nutzen Sie zur Entscheidung Satz 1 sowie Beispiel 3.
+****************************************
+
+1. $$ \det{\begin{pmatrix} 2 & 1 \\ -1 & 2 \end{pmatrix}}\not=0 $$ da für die Zeilen- bzw. Spaltenvektoren gelten: $$
+  \left\{\begin{pmatrix} 2 & 1 \end{pmatrix}, \begin{pmatrix} -1 & 2 \end{pmatrix}\right\}\quad\text{bzw.}\quad
+  \left\{\begin{pmatrix} 2 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ 2 \end{pmatrix}\right\}
+$$ sind jeweils linear unabhängig.
+2. $$ \det{\begin{pmatrix} 2 & 1 \\ 4 & 2 \end{pmatrix}}=0 $$ da für die Zeilen- bzw. Spaltenvektoren gelten: $$
+  \left\{\begin{pmatrix} 2 & 1 \end{pmatrix}, \begin{pmatrix} 4 & 2 \end{pmatrix}\right\}\quad\text{bzw.}\quad
+  \left\{\begin{pmatrix} 2 \\ 4 \end{pmatrix}, \begin{pmatrix} 1 \\ 2 \end{pmatrix}\right\}
+$$ sind jeweils linear abhängig.
+
+****************************************
+
+**Frage 2.** Gegeben sind die reellen zweireihigen Matrizen $A$, $B$ und $C$ sowie der Skalar $\lambda\in\mathbb{R}$ .
+
+Entscheiden Sie, welche der folgenden Aussage korrekt bzw. falsch sind.
+
+[[Wahr] [Falsch]]
+[(X) ( )]  $$ \det{(\lambda\cdot A)}=\lambda^2\cdot \det{A} $$
+[( ) (X)]  $$ \det{(\lambda\cdot A)}=\lambda\cdot \det{A} $$
+[( ) (X)]  $$ \det{(A+B)}=\det{A}+\det{B} $$
+[(X) ( )]  $$ \det{(A\cdot B)\cdot C}=\det{A}\cdot\det{B}\cdot\det{C} $$
+[[?]] Nutzen Sie die Regeln für das Rechnen mit Determinanten. Durch ein Gegenbeispiel kann nachgewiesen werden, dass eine Aussage falsch ist.
+****************************************
+
+Für die Gültigkeit der ersten Aussage kann die Spaltenvektordarstellung der Matrix $A$ genutzt werden $$
+  \det{(\lambda\cdot A)}=\det{\begin{pmatrix} \lambda\cdot s_1 & \lambda\cdot s_2\end{pmatrix}}
+  =\lambda\cdot\det{\begin{pmatrix} s_1 & \lambda\cdot s_2\end{pmatrix}}
+  =\lambda^2\cdot\det{\begin{pmatrix} s_1 & s_2\end{pmatrix}}
+  =\lambda^2\cdot\det{A}
+$$ Die Determinante des $\lambda$-fachen einer ~~zweireihigen~~ Matrix ist gleich dem $\lambda^2$-fachen der Determinante von $A$. Die zweite Aussage ist in diesem Kontext also falsch für alle Parameter $\lambda\not\in\{0,1\}$. Siehe Satz 2 (3.) in diesem Abschnitt.
+
+Die dritte Aussage ist falsch, wie man sofort erkennt für $A=E$ und $B=-E$ mit zweireihiger Einheitsmatrix $E$, denn $$
+  0=\det{O}=\det{(E+(-E))}\not=\det{E}+\det{((-1)\cdot E)}=\det{E}+(-1)^2\cdot\det{E}=2
+$$
+
+Die Gültigkeit der letzten Aussage folgt sofort aus dem Multiplikationssatz für Determinanten unter Benutzung der Assoziativität des Matrixproduktes. Siehe Satz 3 in diesem Abschnitt.
+
+****************************************
+
+[^1]: Bitte die Produkte $E=B\cdot A$ und $B\cdot b$ berechnen. Die Matrix $B$ wird im Fall ihrer Existenz zu $A$ *invers* genannt.
+
+[^2]: Vergleiche Beispiel 1.
+
+### Lineare Gleichungssysteme
