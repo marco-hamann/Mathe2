@@ -3706,6 +3706,245 @@ $$ berechnen. Hiermit berechnet sich die Determinante $$
   \det{(A\cdot B)}=14\cdot (-17)-(-18)\cdot 1=-220
 $$
 
+
+Determinanten dritter Ordnung
+=============================
+
+Im Zusammenhang der Untersuchung der Lösbarkeit von Systemen linearer Gleichungen der Form $A\cdot x=b$ mit $$
+  A=\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\in\mathbb{R}^{3,3}\,,\quad
+  x=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\in\mathbb{R}^{3}\quad\text{bzw.}\quad
+  b=\begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}\in\mathbb{R}^{3}
+$$ soll analog zu Beispiel 2 eine Matrix $B\in\mathbb{R}^{3,3}$ ermittelt werden, die $$
+  x=E\cdot x=(\textcolor{magenta}{B}\cdot A)\cdot x=\textcolor{magenta}{B}\cdot (A\cdot x)= \textcolor{magenta}{B}\cdot b
+$$ erfüllt, worin $E$ die dreireihige Einheitsmatrix bezeichnet. der Lösungsvektor $x=B\cdot b$ kann - falls die Matrix $B$ existiert - eindeutig als Matrixprodukt berechnet werden.
+
+```javascript
+A=[[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]]
+B=inv(A)
+inner(A,B)
+B[1][1]
+denominator(B[1][1])
+det(A)-denominator(B[1][1])
+```
+@Algebrite.eval
+
+>**Definition 2.** Für eine Matrix $A\in\mathbb{K}^{3,3}$ mit der Komponentendarstellung $$
+  A=\left(a_{ij}\right)_{i=1,...,3\,,\; j=1,...,3}
+$$ heißt $\det{A}\in K$ mit $$
+  \begin{array}{rcl}
+    \det{A} & = &
+      a_{11}\cdot a_{22}\cdot a_{33}
+      +a_{12}\cdot a_{23}\cdot a_{31}
+      +a_{13}\cdot a_{21}\cdot a_{32} \\
+      & - & a_{13}\cdot a_{22}\cdot a_{31}
+      -a_{11}\cdot a_{23}\cdot a_{32}
+      -a_{12}\cdot a_{21}\cdot a_{33}
+  \end{array}
+$$ *Determinante dritter Ordnung* von $A$.
+
+Das **Rechenschema von Sarrus** bietet eine visuelle Unterstützung, die Determinante einer dreireihigen Matrix zu  berechnen.
+
+1. Die ersten drei Summanden zur Berechnung der Determinante $$
+  \begin{array}{rcl}
+    \det{A} & = &
+      \textcolor{magenta}{a_{11}\cdot a_{22}\cdot a_{33}}
+      +\textcolor{pink}{a_{12}\cdot a_{23}\cdot a_{31}}
+      +\textcolor{blue}{a_{13}\cdot a_{21}\cdot a_{32}} \\
+      & - & a_{13}\cdot a_{22}\cdot a_{31}
+      -a_{11}\cdot a_{23}\cdot a_{32}
+      -a_{12}\cdot a_{21}\cdot a_{33}
+  \end{array}
+$$ entsprechen den Produkten in dem rechteckig erweiterten Schema der Komponenten der Matrix $A$ $$
+  \begin{array}{|rrr|rr}
+    \textcolor{magenta}{a_{11}} & \textcolor{pink}{a_{12}} & \textcolor{blue}{a_{13}} & a_{11} & a_{12} \\
+    a_{21} & \textcolor{magenta}{a_{22}} & \textcolor{pink}{a_{23}} & \textcolor{blue}{a_{21}} & a_{22} \\
+    a_{31} & a_{32} & \textcolor{magenta}{a_{33}} & \textcolor{pink}{a_{31}} & \textcolor{blue}{a_{32}}
+  \end{array}
+$$
+2. Die letzten drei Subtrahenden zur Berechnung der Determinante $$
+  \begin{array}{rcl}
+    \det{A} & = &
+      a_{11}\cdot a_{22}\cdot a_{33}
+      +a_{12}\cdot a_{23}\cdot a_{31}
+      +a_{13}\cdot a_{21}\cdot a_{32} \\
+      & - & \textcolor{brown}{a_{13}\cdot a_{22}\cdot a_{31}}
+      -\textcolor{orange}{a_{11}\cdot a_{23}\cdot a_{32}}
+      -\textcolor{red}{a_{12}\cdot a_{21}\cdot a_{33}}
+  \end{array}
+$$ entsprechen den Produkten in dem rechteckig erweiterten Schema der Komponenten der Matrix $A$ $$
+  \begin{array}{|rrr|rr}
+    a_{11} & a_{12} & \textcolor{brown}{a_{13}} & \textcolor{orange}{a_{11}} & \textcolor{red}{a_{12}} \\
+    a_{21} & \textcolor{brown}{a_{22}} & \textcolor{orange}{a_{23}} & \textcolor{red}{a_{21}} & a_{22} \\
+    \textcolor{brown}{a_{31}} & \textcolor{orange}{a_{32}} & \textcolor{red}{a_{33}} & a_{31} & a_{32}
+  \end{array}
+$$
+
+**Beispiel 5.** Betrachtet wird die nachstehende Gleichung in den Unbekannten $x$ und $y$ $$
+  \det{
+    \left(\begin{array}{rrr}
+      x & y & 1 \\ x_1 & y_1 & 1 \\ x_2 & y_2 & 1
+    \end{array}\right)
+  }=x\cdot(y_1-y_2)+y\cdot(x_2-x_1)+(x_1\cdot y_2-x_2\cdot y_1)=0
+$$ worin $x_i\in\mathbb{R}$ und $y_i\in\mathbb{R}$ mit $i\in\{1,2\}$ und $$
+  (x_1-x_2)^2+(y_1-y_2)^2\not=0
+$$ reelle Parameter bezeichnen. Werden $(x_i,y_i)$ als kartesische Koordinaten zweier verschiedener (!) Punkte interpretiert, so lassen die Lösungen $(x,y)$ der vorstehenden Gleichung sich als geometrischer Ort interpretieren.
+
+1. Die Gleichung ist linear in den Unbekannten $(x,y)$, beschreibt demnach eine Gerade $g$ in der Ebene.
+2. Die lineare Gleichung ist erfüllt für $$
+  (x,y)=(x_1,y_1)\quad\text{und}\quad (x,y)=(x_2,y_2)
+$$ da nach Substitution die Matrix in obiger Gleichung jeweils zwei identische (und somit linear abhängige) Zeilen besitzt, demnach die Determinante Null besitzt. Hieraus folgt, dass die Gerade $g$ die Punkte $P_1(x_1,y_1)$ und $P_2(x_2,y_2)$ enthält, sie wird also als deren Verbindungsgerade erkannt.
+
+Ist $x_2-x_1\not=0$, kann die Gleichung äquivalent umgeformt werden in die Form $$
+  y=m\cdot x+n:=\frac{y_2-y_1}{x_2-x_1}\cdot x-\frac{x_1\cdot y_2-x_2\cdot y_1}{x_2-x_1}
+$$ Der Anstieg $m$ und das Absolutglied $$
+  n=-\frac{x_1\cdot y_2-x_2\cdot y_1}{x_2-x_1}\quad\leftrightarrow\quad
+  \frac{n-y_1}{n-y_2}=\frac{x_1}{x_2}\quad\text{bzw.}\quad
+  \frac{n-y_2}{n-y_1}=\frac{x_2}{x_1}
+$$ lassen sich in der nachstehenden Abbildung ablesen.
+
+![Gerade](img/mat-bild-7.png "_Fig._ Verbindungsgerade $g=P_1P_2$ zweier Punkte mit Anstiegsdreieck und Strahlensatzfigur zur Bestimmung des Absolutgliedes $n$.")
+
+Ebenso lassen sich Ebenen als Verbindungsebenen dreier Punkte durch Determinantengleichungen beschreiben.
+
+>**Satz 4.** Die Sätze 1, 2 und 3 gelten sinngemäß auch für Determinanten dritter Ordnung.
+
+>**Definition 3.** Gegeben sei eine Matrix $A\in K^{3,3}$ mit Komponentendarstellung $$
+  A=\left(a_{ij}\right)_{i=1,...,3\,,\; j=1,...,3}
+$$ Determinante dritter Ordnung $\det{A}\in K$.
+>
+>Dann bezeichnet $D_{ij}$ die gebildete *Unterdeterminante* zweiter Ordnung der aus $A$ durch Streichen der $i$-ten Zeile und der $j$-ten Spalte resultierenden Matrix.
+>
+> Der Ausdruck $$
+  A_{ij}=(-1)^{i+j}\cdot D_{ij}
+$$ heißt *algebraisches Komplement* von $a_{ij}$.
+
+Es können insgesamt neun Unterdeterminanten zweiter Ordnung einer Matrix $A\in K^{3,3}$ gebildet werden. $$
+  D_{11}\sim a_{11}\,,\quad D_{12}\sim a_{12}\,,\quad\ldots\quad, D_{33}\sim a_{33}
+$$ Beispielsweise berechnen sich $$
+  D_{23}=\det{\left(\begin{array}{rr} a_{11} & a_{12} \\ a_{31} & a_{32} \end{array}\right)}\quad\leftrightarrow\quad
+  \begin{pmatrix} a_{11} & a_{12} & \textcolor{magenta}{a_{13}} \\ \textcolor{magenta}{a_{21}} & \textcolor{magenta}{a_{22}} & \textcolor{magenta}{a_{23}} \\ a_{31} & a_{32} & \textcolor{magenta}{a_{33}} \end{pmatrix}\quad\sim\quad a_{23}
+$$ und somit $$
+  A_{23}=(-1)^{2+3}\cdot D_{23}=-\det{\left(\begin{array}{rr} a_{11} & a_{12} \\ a_{31} & a_{32} \end{array}\right)}
+$$
+
+Die Determinante $\det{A}$ lässt sich durch algebraische Komplemente darstellen, beispielsweise $$
+  \begin{array}{rcl}
+    \det{A} & = &
+      a_{11}\cdot (a_{22}\cdot a_{33}-a_{23}\cdot a_{32})+
+      a_{12}\cdot (a_{23}\cdot a_{31}-a_{21}\cdot a_{33})+
+      a_{13}\cdot (a_{21}\cdot a_{32}-a_{22}\cdot a_{31}) \\
+      & = & a_{11}\cdot A_{11}+a_{12}\cdot A_{12}+a_{13}\cdot A_{13}
+  \end{array}
+$$ Man sagt, die Determinante ist entwickelt nach (den Komponenten) der ersten Zeile.
+
+>**Satz 5.** Sei $A\in K^{3,3}$ mit Komponentendarstellung $$
+  A=\begin{pmatrix} a_{ij} \end{pmatrix}_{i=1,...,3\,,\;j=1,...,3}
+$$ und Determinante $\det{A}\in K$.
+>
+> Dann berechnet sich
+>
+>1. $$ \det{A}=\sum_{i=1}^3{(a_{ik}\cdot A_{ik})}\,,\quad k\in\{1,2,3\} $$ durch Entwicklung nach der $k$-ten Spalte.
+>2. $$ \det{A}=\sum_{k=1}^3{(a_{ik}\cdot A_{ik})}\,,\quad i\in\{1,2,3\} $$ durch Entwicklung nach der $i$-ten Zeile.
+>
+>Diese Aussage wird *Entwicklungssatz von Laplace* genannt. (Ohne Nachweis.)
+
+**Beispiel 6.** Gegeben ist die Matrix $$
+  A=\begin{pmatrix} 1 & -5 & 3 \\ 4 & 0 & 2 \\ 3 & 6 & -7 \end{pmatrix}
+$$
+Durch Entwicklung von $\det{A}$ nach der ersten Zeile ergibt sich $$
+  \begin{array}{rcl}
+  \det{A} & = &
+  1\cdot(-1)^{1+1}\cdot \det{\begin{pmatrix} 0 & 2 \\ 6 & -7 \end{pmatrix}}+
+  (-5)\cdot(-1)^{1+2}\cdot \det{\begin{pmatrix} 4 & 2 \\ 3 & -7 \end{pmatrix}}+
+  3\cdot(-1)^{1+3}\cdot \det{\begin{pmatrix} 4 & 0 \\ 3 & 6 \end{pmatrix}} \\ & = &
+  -12+5\cdot(-34)+3\cdot 24 \\
+  & = & -110
+  \end{array}
+$$ Wird hingegen beispielsweise nach der zweiten Spalte entwickelt, sind ~~nur~~ zwei Unterdeterminanten zweiter Ordnung von $A$ zu berechnen. $$
+  \begin{array}{rcl}
+  \det{A} & = &
+  (-5)\cdot(-1)^{1+2}\cdot \det{\begin{pmatrix} 4 & 2 \\ 3 & -7 \end{pmatrix}} +
+  0\cdot(-1)^{2+2}\cdot \det{\begin{pmatrix} 1 & 3 \\ 3 & -7 \end{pmatrix}} + 6\cdot(-1)^{3+2}\cdot \det{\begin{pmatrix} 1 & 3 \\ 4 & 2 \end{pmatrix}} \\ & = &
+  5\cdot(-34)+0-6\cdot (-10) \\
+& = & -110
+\end{array}
+$$
+
+Eine Kontrolle des Ergebnisses kann unter Verwendung der Javascript Bibliothek [Algebrite](http://algebrite.org/) vorgenommen werden.
+
+```javascript
+A=[[1,-5,3],[4,0,2],[3,6,-7]]
+det(A)
+```
+@Algebrite.eval
+
+
+Determinanten $n$-ter Ordnung
+=============================
+
+Gegeben ist eine $n$-reihige Matrix $A\in K^{n,n}$ mit der Komponentendarstellung $$
+ A=\left(
+  \begin{array}{ccc} a_{11} & \ldots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_{n1} & \ldots & a_{nn} \end{array}
+ \right) = \left( a_{ij} \right)_{i=1,...,n\,,\; j=1,...,n}\quad\text{mit}\quad n\in\mathbb{N}\setminus\{0\}
+$$ Es lässt sich rekursiv der Wert der Determinante $n$-ter Ordnung $\det{A}$ berechnen $$
+  \det{A} =\sum_{j=1}^n{a_{1j}\cdot A_{1j}}=a_{11}\cdot A_{11}+a_{12}\cdot A_{12}+\ldots +a_{1n}\cdot A_{1n}
+$$ worin $$
+  A_{1j}=(-1)^{1+j}\cdot D_{1j}
+$$  das algebraische Komplement zu $a_{1j}$ und $D_{1j}$ Unterdeterminante $(n-1)$-ter Ordnung sind.
+
+**Beispiel 7.** Zu berechnen ist die nachstehende Determinante der Matrix $A$. $$
+\det{\left(
+  \begin{array}{rrrr}
+   \textcolor{blue}{2} & \textcolor{blue}{1} & \textcolor{blue}{3} & \textcolor{blue}{0} \\ 1 & -1 & 4 & 4 \\ 4 & 2 & 4 & -2 \\ -1 & 3 & 1 & -1
+  \end{array}
+  \right)}
+$$ Unter Anwendung des Laplaceschen Entwicklungssatzes bezogen auf die erste Zeile[^3] berechnet sich die Determinante $$
+  \begin{array}{rcl}
+  \det{A} & = & \textcolor{blue}{2}\cdot(-1)^{1+1}\cdot \det{\left(\begin{array}{rrr} -1 & 4 & 4 \\ 2 & 4 & -2 \\ 3 & 1 & -1\end{array}\right)}
+  + \quad\textcolor{blue}{1}\cdot(-1)^{1+2}\cdot \det{\left(\begin{array}{rrr} 1 & 4 & 4 \\ 4 & 4 & -2 \\ -1 & 1 & -1\end{array}\right)} \\
+  & + & \quad\textcolor{blue}{3}\cdot(-1)^{1+3}\cdot \det{\left(\begin{array}{rrr} 1 & -1 & 4 \\ 4 & 2 & -2 \\ -1 & 3 & -1\end{array}\right)}
+  + \quad\textcolor{blue}{0}\cdot(-1)^{1+4}\cdot \det{\left(\begin{array}{rrr} 1 & -1 & 4 \\ 4 & 2 & 4 \\ -1 & 3 & 1\end{array}\right)} \\
+  & = & -108-54+162 = 0
+\end{array}
+$$ Dieses Ergebnis bestätigt sich unter der Beobachtung dass für die Spaltenvektordarstellung von $$
+  A=\begin{pmatrix} s_1 & s_2 & s_3 & s_4 \end{pmatrix}
+$$ gilt $s_1+s_2-s_3+s_4=o$ (Nullvektor), die Spalten mithin linear abhängig sind.
+
+
+Rechenregeln
+------------
+
+Für Determinanten $n$-ter Ordnung lassen sich die für $n=2$ und $n=3$ bekannten Rechenregeln beweisen.
+
+>**Satz 6.** Gegeben sind eine $n$-reihige Matrix $A\in K^{n,n}$ mit der Spaltenvektordarstellung $$
+  A=\left(
+ \ldots \textcolor{magenta}{s_i}\ldots \textcolor{blue}{s_j}\ldots\,
+ \right)\quad\text{wobei}\quad {s_i},{s_j}\in\mathbb{R}^n\quad\forall i,j\in\{1,\ldots,n\}
+$$ sowie $\lambda,\nu\in K$. Es gelten:
+>
+>1. Die *Transposition* der Matrix $A\rightarrow A^\top$ transformiert die Determinante gemäß $$
+  \det{A}=\det{A^\top}
+$$
+>2. Das *Vertauschen zweier Spalten* $$
+  A\rightarrow\left(\ldots \textcolor{blue}{s_j}\ldots \textcolor{magenta}{s_i}\ldots\right)=:B
+$$ transformiert die Determinante gemäß $$
+  \det{A}=-\det{B}
+$$
+>3. Das *Addieren des Vielfachen einer anderen Spalte* $$
+  A\rightarrow\left(\ldots \textcolor{magenta}{s_i}+\nu\cdot \textcolor{blue}{s_j}\ldots \textcolor{blue}{s_j}\ldots\right)=:C
+$$ transformiert die Determinante gemäß $$
+  \det{A}=\det{C}
+$$
+>4. Die *Vielfachbildung* einer Spalte $$
+  A\rightarrow\left(\ldots \lambda\cdot\textcolor{magenta}{s_i}\ldots \textcolor{blue}{s_j}\ldots\right)=:D
+$$ transformiert die Determinante gemäß $$
+  \det{A}=\lambda\cdot\det{D}
+$$
+>5. Für die Matrix $A$ und jede weitere Matrix $B\in K^{n,n}$ gilt stets der Multiplikationssatz $$
+  \det{(A\cdot B)}=\det{A}\cdot\det{B}
+$$
+
+
 Sicher gewusst?
 ===============
 
@@ -3758,5 +3997,7 @@ Die Gültigkeit der letzten Aussage folgt sofort aus dem Multiplikationssatz fü
 [^1]: Bitte die Produkte $E=B\cdot A$ und $B\cdot b$ berechnen. Die Matrix $B$ wird im Fall ihrer Existenz zu $A$ *invers* genannt.
 
 [^2]: Vergleiche Beispiel 1.
+
+[^3]: Der Wert der Determinante ändert sich nicht, falls anstelle  der ersten Zeile nach $i$-ter Zeile bzw. $j$-ter Spalte entwickelt wird.
 
 ### Lineare Gleichungssysteme
