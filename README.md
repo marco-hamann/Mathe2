@@ -4388,6 +4388,42 @@ $$ In diesem Fall sind die Lösungsvariablen $x_{r+1}$, ..., $x_n$ frei wählbar
 $$
 
 
+Sicher gewusst?
+===============
+
+**Frage 1.** Entscheiden Sie, welches der nachstehenden Systeme von Gleichungen ein System linearer Gleichungen ist. In allen drei Systemen wird $$
+  a_{ij}\in K\quad\text{bzw.}\quad b_i\in K
+$$ für die Koeffizienten beziehungsweise Absolutglieder angenommen.
+
+[[X]] $$ \begin{array}{ccccccc} a_{11}\cdot x_1 & + & ... & + & a_{1n}\cdot x_1 & = & b_1 \\ \vdots & & & & \vdots & = & \vdots \\ a_{n1}\cdot x_n & + & ... & + & a_{nn}\cdot x_n & = & b_n \end{array} $$
+[[X]] $$ \begin{array}{ccccccc} a_{11}\cdot x_{11} & + & ... & + & a_{1n}\cdot x_{1n} & = & b_1 \\ \vdots & & & & \vdots & = & \vdots \\ a_{n1}\cdot x_{n1} & + & ... & + & a_{nn}\cdot x_{nn} & = & b_n \end{array} $$
+[[X]] $$ \begin{array}{ccccccc} a_{11}\cdot x_1 & + & ... & + & a_{1n}\cdot x_n & = & b_1 \\ \vdots & & & & \vdots & = & \vdots \\ a_{n1}\cdot x_1 & + & ... & + & a_{nn}\cdot x_n & = & b_n \end{array} $$
+[[?]] Untersuchen Sie zeilenweise die Lösungsvariablen. Geben Sie, falls möglich, den Typ des Systems linearer Gleichungen an.
+****************************************
+
+Das erste Gleichungssystem besteht aus linearen Gleichungen, jedoch hängt jede der Gleichungen nur von genau einer Variablen $x_i$ ab. Werden in den linken Seiten $x_i$ ausgeklammert, so erkennt man, dass die Koeffizientenmatrix eine Diagonalmatrix mit den Komponenten $$
+  \sum_{j=1}^n{a_{ij}}\quad i\in\{1,...,n\}
+$$ ist. Das Gleichungssystem ist vom Typ $(n,n)$.
+
+Das zweite Gleichungssystem besteht aus linearen Gleichungen, jedoch hängt jede der Gleichungen nur von genau $n$ Variablen $x_{ij}$ ab, worin der Index $i$ die Nummer der Gleichung bezeichnet. Das Gleichungssystem ist vom Typ $\left(n,n^2\right)$, besitzt also deutlich mehr Unbekannte als Gleichungen.
+
+Das dritte Gleichungssystem entspricht der üblichen allgemeinen Darstellung linearer Gleichungssysteme vom Typ $(n,n)$.
+
+****************************************
+
+**Frage 2.** Sei $A\in K^{n,n}$ mit $\det{A}=0$. Dann ist das lineare Gleichungssystem $A\cdot x=b$ mit $x\in K^{n,1}$
+
+[( )] Nur lösbar für $b=0$.
+[(X)] Lösbar nur für manche Vektoren $b$, jedoch für keines der Vektoren $b$ eindeutig lösbar.
+[( )] Lösbar für alle Vektoren $b$, jedoch nicht unbedingt eindeutig lösbar.
+****************************************
+
+Für den Nachweis der Gültigkeit der zweiten Aussage ist zu beachten, dass aus $\det{A}$ die Aussage $\mathrm{rg}{A}<n$ folgt. Nach Satz 3 ist das Gleichungssystem dann und nur dann lösbar, wenn $\mathrm{rg}{A}=\mathrm{rg}{(A|b)}$ gilt. Für den Lösungsraum gilt in diesem Fall $\dim{L}=n-\mathrm{rg}{A}>0$.
+
+Zur Widerlegung der anderen Aussagen reicht es, ein Gegenbeispiel anzugeben.
+
+****************************************
+
 
 [^1]: Quelle: Lothar Papula, Mathematik für Ingenieure und Naturwissenschaftler, Band 2, Seite 5.
 
