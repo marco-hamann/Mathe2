@@ -4387,11 +4387,137 @@ $$ In diesem Fall sind die Lösungsvariablen $x_{r+1}$, ..., $x_n$ frei wählbar
   \dim{L}=n-\mathrm{rg}{A}
 $$
 
+**Bemerkung 1.** Für die Untersuchung der Lösbarkeit eines linearen Gleichungssystems mit rationalen Koeffizienten sowie die Berechnung dessen Lösungsmenge kann die Website [Gauß-Verfahren](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/13723271171/CourseNode/95364212454741?5) genutzt werden. Gleichungssysteme können unter Wahl des Typs und Angabe der rationalen Koeffizienten und Absolutglieder interaktiv gestellt und automatisch berechnet werden.
+
+**Bemerkung 2.** Für eine System linearer Gleichungen $A\cdot x=b$ vom Typ $(n,n)$ gilt $$
+  \mathrm{rg}{A}=\mathrm{rg}{(A|b)}=n\quad\leftrightarrow\quad \det{A}=0
+$$
+
+**Beispiel 7.** Gegeben ist ein lineares Gleichungssystem $A\cdot x=b$ mit $$
+  A=\begin{pmatrix} 3 & -4 \\ -1 & 5 \\ 5 & 2 \end{pmatrix}\,,\quad
+  x=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\quad\text{und}\quad
+  b=\begin{pmatrix} 2 \\ 4 \\ 12 \end{pmatrix}
+$$ d. h. vom Typ $(3,2)$.
+
+der Rang der Koeffizientenmatrix $A$ ist 2, $\mathrm{rg}{A}=2$, da $$
+  27\cdot Z_1+26\cdot Z_2=11\cdot Z_3
+$$ für die Zeilen von $A$ gilt, diese also linear abhängig (jedoch je zwei der zeilen linear unabhängig) sind. Für die erweiterte Koeffizientenmatrix $(A|b)$ gilt diese Linearkombination nicht. Es ist $\mathrm{rg}{(A|b)}=3$. Das lineare Gleichungssystem besitzt nach Fall 1 in Satz 3 keine Lösung, da $$
+  \mathrm{rg}{A}<\mathrm{rg}{(A|b)} $$
+
+Wird im vorstehenden Gleichungssystem der anstelle des Vektors $b$ der Nullvektor $b=o$ angesetzt, so gilt $$
+  \mathrm{rg}{A}=\mathrm{rg}{(A|b)}=2
+$$ Mit $n=\mathrm{rg}{A}=2$ existiert genau eine Lösung, nämlich $x=\begin{pmatrix} 0 & 0 \end{pmatrix}^\top$. Diese bildet die *triviale Lösung* eines homogenen linearen Gleichungssystems (existiert immer!).
+
+
+Lineare Unabhängigkkeit von Vektoren
+====================================
+
+Systeme linearer Gleichungen lassen sich zur Untersuchung der linearen Unabhängigkeit von Vektoren nutzen. Für die folgenden Betrachtungen wird ein System von Vektoren aus $\mathbb{R}^m$ $$
+  \left\{ a_1,a_2,...,a_n\right\}
+$$ betrachtet. Das System ist linear unabhängig, falls die Äquivalenz $$
+  \sum_{i=1}^n{\lambda_i\cdot a_i}=o\quad\leftrightarrow\quad
+  \lambda_1=\lambda_2=...=\lambda_n=0
+$$ gilt. Der Vektor $o\in\mathbb{R}^m$ bezeichnet darin den $m$-dimensionalen Nullvektor.
+
+Die verschwindende Linearkombination der linken Seite der vorstehenden Äquivalenz bildet ein System von $m$ homogenen, linearen Gleichungen in den Komponenten der Vektoren $a_i$. Dieses gestattet eine Darstellung in Matrixform $A\cdot x=b$ mit $$
+  A=\begin{pmatrix} a_1 & a_2 & ... & a_n \end{pmatrix}\in\mathbb{R}^{m,n}\,,\quad
+  x=\begin{pmatrix} \lambda_1 & \lambda_2 & ... & \lambda_n \end{pmatrix}^\top\in\mathbb{R}^{n,1}\,,\quad
+  b=\begin{pmatrix} 0 & ... & 0 \end{pmatrix}^\top=o\in\mathbb{R}^{m,1}
+$$ Wie in Beispiel 7 folgt, dass $$
+  \mathrm{rg}{A}=\mathrm{rg}{(A|b)}
+$$ d. h. dass das Gleichungssystem eine Lösung besitzt. Folgende Fälle sind zu unterscheiden:
+
+1. Der Rang der Koeffizientenmatrix $A$ entspricht der Anzahl der Vektoren $a_i$, d. h. $\mathrm{rg}{A}=r=n$. Unter Nutzung der unterschiedenen Fälle in Satz 3 folgt, dass $A\cdot x=o$ nur die triviale Lösung $x=o$ besitzt. Demnach sind $$
+  \left\{ a_1,a_2,...,a_n\right\}
+$$ linear unabhängig.
+2. Der Rang der Koeffizientenmatrix $A$ ist kleiner als die Anzahl der Vektoren $a_i$, d. h. $\mathrm{rg}{A}=r<n$. Es folgt, dass $A\cdot x=o$ unendlich viele Lösungen besitzt: neben der trivialen Lösung $x=o$ existieren $\lambda_i\not=0$ und somit Lösungsvektoren $x\not=o$. Die Vektoren in $$
+  \left\{ a_1,a_2,...,a_n\right\}
+$$ linear abhängig.
+
+Hieraus folgt unmittelbar der folgende Satz.
+
+>**Satz 4.** Das System von Vektoren $$
+  \left\{ a_1,a_2,...,a_n\right\}\subset{\mathbb{R}^m}
+$$ ist genau dann linear unabhängig, wenn für die in Spaltenvektordarstellung gegebene Matrix $$
+  A=\begin{pmatrix} a_1 & a_2 & ... & a_n \end{pmatrix}\in\mathbb{R}^{m,n}
+$$ gilt $r=\mathrm{rg}{A}=n$.
+
+**Beispiel 8.** Gegeben ist das System dreier Vektoren aus $\mathbb{R}^4$ mit $$
+  \begin{pmatrix} a_1 & a_2 & a_3 \end{pmatrix}=
+  \left(\begin{array}{rrr}
+     1 & 0 & 3 \\ 1 & 2 & -1 \\ 1 & 1 & 1 \\ 1 & 0 & 3
+  \end{array}\right)\xrightarrow{\tiny{\begin{array}{r}
+    (Z_2-Z_1)\rightarrow Z_2 \\
+    (Z_3-Z_1)\rightarrow Z_3 \\
+    (Z_4-Z_1)\rightarrow Z_4 \end{array}}}
+  \left(\begin{array}{rrr}
+    1 & 0 & 3 \\ 0 & 2 & -4 \\ 0 & 1 & -2 \\ 0 & 0 & 0
+  \end{array}\right)\xrightarrow{\tiny{
+    (Z_3-\frac{1}{2}\cdot Z_2)\rightarrow Z_3 }}
+  \left(\begin{array}{rrr}
+    1 & 0 & 3 \\ 0 & 2 & -4 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+  \end{array}\right)
+$$ Es folgt hieraus $\mathrm{rg}{A}=2$ und somit $\mathrm{rg}{A}<3$, d. h. die Vektoren $$
+  \left\{
+      \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}\,,\;
+      \begin{pmatrix} 0 \\ 2 \\ 1 \\ 0 \end{pmatrix}\,,\;
+      \begin{pmatrix} 3 \\ -1 \\ 1 \\ 3  \end{pmatrix}
+  \right\}
+$$ sind linear abhängig. Es gilt $a_3=3\cdot a_1-2\cdot a_2$.
+
+>**Folgerung 5.** Gilt für ein System von Vektoren $$
+  \{a_1,...,a_n\}\subset\mathbb{R}^m
+$$ die Ungleichung $m<n$, solgt die lineare Abhängigkeit der Vektoren.
+
+**Beweis.** Mit Satz 4 folgt für $\mathrm{rg}{A}=r$ die Relation $r\leq m$. Aus $m<n$ folgt damit $r<n$. Die Vektoren sind also linear abhängig. $\square$
+
+**Bemerkung 3.** Ist die Anzahl der Vektoren eines Systems größer als die Dimension des sie enthaltenden Vektorraumes, so folgt die lineare Abhängigkeit der Vektoren. Sie spannen einen Untervektorraum der Dimension $r=\mathrm{rg}{A}$ auf.
+
+**Beispiel 9.** Für $n$ reelle Funktionen
+$$
+  f_i:D\rightarrow\mathbb{R},\quad i\in\{1,2,\ldots,n\}
+$$
+einer reellen Variablen $x\in D\subseteq\mathbb{R}$ ist die **Wronski-Determinante** definiert durch $$
+  W(f_1,f_2,\ldots,f_n)(x):=
+  \det{\left(\begin{array}{cccc}
+  f_1(x) & f_2(x) & \ldots & f_n(x) \\ f^\prime_1(x) & f^\prime_2(x) & \ldots & f^\prime_n(x) \\
+  \vdots & \vdots & \ddots & \vdots \\ f^{(n-1)}_1(x) & f^{(n-1)}_2(x) & \ldots & f^{(n-1)}_n(x)
+  \end{array}\right)}
+$$ worin $f^{(j)}_i(x)$ mit $j\in\{1,2,\ldots,n-1\}$ die $j$-te gewöhnliche Ableitung der Funktion $f_i$ (insbesondere $f^\prime_i$ deren erste Ableitung) bezeichnet.
+
+Speziell sind hier drei über den reellen Zahlen definierte Funktionen $$
+  f_1:x\mapsto x,\quad f_2:x\mapsto \sin{x} \quad\text{und}\quad f_3:x\mapsto \cos{x}
+$$ gegeben.
+
+1. Für diese Funktionen ist zunächst die Wronski-Determinante zu berechnen. Für $f_1$, $f_2$ und $f_3$ sind $$
+  f_1^{\prime}(x)=1,\quad
+  f_2^{\prime}(x)=\cos{x} \quad\text{und}\quad
+  f_3^{\prime}(x)=-\sin{x}
+$$ sowie $$
+  f_1^{\prime\prime}(x)=0,\quad
+  f_2^{\prime\prime}(x)=-\sin{x} \quad\text{und}\quad
+  f_3^{\prime\prime}(x)=-\cos{x}
+$$ und somit $$
+  W(f_1,f_2,f_3)(x)=\det{\left(
+    \begin{array}{rrr}
+      x & \sin{x} & \cos{x} \\ 1 & \cos{x} & -\sin{x} \\ 0 & -\sin{x} & -\cos{x}
+    \end{array}
+  \right)}=
+  x\cdot\left(-(\cos{x})^2-(\sin{x})^2\right)=-x
+$$
+2. Die Funktionen sind linear unabhängig auf $\mathbb{R}$, da $$
+  W(f_1,f_2,f_3)(x_0)=-x_0
+$$ und somit ein $x_0\in\mathbb{R}$ mit $W(f_1,f_2,f_3)(x_0)\not=0$ existiert. Alternativ kann gezeigt werden, dass keine Koeffizienten $\lambda_1\in\mathbb{R}$, $\lambda_2\in\mathbb{R}$ und $\lambda_3\in\mathbb{R}$ existieren mit $$
+  \lambda_1\cdot f_1(x)+\lambda_2\cdot f_2(x)+\lambda_3\cdot f_3(x)\equiv 0\quad\forall x\in\mathbb{R}
+$$ und $(\lambda_1,\lambda_2,\lambda_3)\not=(0,0,0)$. Hierfür lassen sich beispielsweise $(\lambda_2,\lambda_3)$ - als kartesische Koordinaten aufgefasst - in Polarkoordinaten darstellen. Unter Benutzung des Additionstheorems für $\cos{(a+b)}$ folgt dann $$
+  \lambda_1\cdot x=\sqrt{\lambda_2^2+\lambda_3^2}\cdot\cos{\left(x\pm\arccos{\frac{\lambda_2}{\sqrt{\lambda_2^2+\lambda_3^2}}}\right)}
+$$ falls $\lambda_2^2+\lambda_3^2\not=0$ voraussgesetzt ist. Dies kann für keine Wahl der Parameter für alle $x\in\mathbb{R}$ erfüllt sein.
+
 
 Sicher gewusst?
 ===============
 
-**Frage 1.** Entscheiden Sie, welches der nachstehenden Systeme von Gleichungen ein System linearer Gleichungen ist. In allen drei Systemen wird $$
+**Frage 1.**[^4] Entscheiden Sie, welches der nachstehenden Systeme von Gleichungen ein System linearer Gleichungen ist. In allen drei Systemen wird $$
   a_{ij}\in K\quad\text{bzw.}\quad b_i\in K
 $$ für die Koeffizienten beziehungsweise Absolutglieder angenommen.
 
@@ -4411,16 +4537,39 @@ Das dritte Gleichungssystem entspricht der üblichen allgemeinen Darstellung lin
 
 ****************************************
 
-**Frage 2.** Sei $A\in K^{n,n}$ mit $\det{A}=0$. Dann ist das lineare Gleichungssystem $A\cdot x=b$ mit $x\in K^{n,1}$
+**Frage 2.**[^4] Gegeben ist die Matrix $A\in K^{n,n}$ mit $\det{A}=0$. Dann ist das lineare Gleichungssystem $A\cdot x=b$ mit $x\in K^{n,1}$
 
 [( )] Nur lösbar für $b=0$.
 [(X)] Lösbar nur für manche Vektoren $b$, jedoch für keines der Vektoren $b$ eindeutig lösbar.
 [( )] Lösbar für alle Vektoren $b$, jedoch nicht unbedingt eindeutig lösbar.
+[[?]] Für den Nachweis der Ungültigkeit einer Aussage reicht es aus, ein Gegenbeispiel (d. h. hier ein lineares Gleichungssystem, das nicht der Aussage entspricht) anzugeben.
 ****************************************
 
 Für den Nachweis der Gültigkeit der zweiten Aussage ist zu beachten, dass aus $\det{A}$ die Aussage $\mathrm{rg}{A}<n$ folgt. Nach Satz 3 ist das Gleichungssystem dann und nur dann lösbar, wenn $\mathrm{rg}{A}=\mathrm{rg}{(A|b)}$ gilt. Für den Lösungsraum gilt in diesem Fall $\dim{L}=n-\mathrm{rg}{A}>0$.
 
-Zur Widerlegung der anderen Aussagen reicht es, ein Gegenbeispiel anzugeben.
+Zur Widerlegung der anderen Aussagen reicht es, ein Gegenbeispiel anzugeben. Hierfür können zwei lineare Gleichungssysteme mit der gemeinsamen Koeffizientenmatrix $$
+  A=\begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}
+$$ und dem Vektor $b=\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ im Fall 1 beziehungsweise mit dem Vektor $b=\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ im Fall 3 betrachtet werden.
+
+****************************************
+
+**Frage 3.**[^4] Es sei $A$ eine quadratische Matrix. Was bedeutet es, wenn beim Gauß-Verfahren zur Lösung eines linearen Gleichungssystems $A\cdot x=b$ schon der erste Schritt nicht ausführbar ist?
+
+[( )] $A$ ist die Nullmatrix.
+[( )] Die erste Zeile von $A$ ist eine Nullzeile.
+[(X)] Die erste Spalte von $A$ ist eine Nullzeile.
+[[?]] Im ersten Schritt des Gauss-Verfahrens wird die erste Spalte der Koeffizientenmatrix $A$ mittels elementarer Zeilenumformungen in die Form $$
+  s_1^\star=\begin{pmatrix} a_{11}^\star & 0 & ... & 0 \end{pmatrix}^\top
+$$ gebracht, worin $a_{11}^\star\not=0$.
+****************************************
+
+Offensichtlich kann die Nullmatrix $A=O$ nicht in Stufenform übergeführt werden. Umgekehrt folgt $A=O$ nicht unmittelbar aus der Nichtausführbarkeit des ersten Schrittes des Gauß-Verfahrens zur Lösung von $A\cdot x=b$.
+
+Die erste Spalte kann dann nicht in $$
+  s_1^\star=\begin{pmatrix} a_{11}^\star & 0 & ... & 0 \end{pmatrix}^\top
+$$ übergeführt werden, wenn $$
+  s_1=s_1^\star=\begin{pmatrix} 0 & ... & 0 \end{pmatrix}^\top
+$$
 
 ****************************************
 
@@ -4430,3 +4579,5 @@ Zur Widerlegung der anderen Aussagen reicht es, ein Gegenbeispiel anzugeben.
 [^2]: Kurz auch *Gauß-Verfahren* genannt.
 
 [^3]: Sofern die Matrix $\left({E}\vert{B}\right)$ erzeugt werden kann.
+
+[^4]: Quelle: Klaus Jänich, Lineare Algebra, Seite 166 f.
