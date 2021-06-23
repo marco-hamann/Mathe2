@@ -4012,6 +4012,10 @@ In diesem Abschnitt werden Systeme von linearen Gleichungen der Form $$
   \end{array}
 $$ in den Unbekannten $x_1$, $x_2$, ..., $x_n$ untersucht. Für die Koeffizienten gelten $a_{ij}\in\mathbb{R}$ sowie $b_i\in\mathbb{R}$ für jede Wahl von $i\in\{1,2,...,m\}$ und $j\in\{1,2,...,n\}$. Die natürlichen Zahlen $m$ beziehungsweise $n$ bezeichnen die Anzahl der Gleichungen beziehungsweise die Anzahl der Unbekannten des Gleichungssystems, $(m,n)$ wird dessen Typ genannt.
 
+Die grundlegenden, aus der Schulmathematik bekannten Begriffe werde kurz in nachstehendem Video erklärt.
+
+!?[Gleichungssystem](https://www.youtube.com/watch?v=6H8WVGIc2Qs)
+
 Das vorstehende System von Gleichungen lässt sich unter Benutzung eines Matrixproduktes in *Matrixform* darstellen $$
   \begin{pmatrix} a_{11} & ... & a_{1n} \\ \vdots & & \vdots \\ a_{m1} & ... & a_{mn} \end{pmatrix}\cdot
   \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}=
@@ -4028,6 +4032,10 @@ $$ verwendet, die *erweiterte Koeffizientenmatrix* genannt wird.
 >
 >1. *homogen*, falls $b=o$ (Nullvektor)
 >2. *inhomogen*, falls $b\not=o$ ist.
+
+Die Unterscheidung zwischen homogenen und inhomogenen linearen Gleichungssystemen ist in nachfolgendem Video anhand von Beispielen erläutert.
+
+!?[Homogen versus inhomogen](https://www.youtube.com/watch?v=oIQ_V8nfmi4)
 
 
 Gleichungssysteme vom Typ $(n,n)$
@@ -4239,6 +4247,22 @@ $$ In den Lösungen $x_1$ und $x_2$ kann $x_3$ beliebig (aber gleich!) gewählt 
   \begin{pmatrix} -6 \\ 4 \\ 1 \end{pmatrix}
 $$ Die Lösung entspricht also der Punktmenge einer Geraden in $\mathbb{R}^3$. Die Lösung enthält einen freien reellen Lösungsparameter $\lambda$.
 
+An einfachen Beispielen ist in folgenden Videos die Berechnung der Lösungsmenge eines linearen Gleichungssystems mithilfe des Gauß-Verfahrens vorgeführt. Genutzt werden elementare Gleichungsumformungen.
+
+!?[Gauß1](https://www.youtube.com/watch?v=1IBuhdLyCdA)
+
+!?[Gauß2](https://www.youtube.com/watch?v=8Uut7RAnqEI)
+
+In den folgenden Videos wird das Gauß-Verfahren unter Nutzung der erweiterten Koeffizientenmatrix durchgeführt.
+
+!?[Gauß3](https://www.youtube.com/watch?v=ZST_SRBp8uY)
+
+!?[Gauß4](https://www.youtube.com/watch?v=c8ofg4ZxnVM)
+
+!?[Gauß5](https://www.youtube.com/watch?v=yJ2LHr5YPYM)
+
+!?[Gauß6](https://www.youtube.com/watch?v=N4iuTaHUC80)
+
 
 Gauß-Jordan-Verfahren
 =====================
@@ -4331,6 +4355,14 @@ $$
 $$ umformen, d. h. ${A}$ lässt sich nicht vollständig zu $\mathrm{diag}(1,1,1)$ umformen.
 
 ~~Damit~~: Das Gauß-Jordan-Verfahren führt nicht zum Ziel: ${A}^{-1}$ zu ${A}$ existiert nicht.
+
+Ein weiteres Beispiel zur Nutzung des Gauß-Jordan-Verfahrens zur Berechnung der Inversen einer Matrix ist im nachtehenden Video erläutert.
+
+!?[Inverse1](https://www.youtube.com/watch?v=YGnCxuE2LKg)
+
+Die Berechnung der inversen Matrix einer regulären Matrix vom Typ $(2,2)$ als Lösung eines linearen Gleichungssystems vom Typ $(4,4)$ ist im nachfolgenden Video durchgeführt.
+
+!?[Inverse2](https://www.youtube.com/watch?v=AFKJmlZ8kTQ)
 
 
 Lösungsverhalten eines linearen Gleichungssystems
@@ -4467,17 +4499,17 @@ $$ sind linear abhängig. Es gilt $a_3=3\cdot a_1-2\cdot a_2$.
 
 >**Folgerung 5.** Gilt für ein System von Vektoren $$
   \{a_1,...,a_n\}\subset\mathbb{R}^m
-$$ die Ungleichung $m<n$, solgt die lineare Abhängigkeit der Vektoren.
+$$ die Ungleichung $m<n$, so folgt die lineare Abhängigkeit der Vektoren.
 
 **Beweis.** Mit Satz 4 folgt für $\mathrm{rg}{A}=r$ die Relation $r\leq m$. Aus $m<n$ folgt damit $r<n$. Die Vektoren sind also linear abhängig. $\square$
 
 **Bemerkung 3.** Ist die Anzahl der Vektoren eines Systems größer als die Dimension des sie enthaltenden Vektorraumes, so folgt die lineare Abhängigkeit der Vektoren. Sie spannen einen Untervektorraum der Dimension $r=\mathrm{rg}{A}$ auf.
 
-**Beispiel 9.** Für $n$ reelle Funktionen
+**Beispiel 9.** Für $n$ reelle, hinreichend oft differenzierbare Funktionen
 $$
   f_i:D\rightarrow\mathbb{R},\quad i\in\{1,2,\ldots,n\}
 $$
-einer reellen Variablen $x\in D\subseteq\mathbb{R}$ ist die **Wronski-Determinante** definiert durch $$
+einer reellen Variablen $x\in D\subseteq\mathbb{R}$ ist die [Wronski-Determinante](https://de.wikipedia.org/wiki/Wronski-Determinante) definiert durch $$
   W(f_1,f_2,\ldots,f_n)(x):=
   \det{\left(\begin{array}{cccc}
   f_1(x) & f_2(x) & \ldots & f_n(x) \\ f^\prime_1(x) & f^\prime_2(x) & \ldots & f^\prime_n(x) \\
@@ -4505,14 +4537,20 @@ $$ und somit $$
   \right)}=
   x\cdot\left(-(\cos{x})^2-(\sin{x})^2\right)=-x
 $$
-2. Die Funktionen sind linear unabhängig auf $\mathbb{R}$, da $$
-  W(f_1,f_2,f_3)(x_0)=-x_0
-$$ und somit ein $x_0\in\mathbb{R}$ mit $W(f_1,f_2,f_3)(x_0)\not=0$ existiert. Alternativ kann gezeigt werden, dass keine Koeffizienten $\lambda_1\in\mathbb{R}$, $\lambda_2\in\mathbb{R}$ und $\lambda_3\in\mathbb{R}$ existieren mit $$
-  \lambda_1\cdot f_1(x)+\lambda_2\cdot f_2(x)+\lambda_3\cdot f_3(x)\equiv 0\quad\forall x\in\mathbb{R}
-$$ und $(\lambda_1,\lambda_2,\lambda_3)\not=(0,0,0)$. Hierfür lassen sich beispielsweise $(\lambda_2,\lambda_3)$ - als kartesische Koordinaten aufgefasst - in Polarkoordinaten darstellen. Unter Benutzung des Additionstheorems für $\cos{(a+b)}$ folgt dann $$
-  \lambda_1\cdot x=\sqrt{\lambda_2^2+\lambda_3^2}\cdot\cos{\left(x\pm\arccos{\frac{\lambda_2}{\sqrt{\lambda_2^2+\lambda_3^2}}}\right)}
-$$ falls $\lambda_2^2+\lambda_3^2\not=0$ voraussgesetzt ist. Dies kann für keine Wahl der Parameter für alle $x\in\mathbb{R}$ erfüllt sein.
-
+2. Für die Untersuchung der linearen Unabhängigkeit ist zunächst zu prüfen, ob es Koeffizienten $\lambda_1\in\mathbb{R}$, $\lambda_2\in\mathbb{R}$ und $\lambda_3\in\mathbb{R}$ mit $$
+  \lambda_1\cdot f_1(x)+\lambda_2\cdot f_2(x)+\lambda_3\cdot f_3(x)= 0\quad\forall x\in\mathbb{R}
+$$ und $(\lambda_1,\lambda_2,\lambda_3)\not=(0,0,0)$ gibt. Linke und rechte Seite der vorstehenden Gleichung können hierfür ein- bzw. zweimal nach der Variablen $x$ differenziert werden, wonach sich das folgende System linearer Gleichungen $A\cdot x=b$ ergibt. $$
+  A=\begin{pmatrix} x & \sin{x} & \cos{x} \\ 1 & \cos{x} & -\sin{x} \\ 0 & -\sin{x} & -\cos{x} \end{pmatrix}\,,\quad
+  x=\begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \lambda_3 \end{pmatrix}\quad\text{und}\quad
+  b=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$ Dies ist ein homogenes Gleichungssystem, welches die alleinige Lösung $$
+  x=\begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \lambda_3 \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$ besitzt, da für die Determinante der Koeffizientenmatrix gilt $$
+  W=\det{A}=-x\not=0\quad\forall\;x\in\mathbb{R}\setminus\{0\}
+$$ Es existieren somit Argumente $x_0\in D$, für die $$
+  W(f_1,f_2,f_3)(x_0)\not=0\quad
+  \rightarrow\quad (\lambda_1,\lambda_2,\lambda_3)=(0,0,0)
+$$ folgt. Die Funktionen sind also linear unabhängig auf $D\subseteq\mathbb{R}$.
 
 Sicher gewusst?
 ===============
@@ -4573,7 +4611,6 @@ $$
 
 ****************************************
 
-
 [^1]: Quelle: Lothar Papula, Mathematik für Ingenieure und Naturwissenschaftler, Band 2, Seite 5.
 
 [^2]: Kurz auch *Gauß-Verfahren* genannt.
@@ -4581,3 +4618,201 @@ $$
 [^3]: Sofern die Matrix $\left({E}\vert{B}\right)$ erzeugt werden kann.
 
 [^4]: Quelle: Klaus Jänich, Lineare Algebra, Seite 166 f.
+
+
+### Euklidische Vektorräume
+
+Skalarprodukt
+=============
+
+Im Folgenden werden reelle Vektorräume $\mathbb{R}^n$ mit $n\in\mathbb{N}\setminus\{0\}$ betrachtet. Diese werden mit einer zusätzlichen Struktur versehen, die es gestattet, Längen und Winkel zu berechnen. Der zentrale Begriff ist dabei das Skalarprodukt zweier Vektoren, das in nachstehender Definition festgelegt wird.
+
+>**Definition 1.** Sei $V$ ein reeller Vektorraum. Eine Abbildung $$
+  V\times V\to\mathbb{R}, (x,y)\mapsto x\cdot y\;(\in\mathbb{R})
+$$ mit den Eigenschaften
+>
+>1. $$x\cdot y=y\cdot x$$
+>2. $$x\cdot(y+z)=x\cdot y+x\cdot z$$
+>3. $$x\cdot(\lambda\cdot y)=\lambda\cdot(x\cdot y)$$
+>4. $$x\cdot x>0\quad\forall\;x\not=o$$
+>
+> für alle $x\in V$, $y\in V$ und $z\in V$ sowie $\lambda\in\mathbb{R}$ heißt *Skalarprodukt* auf $V$.[^1]
+
+Hiermit lässt sich der Begriff eines euklidischen Vektorraumes festlegen
+
+>**Definition 2.** Ein *euklidischer Vektorraum* ist ein Paar $(V,\cdot)$, bestehend aus einem reellen Vektorraum und einem Skalarprodukt für Vektoren aus $V$.
+
+**Beispiel 1.** Für je zwei Vektoren aus $\mathbb{R}^n$ $$
+  a=\begin{pmatrix} a_1 & a_2 & ... & a_n \end{pmatrix}^\top\,,\quad
+  b=\begin{pmatrix} b_1 & b_2 & ... & b_n \end{pmatrix}^\top
+$$ heißt $$
+  a\cdot b=\sum_{i=1}^n{a_i\cdot b_i}=a_1\cdot b_1+...+a_n\cdot b_n\;(\in\mathbb{R})
+$$ das kanonische Skalarprodukt der Vektoren $a$ und $b$.
+
+Die kanonische Skalarprodukt kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) berechnet und die Eigenschaften 1. bis 4. an Beispielen nachfollzogen werden.
+
+```javascript
+a=[a1,a2,a3]
+b=[b1,b2,b3]
+c=[c1,c2,c3]
+dot(a,b)
+dot(a,b+c)-(dot(a,b)+dot(a,c))
+```
+@Algebrite.eval
+
+Das Skalarprodukt zweier Vektoren im $\mathbb{R}^3$ ist im folgenden Video an einem Beispiel erläutert.
+
+!?[Skalarprodukt](https://www.youtube.com/watch?v=gzwfDNF26eA)
+
+**Beispiel 2.** Für stetige Funktionen $$
+  f:[-1,1]\to\mathbb{R}\,,\quad
+  g:[-1,1]\to\mathbb{R}
+$$ ist durch $$
+  f\cdot g:=\int_{-1}^1{\left(f(x)\cdot g(x)\right)}\,\mathrm{d}x
+$$ ein Skalarprodukt erklärt. Die Eigenschaften aus Definition 1 lassen sich unmittelbar unter Nutzung der allgemeinen Rechenregeln für bestimmte Integrale nachweisen.
+
+>**Definition 3.** Ist $(V,\cdot)$ ein euklidischer Vektorraum, so heißt für ein $x\in V$ die reelle Zahl $$
+  |x|:=\sqrt{x\cdot x}\geq 0
+$$ die *Norm* von $x$. Besitzt ein Vektor $x\in V$ die Norm $|x|=1$, so wird er *Einheitsvektor* genannt.
+
+**Beispiel 3.** Es wird $n\geq 2$ angenommen. Des Weiteren $a\in\mathbb{R}^n$ und $b\in\mathbb{R}^n$ als Ortsvektoren zweier Punkte $A$ bzw. $B$ bezüglich eines Bezugspunktes $O$. Bezüglich der kanonischen Basis $$
+  B=[e_1,\,...\,,e_n]=\left[
+    \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix},\;...\;,
+    \begin{pmatrix} 0 \\ \vdots \\ 0 \\ 1 \end{pmatrix}
+  \right]
+$$ lassen sich $a$ und $b$ eindeutig darstellen als $$
+  a=\sum_{i=1}^n{(a_i\cdot e_i)}\quad\text{bzw.}\quad
+  b=\sum_{i=1}^n{(b_i\cdot e_i)}
+$$ mit den Koordinaten $a_i$ beziehungsweise $b_i$. Für den Abstand von $A$ zu $O$ beziehungsweise $B$ zu $O$ gilt dann $$
+  \overline{OA}^2=\sum_{i=1}^n{(a_i)^2}=|a|^2\quad\text{bzw.}\quad
+  \overline{OB}^2=\sum_{i=1}^n{(b_i)^2}=|b|^2
+$$
+
+**Beispiel 4.** Berechnet werden die Normen von Vektoren.
+
+1. Der Vektor $b=\begin{pmatrix} 1 & 2 & 3 \end{pmatrix}^\top$ besitzt die Norm $$
+  |b|=\sqrt{1^2+2^2+3^2}=14
+$$
+2. Für die Vektoren der kanonischen Basis in $\mathbb{R}^n$, $n\in\mathbb{N}\setminus\{0\}$, siehe Beispiel 3, berechnen sich $$
+  |e_i|=\sqrt{0^2+...+0^2+1^2+0^2+...+0^2}=1\quad\forall\;i\in\{1,...,n\}
+$$ worin der $i$-te Summand $1^2$ im Radikanten der einzige von Null verschiedene Summand ist.
+3. Für die Funktion $f$ mit $$
+  f:[-1,1]\to \mathbb{R},\; x\mapsto y=f(x)=x^2
+$$ berechnet sich die durch das in Beispiel 2 eingeführte Skalarprodukt bestimmte Norm $$
+  \sqrt{\int_{-1}^1{\left(f(x)\cdot f(x)\right)}\,\mathrm{d}x}=
+  \sqrt{\int_{-1}^1{x^4}\,\mathrm{d}x}=
+  \sqrt{\left[\frac{1}{5}\cdot x^5\right]_{-1}^1}=
+  \sqrt{\frac{2}{5}}
+$$
+
+**Bemerkung 1.** Zu jedem Vektor $x\not= o$ eines euklidischen Vektorraumes $(V,\cdot)$ berechnen sich die zu $x$ linear abhängigen Einheitsvektoren mittels $$
+  y=\pm\frac{1}{|x|}\cdot x
+$$ Für die Norm $|y|$ gilt nämlich $$
+  |y|^2=\sqrt{y\cdot y}^2=\left(\pm\frac{1}{|x|}\cdot x\right)\cdot\left(\pm\frac{1}{|x|}\cdot x\right)=\frac{1}{|x|^2}\cdot |x|^2=1
+$$ Jeder der Vektoren $y$ heißt zu $x$ *normierter Vektor*. In vielen technischen Zusammenhängen wird $y=\frac{1}{|x|}\cdot x$ als zu $x$ normierter Vektor verwendet. (Das Vorzeichen $-$ wird weggelassen.)
+
+Die Berechnung eines normierten Vektors, das ist das Skalarvielfache eines Vektors mit dem Reziproken seiner Norm, ist im folgenden Video an Beispielen von Vektoren aus $\mathbb{R}^2$ und $\mathbb{R}^3$ erläutert.
+
+!?[Einheitsvektor](https://www.youtube.com/watch?v=seNKS6-m5Vg)
+
+>**Satz 1.** Ist $(V,\cdot)$ ein euklidischer Vektorraum, so besitzt die durch das erklärte Skalarprodukt bestimmte Norm die nachstehenden Eigenschaften.
+>
+>1. Für alle $x\in V$ gilt $$ |x|\geq0 $$
+>2. Es gilt die Äquivalenz $$ |x|=0\quad\leftrightarrow\quad x=o $$
+>3. Für alle $x\in V$ und für alle $\lambda\in\mathbb{R}$ gilt $$ |\lambda\cdot x|=|\lambda|\cdot|x| $$
+>4. Für alle $x\in V$ und für alle $y\in V$ gilt $$ |x\cdot y|\leq|x|\cdot|y|
+$$ (Cauchy-Schwarzsche Ungleichung)
+>5. Für alle $x\in V$ und für alle $y\in V$ gilt $$ |x+y|\leq|x|+|y|
+$$ (Dreiecksungleichung)
+
+**Beweis.** Die Eigenschaften 1. bis 3. folgen direkt aus der Definition der Norm (Definition 3) beziehungsweise des Skalarproduktes (Definition 1).
+
+Zum Nachweis der Dreiecksungleichung wird betrachtet $$
+  |x+y|^2=(x+y)\cdot(x+y)=|x|^2+|y|^2+2\cdot(x\cdot y)\leq |x|^2+|y|^2+2\cdot|x\cdot y|
+$$ Unter Nutzung der Cauchy-Schwarzschen Ungleichung folgt hieraus unmittelbar $$
+  |x|^2+|y|^2+2\cdot|x\cdot y|\leq |x|^2+|y|^2+2\cdot|x|\cdot |y|=(|x|+|y|)^2
+$$ und hieraus mit der strengen Monotonie der reellen Quadratwurzelfunktion $$
+  |x+y|\leq|x|+|y|
+$$ Auf den Nachweis der Cauchy-Schwarzschen Ungleichung wird hier verzichtet.[^2] $\square$
+
+>**Definition 4.** Für zwei Vektoren $x\not=o$ und $y\not=o$ eines euklidischen Vektorraumes wird der *Öffnungswinkel* $\varphi(x,y)=\measuredangle{(x,y)}$ definiert durch $$
+  \cos{\varphi}=\frac{x\cdot y}{|x|\cdot|y|}\,,\quad 0\leq\varphi(x,y)\leq\pi
+$$
+
+Gilt in Definition 4 speziell $x\cdot y=0$, so ist $\varphi(x,y)=\frac{\pi}{2}$. Die Vektoren $x$ und $y$ heißen in diesem Fall **orthogonal**. Schreibweise $x\perp y$.
+
+**Beispiel 5.** Bezeichnet $(\mathbb{R}^3,\cdot)$ den reellen dreidimensionalen Vektorraum mit dem kanonischen Skalarprodukt, so gelten für die Vektoren $e_i$ der kanonischen Basis $$
+  B=\left[
+    \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix},\,
+    \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix},\,
+    \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
+  \right]
+$$ die Beziehungen $$
+  e_i\cdot e_j=\left\{\begin{array}{rll} 1 & \text{für} & i=j \\  0 & \text{für} & i\not=j \end{array}\right.
+$$ Die Vektoren aus $B$ sind demnach paarweise orthogonal und normiert. Sie legen in $\mathbb{R}^3$ (als Punktraum) ein kartesisches Koordinatensystem fest.
+
+
+Orthogonale Vektoren
+====================
+
+>**Definition 5.** Ist $(V,\cdot)$ ein euklidischer Vektorraum und $M\not=\emptyset$ eine Teilmenge von Vektoren. Dann heißt $$
+  M^\top=\left\{x\in V\;(x\cdot y=0\;\,\forall\, y\in M)\right\}
+$$ das orthogonale Komplement von $M$.
+
+**Beispiel 6.** Gegeben ist der euklidische Vektorraum $\mathbb{R}^3$ mit dem kanonischen Skalarprodukt auf $\mathbb{R}^3$.
+
+1. Sei $M=\left\{\begin{pmatrix} 1 & 2 & 3 \end{pmatrix}^\top\right\}$. Dann berechnet sich das orthogonale Komplement $$
+  M^\top=\left\{x\in\mathbb{R}^3\;\,(x_1+2\cdot x_2+3\cdot x_3=0)\right\}
+$$ Die beschreibende Gleichung entspricht einem verschwindendem Skalarprodukt, d. h. $M^\top$ enthält neben dem Nullvektor alle Vektoren, die orthogonal zum Vektor $$
+  m=\begin{pmatrix} 1 & 2 & 3 \end{pmatrix}^\top
+$$ sind. Dies entspricht einer Ebene in $\mathbb{R}^3$ (als Punktraum) zum Normalenvektor $m$.
+2. Gegeben ist die zweielementige Menge $$
+  N=\left\{\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix},\,
+  \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}\right\}
+$$ Das orthogonale Komplement ergibt sich $$
+  N^\top=\left\{x\in\mathbb{R}^3\;\,(x_1+2\cdot x_2+3\cdot x_3=0\;\wedge\; -x_1+x_3=0)\right\}
+$$ Die beschreibenden Gleichungen bilden ein System zweier linearer Gleichungen vom Typ $(2,3)$ mit der Lösung $$
+  x=\lambda\cdot\begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}\,,\quad \lambda\in\mathbb{R}
+$$ (Bitte nachrechnen.) Der Vektor $x$ ist orthogonal zu jedem der Vektoren aus $N$, steht also senkrecht auf jeder Linearkombination beider Vektoren.
+
+**Bemerkung 2.** Das orthogonale Komplement $M^\top$ einer Menge $M$ ist ein Untervektorraum von $M$, da
+
+1. $M^\top\not=\emptyset$ wegen $M^\top\ni o$.
+2. Sind $x\in M^\top$ und $y\in M^\top$, so folgt aus Eigenschaft 2 bzw. 3 von Definition 1, dass $x+y\in M^\top$ bzw. $\lambda\cdot x\in M^\top$ für alle $\lambda\in\mathbb{R}$ orthogonal zu $M$ sind.
+
+Die Berechnung des Vektorproduktes zweier Vektoren aus $\mathbb{R}^3$ ist im nachstehenden Video an einem Beispiel erklärt. Des Weiteren werden einige Anwendungen des Vektorproduktes genannt.
+
+!?[Vektorprodukt1](https://www.youtube.com/watch?v=63FWetdwNb8)
+
+!?[Vektorprodukt2](https://www.youtube.com/watch?v=YpbW8uuunXI)
+
+Eine Kennzeichnung des Spatproduktes dreier Vektoren aus $\mathbb{R}^3$ ist im nachstehenden Video erklärt. Die Bezugnahme zum Volumen des von den Vektoren aufgespannten Spates ist ebenso genannt.
+
+!?[Spatprodukt](https://www.youtube.com/watch?v=plM5HpVjycE)
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.**[^3] Entscheiden Sie: Ein Skalarprodukt auf einem reellen Vektorraum $V$ ist eine Abbildung
+
+[(X)] $$ \cdot:V\times V\to\mathbb{R} $$
+[( )] $$ \cdot:V\times V\to V $$
+[( )] $$ \cdot:V\times\mathbb{R}\to V $$
+[[?]] Unterscheiden Sie das Skalarprodukt gegenüber anderen Produktbildungen durch Kennzeichnung der beteiligten Faktoren und des Produktes.
+****************************************
+
+Bei einem Skalarprodukt auf $V$ handelt es sich um eine Abbildung, die je zwei Vektoren aus $V$ eine reelle Zahl zuordnet, also die Abbildung in Antwortoption 1.
+
+Die zweite Abbildung (Antwortoption 2) stellt ein Vektorprodukt dar: je zwei Vektoren aus $V$ wird ein Vektor aus $V$ zugeordnet.
+
+Die dritte Abbildung (Antwortoption 3) beschreibt das Skalarfache eines Vektors.
+
+****************************************
+
+
+[^1]: Zu beachten ist, dass die Produktzeichen in Definition 1 verschiedene Produkte bezeichnen: Zu unterscheiden ist das Skalarprodukt zweier Vektoren vom Skalarvielfachen eines Vektors.
+
+[^2]: Der Nachweis der Cauchy-Schwarzschen Ungleichung in euklidischen Vektorräumen kann beispielsweise im Buch 'Lineare Algebra' von Klaus Jänich, Seite 180, nachgelesen werden.
+
+[^3]: Quelle: Klaus Jänich, Lineare Algebra, Seite 192 f.
