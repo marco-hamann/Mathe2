@@ -1392,6 +1392,39 @@ $$ ein lokales Minimum.
 **Bemerkung 4.** Für eine reelle Funktion von $k>2$ unabhängigen reellen Variablen ist ein Nachweis lokaler Extrema vermöge der Determinante der Hesse-Matrix nicht möglich. Stattdessen werden die [Eigenwerte](https://de.wikipedia.org/wiki/Eigenwertproblem) der Hesse-Matrix untersucht, die im Abschnitt [Lineare Algebra](#Lineare-Algebra) betrachtet werden.
 
 
+Sicher gewusst?
+===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
+**Frage 1.** Gegeben ist die reelle Funktion $$
+  f:(x_1,x_2)\mapsto y=\exp{x_1}\cdot(2\cdot x_1+x_2^2)\,,\quad D=\mathbb{R}^2
+$$ Das Koordinatenpaar $x^\star=(-1,0)\in D$ beschreibt eine stationäre Stelle von $f$.  Entscheiden Sie, ob in $x^\star$ ein lokales Extremum der Funktion $f$ existiert oder nicht. Bestimmen Sie ggf. die Art des lokalen Extremums an der Stelle $x^\star=(-1,0)$.
+
+[( )] An der Stelle $x^\star$ liegt kein lokales Extremum vor.
+[(X)] Lokales Minimum an der Stelle $x^\star$
+[( )] Lokales Maximum an der Stelle $x^\star$
+[[?]] Berechnen Sie die aus den partiellen zweiten Ableitungen der Funktion $f$ gebildete Hesse-Matrix. Bilden Sie die Determinante dieser Matrix an der Stelle $x^\star$. Prüfen Sie mit Hilfe von Satz 2.
+****************************************
+
+Die partiellen ersten Ableitungen der Funktion $f$ berechnen sich $$
+  f_{x_1}(x_1,x_2)=\exp{x_1}\cdot(2\cdot x_1+x_2^2+4)\,,\quad
+  f_{x_1}(x_1,x_2)=2\cdot x_2\cdot\exp{x_1}
+$$ und die partiellen zweiten Ableitungen berechnen sich $$
+  f_{x_1x_1}(x_1,x_2)=\exp{x_1}\cdot(2\cdot x_1+x_2^2+4)\,,\quad
+  f_{x_1x_2}(x_1,x_2)=f_{x_1x_2}(x_2,x_1)=2\cdot x_2\cdot\exp{x_1}\quad\text{sowie}\quad
+  f_{x_2x_2}(x_1,x_2)=2\cdot\exp{x_1}
+$$ Die Hesse-Matrix ergibt sich danach $$
+  H(x_1,x_2)=\exp{x_1}\cdot\begin{pmatrix} 2\cdot x_1+x_2^2+4 & 2\cdot x_2 \\ 2\cdot x_2 & 2 \end{pmatrix}
+$$ Für die Determinante folgt $$
+  \det{H}(x_1,x_2)=2\cdot\exp{(2\cdot x_1)}\cdot(2\cdot x_1-x_2^2+4)
+$$ Somit sind $$
+  \det{H}(-1,0)=\frac{4}{\exp{1}}>0\quad\text{sowie}\quad f_{x_1x_1}(-1,0)=\frac{2}{\exp{1}}>0
+$$ An der Stelle $x^\star$ liegt ein lokales Minimum mit $f(-1,0)=-\frac{2}{\exp{1}}$.
+
+****************************************
+
+
 ### Methode der kleinsten Quadrate
 
 Eine wichtige Anwendung der Bestimmung lokaler Extrema einer Funktion ist die *Methode der kleinsten Quadrate*. Sie wird hier im Zusammenhang der Berechnung einer Regressionsfunktion zu gegebenen Messpunkten behandelt.
