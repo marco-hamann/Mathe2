@@ -451,6 +451,8 @@ subst(2*r,h,V)
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage.** Bestimmen Sie die obere Grenze $b>0$ so, dass das durch den Graph zu $$ x\mapsto y=f(x)=\sqrt{x}\,,\quad x\geq0 $$ bei stetiger Rotation um die $x$-Achse umschlossene Volumen den Wert $2\cdot \pi$ besitzt.
 
 [(X)] $2$
@@ -564,6 +566,8 @@ $$
 
 Sicher gewusst?
 ===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage.** Bestimmen Sie den linearen (Integral-) Mittelwert zur Funktion $$ x\mapsto y=f(x)=x^2\,,\quad x\in[0,1] $$ im angegebenen Intervall.
 
@@ -884,6 +888,8 @@ d(f,x,y)-d(f,y,x)
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage 1.** Entscheiden Sie: Die partielle Ableitung einer Funktion $$
   f:(x_1,..,x_k)\mapsto y=f(x_1,..x_k)\,,\quad D\subseteq\mathbb{R}^k
 $$ nach der Variablen $x_j$, $j\in\{1,...,k\}$, an der Stelle $x^\star=(x_1^\star,...,x_k^\star)$ ist die gewöhnliche Ableitung der partiellen Funktion $$
@@ -1195,6 +1201,8 @@ $\square$
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage.** Aus der Zustandsgleichung eines idealen Gases lässt sich die Funktion $$
   f:(V,T)\mapsto p=f(V,T)=\frac{R\cdot T}{V}
 $$ angeben, worin $R$ die allgemeine Gaskonstante bezeichnet.
@@ -1382,22 +1390,6 @@ $$ Es berechnen sich $\det{H(9,21)}=20>0$ und $\det{H(-1,1)}=-20<0$, womit an de
 $$ ein lokales Minimum.
 
 **Bemerkung 4.** Für eine reelle Funktion von $k>2$ unabhängigen reellen Variablen ist ein Nachweis lokaler Extrema vermöge der Determinante der Hesse-Matrix nicht möglich. Stattdessen werden die [Eigenwerte](https://de.wikipedia.org/wiki/Eigenwertproblem) der Hesse-Matrix untersucht, die im Abschnitt [Lineare Algebra](#Lineare-Algebra) betrachtet werden.
-
-
-Sicher gewusst?
-===============
-
-**Frage 1.** Gegeben ist die reelle Funktion $f:(x_1,x_2)\mapsto y=\exp{x_1}\cdot(2\cdot x_1+x_2^2)$ mit Definitionsbereich $\mathbb{R}^2$. Berechnen Sie - falls vorhanden - die lokalen Extrema der Funktion $f$. Bestimmen Sie die Art der lokalen Extrema.
-
-[( )] Keine lokalen Extrema vorhanden
-[(X)] Lokales Minimum an der Stelle $(x_1,x_2)=(-1,0)$
-[( )] Lokales Maximum an der Stelle $(x_1,x_2)=(-1,0)$
-[[?]] Berechnen Sie die partiellen ersten und zweiten Ableitungen der Funktion $f$.
-****************************************
-
-Add a solution explanation __Markdown__!
-
-****************************************
 
 
 ### Methode der kleinsten Quadrate
@@ -1638,6 +1630,8 @@ $$
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage.** Zu den Messpunkten mit den in der Tabelle aufgeführten Koordinaten soll mit Hilfe der Methode der kleinsten Quadrate eine Regressionsparabel
 
 $$
@@ -1802,6 +1796,8 @@ Damit gilt für die Festlegung / Berechnung lokaler Extrema einer Funktion:
 
 Sicher gewusst?
 ===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Berechnen Sie den Gradienten der reellen Funktion
 $$
@@ -2082,6 +2078,8 @@ $$
 
 Sicher gewusst?
 ===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Gegeben ist die Funktion $f:\mathbb{R}^2\to\mathbb{R}$ mit
 $$
@@ -2412,6 +2410,8 @@ defint(f,x,0,1,y,0,pi/4)
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage.** Gegeben ist ein ebener Bereich $B$, der durch die Geraden $$
   x_1=0\,,\quad x_2=0\,,\quad x_2=-2\cdot x_1+2
 $$ Zu bestimmen ist das Doppelintegral $$
@@ -2583,6 +2583,8 @@ defint(f,z,0,1-x-y,y,0,1-x,x,0,1)
 
 Sicher gewusst?
 ===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Der Bereich $B$ aus Beispiel 1 wird begrenzt durch die Ebenen
 $$
@@ -2809,6 +2811,8 @@ Im nachstehenden Video werden Kugelkoordinaten eines Punktes des dreidimensional
 
 Sicher gewusst?
 ===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Geben Sie einen Kreisring $B$ in der Ebene mit den Radien $r_i=1$ und $r_a=3$ um den Koordinatenursprung $O(0,0)$ unter Verwendung von Polarkoordinaten an.
 
@@ -3558,6 +3562,8 @@ $$ Außerdem ist $\lambda\in\mathbb{R}$. Dann gelten die  folgenden Rechenregeln
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage 1.** Gegeben ist eine reelle Matrix $A$ vom Typ $(m,n)$.
 
 [(X)] $A$ hat $m$ Zeilen und $n$ Spalten.
@@ -4073,6 +4079,8 @@ $$
 
 Sicher gewusst?
 ===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Entscheiden Sie möglichst ohne direkte Berechnung, welche der nachstehenden Determinanten zweiter Ordnung Null beziehungsweise von Null verschieden ist.[^2]
 
@@ -4681,6 +4689,8 @@ $$ folgt. Die Funktionen sind also linear unabhängig auf $D\subseteq\mathbb{R}$
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage 1.**[^4] Entscheiden Sie, welches der nachstehenden Systeme von Gleichungen ein System linearer Gleichungen ist. In allen drei Systemen wird $$
   a_{ij}\in K\quad\text{bzw.}\quad b_i\in K
 $$ für die Koeffizienten beziehungsweise Absolutglieder angenommen.
@@ -4919,6 +4929,8 @@ Eine Kennzeichnung des Spatproduktes dreier Vektoren aus $\mathbb{R}^3$ ist im n
 
 Sicher gewusst?
 ===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.**[^3] Entscheiden Sie: Ein Skalarprodukt auf einem reellen Vektorraum $V$ ist eine Abbildung
 
