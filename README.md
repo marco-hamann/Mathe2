@@ -579,7 +579,7 @@ $$
 ****************************************
 
 
-## Differentialrechnung reeller Funktionen mehrerer Veränderlicher
+## Differentialrechnung 2
 
 Ziel dieses Kapitels ist die Übertragung der Differentialrechnung auf reelle Funktionen mehrerer reeller Veränderlicher.
 
@@ -1228,13 +1228,13 @@ Hierfür wird im Folgenden die Funktion
 $$
   f:(x_1,...,x_k)\mapsto y=f(x_1,...,x_k)\,,\quad (x_1,...,x_k)\in D\subseteq\mathbb{R}^k
 $$
-betrachtet. Wir setzen der besseren Lesbarkeit wegen $x=(x_1,...,x_k)$.
+betrachtet, worin $k\in\mathbb{N}\setminus\{0\}$. Wir setzen der besseren Lesbarkeit wegen $x=(x_1,...,x_k)$.
 
 >**Definition 1.** Eine reelle Funktion $f$ besitzt an der Stelle $x^\star=(x_1^\star,...,x_k^\star)\in D$ ein **lokales Maximum**, falls eine Umgebung $U(x^\star)\subset D$ existiert, so dass $$
   f(x^\star)>f(x)\;\;\forall x\in U(x^\star)\setminus\{x^\star\}
 $$ gilt. Analoges gilt für ein lokales Minimum von $f$ an einer Stelle $x^\star$.
 
-**Bemerkung.** Gilt die in der vorstehenden Definition aufgeführte Ungleichung für alle $x\in D$, so liegt an der Stelle $x^\star$ ein **globales Maximum** vor. Analoges gilt für ein globales Minimum.
+**Bemerkung 1.** Gilt die in der vorstehenden Definition aufgeführte Ungleichung für alle $x\in D$, so liegt an der Stelle $x^\star$ ein **globales Maximum** vor. Analoges gilt für ein globales Minimum.
 
 
 Der Fall $k=1$
@@ -1258,20 +1258,146 @@ f^{\prime\prime}(x^\star)\left\{
   \begin{array}{ll}
     >0 & f(x^\star)\;\;\text{lokales Minimum} \\ <0 & f(x^\star)\;\;\text{lokales Maximum}
   \end{array}\right.
-$$
+$$ für lokale Extrema.
 
-![Maximum](img/mat-bild-4.png "text")<!-- style="scale:0.75"-->
+![Maximum](img/mat-bild-4.png "Tangente in einem Punkt $P\in G_f$ an den Graph $G_f$ einer Funktion $f$. Die Tangente ist parallel zur ersten Achse ('horizontal').")<!-- style="scale:0.75"-->
+
 
 Der Fall $k>1$
 ==============
 
->**Satz.** Falls $f$ in $x^\star\in D$ stetig partiell differenzierbar ist und in $x^\star$ ein lokales Extremum besitzt, so gelten $$
+Die Begriffsbildung soll nun auf reelle Funktionen in mehreren reellen Variablen übertragen werden. Der Funktionsgraph $G_f$ einer Funktion $f$ lässt sich als $k$-dimensionale (Hyper-) Fläche in $\mathbb{R}^{k+1}$ vorstellen. Ist $f$ differenzierbar vorausgesetzt, so beschreibt $$
+  \mathrm{d}y=\sum_{j=1}^k{\left(\frac{\partial{f}}{\partial{x_j}}(x^\star)\cdot\mathrm{d}x\right)}
+$$ die $G_f$ im Punkt $P(x^\star,f(x^\star))$ berührende $k$-dimensionale Hyperebene (Tangentialhyperebene).
+
+>**Satz 1.** Falls $f$ in $x^\star\in D\subseteq\mathbb{R}^k$ stetig partiell differenzierbar ist und in $x^\star$ ein lokales Extremum besitzt, so gelten $$
   \frac{\partial{f}}{\partial{x_j}}(x^\star)=0\;\;\forall j\in\{1,...,k\}
 $$ d. h. die partiellen ersten Ableitungen von $f$ sind in $x^\star$ gleich Null.
 
+**Begründung.** Besitzt $f$ in $x^\star$ ein Extremum, ist die Tangentialhyperebene in $P(x^\star,f(x^\star))$ parallel zu $\mathbb{R}^k\supseteq D_f$ und besitzt die Darstellung $$
+  \mathrm{d}y=\sum_{j=1}^k{\left(\frac{\partial{f}}{\partial{x_j}}(x^\star)\cdot\mathrm{d}x_j\right)}=0\quad\leftrightarrow\quad \frac{\partial{f}}{\partial{x_j}}(x^\star)=0 \quad\forall\; j\in\{1,2,...,k\}
+$$ $\square$
+
 Der vorstehende Satz beschreibt die notwendige Bedingung für lokale Extrema. Jede Lösung $x^\star$ der Gleichungen $$
   \frac{\partial{f}}{\partial{x_j}}(x^\star)=0
-$$ heißt eine stationäre Stelle. Die Tangentialebene / -hyperebene an den Graph der Funktion $f$ im Punkt $P\left(x^\star,f(x^\star)\right)$
+$$ heißt eine **stationäre Stelle**. Die Tangentialhyperebene an den Graph $G_f$ der Funktion $f$ im Punkt $P(x^\star,f(x^\star))$ ist parallel zum Unterraum $\mathbb{R}^k\supseteq D_f$.
+
+Zum Nachweis eines lokalen Extremums ist die aus den partiellen zweiten Ableitungen gebildete **Hesse-Matrix** $H(x^\star)$ an der Stelle $x^\star\in D_f$ zu betrachten. Sie bildet das Analogon zur zweiten Ableitung einer reellen Funktion in einer reellen Variablen. Vergleiche Grundbegriffe und Eigenschaften einer Matrix im Abschnitt [Matrizen](#Matrizen).
+
+$$ H(x^\star)=\left(\begin{array}{rrrr}
+    \frac{\partial^2{f}}{\partial{x_1^2}}(x^\star) &
+    \frac{\partial^2{f}}{\partial{x_1}\partial{x_2}}(x^\star) & ... &
+    \frac{\partial^2{f}}{\partial{x_1}\partial{x_k}}(x^\star) \\
+    \frac{\partial^2{f}}{\partial{x_2}\partial{x_1}}(x^\star) &
+    \frac{\partial^2{f}}{\partial{x_2^2}}(x^\star) & ... &
+    \frac{\partial^2{f}}{\partial{x_2}\partial{x_k}}(x^\star) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial^2{f}}{\partial{x_k}\partial{x_1}}(x^\star) &
+    \frac{\partial^2{f}}{\partial{x_k}\partial{x_2}}(x^\star) & ... & \frac{\partial^2{f}}{\partial{x_k^2}}(x^\star)
+  \end{array}\right)
+$$ Ist die Funktion $f$ bis zur zweiten Ableitungsordnung stetig partiell differenzierbar in $x^\star$, so gilt für die partiellen zweiten Ableitungen $$
+  \frac{\partial^2{f}}{\partial{x_i}\partial{x_j}}(x^\star)=\frac{\partial^2{f}}{\partial{x_j}\partial{x_i}}(x^\star)
+$$ für alle $i\in\{1,2,...,k\}$ und $j\in\{1,2,...,k\}$, d. h. es gilt der [Satz von Schwarz](#Partielle-Ableitungen). Die Hesse-Matrix ist dann eine [symmetrische Matrix](https://de.wikipedia.org/wiki/Symmetrische_Matrix).
+
+Für $k=2$ lässt sich der Nachweis wie folgt formulieren.
+
+>**Definition 2.** Zu einer gegebenen Funktion $f:D_f\to\mathbb{R}$ mit $$
+  f:(x_1,x_2)\mapsto z=f(x_1,x_2)
+$$ und $(x_1^\star,x_2^\star)\in D_f$ heißt die der Hesse-Matrix eindeutig zugeordnete Zahl $$
+  \det{{H}(x_1^\star,x_2^\star)}=f_{x_1x_1}(x_1^\star,x_2^\star)\cdot f_{x_2x_2}(x_1^\star,x_2^\star)-\left(f_{x_1x_2}(x_1^\star,x_2^\star)\right)^2
+$$ die **Determinante der Hesse-Matrix** an der Stelle $(x_1^\star,x_2^\star)$.
+
+**Bemerkung 2.** Die Determinante einer quadratischen Matrix ist ein Begriff der linearen Algebra und wird im Abschnitt [Determinanten](#Determinanten) näher behandelt. Zur zweireihigen Hesse-Matrix $$
+  H=\left(\begin{array}{rrrr}
+    \textcolor{blue}{f_{x_1x_1}} & \textcolor{purple}{f_{x_1x_2}} \\
+    \textcolor{purple}{f_{x_2x_1}} & \textcolor{blue}{f_{x_2x_2}}
+  \end{array}\right)
+$$ wird diese als Differenz der Produkte der Diagonalelemente gebildet, d. h. "*Produkt blauer Elemente* <!--style="color:blue"--> minus *Produkt purpurfarbener Elemente* <!--style="color:purple"-->".
+
+>**Satz 2.** Gilt für die Determinante der Hesse-Matrix
+>
+>1. $\det{{H}(x_1^\star,x_2^\star)}>0$ so liegt ein lokales Extremum $f(x_1^\star,x_2^\star)$ vor.
+>2. $\det{{H}(x_1^\star,x_2^\star)}<0$ so liegt ~~kein~~ lokales Extremum $f(x_1^\star,x_2^\star)$ vor.
+>3. $\det{{H}(x_1^\star,x_2^\star)}=0$ so ist hiermit keine Entscheidung an der Stelle $(x_1^\star,x_2^\star)$ möglich.
+>
+> Liegt ein lokales Extremum vor, so ist $f(x_1^\star,x_2^\star)$ unter der Voraussetzung
+>
+>* $f_{x_1x_1}(x_1^\star,x_1^\star)>0$ ein lokales Minimum.
+>* $f_{x_1x_1}(x_1^\star,x_1^\star)<0$ ein lokales Maximum.
+
+**Begründung.** (Hier für den Fall 1.) Die Funktion $f$ besitze an der Stelle $x^\star=(x_1^\star,x_2^\star)\in D_f$ eine stationäre Stelle und wird dort zweimal stetig differenzierbar vorausgesetzt. In einer Umgebung $U(x^\star)$ wird $f$ durch die quadratische Funktion $T:(x_1,x_2)\mapsto y=T(x_1,x_2)$ mit $$
+  \begin{split}
+  T(x_1,x_2) & =f(x_1^\star,x_2^\star)+
+  \left[f_{x_1}(x_1^\star,x_2^\star)\cdot(x_1-x_1^\star)+f_{x_2}(x_1^\star,x_2^\star)\cdot(x_2-x_2^\star)\right] \\
+  & +\frac{1}{2!}\cdot\left[f_{x_1x_1}(x_1^\star,x_2^\star)\cdot(x_1-x_1^\star)^2+2\cdot f_{x_1x_2}(x_1^\star,x_2^\star)\cdot(x_1-x_1^\star)\cdot(x_2-x_2^\star)+f_{x_2x_2}(x_1^\star,x_2^\star)\cdot(x_2-x_2^\star)^2\right]
+  \end{split}
+$$ approximiert. Es gelten an der Stelle $(x_1^\star,x_2^\star)$ $$
+  T(x_1^\star,x_2^\star)=f(x_1^\star,x_2^\star)\,,\quad
+  T_{x_j}(x_1^\star,x_2^\star)=f_{x_j}(x_1^\star,x_2^\star)\quad\text{und}\quad
+  T_{x_jx_m}(x_1^\star,x_2^\star)=f_{x_jx_m}(x_1^\star,x_2^\star)
+$$ mit $j\in{1,2}$, $m\in{1,2}$ für die Funktionswerte und partiellen ersten und zweiten Ableitungen. D. h. es ist $T(x)\approx f(x)$ für $x=(x_1,x_2)\in U(x^\star)$. Für den Nachweis eines lokalen Extremums an der Stelle $x^\star$ ist nach Definition 1 die Differenz $f(x)-f(x^\star)$ zu untersuchen. Da $x^\star$ eine stationäre Stelle ist, ergibt sich $$
+  \begin{split}
+    f(x)-f(x^\star) & \approx T(x)-f(x^\star) \\
+    & = \frac{1}{2}\cdot\left[f_{x_1x_1}(x_1^\star,x_2^\star)\cdot(x_1-x_1^\star)^2+2\cdot f_{x_1x_2}(x_1^\star,x_2^\star)\cdot(x_1-x_1^\star)\cdot(x_2-x_2^\star)+f_{x_2x_2}(x_1^\star,x_2^\star)\cdot(x_2-x_2^\star)^2\right]
+  \end{split}
+$$ Werden $\mathrm{d}{x_j}=x_j-x_j^\star$ sowie $$
+  A:=f_{x_1x_1}(x_1^\star,x_2^\star)\,,\quad
+  B:=f_{x_1x_2}(x_1^\star,x_2^\star)\quad\text{und}\quad
+  C:=f_{x_2x_2}(x_1^\star,x_2^\star)
+$$ für die partiellen zweiten Ableitungen von $f$ an der Stelle $x^\star$ gesetzt, ergibt sich mittels quadratischer Ergänzung $$
+  \begin{split}
+    2\cdot[T(x)-f(x^\star)] = &  A\cdot\mathrm{d}{x_1^2}+2B\cdot\mathrm{d}{x_1}\mathrm{d}{x_2}+C\cdot\mathrm{d}{x_2^2} \\
+    \stackrel{A\not=0}{=} & A\cdot\left(\mathrm{d}{x_1^2}+\frac{2B}{A}\cdot\mathrm{d}{x_1}\mathrm{d}{x_2}+\left(\frac{B}{A}\cdot\mathrm{d}{x_2}\right)^2\right)-\frac{B^2}{A}\cdot\mathrm{d}{x_2^2}+\frac{CA}{A}\cdot\mathrm{d}{x_2^2} \\
+    = & A\cdot\left(\mathrm{d}{x_1}+\frac{B}{A}\cdot\mathrm{d}{x_2}\right)^2+\left(CA-B^2\right)\cdot\frac{1}{A}\cdot\mathrm{d}{x_2^2} \\
+    = & A\cdot\left(\mathrm{d}{x_1}+\frac{B}{A}\cdot\mathrm{d}{x_2}\right)^2+\det{H(x^\star)}\cdot\frac{1}{A}\cdot\mathrm{d}{x_2^2}
+  \end{split}
+$$
+
+Es ergeben sich die folgenden Fälle:
+
+1. Sind $\det{H(x^\star)}>0$ und $A>0$ in $U(x^\star)$ erfüllt, so ist dort $T(x)-f(x^\star)>0$. Es liegt ein *lokales Minimum* von $f$ vor.
+2. Sind $\det{H(x^\star)}>0$ und $A<0$ in $U(x^\star)$ erfüllt, so ist dort $T(x)-f(x^\star)<0$. Es liegt ein *lokales Maximum* von $f$ vor.
+
+$\square$
+
+**Bemerkung 3.** Ist hingegen $\det{H(x^\star)}<0$, so nimmt $T(x)-f(x^\star)$ in jeder Umgebung positive und negative Werte an. Es liegt kein Extremum in $x^\star$ vor. Für $\det{H(x^\star)}=0$ kann keine Aussage über die Existenz eines lokalen Extremums an der Stelle $x^\star$ getroffen werden.
+
+**Beispiel.** Zu untersuchen ist die reelle Funktion $f:\mathbb{R}^2\to\mathbb{R}$ mit $$
+  f(x_1,x_2)=\frac{1}{3}\cdot x_1^3-4\cdot x_1\cdot x_2+x_2^2+3\cdot x_1-6\cdot x_2+\frac{1}{2}
+$$ auf Existenz lokaler Extrema.
+
+1. *Notwendig* für die Existenz eines lokalen Extremums ist, dass die partiellen ersten Ableitungen von $f$ verschwinden, also $$
+  f_{x_1}(x_1,x_2)=x_1^2-4\cdot x_2+3=0\quad\text{sowie}\quad f_{x_2}(x_1,x_2)=-4\cdot x_1+2\cdot x_2-6=0
+$$ Dies ist ein System von algebraischen Gleichungen in den Variablen $x_1$ und $x_2$. Wird das Doppelte der zweiten Gleichung zur ersten addiert, erhält man daraus die quadratische Gleichung $$
+  x_1^2-8\cdot x_1-9=0
+$$ Die Variable $x_2$ kommt durch den Umformungsschritt darin nicht mehr vor. Diese quadratische Gleichung besitzt die beiden reellen Lösungen $\bar{x}_1=9$ und $\tilde{x}_1=-1$. Rückwärtiges Einsetzen in die Bedingungsgleichungen ergeben $\bar{x}_2=21$ und $\tilde{x}_2=1$ und damit die beiden stationären Stellen $\bar{x}=(\bar{x}_1,\bar{x}_2)=(9,21)$ sowie $\tilde{x}=(\tilde{x}_1,\tilde{x}_2)=(-1,1)$.
+2. *Hinreichend* für die Existenz eines lokalen Extremums ist, dass die Determinante der aus den partiellen Ableitungen gebildeten Hesse-Matrix an einer stationären Stelle positiv ist, also mit $$
+  f_{x_1x_1}(x_1,x_2)=2\cdot x\,,\quad f_{x_2x_2}(x_1,x_2)=2\quad\text{und}\quad
+  f_{x_1x_2}(x_1,x_2)=f_{x_2x_1}(x_1,x_2)=-4
+$$ und $$
+  H(x_1,x_2)=\left(\begin{array}{rr} 2\cdot x & -4 \\ -4 & 2 \end{array}\right)\quad\leadsto\quad
+  \det{H(x_1,x_2)}=4\cdot x-16
+$$ Es berechnen sich $\det{H(9,21)}=20>0$ und $\det{H(-1,1)}=-20<0$, womit an der Stelle $\bar{x}$ ein lokales Extremum der Funktion $f$ nachgewiesen ist, an der Stelle $\tilde{x}$ existiert hingegen kein lokales Extremum. Da für die Komponente der Hesse-Matrix gilt $f_{x_1x_1}(9,21)=18>0$, ist $$
+  f(9,21)=\frac{1}{3}\cdot 9^3-4\cdot 9\cdot 21+21^2+3\cdot 9-6\cdot 21+\frac{1}{2}=-\frac{341}{2}
+$$ ein lokales Minimum.
+
+**Bemerkung 4.** Für eine reelle Funktion von $k>2$ unabhängigen reellen Variablen ist ein Nachweis lokaler Extrema vermöge der Determinante der Hesse-Matrix nicht möglich. Stattdessen werden die [Eigenwerte](https://de.wikipedia.org/wiki/Eigenwertproblem) der Hesse-Matrix untersucht, die im Abschnitt [Lineare Algebra](#Lineare-Algebra) betrachtet werden.
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Gegeben ist die reelle Funktion $f:(x_1,x_2)\mapsto y=\exp{x_1}\cdot(2\cdot x_1+x_2^2)$ mit Definitionsbereich $\mathbb{R}^2$. Berechnen Sie - falls vorhanden - die lokalen Extrema der Funktion $f$. Bestimmen Sie die Art der lokalen Extrema.
+
+[( )] Keine lokalen Extrema vorhanden
+[(X)] Lokales Minimum an der Stelle $(x_1,x_2)=(-1,0)$
+[( )] Lokales Maximum an der Stelle $(x_1,x_2)=(-1,0)$
+[[?]] Berechnen Sie die partiellen ersten und zweiten Ableitungen der Funktion $f$.
+****************************************
+
+Add a solution explanation __Markdown__!
+
+****************************************
 
 
 ### Methode der kleinsten Quadrate
@@ -2132,7 +2258,7 @@ Eine Gegenüberstellung der Integration zur Inhaltsberechnung "unter" dem Funkti
 [^2]: Andere Bezeichnungen sind Flächenintegral, Doppelintegral, $2$-dimensionales Gebiets- bzw. Bereichsintegral.
 
 
-### Doppelintegrale in kartesischen Koordinaten
+### Doppelintegrale
 
 Ist das ebene Bereichsintegral aus Abschnitt [Begriffsbildung](#Begriffsbildung) in kartesischen Koordinaten dargestellt, so schreibt sich speziell
 $$
