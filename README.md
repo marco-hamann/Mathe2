@@ -36,6 +36,236 @@ __Zentrale Fragen__ sind dabei die folgenden:
 * Anwendung bestimmter Integrale zur Berechnung von Flächeninhalten, Volumen von Rotationskörpern, Massenschwerpunkten und Kurvenlängen
 
 
+### Integrationsmethoden
+
+Substitution der Veränderlichen
+=====
+
+>**Satz 1. ** Ist das unbestimmte Integral einer als stetig angenommenen Funktion $t\mapsto g(t)$ mit $t\in D\subseteq\mathbb{R}$ bekannt, d. h. $$
+  \int{g(t)}\,\mathrm{d}t=G(t)+c
+$$ worin $c\in\mathbb{R}$ die Integrationskonstante bezeichnet, so gilt für eine [stetig differenzierbare Funktion](https://de.wikipedia.org/wiki/Differenzierbarkeit) $f:x\mapsto t=f(x)$ mit Wertebereich $W_f\subset D$ $$
+  \int{\left[g(f(x))\cdot f^\prime(x)\right]}\,\mathrm{d}x=G(f(x))+c
+$$ worin $f^\prime$ die erste Ableitung von $f$ nach der unabhängigen Veränderlichen $x$ bezeichnet.[^1]
+
+**Beweis.** Unter Benutzung der Differentiationsregel für verkettete Funktionen folgt für das unbestimmte Integral aus dem vorstehenden Satz $$
+  \left(G(f(x))+c\right)^\prime=
+  \frac{\mathrm{d}{G(f)}}{\mathrm{d}{f}}\cdot f^\prime(x)=g(f(x))\cdot f^\prime(x)
+$$ $\square$
+
+**Beispiel 1.** Zu berechnen ist das unbestimmte Integral $$
+  \int{\left(\sin^3{x}\cdot\cos{x}\right)}\,\mathrm{d}{x}
+$$ Der Integrand ist ein Produkt trigonometrischer Terme. Durch die Substitution $t=f(x)=\sin{x}$ im Integranden mit der ersten Ableitung $f^\prime(x)=\cos{x}$ bzw. dem Differential $\mathrm{d}t=\cos{x}\cdot\mathrm{d}x$, berechnet sich das Integral $$
+  \int{\left(\sin^3{x}\cdot\cos{x}\right)}\,\mathrm{d}{x}=
+  \int\left.{t^3}\,\mathrm{d}{t}\right|_{t=\sin{x}}=
+  \left.\left[\frac{1}{4}\cdot{t^4}+c\right]\right|_{t=\sin{x}}=
+  \frac{1}{4}\cdot{\sin^4(x)}+c
+$$ worin $c\in\mathbb{R}$ die Integrationskonstante bezeichnet. Die Verwendung der Substitutionsvariable $t$ (statt $x$) im zweiten und dritten Schritt bedeutet, dass diese durch die Substitution $t=\sin{x}$ ersetzt gedacht werden muss. Dies ist durch den senkrechten Strich dargestellt.
+
+Die Anwendung der Substitutionsmethode ist im folgenden Video noch einmal an konkreten Integralen erläutert.
+!?[Substitutionmethode2](https://www.youtube.com/watch?v=eC8av8Tjoq8&list=PLLTAHuUj-zHiMVYEnrDcS_8mP36Zowezn&index=14)
+
+**Bemerkung 1.** Wird in dem unbestimmten Integral $$
+  \int{g(a\cdot x+b)}\;\mathrm{d}{x}
+$$ mit reellen Parametern $a\not=0$ und $b$ die *lineare Substitution* $t=f(x)=a\cdot x+b$ durchgeführt, so ergibt sich unter Benutzung obigen Satzes und der Linearität des unbestimmten Integrals
+>$$
+  \int{g(a\cdot x+b)}\;\mathrm{d}{x}=
+  \left.\frac{1}{a}\cdot\int{g(t)}\;\mathrm{d}{t}\right|_{t=a\cdot x+b}=
+  \left.\left[\frac{1}{a}\cdot G(t)+c\right]\right|_{t=a\cdot x+b}=
+  \frac{1}{a}\cdot G(a\cdot x+b)+c
+$$
+worin $G(t)+c$ mit $c\in\mathbb{R}$ das unbestimmte Integral von $g(t)$ bezeichnet.
+
+Die Berechnung des unbestimmten Integrals lässt sich im nachfolgenden Berechnungsfenster unter Verwendung der Javascript-Bibliothek [Algebrite](http://algebrite.org) für beliebige Funktionen $g$ leicht verifizieren. Beachten Sie, dass das die Integrationskonstante nicht ausgegeben wird.
+
+```javascript
+g=sin(t)
+f=a*x+b
+integral(subst(f,t,g),x)
+```
+@Algebrite.eval
+
+Die Anwendung der Substitutionsmethode am Beispiel der linearen Substitution ist im folgenden Video noch einmal an konkreten Integralen erläutert.
+!?[Substitutionsmethode](https://www.youtube.com/watch?v=u7krzqeX1tw&list=PLLTAHuUj-zHiMVYEnrDcS_8mP36Zowezn&index=10)
+
+**Beispiel 2.** Mittels Substitution sind die folgenden unbestimmten Integrale zu berechnen, die im Zusammenhang der später zu behandelnden Partialbruchzerlegung auftreten.[^2]
+
+1. Gegeben ist die reelle Funktion $g:x\mapsto 1/(x-a)$ mit Definitionsbereich $D=\mathbb{R}\setminus\{a\}$, gesucht $$
+  \int{g(x)}\,\mathrm{d}x=\int{\frac{1}{x-a}}\mathrm{d}x
+$$ worin $a\in\mathbb{R}$ einen Parameter bezeichnet. Mittels linearer Substitution $t=x-a$ lässt sich das Integral in ein Grundintegral transformieren $$
+\int{\frac{1}{x-a}}\mathrm{d}x=
+  \left.\int{\frac{1}{t}}\mathrm{d}t\right|_{t=x-a}=
+  \left.\left[\ln{|t|}+c\right]\right|_{t=x-a}=
+  \ln{|x-a|}+c
+$$ mit $c\in\mathbb{R}$.
+2. Gegeben ist die reelle Funktion $g:x\mapsto 1/(x-a)^k$ ($k\in\mathbb{N}$, $k>1$), mit Definitionsbereich $D=\mathbb{R}\setminus\{a\}$, gesucht $$
+  \int{g(x)}\,\mathrm{d}x=\int{\frac{1}{(x-a)^k}}\mathrm{d}x
+$$ worin $a\in\mathbb{R}$ einen Parameter bezeichnet. Erneut lässt sich mittels linearer Substitution $t=x-a$ in ein Grundintegral transformieren $$
+\int{\frac{1}{(x-a)^k}}\mathrm{d}x=
+  \left.\int{\frac{1}{t^k}}\mathrm{d}t\right|_{t=x-a}=
+  \left.\left[\frac{1}{1-k}\cdot\frac{1}{t^{k-1}}+c\right]\right|_{t=x-a}=
+  \frac{1}{1-k}\cdot\frac{1}{(x-a)^{k-1}}+c
+$$ mit $c\in\mathbb{R}$.
+3. Gegeben ist die reelle Funktion $g:x\mapsto (M\cdot x+N)/(x^2+p\cdot x+q)$, die auf $d=\mathbb{R}$ erklärt sein soll. Die reellen Parameter $p$ und $q$ sind so zu wählen, dass der Nenner $x^2+p\cdot x+q\not=0$ für alle $x\in\mathbb{R}$ gilt. Gesucht ist das Integral $$
+  \int{g(x)}\,\mathrm{d}x=\int{\frac{M\cdot x+N}{x^2+p\cdot x+q}}\mathrm{d}x
+$$ worin $M\in\mathbb{R}$ und $N\in\mathbb{R}$ Parameter darstellen. Der Nenner wird mittels quadratischer Ergänzung umgeformt in $$
+  x^2+p\cdot x+1=\left(x+\frac{p}{2}\right)^2+q-\frac{p^2}{4}
+$$ Es wird die lineare Substitution $t=x+\frac{p}{2}$ ausgeführt, daneben wird der neue Parameter $a>0$ durch $a^2=q-\frac{p^2}{4}$ festgelegt. Damit lässt sich das gesuchte Integral unter Benutzung der Linearität transformieren in $$
+  \int{\frac{M\cdot x+N}{x^2+p\cdot x+q}}\mathrm{d}x=
+  \left.\frac{M}{2}\cdot\int{\frac{2\cdot t}{t^2+a^2}}\mathrm{d}t\right|_{t=x+\frac{p}{2}}+\left.\left(N-\frac{M\cdot p}{2}\right)\cdot\int{\frac{1}{t^2+a^2}}\mathrm{d}t\right|_{t=x+\frac{p}{2}}
+$$ Das erste Integral auf der rechten Seite der Gleichung berechnet sich unter Benutzung einer weiteren Substitution $u=t^2+a^2$ mit $\mathrm{d}{u}=2t\cdot\mathrm{d}t$ zu $$
+  \int{\frac{2\cdot t}{t^2+a^2}}\mathrm{d}t=
+  \left.\int{\frac{1}{u}}\mathrm{d}u\right|_{u=t^2+a^2}=
+  \ln{|t^2+a^2|}+c=\ln{(t^2+a^2)}+c
+$$ während mittels $$
+  t^2+a^2=a^2\cdot\left(1+\frac{t^2}{a^2}\right)
+$$ und der Substitution $$
+  v=\frac{t}{a}\,,\;\;\mathrm{d}v=\frac{1}{a}\cdot\mathrm{d}{t}
+$$ sich das zweite Integral berechnet zu $$
+  \int{\frac{1}{t^2+a^2}}\mathrm{d}t=
+  \left.\frac{1}{a}\cdot\int{\frac{1}{1+v^2}}\mathrm{d}v\right|_{v=\frac{t}{a}}=
+  \frac{1}{a}\cdot\arctan{\left(\frac{t}{a}\right)}+c
+$$ Unter Rückersetzung von $t=x+p/2$ ergibt sich schließlich $$
+  \int{\frac{M\cdot x+N}{x^2+p\cdot x+q}}\mathrm{d}x=
+  \frac{M}{2}\cdot\ln{(x^2+p\cdot x+q)}+\frac{2\cdot N-M\cdot p}{\sqrt{4\cdot q-p^2}}\cdot\arctan{\left(\frac{2\cdot x+p}{\sqrt{4\cdot q-p^2}}\right)}+c
+$$ Das unbestimmte Integral in dieser Nummer lässt sich also mittels Logarithmus- und Arkustangensfunktion berechnen.
+
+Die Berechnung der vorstehenden unbestimmten Integrale lässt sich im nachfolgenden Berechnungsfenster unter Verwendung der Javascript-Bibliothek [Algebrite](http://algebrite.org) für beliebige Parameterwerte leicht verifizieren. Beachten Sie, die Parameterwerte $a$ und $k$ geeignet zu wählen. Ebenso, dass die Integrationskonstante nicht ausgegeben wird.
+
+```javascript
+clearall
+a=3
+k=1
+g=1/(x-a)^k
+integral(g,x)
+```
+@Algebrite.eval
+
+
+Partielle Integration
+=====
+
+>**Satz 2. ** *Formel für die partielle Integration.* Gegeben sind zwei mindestens einmal stetig differenzierbare Funktionen über dem gemeinsamen Deffinitionsbereich $D\subseteq\mathbb{R}$ $$
+  f:x\mapsto u=f(x)\quad\text{und}\quad g:x\mapsto v=g(x)
+$$ Dann berechnet sich $$
+  \int{\left(f^\prime(x)\cdot g(x)\right)}\,\mathrm{d}x=f(x)\cdot g(x)-\int{\left(f(x)\cdot g^\prime(x)\right)}\,\mathrm{d}x
+$$ worin $f^\prime$ bzw. $g^\prime$ die ersten Ableitungen der Funktionen $f$ bzw. $g$ bezeichnen.
+
+**Beweis.** Das Produkt $f\cdot g$ lässt sich mit Hilfe der Produktregel differenzieren. Es gilt für alle $x\in\mathbb{R}$ $$
+  \left(f(x)\cdot g(x)\right)^\prime=f^\prime(x)\cdot g(x)+f(x)\cdot g^\prime(x)\quad\leftrightarrow\quad
+  f^\prime(x)\cdot g(x)=\left(f(x)\cdot g(x)\right)^\prime-f(x)\cdot g^\prime(x)
+$$ Werden nun die unbestimmten Integrale der linken bzw. rechten Seiten gebildet, so erhält man unter Nutzung der Linearität des unbestimmten Integrals die Gleichung aus Satz 2. Hierin ist $f(x)\cdot g(x)$ eine Stammfunktion von $\left(f(x)\cdot g(x)\right)^\prime$, die Integrationskonstante $c$ ist im zweiten $$
+  \int{\left(f(x)\cdot g^\prime(x)\right)}\,\mathrm{d}x
+$$ enthalten, so dass $c$ nicht extra ausgewiesen ist.
+
+$\square$
+
+**Beispiel 3.** Zu berechnen ist das unbestimmte Integral $$
+  \int{(x\cdot\cos{x})}\,\mathrm{d}x
+$$ Der Integrand ist ein Produkt mit den Faktoren $x$ und $\cos{x}$. Um eine geeignete Zuordnung zu den Ausdrücken in der Formel für die partielle Integration zu finden, ist zu überlegen, dass $x$ zu $1$ abgeleitet wird, jedoch das unbestimmte Integral $\int{x}\,\mathrm{d}x=\frac{1}{2}\cdot x^2+c$, d. h. quadratisch ist und damit eine Graderhöhung darstellt. Aus diesem Grund wird $$
+  g(x)=x\,,\quad f^\prime(x)=\cos{x}
+$$ gewählt. Hieraus lassen sich berechnen $$
+  g^\prime(x)=1\,,\quad f(x)=\sin{x}
+$$ Das gesuchte Integral berechnet sich hiernach mittels partieller Integration zu $$
+  \int{(x\cdot\cos{x})}\,\mathrm{d}x=x\cdot\sin{x}-\int{1\cdot\sin{x}}\,\mathrm{d}x=x\cdot\sin{x}+\cos{x}+c
+$$ worin $c\in\mathbb{R}$ die Integrationskonstante bezeichnet.
+
+Die Berechnung des vorstehenden unbestimmten Integrals lässt sich im nachfolgenden Berechnungsfenster unter Verwendung der Javascript-Bibliothek [Algebrite](http://algebrite.org) leicht verifizieren. Beachten Sie, dass die Integrationskonstante nicht ausgegeben wird.
+
+```javascript
+clearall
+integral(x*cos(x),x)
+```
+@Algebrite.eval
+
+**Bemerkung 2.** Soll die Formel zur partiellen Integration verwendet werden, so muss der Integrand in zwei Faktoren zerlegt werden: in $f^\prime(x)$ und $g(x)$. Ersterer muss zur Anwendung der Formel integriert werden, der zweite differenziert. Für die Zuordnung muss überlegt werden, dass
+
+* die Integration des Ausdrucks $f^\prime(x)$ möglich ist
+* getroffene Wahl eine Vereinfachung des Integrals nach sich zieht.
+
+**Beispiel 4.** Zu berechnen ist das unbestimmte Integral $$
+  \int{(x^2\cdot\sin{x})}\,\mathrm{d}x
+$$ Der Integrand ist ein Produkt mit den Faktoren $x^2$ und $\sin{x}$. Um eine geeignete Zuordnung zu den Ausdrücken in der Formel für die partielle Integration zu finden, ist zu überlegen, dass $x^2$ zu $2\cdot x$ abgeleitet wird, jedoch das unbestimmte Integral $\int{x^2}\,\mathrm{d}x=\frac{1}{3}\cdot x^3+c$, d. h. kubisch ist und damit eine Graderhöhung darstellt. Aus diesem Grund wird $$
+  g(x)=x^2\,,\quad f^\prime(x)=\sin{x}
+$$ gewählt. Hieraus lassen sich berechnen $$
+  g^\prime(x)=2\cdot x\,,\quad f(x)=-\cos{x}
+$$ Das gesuchte Integral berechnet sich hiernach mittels partieller Integration zu $$
+  \int{(x^2\cdot\sin{x})}\,\mathrm{d}x=-x^2\cdot\cos{x}+2\cdot\int{\left(x\cdot\cos{x}\right)}\,\mathrm{d}x
+$$ Der zweite Summand ist das im Beispiel 3 berechnete Integral, so dass sich unter nochmaliger partieller Integration ergibt $$
+  \int{(x^2\cdot\sin{x})}\,\mathrm{d}x=-x^2\cdot\cos{x}+2\cdot\left(x\cdot\sin{x}+\cos{x}+c\right)=
+  -x^2\cdot\cos{x}+2\cdot x\cdot\sin{x}+2\cdot\cos{x}+\tilde{c}
+$$ worin $\tilde{c}=2\cdot c\; (\in\mathbb{R})$ die Integrationskonstante bezeichnet.
+
+Die Berechnung des vorstehenden unbestimmten Integrals lässt sich im nachfolgenden Berechnungsfenster unter Verwendung der Javascript-Bibliothek [Algebrite](http://algebrite.org) leicht verifizieren. Beachten Sie, dass die Integrationskonstante nicht ausgegeben wird.
+
+```javascript
+clearall
+integral(x^2*sin(x),x)
+```
+@Algebrite.eval
+
+**Beispiel 5.** Zu berechnen ist das unbestimmte Integral $$
+  \int{\ln{x}}\,\mathrm{d}x
+$$ Der Integrand ist hier zunächst ~~kein~~ Produkt, lässt sich aber als $1\cdot\ln{x}$ darstellen. Mit der Zuordnung $$
+  g(x)=\ln{x}\,,\quad f^\prime(x)=1
+$$ sowie $$
+  g^\prime(x)=\frac{1}{x}\,,\quad f(x)=x
+$$ berechnet sich das gesuchte Integral mittels partieller Integration zu $$
+  \int{\ln{x}}\,\mathrm{d}x=x\cdot\ln{x}-\int{\left(\frac{1}{x}\cdot x\right)}\,\mathrm{d}x=x\cdot\ln{x}-x+c
+$$ worin $c\in\mathbb{R}$ erneut die Integrationskonstante bezeichnet.
+
+Die Berechnung des vorstehenden unbestimmten Integrals lässt sich im nachfolgenden Berechnungsfenster unter Verwendung der Javascript-Bibliothek [Algebrite](http://algebrite.org) leicht verifizieren. Beachten Sie, dass die Integrationskonstante nicht ausgegeben wird; der natürliche Logarithmus von $x>0$ wird als `log(x)` ausgegeben.
+
+```javascript
+clearall
+integral(ln(x),x)
+```
+@Algebrite.eval
+
+
+Sicher gewusst?
+======
+
+**Frage 1.** Berechnen Sie die folgenden uneigentlichen Integrale, worin $x>0$ angenommen wird. Die in den Antwortoptionen verwendete Variable $c$ bezeichnet die reelle Integrationskonstante.
+
+[[$\int{\frac{\ln{x}}{x}}\mathrm{d}x$] [$\int{\frac{1}{x\cdot\ln{x}}}\mathrm{d}x$] [$\int{\frac{1}{x\cdot(\ln{x})^2}}\mathrm{d}x$]]
+[[ ] [ ] [X]]  $-\frac{1}{\ln{x}}+c$
+[[X] [ ] [ ]]  $\frac{1}{2}\cdot(\ln{x})^2+c$
+[[ ] [ ] [ ]]  $\frac{1}{\ln{x}}+c$
+[[ ] [X] [ ]]  $\ln{|\ln{x}|}+c$
+[[?]] Nutzen Sie zur Berechnung jeweils die Substitution $t=f(x)=\ln{x}$.
+****************************************
+
+Alle drei Integrale besitzen die Gestalt $$
+  \int{\left(g(f(x))\cdot f^\prime(x)\right)}\mathrm{d}x=\int{\left(g(\ln{x})\cdot \frac{1}{x}\right)}\mathrm{d}x
+$$ so dass die Substitution $t=f(x)=\ln{x}$ sinnvoll ist. Für das Differential gilt $$
+  \mathrm{d}t=\frac{1}{x}\mathrm{d}x
+$$ Damit berechnen sich im Einzelnen
+
+1. $$\int{\frac{\ln{x}}{x}}\mathrm{d}x=\left.\int{t}\mathrm{d}t\right|_{t=\ln{x}}=
+  \left.\frac{1}{2}\cdot t^2+c\right|_{t=\ln{x}}=
+  \frac{1}{2}\cdot(\ln{x})^2+c
+$$
+2. $$\int{\frac{1}{x\cdot\ln{x}}}\mathrm{d}x=\left.\int{\frac{1}{t}}\mathrm{d}t\right|_{t=\ln{x}}=
+  \left.\ln{|t|}+c\right|_{t=\ln{x}}=
+  \ln{|\ln{x}|}+c
+$$
+3. $$\int{\frac{1}{x\cdot(\ln{x}})^2}\mathrm{d}x=\left.\int{\frac{1}{t^2}}\mathrm{d}t\right|_{t=\ln{x}}=
+  \left.-t^{-1}+c\right|_{t=\ln{x}}=
+  -\frac{1}{\ln{x}}+c
+$$ Die dritte Antwortoption stimmt bis auf ein Vorzeichen mit der ersten Antwortoption überein, entspricht jedoch keinem der unbestimmten Integrale.
+
+****************************************
+
+
+[^1]: Dieser Satz besagt, dass das unbestimmte Integral $$
+  \int{g(t)}\,\mathrm{d}t=G(t)+c
+$$ auch dann gültig bleibt, wenn $t$ durch eine stetig differenzierbare Funktion $f:x\mapsto t=f(x)$ ersetzt wird.
+
+[^2]: Das unbestimmte Integral $$
+  \int{\frac{M\cdot x+N}{(x^2+p\cdot x+q)^k}}\mathrm{d}x
+$$ lässt sich für beliebige $k\in\mathbb{N}$ mit $k>1$ nur rekursiv lösen. Die Rechnung wird innerhalb des vorliegenden Beispiels nicht ausgeführt, kann aber beispielsweise unter [Partialbruchzerlegung](https://de.wikipedia.org/wiki/Partialbruchzerlegung) nachgelesen (ohne Beweis) werden.
+
+
 ### Numerische Integration
 
 Gegeben ist eine Funktion $f:[a,b]\to\mathbb{R}$, die nach oben und unten beschränkt ist, d. h. es gilt
