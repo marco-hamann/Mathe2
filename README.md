@@ -27,6 +27,8 @@ https://github.com/marco-hamann/Mathe2
 
 Thema dieses Kapitels ist die Vertiefung der Integralrechnung für reelle Funktionen einer reellen Veränderlichen.
 
+![Integral](img/mat-bild-8.png "_Fig._ Zentrale Begriffe der Integralrechnung für reelle Funktionen einer reellen Variablen.")
+
 Schwerpunkte sind u. a. die numerische Integration sowie Anwendungen der Integralrechnung in der Berechnung von Flächen- und Volumeninhalten, von Kurvenlängen, von Massenschwerpunkten etc.
 
 __Zentrale Fragen__ sind dabei die folgenden:
@@ -177,6 +179,10 @@ integral(x*cos(x),x)
 ```
 @Algebrite.eval
 
+Im nachstehenden Video ist die Vorgehensweise bei der partiellen Integration an einem weiteren Beispiel erläutert.
+
+!?[partielle-Integration](https://www.youtube.com/watch?v=eawyolvYa3E)
+
 **Bemerkung 2.** Soll die Formel zur partiellen Integration verwendet werden, so muss der Integrand in zwei Faktoren zerlegt werden: in $f^\prime(x)$ und $g(x)$. Ersterer muss zur Anwendung der Formel integriert werden, der zweite differenziert. Für die Zuordnung muss überlegt werden, dass
 
 * die Integration des Ausdrucks $f^\prime(x)$ möglich ist
@@ -203,6 +209,10 @@ integral(x^2*sin(x),x)
 ```
 @Algebrite.eval
 
+Im nachstehenden Video ist die Berechnung eines unbestimmten Integrals durch mehrfache partielle Integration erläutert.
+
+!?[partielle-Integration-1](https://www.youtube.com/watch?v=OCZuMjW5Yx4)
+
 **Beispiel 5.** Zu berechnen ist das unbestimmte Integral $$
   \int{\ln{x}}\,\mathrm{d}x
 $$ Der Integrand ist hier zunächst ~~kein~~ Produkt, lässt sich aber als $1\cdot\ln{x}$ darstellen. Mit der Zuordnung $$
@@ -220,6 +230,136 @@ clearall
 integral(ln(x),x)
 ```
 @Algebrite.eval
+
+
+Partialbruchzerlegung
+=====
+
+Ziel dieses Abschnittes ist die Integration gebrochenrationaler Funktionen, d. h. $$
+  \int{\frac{p(x)}{q(x)}}\,\mathrm{d}x
+$$ worin $p(x)$ und $q(x)$ zwei reelle Polynome in der Variablen $x$ bezeichnen. Hier wird sich auf die Integration von echt gebrochenrationalen Funktionen beschränkt, d. h. es gilt $$
+  \deg{p(x)}<\deg{q(x)}
+$$ für die Grade der Polynome.
+
+**Bemerkung 3.** Für unecht gebrochenrationale Funktionen gilt $$
+  f:x\mapsto y=f(x)=\frac{p(x)}{q(x)}\,,\quad \deg{p(x)}\geq\deg{q(x)}
+$$ Diese lassen sich zerlegen in eine Summe aus ganzrationaler und echt gebrochenrationaler Funktion, wie nachstehendes Beispiel zeigt. $$
+  \frac{p(x)}{q(x)}=\frac{3\cdot x^3+x^2-6\cdot x+6}{3\cdot x^2-5\cdot x+4}=(x+2)-\frac{2}{3\cdot x^2-5\cdot x+4}
+$$ Die hier ausgeführte Polynomdivision kann unter dem Link [Polynomdivision](https://www.arndt-bruenner.de/mathe/scripts/polynomdivision.htm) mit kommentiertem Lösungsweg nachvollzogen werden. Hierfür sind Dividend $p(x)$ und Divisor $q(x)$ in eine Eingabemaske einzugeben. Alternativ lassen sich der ganzrationale Anteil und der "Rest" unter Nutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) berechnen.
+
+```javascript
+clearall
+p=3*x^3+x^2-6*x+6
+q=3*x^2-5*x+4
+quotient(p,q,x)
+p-q*quotient(p,q,x)
+```
+@Algebrite.eval
+
+>**Satz 3.** [Hauptsatz von der Partialbruchzerlegung](https://de.wikipedia.org/wiki/Partialbruchzerlegung). Jede echt gebrochenrationale Funktion $f:x\mapsto y=f(x)=p(x)/q(x)$ mit $x\in D\subseteq\mathbb{R}$ lässt sich als Summe endlich vieler Partialbrüche der Form $$
+  \frac{A}{x-a}\,,\quad
+  \frac{B}{(x-a)^k}\,,\quad
+  \frac{C\cdot x+D}{x^2+p\cdot x+q}\quad\text{und}\quad
+  \frac{E\cdot x+F}{(x^2+p\cdot x+q)^k}
+$$ darstellen, worin $(x-a)$ reeller Linearfaktor und $x^2+p\cdot x+q$ mit $$
+  x^2+p\cdot x+q\not=0\quad\forall\; x\in \mathbb{R}
+$$ quadratischer Faktor des Nenners $q(x)$ sind (d. h. der quadratische Faktor besitzt keine Lösungen über $\mathbb{R}$). Des Weiteren ist $k\in\mathbb{N}$ mit $k>1$ und $A$, $B$, ... , $F$ bezeichnen reelle Platzhalter.
+
+**Beweis.** Ein gut lesbarer Beweis dieses Satzes kann beispielsweise bei G. M. Fichtenholz, Differential und Integralrechnung II, S. 41-44 nachgelesen werden.
+
+**Beispiel 6.** Es lässt sich leicht zeigen, dass $$
+  \frac{p(x)}{q(x)}=\frac{2\cdot x^2+2\cdot x+13}{(x-2)\cdot\left(x^2+1\right)^2}=
+  \frac{1}{x-2}-\frac{x+2}{x^2+1}-\frac{3\cdot x+4}{\left(x^2+1\right)^2}
+$$ Der Hauptnenner der Brüche auf der rechten Seite der Gleichung ist $$
+  q(x)=(x-2)\cdot\left(x^2+1\right)^2
+$$ entspricht also dem Nenner des echten Bruches auf der linken Seite der Gleichung.
+
+
+Verfahren der Partialbruchzerlegung
+-----
+
+1. Es sind alle Lösungen des Nennerpolynoms $q(x)\;(=0)$ zu berechnen. Es ergeben sich darunter reelle Lösungen $x_i$ mit der Vielfachheit $n_i$ sowie paarweise komplexe nichtreelle Lösungen $(z_j,\bar{z}_j)$ mit jeweils der Vielfachheit $m_j$.[^3] Es gilt $$
+  \deg{q(x)}=\sum_{i}{n_i}+2\cdot\sum_{j}{m_j}
+$$ Der Nenner lässt sich als reelles Produkt der Linearfaktoren $(x-x_i)$ und der quadratischen Faktoren $$
+  (x-z_j)\cdot(x-\bar{z}_j)=x^2-(2\cdot\mathrm{Re}{z_j})\cdot x-|z_j|^2=:x^2+p_j\cdot x+q_j
+$$ darstellen, so dass sich ergibt $$
+  q(x)=c\cdot\prod_i{(x-x_i)^{n_i}}\cdot\prod_j{(x^2+p_j\cdot x+q_j)^{m_j}}
+$$ worin $c$ den Koeffizienten der höchsten Potenz von $x$ in $q(x)$ bezeichnet. Für die quadratischen Faktoren gilt $$
+  x^2+p_j\cdot x+q_j\not=0\quad\forall\;x\in\mathbb{R}
+$$ d. h. diese besitzen keine reellen Wurzeln / Lösungen.
+2. Für jede Lösung aus Schritt 1 wird nun eine Summe von Partialbrüchen gebildet. Beispielsweise für eine reelle Lösung $x_i$ der Vielfachheit $n_i$ $$
+  \frac{A_1}{(x-x_i)^1}+\frac{A_2}{(x-x_i)^2}+\quad...\quad+\frac{A_{n_i}}{(x-x_i)^{n_i}}
+$$ also eine Summe von $n_i$ Brüchen der Form $1/(x-x_i)^k$ mit $k\in\{1,2,...,n_i\}$. Die auftretenden Koeffizienten $A_k$ sind im folgenden Schritt zu bestimmen. Für ein Paar komplex konjugierter, nichtreeller Lösungen entsprechend $$
+  \frac{B_1\cdot x+ C_1}{(x^2+p_j\cdot x+q_j)^1}+\frac{B_2\cdot x+ C_2}{(x^2+p_j\cdot x+q_j)^2}+\quad...\quad+\frac{B_{m_j}\cdot x+ C_{m_j}}{(x^2+p_j\cdot x+q_j)^{m_j}}
+$$ mit zu bestimmenden Koeffizienten $(B_l,C_l)$ mit $l\in\{1,2,...,{m_j}\}$.
+3. Die für eine jede Lösung $x_i$ bzw. $(z_j,\bar{z}_j)$ gebildeten Summen sind nochmals zu summieren und $p(x)/q(x)$ gleichzusetzen $$
+  \frac{p(x)}{q(x)}=\sum_i{\left(\sum_{k=1}^{n_i}{\frac{A_{k}}{(x-x_i)^{k}}}\right)}+
+  \sum_j{\left(\sum_{l=1}^{m_j}{\frac{B_l\cdot x+ C_l}{(x^2+p_j\cdot x+q_j)^l}}\right)}
+$$ Die Koeffizienten $A_k$, $B_l$ und $C_l$ in der Summe der rechten Seite der Gleichung sind zu bestimmen: Der Hauptnenner der Partialbrüche ist gerade $q(x)$, so dass nach Erweiterung der Partialbrüche die Zähler addiert werden. Diese ergeben ein zu $p(x)$ identisches Polynom. Durch Vergleich der Koeffizienten ergibt sich ein System linearer Gleichungen in den Unbekannten $A_k$, $B_l$ und $C_l$.
+
+**Beispiel 7.** Die in Beispiel 6 gegebene Zerlegung der gebrochenrationalen Funktion $$
+  \frac{p(x)}{q(x)}=\frac{2\cdot x^2+2\cdot x+13}{(x-2)\cdot\left(x^2+1\right)^2}=
+  \frac{1}{x-2}-\frac{x+2}{x^2+1}-\frac{3\cdot x+4}{\left(x^2+1\right)^2}
+$$ soll mit Hilfe des vorgestellten Verfahrens gezeigt werden.
+
+1. Das Nennerpolynom liegt bereits als Produkt eines linearen und quadratischer Faktorn vor $$
+  q(x)=(x-2)\cdot\left(x^2+1\right)^2
+$$ aus welchen sich die Lösungen der Nennergleichung $q(x)=0$ bestimmen lassen $$
+  x_1=2\,,\quad x_2=x_3=i\quad\text{und}\quad x_4=x_5=-i
+$$ Hierin bezeichnet $i$ die imaginäre Einheit.
+2. Die Lösung $x_1$ besitzt die Vielfachheit 'Eins', womit sich der Partialbruch (d. h. die Partialsumme besteht hier aus einem Partialbruch) $$
+  \frac{A}{x-2}
+$$ ergibt. Hierin bezeichnet $A$ einen noch nicht bestimmten reellen Koeffizienten. Die Lösungen $x_2$ und $x_4=\bar{x}_2$ treten jeweils doppelt auf, woraus mit $$
+  (x-i)\cdot(x+i)=x^2+1
+$$ die Partialsumme $$
+  \frac{B_1\cdot x+C_1}{x^2+1}+\frac{B_2\cdot x+C_2}{(x^2+1)^2}
+$$ gebildet werden kann. Die in den Zählern auftretenden Koeffizienten $B_1$, $C_1$, $B_2$ und $C_2$ sind ebenso im folgenden Rechenschritt zu berechnen.
+3. Es werden die in Schritt 2 gebildeten Partialsummen werden summiert und der gebrochenrationalen Funktion gleichgesetzt. $$
+  \frac{p(x)}{q(x)}=\frac{2\cdot x^2+2\cdot x+13}{(x-2)\cdot\left(x^2+1\right)^2}=
+  \frac{A}{x-2}+
+  \frac{B_1\cdot x+C_1}{x^2+1}+\frac{B_2\cdot x+C_2}{(x^2+1)^2}\quad\forall\; x\in\mathbb{R}\setminus\{2\}
+$$ Durch Bildung des Hauptnenners $q(x)$ auf der rechten Seite der Ansatzgleichung erhält man $$
+  \frac{A\cdot\color{red}{\left(x^2+1\right)^2}}{(x-2)\cdot\color{red}{\left(x^2+1\right)^2}}+
+  \frac{(B_1\cdot x+C_1)\cdot\color{red}{(x-2)\cdot\left(x^2+1\right)}}{\left(x^2+1\right)\cdot\color{red}{(x-2)\cdot\left(x^2+1\right)}}+
+  \frac{(B_2\cdot x+C_2)\cdot\color{red}{(x-2)}}{(x^2+1)^2\cdot\color{red}{(x-2)}}
+$$ so dass sich nach Addition der neuen Zähler und anschließender Multiplikation beider Seiten der Gleichung ergibt $$
+  p(x)=2\cdot x^2+2\cdot x+13=
+  A\cdot\left(x^2+1\right)^2+
+  (B_1\cdot x+C_1)\cdot(x-2)\cdot\left(x^2+1\right)+
+  (B_2\cdot x+C_2)\cdot(x-2)
+$$ Die rechte Seite dieser Polynomgleichung lässt sich nach Ausmultiplizieren in der (Monom-) Form $$
+  \left(B_{1}+A\right)\cdot x^4
++\left(C_{1}-2\cdot B_{1}\right)\cdot x^3
++\left(-2\cdot C_{1}+B_{2}+B_{1}+2\cdot A\right)\cdot x^2
++\left(C_{2}+C_{1}-2\cdot B_{2}-2\cdot B_{1}\right)\cdot x
+-2\cdot C_{2}-2\cdot C_{1}+A
+$$ darstellen. Es ergibt sich ein Polynom vierten Grades, in welchem die Koeffizienten lineare Terme der zu bestimmenden Unbekannten sind. Dieses Polynom ist zu $p(x)$ identisch anzusehen, so dass deren Koeffizienten übereinstimmen müssen. Es ergeben sich die nachstehenden Bestimmungsgleichungen (Koeffizientenvergleich): $$
+  \begin{array}{c|rrrrrrrrrrr}
+    x^4 & 0  & = & & & & & & & B_{1} & + & A \\
+    x^3 & 0  & = & & & C_{1} & & & - & 2\cdot B_{1} & & \\
+    x^2 & 2  & = & & & -2\cdot C_{1} & + & B_{2} & + & B_{1} & + & 2\cdot A \\
+    x^1 & 2  & = & C_{2} & + & C_{1} & - & 2\cdot B_{2} & - & 2\cdot B_{1} & & \\
+    1   & 13 & = & -2\cdot C_{2} & - & 2\cdot C_{1} & & & & & + & A
+  \end{array}
+$$ Die Lösungen ergeben sich zu $$
+  C_2=-4\,,\quad C_1=-2\,,\quad B_2=-3\,,\quad B_1=-1\quad\text{und}\quad A=1
+$$ (Hier zunächst ohne Angabe des Rechenweges.)
+
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können diese leicht verifiziert werden. In den Matrizen $A$ bzw. $b$ sind die Koeffizienten bzw. Absolutglieder des Gleichungssystems einzutragen. Ein Nachweis des verwendeten Rechenverfahrens zur Lösung linearer Gleichungssysteme und der hierbei genutzten Objekte soll im Abschnitt [Lineare Algebra](Lineare-Algebra) erfolgen.
+
+```javascript
+clearall
+A=[[0,0,0,1,1],[0,1,0,-2,0],[0,-2,1,1,2],[1,1,-2,-2,0],[-2,-2,0,0,1]]
+b=[0,0,2,2,13]
+det(A)
+B=inv(A)
+inner(B,b)
+```
+@Algebrite.eval
+
+In nachstehenden Video wird die Entwicklung einer echt gebrochen rationalen Funktion als Summe von Partialbrüchen an verschiedenen Beispielen erklärt.
+
+!?[Partialbruchzerlegung-2](https://www.youtube.com/watch?v=6UAQDlsvU5Q)
 
 
 Sicher gewusst?
@@ -256,6 +396,24 @@ $$ Die dritte Antwortoption stimmt bis auf ein Vorzeichen mit der ersten Antwort
 
 ****************************************
 
+**Frage 2.** Mittels partieller Integration wird berechnet $$
+  \int{\left(1\cdot\frac{1}{x}\right)}\,\mathrm{d}x =
+  x\cdot\frac{1}{x} - \int {\left(x\cdot\left(-\frac{1}{x^2}\right)\right)}\,\mathrm{d}x =  1 + \int {\left(\frac{1}{x}\right)}\,\mathrm{d}x
+$$ Erklären Sie die entstandene Gleichung.
+
+[( )] Das unbestimmte Integral $\int{\left(1\cdot\frac{1}{x}\right)}\,\mathrm{d}x$ existiert nicht. Daher besteht kein Widerspruch in der Gleichung.
+[(X)] Im Sinne unbestimmter Integrale ist diese Gleichheit korrekt, da beide unbestimmte Integrale Stammfunktionen beschreiben, die sich nur um einen konstanten Summanden unterscheiden.
+[[?]] Verwenden Sie die Definition des unbestimmten Integrals: $\int{f(x)}\,\mathrm{d}x=F(x)+c$ beschreibt die Menge aller Stammfunktionen der Funktion $f$, die sich nur um einen konstanten Summanden unterscheiden.
+****************************************
+
+Im Sinne unbestimmter Integrale ist diese Gleichheit korrekt, denn unter Benutzung der Linearität des unbestimmten Integrals gilt $$
+  \int 1\cdot\frac{1}{x}\,\mathrm{d}x =  1 + \int \frac{1}{x}\,\mathrm{d}x\quad\leftrightarrow\quad
+  \int 1\cdot\frac{1}{x}\,\mathrm{d}x - \int \frac{1}{x}\,\mathrm{d}x=
+  \int{\left(1\cdot\frac{1}{x}-\frac{1}{x}\right)}\,\mathrm{d}x=\int{0}\,\mathrm{d}x=c=1
+$$
+
+****************************************
+
 
 [^1]: Dieser Satz besagt, dass das unbestimmte Integral $$
   \int{g(t)}\,\mathrm{d}t=G(t)+c
@@ -264,6 +422,8 @@ $$ auch dann gültig bleibt, wenn $t$ durch eine stetig differenzierbare Funktio
 [^2]: Das unbestimmte Integral $$
   \int{\frac{M\cdot x+N}{(x^2+p\cdot x+q)^k}}\mathrm{d}x
 $$ lässt sich für beliebige $k\in\mathbb{N}$ mit $k>1$ nur rekursiv lösen. Die Rechnung wird innerhalb des vorliegenden Beispiels nicht ausgeführt, kann aber beispielsweise unter [Partialbruchzerlegung](https://de.wikipedia.org/wiki/Partialbruchzerlegung) nachgelesen (ohne Beweis) werden.
+
+[^3]: Mit jeder komplexen nichtreellen Lösung $z_j$ ist auch deren komplex konjugierte Zahl $\bar{z}_j$ eine Lösung von $q(x)=0$.
 
 
 ### Numerische Integration
@@ -294,11 +454,11 @@ Abschätzung des gesuchten Flächeninhaltes $A$
 
 **Bemerkung.** Aus der Stetigkeit von $f$ auf $[a,b]$ folgt die Integrierbarkeit auf diesem Intervall.
 
-Die Verwendung von Ober- bzw. Untersummen zur Berechnung eines bestimmten Integrals ist auch erklärt in
+Die Verwendung von Ober- bzw. Untersummen zur Berechnung eines bestimmten Integrals ist auch erklärt in dem nachstehenden Video.
 
 !?[youtube](https://www.youtube.com/watch?v=2bW8Zr7oTlY)
 
-die Verwendung der Obersumme zur Zerlegungszahl $n$ bzw. für den Grenzübergang $n\to\infty$ an einem Beispiel in
+Die Verwendung der Obersumme zur Zerlegungszahl $n$ bzw. für den Grenzübergang $n\to\infty$ ist an einem Beispiel in den nachstehenden Videos erläutert.
 
 !?[youtube](https://www.youtube.com/watch?v=wyG4IJmmAmY)
 
@@ -311,7 +471,11 @@ Einige numerische Berechnungsmethoden
 Rechteckregel
 -------------
 
-Das Integrationsintervall $[a,b]$ wird in $n$ Teilintervalle gleicher Länge $$ h=\frac{b-a}{n}\quad \left(n\in\mathbb{N}\,, n\geq1\right) $$ zerlegt. Für die Zerlegung $$ Z:\,a=x_0<x_1<\ldots<x_n=b\,,\quad x_k=a+k\cdot h $$ kann beispielsweise $$ A=\int_{a}^b{f(x)}\mathrm{d}x \approx \sum_{k=1}^n{y_k\cdot h}\,,\quad y_k=f(x_k) $$ gesetzt werden, d. h. das als Flächeninhalt unter dem Graph der Funktion interpretierbare bestimmte Integral wird mittels achsenparalleler __Rechteckflächen__ genähert, deren "Höhe" durch den Funktionswert an der rechten Intervallgrenze bestimmt ist.
+Das Integrationsintervall $[a,b]$ wird in $n$ Teilintervalle gleicher Länge $$ h=\frac{b-a}{n}\quad \left(n\in\mathbb{N}\,, n\geq1\right) $$ zerlegt. Für die Zerlegung $$
+  Z:\,a=x_0<x_1<\ldots<x_n=b\,,\quad x_k=a+k\cdot h
+$$ kann beispielsweise $$
+  A=\int_{a}^b{f(x)}\,\mathrm{d}x \approx \sum_{k=1}^n{y_k\cdot h}\,,\quad y_k=f(x_k)
+$$ gesetzt werden, d. h. das als Flächeninhalt unter dem Graph der Funktion interpretierbare bestimmte Integral wird mittels achsenparalleler __Rechteckflächen__ genähert, deren "Höhe" durch den Funktionswert an der rechten Intervallgrenze bestimmt ist.
 
 Die vorstehende Formel liefert eine näherungsweise Berechnung des bestimmten Integrals unter Benutzung der Funktionswerte $y_k=f(x_k)$ der Zerlegung $Z$ und der Intervallbreite $h$.
 
@@ -401,9 +565,9 @@ Rechenverfahren Trapezregel
 2. Zerlege das Integrationsintervall $[a,b]$ in die Teilintervalle $$ [a,b]=[x_0,x_1]\cup[x_1,x_2]\cup\ldots\cup[x_{n-1},x_n] $$ worin sich die __Stützstellen__ berechnen mittels $$ x_i=a+h\cdot i\,,\quad i\in\{0,1,2,\ldots,n\} $$ Insbesondere sind $x_0=a$ und $x_n=b$.
 3. Berechne die $n+1$ __Stützwerte__ $y_i=f(x_i)$, d. s. die Funktionswerte an den Stützstellen $x_i$.
 4. Berechne einen Näherungswert für das bestimmte Integral mittels $$ \int_{a}^b{f(x)}\mathrm{d}x\approx \frac{h}{2}\cdot(y_0+y_1) + \frac{h}{2}\cdot(y_1+y_2) + \ldots \frac{h}{2}\cdot(y_{n-1}+y_n) $$ Es ergibt sich schließlich
-> Trapezformel $$ \int_{a}^b{f(x)}\mathrm{d}x\approx\frac{h}{2}\cdot\left(y_0+y_n+2\cdot\sum_{k=1}^{n-1}{y_k}\right)$$
+> Trapezformel $$ \int_{a}^b{f(x)}\,\mathrm{d}x\approx\frac{h}{2}\cdot\left(y_0+y_n+2\cdot\sum_{k=1}^{n-1}{y_k}\right)$$
 
-Eine Erklärung der Trapezregel zur näherungsweisen Berechnung des bestimmten Integrals ist erklärt in
+Eine Erklärung der Trapezregel zur näherungsweisen Berechnung des bestimmten Integrals ist im nachstehenden Video erklärt.
 
 !?[Trapezregel](https://www.youtube.com/watch?v=6hqHufW0dD4)
 
@@ -446,8 +610,10 @@ Zunächst ist die in der Simpson-Regel verwendete Approximation zu betrachten.
 >**Satz.** Gelten für Punkte $(x_0,y_0)$, $(x_1,y_1)$ und $(x_2,y_2)$ die Beziehungen $$ x_0\not= x_2\quad\wedge\quad x_1=\frac{1}{2}\cdot(x_0+x_2) $$ so berechnet sich das bestimmte Integral der die Punkte interpolierenden quadratischen Funktion $$ \int_{x_0}^{x_2}{(a\cdot x^2+b\cdot x+c)}\,\mathrm{d}x=\frac{h}{3}\cdot(y_0+4\cdot y_1+y_2) $$ worin $h=x_2-x_1=x_1-x_0$ bedeutet.
 
 **Beweisidee.** Die Koeffizienten $a$, $b$ und $c$ im Integranden sind durch die Koordinaten $(x_i,y_i)$ der zu interpolierenden Punkte eindeutig festgelegt. Für den Nachweis der Gleichheit von linker und rechter Seite reicht es jedoch aus:
+
 * das bestimmte Integral auf der linken Seite mittels Hauptsatz der Differential- und Integralrechnung zu berechnen $$ \int_{x_0}^{x_2}{(a\cdot x^2+b\cdot x+c)}\,\mathrm{d}x=\frac{a}{3}\cdot \left(x_2^3-x_0^3\right)+\frac{b}{2}\cdot \left(x_2^2-x_0^2\right)+c\cdot\left(x_2-x_0\right) $$
 * in der linken Seite $y_i=a\cdot x_i^2+b\cdot x_i+c$ mit $i\in\{0,1,2\}$ zu setzen sowie $x_1=\frac{1}{2}\cdot(x_0+x_2)$ zu verwenden
+
 um die Gleichheit nachzuweisen. Die konkrete Gestalt der Koeffizienten wird hierfür nicht benötigt. $\square$
 
 
@@ -461,7 +627,7 @@ Die Berechnung eines Näherungswertes für das bestimmte Integral $$ \int_a^b{f(
 3. Berechne die $n+1$ __Stützwerte__ $y_i=f(x_i)$, d. s. die Funktionswerte an den Stützstellen $x_i$.
 4. Berechne einen Näherungswert für das bestimmte Integral mittels $$ \int_{a}^b{f(x)}\mathrm{d}x\approx \frac{h}{3}\cdot(y_0+4\cdot y_1+y_2) + \frac{h}{3}\cdot(y_2+4\cdot y_3+y_4) + \ldots \frac{h}{3}\cdot(y_{2\cdot n-2}+4\cdot y_{2\cdot n-1}+y_{2\cdot n}) $$ Es ergibt sich schließlich
 
-> Simpsonformel $$ \int_a^b{f(x)}\mathbb{d}x\,\approx\,\frac{h}{3}\cdot\left(y_0+y_n+4\cdot\sum_{j=1}^{n}{y_{2\cdot j-1}}+2\cdot\sum_{k=1}^{n-1}{y_{2\cdot k}}\right) $$
+> Simpsonformel zur numerischen Integration $$ \int_a^b{f(x)}\,\mathbb{d}x\,\approx\,\frac{h}{3}\cdot\left(y_0+y_{(2\cdot n)}+4\cdot\sum_{j=1}^{n}{y_{(2\cdot j-1)}}+2\cdot\sum_{k=1}^{n-1}{y_{(2\cdot k)}}\right) $$
 
 Eine Erklärung der Simpson-Regel zur näherungsweisen Berechnung des bestimmten Integrals ist erklärt in
 
@@ -527,6 +693,7 @@ defint(f,x,-1,3)
 In den nachstehenden Videos wird das Verfahren zur Inhaltsberechnung einer durch $G_f$ und der $x$-Achse begrenzten Fläche mit Hilfe bestimmter Integrale erklärt.
 
 !?[Inhaltsbestimmung1](https://www.youtube.com/watch?v=2zVgFO-z-nY)
+
 !?[Inhaltsbestimmung2](https://www.youtube.com/watch?v=KBP6g7MoF54)
 
 Von zwei Funktionsgraphen begrenzte Fläche
@@ -595,7 +762,9 @@ Die Funktion besitzt die Nullstellen $0$, $1$ und $2$. Wegen $$ f(x)=x\cdot(x-1)
 [[?]] Überlegen Sie sich den Verlauf der Graphen beider Integrandenfunktionen im Intervall $[0,1]$. Nutzen Sie hierfür die Monotonie von $x\mapsto \exp{x}$ sowie den Größenvergleich der Exponenten.
 ****************************************
 
-Es ist $-x\leq -x^2$ für alle $x\in[0,1]$. Da $u\mapsto \exp{u}$ streng monoton wachsend ist, folgt $$ \exp{(-x)}\leq\exp{(-x^2)}\quad\forall\;x\in[0,1] $$. Damit ist der Integralwert $$
+Es ist $-x\leq -x^2$ für alle $x\in[0,1]$. Da $u\mapsto \exp{u}$ streng monoton wachsend ist, folgt $$
+  \exp{(-x)}\leq\exp{(-x^2)}\quad\forall\;x\in[0,1] $$
+Damit ist der Integralwert $$
   \int_0^1{\exp{\left(-x^2\right)}}\,\mathrm{d}x
 $$ größer.
 
