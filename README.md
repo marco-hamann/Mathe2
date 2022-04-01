@@ -345,7 +345,7 @@ $$ Die Lösungen ergeben sich zu $$
   C_2=-4\,,\quad C_1=-2\,,\quad B_2=-3\,,\quad B_1=-1\quad\text{und}\quad A=1
 $$ (Hier zunächst ohne Angabe des Rechenweges.)
 
-Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können diese leicht verifiziert werden. In den Matrizen $A$ bzw. $b$ sind die Koeffizienten bzw. Absolutglieder des Gleichungssystems einzutragen. Ein Nachweis des verwendeten Rechenverfahrens zur Lösung linearer Gleichungssysteme und der hierbei genutzten Objekte soll im Abschnitt [Lineare Algebra](Lineare-Algebra) erfolgen.
+Die Lösung lässt sich mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) leicht verifizieren: In den Matrizen $A$ bzw. $b$ sind die Koeffizienten bzw. Absolutglieder des Gleichungssystems einzutragen. Ein Nachweis des verwendeten Rechenverfahrens zur Lösung linearer Gleichungssysteme und der hierbei genutzten Objekte soll im Abschnitt [Lineare Algebra](Lineare-Algebra) erfolgen.
 
 ```javascript
 clearall
@@ -360,6 +360,42 @@ inner(B,b)
 In nachstehenden Video wird die Entwicklung einer echt gebrochen rationalen Funktion als Summe von Partialbrüchen an verschiedenen Beispielen erklärt.
 
 !?[Partialbruchzerlegung-2](https://www.youtube.com/watch?v=6UAQDlsvU5Q)
+
+
+Integration der Partialbrüche
+-----
+
+Die Zerlegung einer echt gebrochen rationalen Funktion in eine Summe von Partialbrüchen lässt sich u. a. zur Integration dieser Funktion benutzen. Im Beispiel 2 dieses Abschnittes sind die uneigentlichen Integrale der Partialbrüche $$
+  \int{\frac{1}{x-a}}\,\mathrm{d}x\,,\quad
+  \int{\frac{1}{(x-a)^k}}\,\mathrm{d}x\quad\text{sowie}\quad
+  \int{\frac{M\cdot x+N}{x^2+p\cdot x+q}}\,\mathrm{d}x\quad\left(p^2-4\cdot q<0\right)
+$$ berechnet worden.
+
+**Bemerkung 4.** Für das unbestimmte Integral $$
+  \int{\frac{M\cdot x+N}{(x^2+p\cdot x+q)^k}}\mathrm{d}x\,,\quad k\in\mathbb{N}\,,\;k>1
+$$ mit $p^2-4\cdot q<0$ lassen sich nicht direkt Stammfunktionen bestimmen. Das Integral kann jedoch auf den Fall $$
+  \int{\frac{L}{(x^2+p\cdot x+q)^{k-1}}}\mathrm{d}x\,,\quad k\in\mathbb{N}\,,\;k>1
+$$ zurückgeführt werden, so dass sich das betrachtete Integral rekursiv berechnen lässt. Die Rekursionsvorschrift wird hier ohne Beweis angegeben.
+>$$
+  \int{\frac{M\cdot x+N}{(x^2+p\cdot x+q)^{\textcolor{red}{k}}}}\,\mathrm{d}x=
+  \frac{(2\cdot N-p\cdot M)\cdot x+N\cdot p-2\cdot q\cdot M}{(k-1)\cdot(4\cdot q-p^2)\cdot(x^2+p\cdot x+q)^{k-1}}+
+  \frac{(2\cdot N-p\cdot M)\cdot(2\cdot k-3)}{(k-1)\cdot(4\cdot q-p^2)}\cdot\int{\frac{1}{(x^2+px+q)^{\textcolor{red}{k-1}}}}\,\mathrm{d}x+c
+$$
+
+worin $c\in\mathbb{R}$ die Integrationskonstante bezeichnet.
+
+**Beispiel 8.** Für die sich in Beispiel 7 ergebende Partialbruchzerlegung berechnen sich mit den Formeln aus Beispiel 2 $$
+  \int{\frac{1}{x-2}}\,\mathrm{d}x=\ln{|x-2|}+c_1\quad\text{und}\quad
+  \int{-\frac{x+2}{x^2+1}}\,\mathrm{d}x=-\frac{1}{2}\cdot\ln{(x^2+1)}-2\cdot\arctan{x}+c_2
+$$ sowie unter Benutzung der vorstehenden Iterationsvorschrift für $k=2$, $p=0$, $q=1$, $M=3$ und $N=4$ $$
+  \int{-\frac{3\cdot x+4}{\left(x^2+1\right)^2}}\,\mathrm{d}x=
+  -\frac{4\cdot x-3}{2\cdot(x^2+1)}-2\cdot\arctan{x}+c_3
+$$ Damit ergibt sich das unbestimmte Integral $$
+  \int{\left(\frac{2\cdot x^2+2\cdot x+13}{(x-2)\cdot\left(x^2+1\right)^2}\right)}\,\mathrm{d}x=
+  \ln{|x-2|}
+  -\frac{1}{2}\cdot\ln{(x^2+1)}-4\cdot\arctan{x}
+  -\frac{4\cdot x-3}{2\cdot(x^2+1)}+c
+$$ mit reeller Integrationskonstante $c=c_1+c_2+c_3$.
 
 
 Sicher gewusst?
