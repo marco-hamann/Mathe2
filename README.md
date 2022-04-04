@@ -387,7 +387,7 @@ worin $c\in\mathbb{R}$ die Integrationskonstante bezeichnet.
 **Beispiel 8.** Für die sich in Beispiel 7 ergebende Partialbruchzerlegung berechnen sich mit den Formeln aus Beispiel 2 $$
   \int{\frac{1}{x-2}}\,\mathrm{d}x=\ln{|x-2|}+c_1\quad\text{und}\quad
   \int{-\frac{x+2}{x^2+1}}\,\mathrm{d}x=-\frac{1}{2}\cdot\ln{(x^2+1)}-2\cdot\arctan{x}+c_2
-$$ sowie unter Benutzung der vorstehenden Iterationsvorschrift für $k=2$, $p=0$, $q=1$, $M=3$ und $N=4$ $$
+$$ sowie unter Benutzung der vorstehenden Iterationsvorschrift für die Parameter $k=2$, $p=0$, $q=1$, $M=3$ und $N=4$ $$
   \int{-\frac{3\cdot x+4}{\left(x^2+1\right)^2}}\,\mathrm{d}x=
   -\frac{4\cdot x-3}{2\cdot(x^2+1)}-2\cdot\arctan{x}+c_3
 $$ Damit ergibt sich das unbestimmte Integral $$
@@ -396,6 +396,10 @@ $$ Damit ergibt sich das unbestimmte Integral $$
   -\frac{1}{2}\cdot\ln{(x^2+1)}-4\cdot\arctan{x}
   -\frac{4\cdot x-3}{2\cdot(x^2+1)}+c
 $$ mit reeller Integrationskonstante $c=c_1+c_2+c_3$.
+
+Die Partialbruchzerlegung zur Berechnung des unbestimmten Integrals einer echt gebrochen rationalen Funktion wird im nachstehendem Video an einem weiteren Beispiel erläutert.
+
+!?[Partialbruchzerlegung-1](https://www.youtube.com/watch?v=E39ne4lX8s8)
 
 
 Sicher gewusst?
@@ -450,6 +454,27 @@ $$
 
 ****************************************
 
+**Frage 3.** Gegeben ist eine echt gebrochenrationale Funktion $f:D\to\mathbb{R}$ mit $$
+  f(x)=\frac{2\cdot x-6}{x\cdot (x-3)^2\cdot (x^2+2)^2}\,,\quad D\subset\mathbb{R}
+$$ Geben Sie einen Ansatz zur Zerlegung der Funktion $f$ in eine Summe von Partialbrüchen an. (Die auftretenden Parameter $A$, $B$ etc. sind ~~nicht~~ zu bestimmen.)
+
+[[ ]] $$ \frac{A}{x}+\frac{B}{(x-3)^2}+\frac{C\cdot x+D}{(x^2+2)^2} $$
+[[X]] $$ \frac{A}{x}+\frac{B}{x-3}+\frac{C}{(x-3)^2}+\frac{D\cdot x+E}{x^2+2}+\frac{F\cdot x+G}{(x^2+2)^2} $$
+[[X]] $$ \frac{A}{x}+\frac{B}{x-3}+\frac{C\cdot x+D}{x^2+2}+\frac{E\cdot x+F}{(x^2+2)^2} $$
+[[?]] Für die Zerlegung in Partialbrüche sind die Polstellen der Funktion zu bestimmen.
+****************************************
+
+Der Funktionsterm $f(x)$ der echt gebrochen rationalen Funktion lässt sich darstellen $$
+  f(x)=\frac{2\cdot(x-3)}{x\cdot (x-3)^2\cdot (x^2+2)^2}=\frac{2}{x\cdot (x-3)\cdot (x^2+2)^2}
+$$ woraus sich die Polstellen $x_1=0$ (einfach), $x_2=3$ (einfach) und $x_{3,4}=\pm \sqrt{2}\cdot i\in\mathbb{C}\setminus\mathbb{R}$ (jeweils doppelt) bestimmen lassen.
+
+Entsprechend ergeben sich für die einzelnen Polstellen die nachstehenden Summen von Partialbrüchen. $$
+  x_1\;\sim\;\frac{A}{x}\,,\quad
+  x_2\;\sim\;\frac{B}{x-3}\quad\text{und}\quad
+  x_{3,4}\;\sim\;\frac{C\cdot x+D}{x^2+2}+\frac{E\cdot x+F}{(x^2+2)^2}
+$$ Wird das Ausklammern und Kürzen des Faktors $(x-3)$ in Zähler und Nenner vergessen, kann hier auch der Ansatz 2 gewählt werden, in welchem $x_2$ zunächst doppelt angesetzt wird. (Der Parameter $C$ Berechnet sich im Koeffizientenvergleich zu 'Null'.)
+
+****************************************
 
 [^1]: Dieser Satz besagt, dass das unbestimmte Integral $$
   \int{g(t)}\,\mathrm{d}t=G(t)+c
