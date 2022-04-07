@@ -1120,6 +1120,8 @@ $$ heißt **Niveauliniendiagramm** von $f$. Im Beispiel 1 sind dies konzentrisch
 
 **Bemerkung 1.** Werden in der $xy$-Ebene die projizierten Niveaulinien $h_0$ mit äquidistanten Werten $z_0\in W$ dargestellt, so verläuft $G_f$ bezüglich der $xy$-Ebene umso steiler, je enger 'benachbarte' Niveaulinien $h_0$ liegen.
 
+![Niveaulinien](img/mat-bild-9.png "_Fig._ Grund- und Aufriss des Graphen der Funktion $f$ aus Beispiel 1 mit dem Niveauliniendiagramm in der $xy$-Ebene.")
+
 **Bemerkung 2.** Eine Funktion $f:D\to\mathbb{R}$ mit $D\subseteq\mathbb{R}^3$ heißt räumliches skalares Feld. Die Zuordnung $$
   (x,y,z)\in D\mapsto f(x,y,z)\in\mathbb{R}
 $$ ordnet hierbei jedem Ort $(x,y,z)$ eindeutig einen Skalar $f(x,y,z)$ zu, das **Potential** in $(x,y,z)$. Analog zum Niveaulinienplan ergeben sich hier **Äquipotentialflächen**.
@@ -1136,6 +1138,67 @@ $$
 Die rechte Seite der Äquivalenz ist entspricht der Gleichung einer Kugeloberfläche um den Koordinatenursprung $(0,0,0)$. Deren linke Seite ist für jede Wahl $c$ positiv und entspricht dem Quadrat des Radius dieser Kugeloberfläche. Die Äquipotentialflächen sind somit konzentrische Kugelschalen mit den Radien $$
   r=\left|{\frac{Q}{4\cdot\pi\cdot\epsilon_0\cdot c}}\right|
 $$
+
+
+Sicher gewußt?
+=====
+
+
+Sie können gern Ihr Wissen bei der Beantwortung der nachstehenden Fragen testen.
+
+**Frage 1.** Gegeben sind die reellen Funktionen $f:D\to\mathbb{R}$ mit $D\subseteq\mathbb{R}^2$ und $$
+  f:(x,y)\mapsto z=f(x,y)
+$$ worin $(x,y)$ die unabhängigen Variablen und $z$ die abhängige Variable (Funktionswert) bezeichnen.
+
+Bestimmen Sie jene Paare $(x,y)\in\mathbb{R}^2$, für welche die nachstehenden Funktionensterme $z=f(x,y)$ ~~nicht~~ erklärt sind.
+
+[[$z=\sqrt{x^2-y^2}$] [$z=\frac{x}{x+y}$] [$z=\arctan{\frac{y}{x}}$] [$z=\sqrt{x\cdot y-1}+\arccos{\frac{y}{x^2}}$]]
+[( ) (X) ( ) ( )]  $y=-x$
+[(X) ( ) ( ) ( )]  $(x> y\,\wedge\,x<-y)\,\vee\,(x< y\,\wedge\,x>-y)$
+[( ) ( ) ( ) (X)]  $(x=0)\;\vee\; (x\cdot y<1)\;\vee\;\left(|y|>x^2\right)$
+[( ) ( ) (X) ( )]  $x=0$
+[[?]] Es ist zu prüfen, für welche Paare $(x,y)\in\mathbb{R}^2$ die Funktionsterme $z=f(x,y)$ nicht erklärt sind.
+****************************************
+
+1. Der Ausdruck $\sqrt{x^2-y^2}$ ist nur erklärt, wenn der Radikant größer bzw. gleich 'Null' ist. Dagegen gehören $(x,y)$ nicht zum Definitionsbereich, falls $x^2-y^2<0$. Unter Anwendung der Binomischen Formel $$
+  x^2-y^2=(x-y)\cdot(x+y)
+$$ gilt die letzte Bedingung für $$
+  x+y>0\;\wedge\;x-y<0\quad\leftrightarrow\quad x>-y\;\wedge\;x<y
+$$ beziehungsweise $$
+  x+y<0\;\wedge\;x-y>0\quad\leftrightarrow\quad x<-y\;\wedge\;x>y
+$$
+2. Der Ausdruck $\frac{x}{x+y}$ ist nicht erklärt in dem Fall, in dem der Nenner 'Null' wird, d. h. $$
+  x+y=0\quad\leftrightarrow\quad y=-x
+$$
+3. Die Funktion $\arctan$ lässt sich auf $D=\mathbb{R}$ definieren, d. h. $$
+  \arctan:\mathbb{R}\to\left(-\frac{\pi}{2},\frac{\pi}{2}\right)
+$$ Daraus folgt, dass $(y/x)\in\mathbb{R}$ gewählt werden darf, woraus die Einschränkung $x\not=0$ folgt.
+4. Die Funktion $f$ mit dem Funktionsterm $$
+  f(x,y)=\sqrt{x\cdot y-1}+\arccos{\frac{y}{x^2}}
+$$ ist summ einer Wurzelfunktion und der Funktion $\arccos$. Der Funktionsterm $f(x,y)$ ist zum einen nicht erklärt, wenn der Radikant negativ ist, d. h. $$
+  x\cdot y-1< 0\quad\leftrightarrow\quad x\cdot y< 1
+$$ zum anderen, wenn das Argument $y/x^2$ nicht im Definitionsbereich der Funktion $$
+  \arccos:[-1,1]\to(0,\pi)
+$$ also $\left(y/x^2\right)\not\in[-1,1]$. Dies ist äquivalent zur Relation $|y|>x^2$.
+
+****************************************
+
+**Frage 2.** Geben Sie die Äquipotentialflächen des räumlichen skalaren Feldes zur Funktion $$
+  f:(x,y,z)\mapsto w=f(x,y,z)=\frac{1}{x^2+y^2}\,,\quad x^2+y^2\not=0
+$$ an.
+
+[( )] Schar von Kreisen in der $xy$-Ebene mit gemeinsamen Mittelpunkt im Koordinatenursprung
+[(X)] Schar von Drehzylindern um die $z$-Achse als Drehachse
+[( )] Schar von Drehkegeln mit Spitze im Koordinatenursprung und der $z$-Achse als Drehachse
+[[?]] Eine Äquipotentialfläche ist der geometrische Ort aller Punkte $(x,y,z)$, die das gleiche Potential $w=f(x,y,z)$ besitzen. Betrachten Sie also die Gleichung $w=f(x,y,z)$ mit beliebig, aber fest gewähltem $w$.
+****************************************
+
+Die Potentialgleichung lässt sich umformen $$
+  w=f(x,y,z)=\frac{1}{x^2+y^2}\quad\leftrightarrow\quad x^2+y^2=\frac{1}{w}
+$$ worin aus dem Wertebereich der Funktion $f$ die Relation $\frac{1}{w}>0$ folgt. Dies ist die Gleichung eines Drehzylinders um die $z$-Achse des räumlichen kartesischen Koordinatensystems mit Radius des Basiskreises $r=\frac{1}{w}\cdot\sqrt{w}$.
+
+****************************************
+
 
 [^1]: Ist $n=2$, so werden zur Vermeidung überflüssiger Indizes manchmal $(x,y)$ statt $(x_1,x_2)$ als unabhängige Variablen verwendet und $z=f(x,y)$ als von diesen abhängige Variable.
 
@@ -1214,6 +1277,8 @@ geometrisch deuten.[^2] Hierbei entspricht jeweils $$
   f_y(1,2)\approx\tan{89.3^\circ}
 $$
 
+Eine interaktive Veranschaulichung der partiellen ersten Ableitungen einer reellen Funktion zweier reeller Veränderlicher wird unter [Partielle Ableitungen](https://www.geogebra.org/m/vkk8qtky) gegeben.
+
 
 Ableitungsregeln
 =================
@@ -1271,6 +1336,12 @@ d(h,[x,y])
 ```
 @Algebrite.eval
 
+Im nachstehenden Video werden Ableitungsregeln an Beispielen erläutert: Summen und Faktorregel im ersten, die Kettenregel im zweiten Video.
+
+!?[Ableitungsregeln](https://www.youtube.com/watch?v=_3MxJ2XFq7g)
+
+!?[Kettenregel](https://www.youtube.com/watch?v=Qy-3VO8VWhM&list=PLLTAHuUj-zHjLiDpSFclKW8OLU4a35A85&index=2)
+
 
 Partielle Ableitungen höherer Ordnung
 =====================================
@@ -1321,6 +1392,10 @@ simplify(d(h,x,y))
 ```
 @Algebrite.eval
 
+Im nachstehenden Video werden die partiellen ersten und zweiten Ableitungen an einem weiteren Beispiel erläutert. Bitte beachten Sie, dass im Video ein anderes Ableitungssymbol für die partiellen Ableitungen benutzt wird.
+
+!?[Partielle-Ableitungen-2](https://www.youtube.com/watch?v=07HSCjjp4PI&list=PLLTAHuUj-zHjLiDpSFclKW8OLU4a35A85&index=4)
+
 >**Satz.** ([Satz von Schwarz](https://de.wikipedia.org/wiki/Satz_von_Schwarz)) Ist eine Funktion $f$ von $k$ unabhängigen, reellen Variablen $$
   f:D\to\mathbb{R},(x_1,x_2,\ldots,x_k)\mapsto y=f(x_1,x_2,...,x_k)
 $$ in einer offenen Menge des Definitionsbereiches $U\subseteq D\subseteq\mathbb{R}^k$ mindestens $n$-mal partiell differenzierbar und die $n$-ten partiellen Ableitungen von $f$ in $U$ stetig, so ist die Reihenfolge in allen $m$-ten partiellen Ableitungen mit $m\leq n$ unerheblich.
@@ -1348,7 +1423,7 @@ d(f,x,y)-d(f,y,x)
 Sicher gewusst?
 ===============
 
-Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+Sie können gern Ihr Wissen bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Entscheiden Sie: Die partielle Ableitung einer Funktion $$
   f:(x_1,..,x_k)\mapsto y=f(x_1,..x_k)\,,\quad D\subseteq\mathbb{R}^k
