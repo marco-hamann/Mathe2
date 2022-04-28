@@ -5522,3 +5522,315 @@ Die dritte Abbildung (Antwortoption 3) beschreibt das Skalarfache eines Vektors.
 [^2]: Der Nachweis der Cauchy-Schwarzschen Ungleichung in euklidischen Vektorräumen kann beispielsweise im Buch 'Lineare Algebra' von Klaus Jänich, Seite 180, nachgelesen werden.
 
 [^3]: Quelle: Klaus Jänich, Lineare Algebra, Seite 192 f.
+
+
+### Eigenwerte und -Vektoren
+
+Definition
+=====
+
+In diesem Abschnitt werden sogenannte [Eigenwertprobleme](https://de.wikipedia.org/wiki/Eigenwertproblem) betrachtet. An einem Beispiel sollen zunächst das grundlegende Konzept anschaulich eingeführt und anschließend zentrale Begriffe definiert werden. Danach werden exemplarisch Anwendungen von Eigenwertproblemen innerhalb und außerhalb der Mathematik betrachtet.
+
+**Beispiel 1.** Es soll die Abbildung der Ebene beschrieben werden, welche die Punkte der Ebene an der $x$-Achse eines kartesischen Koordinatensystems spiegelt.
+
+Werden die Koordinaten des Urbildpunktes beziehungsweise Bildpunktes unter dieser Achsenspiegelung mit $x=(x_1,x_2)^\top$ beziehungsweise $x'=(x_1',x_2')^\top$ bezeichnet, so kann die Abbildung $$
+  \sigma:\mathbb{R}^2\to\mathbb{R}^2\quad\text{mit}\quad
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} x_1 \\ -x_2 \end{pmatrix}
+$$ in Abhängigkeit der Koordinaten des Urbildes angegeben werden. Siehe nachstehende Abbildung.
+
+![Spiegelung](img/mat-bild-10.png "_Fig._ Spiegelung $\sigma$ an der $1$-ten Achse des kartesischen Koordinatensystems, zu spiegelnder Punkt $X$ und sein Bild $X'$ unter $\sigma$: Die Strecke $[X,X']$ verläuft orthogonal zur Spiegelachse und wird durch diese im Punkt $L$ halbiert.")
+
+Ohne zunächst das geometrische Motiv in den Vordergrund zu stellen, wird nach denjenigen Ortsvektoren $x$ zu Punkten $X$ gefragt, die unter der Abbildung $\sigma$ auf linear abhängigen Vektor $x'=\lambda\cdot x$ abgebildet werden. Lösungen aus dieser Fragestellung werden zur geometrischen Kennzeichnung der Geradenspiegelung genutzt.
+
+1. Der Nullvektor wird unter $\sigma$ auf sich abgebildet, da gilt $$
+  o=\begin{pmatrix} 0 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$ Diese Lösung wird als *triviale Lösung* bezeichnet.
+2. Allgemein werden Ortsvektoren $x$ gesucht, für die gilt $$
+  \lambda\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_1 \end{pmatrix}
+$$ d. h. die auf ein $\lambda$-Faches abbgebildet werden. Wird die Abbildungsmatrix mit $A$ bezeichnet, so stellt sich der Ansatz dar $$
+  x'=\lambda\cdot x=A\cdot x\quad\leftrightarrow\quad
+  (A-\lambda\cdot E)\cdot x=o
+$$ worin $E=\mathrm{diag}{(1,1)}$ die zweireihige Einheitsmatrix bezeichnet. Die rechte Seite der vorstehenden Äquivalenz ist ein System zweier linearer homogener Gleichungen in den Unbekannten $(x_1,x_2)$ $$
+  (A-\lambda\cdot E)\cdot x=\begin{pmatrix} 1-\lambda & 0 \\ 0 & -1-\lambda \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \end{pmatrix}=o
+$$ dessen Koeffizientenmatrix $(A-\lambda\cdot E)$ vom Parameter $\lambda$ abhängt. Das Gleichungssystem besitzt neben der trivialen genau dann weitere Lösungen, falls der Rang der Koeffizientenmatrix kleiner $2$ ist $$
+  \mathrm{rang}{(A-\lambda\cdot E)}<2\quad\leftrightarrow\quad
+  \det{(A-\lambda\cdot E)}=\lambda^2-1=0
+$$ Letzteres ist eine quadratische Gleichung im Parameter $\lambda$ mit den beiden Lösungen $\lambda_1=1$ und $\lambda_2=-1$. Im Fall der Lösung $\lambda_1$ nimmt das Gleichungssystem die Form $$
+  \begin{pmatrix} 0 & 0 \\ 0 & -2 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \end{pmatrix}\quad\leadsto\quad
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\mu\cdot\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+$$ Die Lösungen sind Ortsvektoren der Punkte der Spiegelachse, besitzen demnach eine geometrische Interpretation.[^1] Im Fall der Lösung $\lambda_2$ nimmt das Gleichungssystem die Form $$
+  \begin{pmatrix} 2 & 0 \\ 0 & 0 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \end{pmatrix}\quad\leadsto\quad
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\nu\cdot\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$ Die Lösungen sind Ortsvektoren der Punkte, die auf das $(-1)$-Fache abgebildet werden. Das sind die Punkte der zweiten Koordinatenachse, die die Spiegelrichtung kennzeichnet. Auch diese Vektoren besitzen demnach eine geometrische Interpretation.
+
+>**Definition 1.** Sei ${A}\in\mathbb{R}^{n,n}$ eine $n$-reihige Matrix mit $n\in\mathbb{N}$ und $n\geq2$. Dann heißt die Matrixgleichung $$
+  {A\cdot x}=\lambda\cdot{x}\quad\Longleftrightarrow \quad\left({A-\lambda\cdot E}\right){x}={o}
+$$ mit $n$-reihiger Einheitsmatrix ${E}$ und Nullvektor ${o}$ die *Eigenwertaufgabe* zur Matrix ${A}$. In der Gleichung bezeichnen:
+>
+> 1. ${A-\lambda\cdot E}$ die charakteristische Matrix
+> 2. $\det{\left({A-\lambda\cdot E}\right)}$ das charakteristische Polynom und $\det{\left({A-\lambda\cdot E}\right)}=0$ die charakteristische Gleichung
+> 3. jede Lösung $\lambda\in\mathbb{C}$ obiger Gleichung einen Eigenwert
+> 4. jeder Vektor ${x}\in\mathbb{C}^{n\times1}\setminus\{o\}$  einen zum Eigenwert $\lambda$ gehörenden Eigenvektor
+>
+> zur Matrix ${A}$.
+
+Die Begriffe 'Eigenwert', 'Eigenvektor', 'charakteristisches Polynom' einer quadratischen Matrix wird im nachstehendem Video kurz zusammengefasst.
+
+!?[Eigenwert](https://www.youtube.com/watch?v=xPMoJ8Mu67w&list=PLLTAHuUj-zHgMbsnuYFI4faJVawyKOM97&index=3)
+
+
+Bestimmung der Eigenwerte und -Vektoren
+======
+
+
+1. Berechne die Eigenwerte $\lambda_i$ als Lösungen der charakteristischen Gleichung $$
+   \det{\left({A-\lambda\cdot E}\right)}=0
+$$ Dies ist eine reelle algebraische Gleichung $n$-ten Grades mit Lösungen $$
+  \lambda_1\in\mathbb{C}\,,\quad\lambda_2\in\mathbb{C}\,,\quad\ldots\,,\quad\lambda_n\in\mathbb{C}
+$$
+2. Setze die Eigenwerte $\lambda_i$ nacheinander in die Eigenwertaufgabe ein. Es ergibt sich ein System linearer, homogener Gleichungen in den Komponenten der zu $\lambda_i$ gehörenden Eigenvektoren ${x}$. Für $\lambda_i\in\mathbb{R}$ ist die Lösungsmenge ein $k_i$-dimensionaler Untervektorraum in $\mathbb{R}^n$, worin $$
+  k_i=n-\mathrm{Rang}\left(A-\lambda_i\cdot E\right)
+$$ Die Menge aller Eigenvektoren $x$ zu einem Eigenwert $\lambda_i$ wird Eigenraum zu $\lambda_i$ genannt. Siehe Satz 1.
+
+**Beispiel 2.** Betrachtet wird die Transformation $\kappa:\mathbb{R}^2\to\mathbb{R}^2$ mit $$
+  \kappa: x\mapsto x'=A\cdot x
+$$ mit der Transformationsmatrix $$
+  A(\varphi)=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}
+$$ worin $\varphi\in[0,2\pi)$. Speziell ergeben sich für die Parameterwerte $\varphi=0$ bzw. $\varphi=\pi$ die Matrizen $$
+  A(0)=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\quad\text{bzw.}\quad
+  A(\pi)=\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+$$ die Transformation beschreibt die identische Abbildung bzw. die Spiegelung am Koordinatenursprung $O(0,0)$.
+
+Generell beschreibt $\kappa$ eine Drehung der Ebene um $O$ mit dem Drehwinkel $\varphi$. Bezeichnen nämlich $x=(x_1,x_2)^\top$ bzw. $x'=(u_1,u_2)^\top$ die Ortsvektoren eines frei wählbaren Punktes beziehungsweise dessen gedrehtes Bild unter der Drehung, so gilt für die Bildpunktkoordinaten $$
+  \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}=
+  r\cdot\begin{pmatrix} \cos{(\alpha+\varphi)} \\ \sin{(\alpha+\varphi)} \end{pmatrix}=
+  r\cdot\begin{pmatrix} \cos{\varphi}\cdot\cos{\alpha}-\sin{\varphi}\cdot\sin{\alpha} \\ \sin{\varphi}\cdot\cos{\alpha}+\cos{\varphi}\cdot\sin{\alpha} \end{pmatrix}=
+  A(\varphi)\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$ worin $(\alpha,r)$ die Polarkoordinaten von des Punktes $X$ zum Ortsvektor $x$ bezeichnen.
+
+![Drehung](img/mat-bild-11.png "_Fig._ Drehung eines - frei wählbaren - Punktes $X$ um den Ursprung $O$ des kartesischen Koordinatensystems um den Winkel $\varphi$. Der Bildpunkt unter der Drehung ist $X'$.")
+
+1. Die charakteristische Gleichung zur Matrix $A(\varphi)$ berechnet sich zu $$
+  \det{\left({A-\lambda\cdot E}\right)}=
+  \det{\left(\begin{array}{ll} \cos{\varphi}-\lambda & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi}-\lambda\end{array}\right)}=
+  \left(\cos{\varphi}-\lambda\right)^2+\left(\sin{\varphi}\right)^2=0
+$$ Unter Anwendung der binomischen Formel und des trigonometrischen Pythagoras ergibt sich daraus äquivalent die Gleichung $$
+  0=\lambda^2-2\cdot \lambda\cdot\cos{\varphi}+1
+$$ Dies ist eine algebraische Gleichung vom Grad $2$ in der Unbekannten $\lambda$. Da für deren Diskriminante gilt $$
+  D=4\cdot\left(\cos{\varphi}\right)^2-4<0\quad\leftrightarrow\quad \varphi\not\in\{0,\pi\}
+$$ sind in diesen Fällen die Lösungen komplex nicht reell und ergeben sich mithilfe des Ansatzes $$
+  \lambda^2-2\cdot \lambda\cdot\cos{\varphi}+1=(\lambda-\lambda_1)\cdot(\lambda-\bar{\lambda}_1)
+$$ unter Benutzung des [Satzes von Vieta](https://de.wikipedia.org/wiki/Satz_von_Vieta) $$
+  \lambda_{1}=\cos{\varphi}+i\cdot\sin{\varphi}\,,\quad \lambda_2=\bar{\lambda}_1
+$$ worin $i$ mit $i^2=-1$ die imaginäre Einheit und $\lambda_2$ die zu $\lambda_1$ komplex konjugierte Zahl bezeichnen. Für $\varphi=0$ ergeben sich die doppelten, reellen Lösungen $\lambda_1=\lambda_2=1$, für $\varphi=\pi$ dagegen $\lambda_1=\lambda_2=-1$ (doppelte Eigenwerte).
+2. Nun lassen sich die zu den Eigenwerten gehörenden Eigenvektoren berechnen. Zunächst soll für $\varphi=\pi$ der Eigenraum zum einzigen Eigenwert $\lambda_1=\lambda_2=-1$ berechnet werden. Das Gleichungssystem ergibt nach Einsetzen von $\varphi$ und $\lambda$ in die Eigenwertaufgabe $$
+  \begin{pmatrix} -1-(-1) & 0 \\ 0 & -1-(-1) \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}\quad\leadsto\quad
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\begin{pmatrix} \mu \\ \nu \end{pmatrix}
+$$ mit $(\mu,\nu)\in\mathbb{R}^2$. Jeder Vektor $x\in\mathbb{R}^2$ erfüllt die Eigenwertaufgabe und ist somit Eigenvektor zu $\lambda_1$, der Vektorraum $\mathbb{R}^2$ ist Eigenraum zu $\lambda_1$. Für den Fall $\varphi=0$ folgt ein analoges Resultat. Für $\varphi\not\in\{0,\pi\}$ ergeben sich Systeme nichtreeller Gleichungen, deren Lösungen sich nicht in $\mathbb{R}^2$ interpretieren lassen. Es berechnen sich die Eigenräume für $\lambda_1$ $$
+  \begin{pmatrix} \cos{\varphi}-(\cos{\varphi}+i\cdot\sin{\varphi}) & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi}-(\cos{\varphi}+i\cdot\sin{\varphi}) \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\sin{\varphi}\cdot
+  \begin{pmatrix} i & -1 \\ 1 & i \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}\quad\leftrightarrow\quad i\cdot x_1=x_2
+$$ und somit der komplexe Untervektorraum aller Vektoren $$
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\mu\cdot\begin{pmatrix} 1 \\ i \end{pmatrix}
+$$ Analog ergibt sich für $\lambda_2$ der Eigenraum als komplexer Untervektorraum aller Vektoren $$
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\nu\cdot\begin{pmatrix} 1 \\ -i \end{pmatrix}
+$$
+
+Die Berechnung des charakteristischen Polynoms sowie der Eigenwerte und -Vektoren einer reellen Matrix wird in den nachstehenden Videos an Beispielen zwei bzw. dreireihiger Matrizen erläutert.
+
+!?[Eigenwert-Beispiel-1](https://www.youtube.com/watch?v=e_EE0EIuyJk&list=PLLTAHuUj-zHgMbsnuYFI4faJVawyKOM97&index=5)
+
+!?[Eigenwert-Beispiel-2](https://www.youtube.com/watch?v=ATA9zVMVmDY&list=PLLTAHuUj-zHgMbsnuYFI4faJVawyKOM97&index=4)
+
+Die Berechnung der Eigenwerte und Eigenvektoren lässt sich im nachfolgenden Berechnungsfenster unter Verwendung der Javascript-Bibliothek [Algebrite](http://algebrite.org) für symmetrische Matrizen $m$ mit numerischen Komponenten vornehmen.
+
+1. Der Befehl `eigen(m)` berechnet Eigenwerte und Eigenvektoren und speichert diese (ohne Ausgabe) als Hauptdiagonalelemente in der Diagonalmatrix $D$ bzw. als Zeilenvektoren in der Matrix $Q$.
+2. Die Befehle `eigenval(m)` beziehungsweise `eigenvec(m)` berechnen die Eigenwerte beziehungsweise Eigenvektoren der Matrix $m$.
+
+```javascript
+m=[[1,3],[3,2]]
+eigenval(m)
+eigenvec(m)
+eigen(m)
+lambda=D[1][1]
+x=Q[1]
+dot(m,x)-lambda*x
+```
+@Algebrite.eval
+
+
+Eigenschaften
+=====
+
+
+Aus der Definition von Eigenwerten und Eigenvektoren einer Matrix lassen sich die folgenden Eigenschaften ableiten.
+
+>**Satz 1.** Für eine reelle, $n$-reihige Matrix $A$ gelten die folgenden Eigenschaften:
+>
+>1. Die Determinante der Matrix $A$ ist das Produkt aller Eigenwerte[^2] $$
+  \det{A}=\lambda_1\cdot\lambda_2\cdot\ldots\cdot\lambda_n
+$$
+>2. Die Zahl 'Null' ist genau dann ein Eigenwert der Matrix $A$, wenn $A$ singulär ist, d. h. für $\det{A}=0$.
+>3. Die Menge aller Eigenvektoren zu einem Eigenwert $\lambda$ bildet einen Untervektorraum $U_\lambda$, den zu $\lambda$ gehörenden *Eigenraum*.
+>4. Die Eigenräume zu verschiedenen Eigenwerten sind bis auf den Nullvektor $o$ verschieden., d. h. $$
+  \lambda_i\not=\lambda_j\quad\to\quad U_{\lambda_i}\cap U_{\lambda_j}=\{o\}
+$$
+
+**Beweis.**
+
+1. Das charakteristische Polynom von $A$ ist ein reelles Polynom $p_n(\lambda)$ und lässt unter Benutzung des Hauptsatzes der Algebra als Produkt von Linearfaktoren $(\lambda_j-\lambda)$ darstellen, worin $\lambda_j$ einen Eigenwert von $A$ bezeichnet. $$
+  \det{(A-\lambda\cdot E)}=\prod_{j=1}^n{\left(\lambda_j-\lambda\right)}=
+  (-1)^n\cdot\lambda^n+a_{n-1}\cdot\lambda^{n-1}+a_{n-2}\cdot\lambda^{n-2}+...+a_1\cdot\lambda+a_0=:p_n(\lambda)
+$$ Das Absolutglied $a_0$ berechnet sich dabei aus der Produktdarstellung zu $$
+  a_0=\prod_{j=1}^n{\lambda_j}=\lambda_1\cdot\lambda_2\cdot\ldots\cdot\lambda_n
+$$ Anderseits gilt $$
+  \det{A}=\det{(A-0\cdot E)}=p_n(0)=(-1)^n\cdot 0^n+a_{n-1}\cdot 0^{n-1}+a_{n-2}\cdot 0^{n-2}+...+a_1\cdot 0+a_0=a_0
+$$
+2. Die Zahl 'Null' ist ein Eigenwert der Matrix $A$ genau dann, wenn $$
+  \det{(A-0\cdot E)}=\det{A}=0
+$$ d. h. wenn die Matrix $A$ singulär ist.
+3. Diese Eigenschaft folgt sofort aus der Berechnung der Eigenvektoren als Lösungen eines Systems linearer, homogener Gleichungen.
+4. Ist $x$ ein Eigenvektor zu den Eigenwerten $\lambda_i$ und $\lambda_j$, d. h. gilt $x\in U_{\lambda_i}\cap U_{\lambda_j}$, so folgen $$
+  A\cdot x=\lambda_i\cdot x\quad\text{und}\quad A\cdot x=\lambda_j\cdot x
+$$ woraus unter der Annahme $\lambda_i\not=\lambda_j$ $$
+  o=\lambda_i\cdot x-\lambda_j\cdot x=(\lambda_i-\lambda_j)\cdot x\quad\leadsto\quad x=o
+$$ folgt.
+
+$\square$
+
+**Bemerkung 1.** Gilt für die Vielfachheit eines Eigenwertes $\lambda$ der Matrix $k>1$, d. h. tritt dieser Eigenwert mehrfach als Lösung der charakteristischen Gleichung auf, so ist die Dimension des zugehörigen Eigenraums höchstens $k$.
+
+**Beispiel 3.** Zur reellen Matrix $$
+  A=\begin{pmatrix} -1 & 2 & 2 \\ 2 & 2 & 2 \\ -3 & -6 & -6 \end{pmatrix}
+$$ sind zu berechnen:
+
+1. das charakteristische Polynom
+2. die Eigenwerte $\lambda_j$
+3. jeweils der zu $\lambda_j$ gehörende Eigenraum $U_{\lambda_j}$
+
+---
+
+1. Das charakteristische Polynom von $A$ berechnet sich beispielsweise mit der Regel von Sarrus zu $$
+  \det{(A-\lambda\cdot E)}=(-1-\lambda)\cdot(2-\lambda)\cdot(-6-\lambda)-12-24+6\cdot(2-\lambda)+12\cdot(-1-\lambda)-4\cdot(-6-\lambda)=-\lambda^3-5\cdot\lambda^2-6\cdot\lambda
+$$
+2. Das charakteristische Polynom von $A$ besitzt das Absolutglied 'Null', woraus mit Satz 1 $\det{A}=0$ geschlossen werden kann. Hieraus folgt weiter, dass 'Null' ein Eigenwert der Matrix $A$ ist. Die Berechnung der Lösungen der charakteristischen Gleichung ergibt nach Ausklammern von $(-\lambda)$ $$
+  -\lambda^3-5\cdot\lambda^2-6\cdot\lambda=-\lambda\cdot(\lambda^2+5\cdot\lambda+6)=0\quad\leftrightarrow\quad
+  \lambda_1=0\;\vee\;\lambda_2=-2\;\vee\;\lambda_3=-3
+$$
+3. Für den Eigenwert $\lambda_1=0$ berechnen sich die Eigenvektoren aus dem homogenen, linearen Gleichungssystem $$
+  (A-\lambda_1\cdot E)\cdot x=
+  \begin{pmatrix} -1-0 & 2 & 2 \\ 2 & 2-0 & 2 \\ -3 & -6 & -6-0 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+  \quad\leadsto\quad
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\alpha\cdot\begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}
+$$ worin für den auftretenden Parameter $\alpha\in\mathbb{R}$ gilt. Der Eigenraum $U_0$ ist der eindimensionale Untervektorraum[^3] $$
+  U_0=\left\{\left.\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\alpha\cdot\begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}\right|\;\alpha\in\mathbb{R}\right\}
+$$ Für jeden Vektor $x\in U_0$ gilt $A\cdot x=\lambda_1\cdot x=o$. (Bitte nachrechnen!) Für den Eigenwert $\lambda_2=-2$ berechnen sich die Eigenvektoren aus dem homogenen, linearen Gleichungssystem $$
+  (A-\lambda_2\cdot E)\cdot x=
+  \begin{pmatrix} -1-(-2) & 2 & 2 \\ 2 & 2-(-2) & 2 \\ -3 & -6 & -6-(-2) \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+  \quad\leadsto\quad
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\beta\cdot\begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix}
+$$ worin für den auftretenden Parameter $\beta\in\mathbb{R}$ gilt. Der Eigenraum $U_{-2}$ ist der eindimensionale Untervektorraum[^3] $$
+  U_{-2}=\left\{\left.\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\beta\cdot\begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix}\right|\;\beta\in\mathbb{R}\right\}
+$$ Für jeden Vektor $x\in U_{-2}$ gilt $A\cdot x=\lambda_2\cdot x=o$. (Bitte nachrechnen!) Für den Eigenwert $\lambda_3=-3$ berechnen sich die Eigenvektoren aus dem homogenen, linearen Gleichungssystem $$
+  (A-\lambda_3\cdot E)\cdot x=
+  \begin{pmatrix} -1-(-3) & 2 & 2 \\ 2 & 2-(-3) & 2 \\ -3 & -6 & -6-(-3) \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+  \quad\leadsto\quad
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\gamma\cdot\begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}
+$$ worin für den auftretenden Parameter $\gamma\in\mathbb{R}$ gilt. Der Eigenraum $U_{-3}$ ist der eindimensionale Untervektorraum[^3] $$
+  U_{-3}=\left\{\left.\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\gamma\cdot\begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}\right|\;\gamma\in\mathbb{R}\right\}
+$$ Für jeden Vektor $x\in U_{-3}$ gilt $A\cdot x=\lambda_3\cdot x=o$. (Bitte nachrechnen!)
+
+
+Sicher gewußt?
+=====
+
+Hier können Sie Ihr Wissen über Eigenwerte und -Vektoren testen.
+
+**Frage 1.** Gegeben ist die reelle Matrix $$
+  A=\begin{pmatrix} 3 & 2 & 4 \\ 2 & 0 & 2 \\ 4 & 2 & 3 \end{pmatrix}
+$$ Entscheiden Sie, welcher der nachstehenden Vektoren ein Eigenvektor der Matrix $A$ ist.
+
+[[ ]] $$x_1=\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}$$
+[[X]] $$x_2=\begin{pmatrix} 1 \\ -4 \\ 1 \end{pmatrix}$$
+[[X]] $$x_3=\begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$$
+[[ ]] $$x_4=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
+[[?]] Ein Vektor $x\not=o$ heißt Eigenvektor zur Matrix $A$, wenn er für ein bestimmtes $\lambda$ die Eigenwertaufgabe $A\cdot x=\lambda\cdot x$ erfüllt. Siehe Definition 1.
+****************************************
+
+Wird der Vektor $x_1$ in die Eigenwertaufgabe eingesetzt, so ergibt sich $$
+  A\cdot x_1=\begin{pmatrix} 5 \\ 4 \\ 5 \end{pmatrix}\not=\lambda\cdot\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}
+$$ für jede Wahl $\lambda\in\mathbb{R}$. Der Vektor $x_4=o$ ist per Definition kein Eigenvektor der Matrix $A$, obwohl $$
+  A\cdot x_4=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}=\lambda\cdot\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\quad\forall\;\lambda\in\mathbb{R}
+$$ Für die übrigen beiden Vektoren gilt jeweils $$
+  A\cdot x_2=\begin{pmatrix} -1 \\ 4 \\ -1 \end{pmatrix}=\lambda\cdot\begin{pmatrix} 1 \\ -4 \\ 1 \end{pmatrix}\quad\text{sowie}\quad
+  A\cdot x_3=\begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}=\lambda\cdot\begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+$$ Diese Gleichungen sind jeweils für $\lambda=-1$ erfüllt, so dass $x_2$ und $x_3$ Eigenvektoren zum Eigenwert $\lambda=-1$ sind. Jede Linearkombination aus beiden Vektoren ist außerdem Eigenvektor zum gleichen Eigenwert, da $$
+  A\cdot(\alpha\cdot x_2+\beta\cdot x_3)=\alpha\cdot (A\cdot x_2)+\beta\cdot(A\cdot x_3)=\alpha\cdot(-x_2)+\beta\cdot(-x_3)=(-1)\cdot(\alpha\cdot x_2+\beta\cdot x_3)
+$$ gilt.
+
+****************************************
+
+---
+
+Für die nachfolgenden beiden Fragen ist die reelle Matrix $$
+  B=\begin{pmatrix} 3 & 1 & -1 \\ 2 & 2 & -1 \\ 2 & 2 & 0\end{pmatrix}
+$$ gegeben.
+
+**Frage 2.** Berechnen Sie alle Eigenwerte der Matrix $B$.
+
+[(X)] $$(\lambda_1,\lambda_2,\lambda_3)=(1,2,2)$$
+[( )] $$(\lambda_1,\lambda_2)=(1,2)$$
+[( )] $$(\lambda_1,\lambda_2,\lambda_3)=(1,1,2)$$
+[[?]] Berechnen Sie die charakteristische Gleichung $\det{(A-\lambda\cdot E)}=0$ und bestimmen darin die Lösungen $\lambda$.
+****************************************
+
+Die Matrix $B$ ist eine dreireihige Matrix mit dem charakteristischen Polynom $$
+  \det{(A-\lambda\cdot E)}=
+  \det{\begin{pmatrix} 3-\lambda & 1 & -1 \\ 2 & 2-\lambda & -1 \\ 2 & 2 & -\lambda\end{pmatrix}}=
+  -\lambda^3+5\cdot\lambda^2-8\cdot\lambda+4=(1-\lambda)\cdot(2-\lambda)^2
+$$ Hieraus lassen sich die Lösungen der zugehörigen charakteristischen Gleichung $\lambda_1=1$ (einfach) und $\lambda_2=\lambda_3=2$ (doppelt) ablesen.
+
+****************************************
+
+**Frage 3.** Berechnen Sie zur Matrix $B$ den Eigenraum $U_2$ zum Eigenwert $\lambda=2$.
+
+[( )] $$ U_{2}=\left\{\left.\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\alpha\cdot\begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix}+\beta\cdot\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}\right|\;\alpha\in\mathbb{R}\,,\; \beta\in\mathbb{R}\right\} $$
+[( )] $$ U_{2}=\left\{\left.\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\gamma\cdot\begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix}\right|\;\gamma\in\mathbb{R}\right\} $$
+[(X)] $$ U_{2}=\left\{\left.\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\delta\cdot\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}\right|\;\delta\in\mathbb{R}\right\} $$
+[[?]] Setzen Sie zur Berechnung den Eigenwert $\lambda=2$ in die Eigenwertaufgabe $(B-\lambda\cdot E)\cdot x=o$ ein und berechnen Sie die Lösung des Gleichungssystems.
+****************************************
+
+Nach Einsetzen des Eigenwertes $\lambda=2$ in die Eigenwertaufgabe wird das homogene, lineare Gleichungssystem erhalten $$
+  \begin{pmatrix} 3-2 & 1 & -1 \\ 2 & 2-2 & -1 \\ 2 & 2 & -2\end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}
+$$ Dessen Lösung berechnet sich zu $$
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=\delta\cdot\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}\,,\quad \delta\in\mathbb{R}
+$$ Dies lässt sich durch Einsetzen in die Eigenwertaufgabe prüfen $$
+  \begin{pmatrix} 3 & 1 & -1 \\ 2 & 2 & -1 \\ 2 & 2 & 0\end{pmatrix}\cdot
+  \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}=
+  \begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}=
+  2\cdot\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}
+$$ Der Eigenraum besitzt hier die Dimension $3-2=1$, da der Rang der Koeffizientenmatrix zwei ist. (Die Zeilen eins und drei der Koeffizientenmatrix des Gleichungssystems sind identisch. 
+
+****************************************
+
+
+[^1]: Die Punkte der Spiegelachse sind Fixpunkte unter Geradenspiegelung. Für deren Ortsvektoren gelten also $x'=1\cdot x$.
+
+[^2]: Tritt ein Eigenwert $\lambda_j$ mehrfach auf, so ist dieser entsprechend seiner Vielfachheit zu berücksichtigen.
+
+[^3]: Nach Definition ist der Nullvektor $o$ kein Eigenvektor einer Matrix $A$, so dass dieser streng genommen aus $U_0$ zu entfernen ist.
