@@ -345,7 +345,7 @@ $$ Die Lösungen ergeben sich zu $$
   C_2=-4\,,\quad C_1=-2\,,\quad B_2=-3\,,\quad B_1=-1\quad\text{und}\quad A=1
 $$ (Hier zunächst ohne Angabe des Rechenweges.)
 
-Die Lösung lässt sich mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) leicht verifizieren: In den Matrizen $A$ bzw. $b$ sind die Koeffizienten bzw. Absolutglieder des Gleichungssystems einzutragen. Ein Nachweis des verwendeten Rechenverfahrens zur Lösung linearer Gleichungssysteme und der hierbei genutzten Objekte soll im Abschnitt [Lineare Algebra](Lineare-Algebra) erfolgen.
+Die Lösung lässt sich mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) leicht verifizieren: In den Matrizen $A$ bzw. $b$ sind die Koeffizienten bzw. Absolutglieder des Gleichungssystems einzutragen. Ein Nachweis des verwendeten Rechenverfahrens zur Lösung linearer Gleichungssysteme und der hierbei genutzten Objekte soll im Abschnitt [Lineare Algebra](#Lineare-Algebra) erfolgen.
 
 ```javascript
 clearall
@@ -1046,6 +1046,8 @@ $$
 ## Differentialrechnung 2
 
 Ziel dieses Kapitels ist die Übertragung der Differentialrechnung auf reelle Funktionen mehrerer reeller Veränderlicher.
+
+![Integral](img/mat-bild-15.png "_Fig._ Zentrale Begriffe der Differentialrechnung für reelle Funktionen in mehreren reellen Variablen.")
 
 Schwerpunkte sind u. a. die Übertragung von zentralen Begriffen wie Ableitung, Differential einer Funktion und lokale Extrema.
 
@@ -2284,7 +2286,7 @@ $$
 $$
 interpretieren. Zeigt $\mathrm{d}x$ beispielsweise in tangentialer Richtung der Niveaulinie durch $P(x^\star,f(x^\star))$, so ist $\mathrm{d}y=0$. Der Gradientenvektor $\mathrm{grad}{f(x^\star)}$ ist hier orthogonal zu $\mathrm{d}x$.
 
-~~Der Gradientenvektor zeigt in Richtung des (steilsten) Anstiegs des y-Wertes auf der Tangentialebene an den Funktionsgraph. Seine Länge entspricht der Stärke des Anstiegs.~~[^2]
+>Der Gradientenvektor zeigt in Richtung des (steilsten) Anstiegs des y-Wertes auf der Tangentialebene an den Funktionsgraph. Seine Länge entspricht der Stärke des Anstiegs.[^2]
 
 Eine interaktive Darstellung von Gradientenvektoren und Niveaulinien zu einem selbstgewähltem Beispiel zu betrachten unter [Gradientenvektorfeld](https://www.geogebra.org/m/EhxYnn5B).
 
@@ -2733,7 +2735,9 @@ $$ f(x,y)=x+y=c\quad\leftrightarrow\quad y=-x+c $$
 
 Ziel dieses Kapitels ist die Übertragung der Integration von reellen Funktionen einer reellen Variablen auf Funktionen in mehreren reellen Variablen.
 
-Schwerpunkte sind u. a. die Berechnung von Mehrfachintegralen unter Benutzung der gewöhnlichen Integration, die Verwendung verschiedener Koordinaten sowie die Transformation von Integralen.
+![Integral](img/mat-bild-16.png "_Fig._ Zentrale Begriffe zu Mehrfachintegralen für reelle Funktionen in mehreren reellen Variablen.")
+
+Schwerpunkte sind u. a. die Berechnung von Mehrfachintegralen unter Benutzung der gewöhnlichen Integration, die Verwendung verschiedener, geeigneter Koordinatensysteme sowie die Transformation von Integralen (Substitutionsregel).
 
 Ebenso sollen verschiedene Anwendungen von Mehrfachintegralen diskutiert werden.
 
@@ -3389,6 +3393,8 @@ Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen
 [( )] $$ B=\left\{ (r,\varphi)\in(0,\infty)\times[0,\pi)\;\;\left(1\leq r\leq 3\right)\right\} $$
 ****************************************
 
+---
+
 Für die Polarkoordinaten von $B$ gelten $$
   r\in[1,3]\quad\text\quad \varphi\in[0,2\cdot\pi)
 $$ d. h. $B$ stellt sich in Polarkoordinaten als Normalbereich sowohl bezüglich $\varphi$, als auch bezüglich $r$ dar.
@@ -3411,6 +3417,8 @@ Bestimmen Sie eine Gleichung der Koordinatenlinie $u=1$ in kartesischen Koordina
 [[?]] Setzen Sie in den Transformationsgleichungen $u=1$ und eliminieren Sie anschließend die Variable $v$.
 ****************************************
 
+---
+
 Nach Ersetzen von $u=1$ in den Transformationsgleichungen $u=1$ ergibt sich das Gleichungssystem
 $$
   \left\{\begin{array}{lll} x & = & 1-v^2 \\ y & = & v \end{array}\right.
@@ -3419,6 +3427,74 @@ $$ Nach Einsetzen der zweiten in die erste Gleichung ($v$ wird ersetzt) wird die
 $$ erhalten. Diese Gleichung beschreibt eine Normalparabel zur $x$-Achse als Parabelachse, die in Richtung der negativen $x$-Achse geöffnet ist und um eine Einheit aus dem Koordinatenursprung in Richtung der positiven $x$-Achse verschoben ist.
 
 ****************************************
+
+**Frage 3.** Stellen Sie das Volumen der - bezogen auf die $x_3$-Achse eines kartesischen Koordinatensystems - *oberen* Hälfte einer Kugel mit Mittelpunkt im Koordinatenursprung und Radius $r=1$ als räumlichen Normalbereich $B_3$ in sphärischen Koordinaten dar.
+
+[( )] $$ B_3:\; (\varphi,\theta,r)\in[-\pi,\pi)\times\left[\frac{\pi}{2},\pi\right]\times[0,1] $$
+[(X)] $$ B_3:\; (\varphi,\theta,r)\in[-\pi,\pi)\times\left[0,\frac{\pi}{2}\right]\times[0,1] $$
+[( )] $$ B_3:\; (\varphi,\theta,r)\in[0,\pi]\times\left[0,\pi\right]\times[0,1] $$
+[[?]] Sphärische Koordinaten lassen sich vermöge der Substitutionsfunktion $g=(g_1,g_2,g_3)$ mit $$
+  x_1=g_1(\varphi,\theta,r)=r\cdot\cos{\varphi}\cdot\sin{\theta}\,,\quad
+  x_2=g_2(\varphi,\theta,r)=r\cdot\sin{\varphi}\cdot\sin{\theta}\quad\text{und}\quad
+  x_3=g_3(\varphi,\theta,r)=r\cdot\cos{\theta}
+$$ in kartesischen Koordinaten transformieren. Hierbei wird das Grundintervall $$
+  r>0\,,\quad \varphi\in[-\pi,\pi)\quad\text{und}\quad \theta\in\left[0,\pi\right]
+$$ gesetzt. Das Koordinatenpaar $(\varphi,\theta)$ lässt sich in gewisser Analogie zu den geographischen Koordinaten 'Länge' und 'Breite' betrachten.
+****************************************
+
+---
+
+Für die 'obere' Hälfte der Kugel gilt $$
+  x_3\geq0\quad\leftrightarrow\quad r\cdot\cos{\theta}\geq0
+$$ was über dem Grundintervall $\theta\in\left[0,\frac{\pi}{2}\right]$ voraussetzt. Für die übrigen beiden Koordinaten muss gelten:
+
+1. $r\in[0,1]$, da jeder Punkt des Kugelhälfte einen Abstand kleiner gleich 'Eins' vom Kugelmittelpunkt besitzt ~~und~~
+2. $\varphi\in[-\pi,\pi)$ wegen der Drehsymmetrie der oberen Kugelhälfte um $x_3$-Achse des Koordinatensystems
+
+Also ist Antwortoption 2 korrekt.
+
+Die erste Antwortoption beschreibt mit analoger Begründung die 'untere' Hälfte der Kugel, während die dritte Antwortoption wegen $$
+  x_2\geq0\quad\leftrightarrow\quad r\cdot\sin{\varphi}\cdot\sin{\theta}\geq0\quad\leftrightarrow\quad (\varphi,\theta)\in[0,\pi]^2
+$$ die 'rechte' Kugelhälfte als räumlichen Bereich beschreibt.
+
+****************************************
+
+**Frage 4.** Stellen Sie das Volumen der - bezogen auf die $x_3$-Achse eines kartesischen Koordinatensystems - *oberen* Hälfte einer Kugel mit Mittelpunkt im Koordinatenursprung und Radius $r=1$ als räumlichen Normalbereich $B_3$ in Zylinderkoordinaten dar.
+
+[[X]] $$ B_3:\; (\varphi,r,x_3)\in[0,2\pi)\times\left[0,\sqrt{1-x_3^2}\right]\times[0,1] $$
+[[ ]] $$ B_3:\; (\varphi,r,x_3)\in[0,\pi]\times\left[0,\sqrt{1-x_3^2}\right]\times[-1,1] $$
+[[ ]] $$ B_3:\; (\varphi,r,x_3)\in[0,2\pi)\times\left[0,1\right]\times[0,1] $$
+[[X]] $$ B_3:\; (\varphi,r,x_3)\in[0,2\pi)\times[0,1]\times\left[0,\sqrt{1-r^2}\right] $$
+[[?]] Zylinderkoordinaten lassen sich vermöge der Substitutionsfunktion $f=(f_1,f_2,f_3)$ mit $$
+  x_1=f_1(\varphi,r,x_3)=r\cdot\cos{\varphi}\,,\quad
+  x_2=f_2(\varphi,r,x_3)=r\cdot\sin{\varphi}\quad\text{und}\quad
+  x_3=f_3(\varphi,r,x_3)=x_3
+$$ in kartesischen Koordinaten transformieren. Hierbei wird das Grundintervall $$
+  r>0\,,\quad \varphi\in[0,2\pi)\quad\text{und}\quad x_3\in\mathbb{R}
+$$ gesetzt. Die Koordinaten $(\varphi,r)$ lassen sich als Polarkoorinaten von Punkten in der Ebene $x_3=0$ interpretieren.
+****************************************
+
+---
+
+Für die 'obere' Hälfte der Kugel gilt $x_3\geq0$. Für die übrigen beiden Koordinaten muss gelten:
+
+1. $r\in\left[0,\sqrt{1-x_3^2}\right]$, da in Abhängigkeit von der Koordinate $x_3$ für Punkte der Kugeloberfläche gilt $$
+  x_3^2+r^2=1\quad\leftrightarrow\quad r=\pm\sqrt{1-x_3^2}
+$$ ~~und~~
+2. $\varphi\in[0,2\pi)$ wegen der Drehsymmetrie der oberen Kugelhälfte um $x_3$-Achse des Koordinatensystems
+
+Also ist Antwortoption 1 korrekt. Alternativ lässt sich in Abhängigkeit von $r\in[0,1]$ die Koordinate $x_3$ für Punkte der Kugeloberfläche berechnen vermöge $$
+  x_3^2+r^2=1\quad\leftrightarrow\quad x_3=\pm\sqrt{1-r^2}
+$$ woraus für Punkte $P\in B_3$ die Abschätzung $x_3\in\left[0,\sqrt{1-r^2}\right]$ folgt. Die Antwortoption 4 ist ebenso korrekt.
+
+Die zweite Antwortoption beschreibt mit selbiger Begründung mit $$
+  x_3\times[-1,1]\quad\wedge\quad \varphi\in[0,\pi]
+$$ die 'rechte' Kugelhälfte als räumlichen Bereich beschreibt.
+
+Die dritte Antwortoption beschreibt ein auf der Ebene $x_3=0$ stehenden Zylinder mit Radius 'Eins' und Höhe 'Eins'.
+
+****************************************
+
 
 [^1]: Analog lassen sich die Zylinderkoordinaten bezüglich einer anderen Koordinatenachse angeben.
 
@@ -3474,12 +3550,12 @@ $$
 Zur Berechnung des bestimmten Integrals über dem Intervall $f(I)$ sind die nachstehenden Fälle zu unterschieden.
 
 1. Es wird $\dot{g}(t)>0$ für alle $t\in (\alpha,\beta)$ angenommen, womit $a<b$ und somit $$
-  \int{g(I)}{f(x)}\,\mathrm{d}x=\int_{x=a}^b{f(x)}\,\mathrm{d}x=
+  \int_{g(I)}{f(x)}\,\mathrm{d}x=\int_{x=a}^b{f(x)}\,\mathrm{d}x=
   \int_{t=\alpha}^\beta{f(g(t))\cdot\dot{g}(t)}\,\mathrm{d}t=
   \int_{t=\alpha}^\beta{f(g(t))\cdot\left|\dot{g}(t)\right|}\,\mathrm{d}t
 $$ folgen.
 2. Es wird $\dot{g}(t)<0$ für alle $t\in (\alpha,\beta)$ angenommen, womit $a>b$ und somit $$
-  \int{g(I)}{f(x)}\,\mathrm{d}x=\int_{x=b}^a{f(x)}\,\mathrm{d}x=
+  \int_{g(I)}{f(x)}\,\mathrm{d}x=\int_{x=b}^a{f(x)}\,\mathrm{d}x=
   -\int_{x=a}^b{f(x)}\,\mathrm{d}x=
   -\int_{t=\alpha}^\beta{f(g(t))\cdot\dot{g}(t)}\,\mathrm{d}t=
   \int_{t=\alpha}^\beta{f(g(t))\cdot\left|\dot{g}(t)\right|}\,\mathrm{d}t
@@ -3809,10 +3885,326 @@ $$ ist.
 
 ## Lineare Algebra
 
+
+### Vektoren
+
+
+Vektorraum
+=====
+
+
+Aus technischen und physikalischen Anwendungen sind *skalare* versus *vektorielle* Größen bekannt.
+
+Während skalare Größen durch eine Maßzahl und Einheit gekennzeichnet sind, besitzen bei [vektoriellen Größen](https://de.wikipedia.org/wiki/Vektorielle_Gr%C3%B6%C3%9Fe) auch Richtung und Richtungssinn eine Bedeutung. Die Richtung und der Richtungssinn einer vektoriellen Größe werden im Ingenieurwesen üblicherweise durch einen Pfeil dargestellt, dessen Länge ist ein Maß für den Betrag der Größe.
+
+**Beispiel 1.** Es werden die vektoriellen Größen 'Geschwindigkeit' und 'Beschleunigung' einer gleichförmigen Kreisbewegung eines Massepunktes der Masse $m$ betrachtet. Siehe nachstehende Abbildung (oder folgenden [Comic](https://xkcd.com/1366/) ;)
+
+1. Obwohl der Betrag der Geschwindigkeit zu jedem Zeitpunkt der Bewegung konstant ist, verändert sich die Richtung der Geschwindigkleit zu jedem Zeitpunkt der Bewegung. Der Geschwindigkeitsvektor $\vec{v}$ ist tangential zur Bahnkurve im jeweiligen Kurvenpunkt.
+2. Die zum Mittelpunkt $D$ der Bahnkurve gerichtete Beschleunigung $\vec{a}$ von $m$ sorgt für eine kontinuierliche Richtungsänderung des Bewegungsvorgangs.
+
+![Gleichförmige Kreisbewegung](img/mat-bild-17.png "_Fig._ Schematisch Darstellung einer gleichförmigen Kreisbewegung eines Massepunktes der Masse $m$ um den Punkt $D$ mit Geschwindigkeitsvektor $\vec{v}$ und Vektor der Radialbeschleunigung $\vec{a}$ in einem Punkt der Bahnkurve.")
+
+Einige weitere Beispiel skalarer beziehungsweise vektorieller Größen finden sich in nachstehender Tabelle, zusammen mit den Maßzahlen und ${\rm SI}$-Einheiten.
+
+<!-- data-title="Beispiele skalarer versus vektorieller physikalischer Größen" -->
+| Skalare Größen | Vektorielle Größen |
+| :--------- | :--------- |
+| Masse: $m=1{\rm kg}$ | Kraft: $\vec{F}=1{\rm N}$ |
+| Weglänge: $s=1{\rm m}$ | elektrische Feldstärke: $\vec{E}=1{\rm \frac{V}{m}}$ |
+| Zeit: $t=1{\rm s}$ | magnetische Flußdichte: $\vec{B}=1{\rm T}$ |
+
+Bekannte Beispiele für Vektoren in der Mathematik sind u. a.
+
+1. Die Menge der geordneten Paare reeller Zahlen $$
+  \mathbb{R}^2:=\mathbb{R}\times\mathbb{R}=\left\{(x_1,x_2)\,|\; x_1\in\mathbb{R}\;\wedge\;x_2\in\mathbb{R}\right\}
+$$ Jedes Element dieser Menge heißt ein Vektor und wird hier als Spalte geschrieben $$
+  x=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \quad\text{bzw.}\quad
+  y=\begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
+$$ Die Einträge eines Vektors werden dessen **Komponenten** genannt. Besteht keine Gefahr der Verwechslung, so kann hier - im Gegensatz zu vektoriellen Größen in Technik und Physik - auf die Pfeildarstellung für Vektoren verzichtet werden.
+2. Die Menge der geordneten Tripel reeller Zahlen $$
+  \mathbb{R}^3:=\mathbb{R}\times\mathbb{R}\times\mathbb{R}=\left\{(x_1,x_2,x_3)\,|\; x_1\in\mathbb{R}\;\wedge\;x_2\in\mathbb{R}\;\wedge\;x_3\in\mathbb{R}\right\}
+$$ Jedes Element dieser Menge wird in gleicher Weise als Spalte geschrieben $$
+  x=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+$$
+
+Diese Beispiele werden in der analytischen Geometrie zur Beschreibung ebener und räumlicher Problemstellungen verwendet.
+
+Eine Vorstellung von Vektoren als 'Verschiebung' der (Punkte einer) Ebene ist im folgenden Video an einem Beispiel erläutert, in einem zweiten die Verwendung von Vektoren zur Beschreibung von Orten / Punkten in der analytischen Geometrie.
+
+!?[Vektor](https://www.youtube.com/watch?v=9C1OOlLng2Q)
+
+!?[Ortsvektor](https://www.youtube.com/watch?v=i27oqDASdUs)
+
+>**Definition 1.** Für Vektoren $x\in\mathbb{R}^n$ und $y\in\mathbb{R}^n$, $n\in\mathbb{N}\setminus\{0\}$, und Skalar $\lambda\in\mathbb{R}$ lassen sich zwei Operationen erklären.
+>
+> 1. **Addition**. Die Abbildung $\mathbb{R}^n\times\mathbb{R}^n\to\mathbb{R}^n$ bildet je zwei Vektoren $x$ und $y$ vermöge $$
+  (x,y)\mapsto x+y=\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}+\begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}=
+  \begin{pmatrix} x_1+y_1 \\ \vdots \\ x_n+y_n \end{pmatrix}
+$$ die Summe $x+y$ zu.[^1] Dies ist wieder ein Vektor aus $\mathbb{R}^n$.
+>2. **Skalarvielfachbildung.** Die Abbildung $\mathbb{R}^n\times\mathbb{R}\to\mathbb{R}^n$ bildet je einen Vektor $x$ und einen Skalar $\lambda$ vermöge $$
+  (x,\lambda)\mapsto \lambda\cdot x=\lambda\cdot\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}=
+  \begin{pmatrix} \lambda\cdot x_1 \\ \vdots \\ \lambda\cdot x_n \end{pmatrix}
+$$ das $\lambda$-fache $\lambda\cdot x$ zu.[^2] Dies ist wieder ein Vektor aus $\mathbb{R}^n$.
+
+**Beispiel 2.** Gegeben sind die Vektoren $$
+  x=\begin{pmatrix}  2 \\ -3 \end{pmatrix} \quad\text{und}\quad
+  y=\begin{pmatrix} -1 \\  5 \end{pmatrix}
+$$ sowie der Skalar $\lambda=\sqrt{3}$.
+
+1. Der Summenvektor berechnet sich zu $$
+  x+y=\begin{pmatrix}  2 \\ -3 \end{pmatrix}+\begin{pmatrix} -1 \\  5 \end{pmatrix}=
+  \begin{pmatrix} 2+(-1) \\  -3+5 \end{pmatrix}=
+  \begin{pmatrix} 1 \\  2 \end{pmatrix}
+$$
+2. Das $\sqrt{3}$-fache des Vektor $x$ berechnet sich zu $$
+  \lambda\cdot x=\lambda\cdot\begin{pmatrix}  2 \\ -3 \end{pmatrix}=
+  \begin{pmatrix} \lambda\cdot 2 \\ \lambda\cdot(-3) \end{pmatrix}=
+  \begin{pmatrix}  2\cdot\sqrt{3} \\ (-3)\cdot\sqrt{3} \end{pmatrix}
+$$
+
+Im nachstehenden Video werden die Rechenoperationen für Vektoren des $\mathbb{R}^3$ an Beispielen ausgeführt.
+
+!?[Operationen](https://www.youtube.com/watch?v=XKr6Qe9_trY)
+
+**Bemerkung 1.** Die erklärten Operationen in $\mathbb{R}^n$ lassen sich graphisch visualisieren.
+
+1. Werden zwei beliebige Vektoren $x$ und $y$ im Ursprung $O$ eines Koordinatensystems angetragen, so dass diese benachbarte Seiten eines Parallelogrammes aufspannen, so bildet der Summenvektor $x+y$ die von $O$ ausgehende Diagonale im aufgespannten Parallelogramm. Siehe nachstehende Abbildung.
+2. Ein Vektor $$
+  x\not=\begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix}
+$$ und dessen Skalarvielfaches $\lambda\cdot x$ besitzen für $\lambda\not=0$ die gleiche Richtung, so dass letzterer als mit dem Faktor $\lambda$ gestreckter Vektor interpretiert werden kann.
+
+Für die Operationen der Addition und Skalarvielfachbildung im $\mathbb{R}^n$ gelten die nachstehenden Rechenoperationen, die im Satz 1 zusammengefasst sind.
+
+![Vektoraddition](img/mat-bild-18.png "_Fig._ Zwei ein Parallelogramm aufspannende Vektoren $x$, $y$ und die Vektorsumme $x+y$, dargestellt als Ortsvektoren bezogen auf den Ursprung eines Koordinatensystems mit den Komponenten $x_i$, $y_i$ beziehungsweise $x_i+y_i$.")
+
+> **Satz 1.** Es gelten die folgenden Rechenregeln [^3]
+>
+> * Kommutativität $x+y=y+x$
+> * Assoziativität $x+(y+z)=(x+y)+z$
+> * Neutrales Element $o$ mit $x+o=x$
+> * Inverses Element $-{x}$ mit ${x}+(-{x})={o}$
+> * Distributivität $\lambda\cdot({x}+{y})=\lambda\cdot{x}+\lambda\cdot{y}$
+> * Distributivität $(\lambda+\mu)\cdot{x}=\lambda\cdot{x}+\mu\cdot{x}$
+> * Assoziativität für Vielfachbildung $(\lambda\cdot\mu)\cdot{x}=\lambda\cdot(\mu\cdot{x})$
+>
+> für beliebige $\{x,y,z\}\subset\mathbb{R}^n$ und $\{\lambda,\mu\}\subset\mathbb{R}$.
+
+**Beweisidee.** Beide Operationen für Vektoren in $\mathbb{R}^n$, Addition und Skalarvielfachbildung, sind komponentenweise erklärt, so dass es ausreicht, die Rechenregeln aus Satz 1 im Körper der reellen Zahlen zu prüfen. Diese sind erfüllt.
+
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die Eigenschaften für das Rechnen mit Vektoren nachgerechnet werden. Hier dargestellt ist die Rechnung zur Prüfung der Kommutativität.
+
+``` javascript
+x = [[a],[b]]
+y = [[c],[d]]
+x + y
+y + x
+x + y - (y + x)
+```
+@Algebrite.eval
+
+>**Definition 2.** Seien $V$ eine Menge von Elementen und $K$ ein Zahlkörper.
+>
+>1. Sind in $V$ sinngemäß zu Definition 1 eine Addition und Vielfachbildung mit Zahlen aus $K$ erklärt ~~und~~
+>2. gelten alle Rechenregeln aus Satz 1 sinngemäß für das Rechnen in $V$
+>
+>so heißt $V$ ein [Vektorraum](https://de.wikipedia.org/wiki/Vektorraum) über $K$ und jedes Element $x\in V$ ein Vektor aus $V$.
+
+**Beispiel 3.**
+
+1. Die Menge geordneter $n$-Tupel reeller Zahlen $$
+  \mathbb{R}^n:=\left\{\left.\begin{pmatrix} x_1 \\ \vdots \\ x_n\end{pmatrix}\right|\; x_j\in\mathbb{R}\,,\;j\in\{1,...,n\}\right\}
+$$ mit festem $n\in\mathbb{N}$ und $n>0$ bilden bezüglich der in Definition 1 eingeführten Operationen einen reellen Vektorraum (Vektorraum über $\mathbb{R}$). Im Speziellen bilden die reellen Zahlen $\mathbb{R}$, die geordneten Paare reeller Zahlen $\mathbb{R}^2$ und die geordneten Tripel reeller Zahlen $\mathbb{R}^3$ jeweils einen reellen Vektorraum.
+
+2. Auf der Menge aller geordneten Paare komplexer Zahlen $$
+  \mathbb{C}^2:=\left\{\left.\begin{pmatrix} z_1 \\ z_2 \end{pmatrix}\right|\; z_1\in\mathbb{C}\,,\;z_2\in\mathbb{C}\right\}
+$$ beziehungsweise - unter Verwendung der kartesischen Darstellung von $z_1$, $z_2$ $$
+  \mathbb{C}^2=\left\{\left.\begin{pmatrix} a_1+i\cdot b_1 \\ a_2+i\cdot b_2 \end{pmatrix}\right|\; a_j\in\mathbb{R}\,,b_j\in\mathbb{R}\,,\;j\in\{1,2\}\right\}
+$$ mit imaginärer Einheit $i$, $i^2=-1$, kann sinngemäß zu Definition 1 *komponentenweise* eine Addition und Skalarvielfachbildung in $\mathbb{C}^2$ erklärt werden. Nach Definition 2 bilden diese einen komplexen Vektorraum (Vektorraum über $\mathbb{C}$) da sich alle Rechengesetze aus Satz 1 sinngemäß von $\mathbb{R}^2$ auf $\mathbb{C}^2$ übertragen lassen.
+3. Gegeben ist die Menge aller reellen Polynomfunktionen $f$ vom Grad $\deg{f}\leq2$ $$
+  V=\left\{ f:\mathbb{R}\to\mathbb{R}|\;y=f(x)=a\cdot x^2+b\cdot x+c\,,\;a\in\mathbb{R}\,,\;b\in\mathbb{R}\,,\;c\in\mathbb{R}\right\}
+$$ Auf $V$ sind eine Addition $$
+  V\times V\to V\quad\text{mit}\quad (f_1,f_2)(x)\mapsto (f_1+f_2)(x)=f_1(x)+f_2(x)\quad \forall\; x\in\mathbb{R}
+$$ und $$
+  f_1(x)+f_2(x)=(a_1\cdot x^2+b_1\cdot x+c_1)+(a_2\cdot x^2+b_2\cdot x+c_2)=
+  (a_1+a_2)\cdot x^2+(b_1+b_2)\cdot x+(c_1+c_2)
+$$ sowie eine Skalarvielfachbildung $$
+  \mathbb{R}\times V\to V\quad\text{mit}\quad (\lambda,f)(x)\mapsto (\lambda\cdot f)(x)=\lambda\cdot f(x)\quad \forall\; x\in\mathbb{R}
+$$ und $$
+  \lambda\cdot f(x)=\lambda\cdot (a\cdot x^2+b\cdot x+c)=
+  (\lambda\cdot a)\cdot x^2+(\lambda\cdot b)\cdot x+(\lambda\cdot c)
+$$ erklärt. D. h. Summe und Skalarvielfaches von Polynomfunktion $f$ mit Grad $\deg{f}\leq2$ sind wieder Polynomfunktionen. Die Rechenregeln aus Satz 2 lassen sich unmittelbar nachrechnen: Beispielsweise bildet die 'Nullfunktion' $$
+  o:x\mapsto y=o(x)=0\cdot x^2+0\cdot x+0=0\,,\quad x\in\mathbb{R}
+$$ das neutrale Element und $$
+  y=(-f)(x)=(-1)\cdot(a\cdot x^2+b\cdot x+c)=-a\cdot x^2-b\cdot x-c
+$$ das zu $f$ inverse Element bezüglich der erklärten Addition. Die Menge $V$ der Polynomfunktionen bildet zusammen mit den erklärten Operationen einen Vektorraum über $\mathbb{R}$.
+
+In nachstehenden Video wird das Prüfen der Rechenregeln für die Vektoroperationem an je einem Beispiel erläutert.
+
+!?[Vektorraum3](https://www.youtube.com/watch?v=wKP53tZPHKU)
+
+!?[Vektorraum4](https://www.youtube.com/watch?v=8UKQhjekmEg)
+
+Mit den vorgenannten Beispielen wird deutlich, dass die Frage "*Was ist ein Vektor?*" zur graphischen Vorstellung hinter die Frage "*Welche Operationen sind erklärt und welche Regeln gelten für das Rechen mit Vektoren?*" zurücktritt.
+
+
+Lineare Unabhängigkeit von Vektoren
+=====
+
+
+Aus den in einem Vektorraum erklärten Operationen 'Addition' und 'Skalarvielfachbildung' lässt sich die Bildung 'neuer' Vektoren ableiten.
+
+>**Definition 3.** Für Vektoren $v_i\in V$ mit $i\in\{1,2,\ldots,n\}$ und Skalare $\lambda_i\in K$ heißt
+>$$
+  \sum_{i=1}^n{\left(\lambda_i\cdot v_i\right)}\in V
+$$ eine **Linearkombination** der Vektoren $v_i$. Diese ist also wieder ein Vektor. Die Skalare $\lambda_i$ heißen Koeffizienten der Linearkombination.
+
+**Beispiel 4.** Gegeben sind drei Vektoren des $\mathbb{R}^2$, die als Ortsvektoren der Eckpunkte zweier gleichseitiger Dreiecke der Kantenlänge 'Eins' in der nachstehenden Abbildung dargestellt sind.
+
+![Linearkombination](img/mat-bild-19.png "_Fig._ Drei Vektoren $a$, $b$ und $c$ (blau), die zwei gleichseitige Dreiecke aufspannen. Dargestellt ist ebenso die Linearkombination $2\cdot a+3\cdot b-3\cdot c$ (schwarz) sowie alle Orte zur vom reellen Parameter $\lambda$ abhängigen Linearkombination $\lambda\cdot a+(1-\lambda)\cdot c$ (grün).")
+
+Zu berechnen sind unter Benutzung der Rechenregeln für Vektoren in Satz 1:
+
+1. die Linearkombination $a+b-c$ $$
+  a+b-c=(a+b)-c=c-c=o
+$$ worin $o$ den Nullvektor in $\mathbb{R}^2$ bezeichnet.
+2. die Linearkombination $2\cdot a+3\cdot b-3\cdot c$ $$
+  2\cdot a+3\cdot b-3\cdot c=-a+3\cdot\left(a+b-c\right)\stackrel{1.}{=}-a+o=-a
+$$ unter Nutzung des vorherigen Ergebnisses.
+3. die vom Parameter $\lambda$ abhängige Linearkombination $\lambda\cdot a+(1-\lambda)\cdot c$ $$
+  \lambda\cdot a+(1-\lambda)\cdot c=c+\lambda\cdot(a-c)\stackrel{1.}{=}c-\lambda\cdot b
+$$
+
+Ein zentraler Begriff im Kontext der Vektorräume ist der der linearen Unabhängigkeit von Vektoren.
+
+>**Definition 4.** Die Vektoren $v_i\in V$ mit $i\in\{1,2,\ldots,n\}$ heißen **linear unabhängig**, falls
+>$$
+  \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o\;\rightarrow\;(\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
+$$ worin $o$ den Nullvektor in $V$ bezeichnet. Andernfalls wird die Menge $\{v_1,...,v_n\}$ linear abhängig genannt.
+
+**Bemerkung 2.** Die vorstehende Definition besteht aus einer Implikation: Der Vordersatz ist eine vektorwertige, lineare Gleichung in den unbekannten Koeffizienten $\lambda_i$, deren rechte Seite der Nullvektor in $V$ ist. Der Nachsatz umfasst die Aussage, dass alle Koeffizienten als Lösungen dieser Gleichung 'Null' sind.
+
+Das heißt, die lineare Unabhängigkeit der Vektoren $v_i$ ist daran gekoppelt, dass die vektorvertige, lineare Gleichung in Definition 4 ~~nur~~ für das Nulltupel $$
+  (\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
+$$ lösbar ist. Diese wird auch *triviale Lösung* genannt. Existiert andernfalls ~~daneben~~ ein $$
+  (\lambda_0,\lambda_1,\ldots,\lambda_n)\not=(0,0,\ldots,0)
+$$ als Lösungstupel dieser Gleichung, so heißt die Menge der Vektoren $\left\{v_i|\, i\in\{1,2,...,n\}\right\}$ linear abhängig.
+
+**Beispiel 5.** Es wird der Vektorraum $V=\mathbb{R}^2$ betrachtet.
+
+1. Für die Vektoren $$
+  v_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  v_2=\begin{pmatrix} 1 \\ -1 \end{pmatrix}
+$$ ist die Menge $\{v_1,v_2\}$ linear unabhängig, da gilt $$
+  \lambda_1\cdot v_1+\lambda_2\cdot v_2=
+  \lambda_1\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+\lambda_2\cdot\begin{pmatrix} 1 \\ -1 \end{pmatrix}=
+  \begin{pmatrix} 2\cdot\lambda_1+\lambda_2 \\ \lambda_1-\lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o\quad\leftrightarrow\quad (\lambda_1,\lambda_2)=(0,0)
+$$ Es existiert nur das Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,0)$ als Lösung der linearen Gleichung.
+2. Für die Vektoren $$
+  u_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  u_2=\begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$ ist die Menge $\{u_1,u_2\}$ linear abhängig, da zum Beispiel gilt $$
+  0\cdot u_1+7\cdot u_2=
+  0\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+7\cdot\begin{pmatrix} 0 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o
+$$ Es existiert ein Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,7)\not=(0,0)$ als Lösung dieser linearen Gleichung. Mit selbigem Ansatz folgt, dass die einelementige Menge $\{u_1\}$ linear unabhängig ist, währenddessen $\{u_2\}$ linear abhängig ist.[^4]
+3. Für die Vektoren $$
+  w_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\,,\quad
+  w_2=\begin{pmatrix} 1 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  w_3=\begin{pmatrix} -1 \\ 2 \end{pmatrix}
+$$ besteht die Menge $\{w_1,w_2,w_3\}$ aus linear abhängigen Vektoren, da gilt $$
+  -3\cdot w_1+5\cdot w_2-w_3=o
+$$ Bitte nachrechnen!
+
+>**Proposition 2.** Vektoren $v_i$ mit $i\in\{1,2,...,n\}$ und $n\in\mathbb{N}$, $n>1$ sind genau dann linear abhängig, wenn (mindestens) einer der Vektoren $v_i$ als Linearkombination der anderen dargestellt werden kann.
+
+**Beweis.** Nach Definition 4 sind die Vektoren $v_i$ linear abhängig, falls ein Koeffizient $\lambda_i$ in der Gleichung $$
+  \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o
+$$ verschieden von 'Null' gewählt werden kann. O. B. d. A. ist $\lambda_1\not=0$ (ggf. nach Umordnen). Es folgt umkehrbar $$
+  \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o\quad\stackrel{\lambda_1\not=0}{\longleftrightarrow}\quad
+  v_1=\frac{1}{\lambda_1}\cdot\left(-\lambda_2\cdot v_2+...+\lambda_n\cdot v_n\right)=
+  \sum_{k=2}^n{\left(-\frac{\lambda_k}{\lambda_1}\cdot v_k\right)}
+$$ mit Koeffizienten $\mu_k:=-\frac{\lambda_k}{\lambda_1}$.
+
+$\square$
+
+**Beispiel 6.** Die Menge aller auf $\mathbb{R}$ stetigen, reellen Funktionen bildet bezüglich einer - formal wie in Beispiel 3 (3.) erklärten - 'punktweisen' Addition und Skalarvielfachbildung einen Funktionenvektorraum ([Funktionenraum](https://de.wikipedia.org/wiki/Funktionenraum)).
+
+1. Gegeben sind die beiden stetigen, reellen Funktionen $$
+  f:x\mapsto y=f(x)=\exp{x}\quad\text{und}\quad
+  g:x\mapsto y=g(x)=\exp{(2\cdot x)}
+$$ mit gemeinsamem Definitionsbereich $D=\mathbb{R}$. Die Funktionen $f$ und $g$ sind linear unabhängig, da kein reeller Skalar $\lambda$ existiert mit $$
+  g(x)=\exp{(2\cdot x)}=\exp{x}\cdot\exp{x}=\lambda\cdot\exp{x}=\lambda\cdot f(x)
+$$ für alle $x\in D$.
+2. Je endlich viele, verschiedene der Funktionen $$
+  f_i:x\mapsto y=f_i(x)=x^i\quad (i\in\mathbb{N}\,, i>0)\,,\quad f_0:x\mapsto y=f_0(x)=1
+$$ mit gemeinsamem Definitionsbereich $D=\mathbb{R}$ sind linear unabhängig, denn für eine endliche Indexmenge $J\subset\mathbb{N}$ gilt nach Definition 4 $$
+  \sum_{j\in J}{(\lambda_j\cdot f_j(x))}=0\quad\forall\; x\in\mathbb{R}\quad\rightarrow\quad
+  \forall j\in J\;(\lambda_j=0)
+$$
+
+Aus dem letzten Beispiel lässt sich eine Methode zum Vergleich von reellen Polynomfunktionen entwickeln. Gegeben sind zwei Polynomfunktionen $n$-ten Grades durch die Polynome $$
+    p(x)=\sum_{j=0}^n{\left(a_j\cdot x^j\right)}\quad\text{und}\quad
+    q(x)=\sum_{j=0}^n{\left(b_j\cdot x^j\right)}
+$$ mit $x\in\mathbb{R}$. Die Polynomfunktionen sind gleich $$
+  p(x)=q(x)\;\;\forall x\in\mathbb{R}\quad\leftrightarrow\quad
+  p(x)-q(x)=0\;\;\forall x\in\mathbb{R}\quad\leftrightarrow\quad
+  \forall j\in\{0,1,...,n\}\;(a_j-b_j=0)
+$$ d. h. falls die zum gleichen Indexwert gehörenden Koeffizienten gleich sind. Die Methode wird deshalb auch Methode des **Koeffizientenvergleichs** genannt.
+
+**Beispiel 7.** Die Polynomfunktion $f:[0,1]\to\mathbb{R}$ mit $$
+  f(t)=2\cdot t^3-t^2+t-1
+$$ ist als Linearkombination $$
+  f(t)=\sum_{j=0}^3{\left(\lambda_j\cdot B_j^3(t)\right)}
+$$ der Bernstein-Polynome $$
+  B_j^3(t)=\binom{3}{j}\cdot(1-t)^{3-j}\cdot t^j\,,\quad j\in{0,1,2,3}
+$$ darzustellen (und ist damit von diesen linear abhängig).
+
+1. Die Bernstein-Polynome zur Ordnung $3$ berechnen sich unter Festsetzung $t^0=1$ und $(1-t)^0=1$ für alle $t$ $$
+  B_0^3(t)=\binom{3}{0}\cdot(1-t)^{3}=1-3\cdot t+3\cdot t^2-t^3
+$$ beziehungsweise $$
+  B_1^3(t)=\binom{3}{1}\cdot(1-t)^{2}\cdot t=3\cdot t-6\cdot t^2+3\cdot t^3
+$$ beziehungsweise $$
+  B_2^3(t)=\binom{3}{2}\cdot(1-t)^{1}\cdot t^2=3\cdot t^2-3\cdot t^3
+$$ beziehungsweise $$
+  B_3^3(t)=\binom{3}{3}\cdot t^3=t^3
+$$
+2. Die Linearkombination der Bernstein-Polynome mit Koeffizienten $\lambda_j$ ergibt nach Ausmultiplizieren, Zusammenfassen und Ordnen $$
+  \sum_{j=0}^3{\left(\lambda_j\cdot B_j^3(t)\right)}=
+  \lambda_0\cdot 1+
+  (-3\cdot\lambda_0+3\cdot\lambda_1)\cdot t+
+  (3\cdot\lambda_0-6\cdot\lambda_1+3\cdot\lambda_2)\cdot t^2+
+  (-\lambda_0+3\cdot\lambda_1-3\cdot\lambda_2+\lambda_3)\cdot t^3
+$$
+3. Der Vergleich der Koeffizienten von $f(t)$ mit denen der Linearkombination $\sum_{j=0}^3{\left(\lambda_j\cdot B_j^3(t)\right)}$ ergibt ein System von vier linearen Gleichungen in den zu bestimmenden Koeffizienten $\lambda_j$ $$
+  \lambda_0+1=0\,,\quad
+  -3\cdot\lambda_0+3\cdot\lambda_1-1=0\,,\quad
+  3\cdot\lambda_0-6\cdot\lambda_1+3\cdot\lambda_2+1=0\quad\text{und}\quad
+  -\lambda_0+3\cdot\lambda_1-3\cdot\lambda_2+\lambda_3-2=0
+$$ Diese kann schrittweise 'von oben nach unten' gelöst werden und besitzt die eindeutige Lösung $$
+  \lambda_0=-1\,,\quad
+  \lambda_1=-\frac{2}{3}\,,\quad
+  \lambda_2=-\frac{2}{3}\quad\text{und}\quad
+  \lambda_3=1
+$$ Damit ist $$
+  f(t)=(-1)\cdot B_0^3(t)-\frac{2}{3}\cdot B_1^3(t)-\frac{2}{3}\cdot B_2^3(t)+B_3^3(t)
+$$
+
+[^1]: Die Vektoraddition erfolgt *komponentenweise*: d. h. dass die Summe der Komponenten an den $j$-ten Stellen beider Vektoren die $j$-te Komponente der Summe ergibt, $j\in\{1,...,n\}$.
+
+[^2]: Die Skalarvielfachbildung erfolgt *komponentenweise*: d. h. dass das Produkt der $j$-ten Komponente des Vektors mit dem Skalar $\lambda$ die $j$-te Komponente des $\lambda$-Fachen ergibt, $j\in\{1,...,n\}$.
+
+[^3]: Die Rechenregeln werden zur axiomatischen Festlegung eines Vektorraumes genutzt. Hier ist zusätzlich $1\cdot x=x$ zu fordern.
+
+[^4]: Enthält eine Menge von Vektoren aus $V$ den Nullvektor, so ist diese linear abhängig.
+
+
 ### Matrizen
+
 
 Definition und Eigenschaften
 ============================
+
 
 >**Definition 1.** Ein rechteckiges Zahlenschema der Form $$
   A=\begin{pmatrix}
@@ -4126,6 +4518,7 @@ $$ Außerdem ist $\lambda\in\mathbb{R}$. Dann gelten die  folgenden Rechenregeln
 >
 >6. ${A}\cdot\left({B}+{C}\right)={A}\cdot{B}+{A}\cdot{C}$ falls gleicher Typ $(n,p)=(p,r)$
 >7. $\left({A}+{B}\right)\cdot{C}={A}\cdot{C}+{B}\cdot{C}$ falls gleicher Typ $(m,n)=(n,p)$
+
 
 Sicher gewusst?
 ===============
@@ -5143,7 +5536,7 @@ Wird im vorstehenden Gleichungssystem der anstelle des Vektors $b$ der Nullvekto
 $$ Mit $n=\mathrm{rg}{A}=2$ existiert genau eine Lösung, nämlich $x=\begin{pmatrix} 0 & 0 \end{pmatrix}^\top$. Diese bildet die *triviale Lösung* eines homogenen linearen Gleichungssystems (existiert immer!).
 
 
-Lineare Unabhängigkkeit von Vektoren
+Lineare Unabhängigkeit von Vektoren
 ====================================
 
 Systeme linearer Gleichungen lassen sich zur Untersuchung der linearen Unabhängigkeit von Vektoren nutzen. Für die folgenden Betrachtungen wird ein System von Vektoren aus $\mathbb{R}^m$ $$
@@ -5754,6 +6147,63 @@ $$ worin für den auftretenden Parameter $\gamma\in\mathbb{R}$ gilt. Der Eigenra
 $$ Für jeden Vektor $x\in U_{-3}$ gilt $A\cdot x=\lambda_3\cdot x=o$. (Bitte nachrechnen!)
 
 
+Anwendung zum Nachweis lokaler Extrema
+=====
+
+
+Im Abschnitt [Lokale Extrema](#Lokale-Extrema) werden reelle Funktionen auf lokale Extrema untersucht. Für den Nachweis wird die [Hesse-Matrix](https://de.wikipedia.org/wiki/Hesse-Matrix) gebildet, das ist eine aus den partiellen zweiten Ableitungen der Funktion $f$ gebildete Matrix $$
+  H_f(x):=
+  \left(\frac{\partial^2f}{\partial x_i\partial x_j}(x)\right)_{i,j=1,\dots, n}=
+  \begin{pmatrix}
+    \frac{\partial^2 f}{\partial x_1\partial x_1}(x)&\frac{\partial^2 f}{\partial x_1\partial x_2}(x)&\cdots&\frac{\partial^2  f}{\partial x_1\partial x_n}(x) \\
+    \frac{\partial^2 f}{\partial x_2\partial x_1}(x)&\frac{\partial^2 f}{\partial x_2\partial x_2}(x)&\cdots&\frac{\partial^2  f}{\partial x_2\partial x_n}(x) \\ \vdots&\vdots&\ddots&\vdots \\
+    \frac{\partial^2 f}{\partial x_n\partial x_1}(x)&\frac{\partial^2 f}{\partial x_n\partial x_2}(x)&\cdots&\frac{\partial^2  f}{\partial x_n\partial x_n}(x)
+  \end{pmatrix}
+$$ Sind die partiellen zweiten Ableitungen von $f$ stetig, so ist $H_f$ eine symmetrische Matrix.
+
+Mit Hilfe der Hessematrix $H_f$ lässt sich der Nachweis für die Existenz lokaler Extrema an den stationären Stellen führen.
+
+>**Satz 2.** Bezeichnet $x^\star=(x^\star_1,x^\star_2,...,x^\star_n)$ eine stationäre Stelle der Funktion $$
+  f:D\to\mathbb{R}\quad\text{mit}\quad f:(x_1,x_2,...,x_n)\mapsto y=f(x_1,x_2,...,x_n)
+$$ und $x^\star\in D_f\subseteq\mathbb{R}$, so existiert an $x^\star$
+>
+>1. ein lokales Minimum $y_{min}=f(x^\star)$, falls ~~alle~~ Eigenwerte von $H_f(x^\star)$ größer 'Null' sind.
+>2. ein lokales Maximum $y_{max}=f(x^\star)$, falls ~~alle~~ Eigenwerte von $H_f(x^\star)$ kleiner 'Null' sind.
+>3. kein lokales Extremum, falls $H_f(x^\star)$ positive ~~und~~ negative Eigenwerte besitzt.
+>
+> Falls die Hesse-Matrix $H_f(x^\star)$ den Eigenwert 'Null' besitzt, so versagt dieses Kriterium und die Existenz eines lokalen Extremums an der Stelle $x^\star$ muss mit einer anderen Methode untersucht werden.
+>
+> (*ohne Beweis*)
+
+**Bemerkung 2.** Für den Fall $n=2$ wurde im Abschnitt [Lokale Extrema](#Lokale-Extrema) der Nachweis lokaler Extrema einer Funktion $$
+  f: D\subseteq\mathbb{R}^2\to\mathbb{R}
+$$ mit Hilfe der Determinante der Hesse-Matrix $$
+  H_f(x^\star)=\begin{pmatrix} f_{x_1x_1} & f_{x_1x_2} \\ f_{x_2x_1} & f_{x_2x_2} \end{pmatrix}(x^\star)
+$$ geführt. Hierbei sind äquivalent
+
+| Lokale Extrema | Determinante | Eigenwerte |
+| :--------- | :--------- | :--------- |
+| Minimum | $\det{H_f(x^\star)}>0\quad\wedge\quad f_{x_1x_1}(x^\star)>0$ | $\lambda_1>0\quad\wedge\quad\lambda_2>0$ |
+| Maximum | $\det{H_f(x^\star)}>0\quad\wedge\quad f_{x_1x_1}(x^\star)<0$ | $\lambda_1>0\quad\wedge\quad\lambda_2<0$ |
+| kein Extremum | $\det{H_f(x^\star)}<0$ | $\lambda_1\cdot\lambda_2<0$ (verschiedene Vorzeichen) |
+| keine Entscheidung mit Kriterium möglich | $\det{H_f(x^\star)}=0$ | $\lambda_1\cdot\lambda_2=0$ (ein Eigenwert 'Null') |
+
+was sich unter Benutzung der Formel $$
+  \det{H_f(x^\star)}=\lambda_1\cdot\lambda_2
+$$ aus Satz 1 und der Gleichung $$
+  \operatorname{tr}{H_f(x^\star)}=f_{x1x1}(x^\star)+f_{x_2x_2}(x^\star)=\lambda_1+\lambda_2
+$$ unmittelbar nachvollziehen lässt. Der Ausdruck $$
+    \operatorname{tr}{H_f(x^\star)}=f_{x1x1}(x^\star)+f_{x_2x_2}(x^\star)
+$$ wird Spur der Hesse-Matrix $H_f(x^\star)$ genannt, dessen Gleichheit zur Summe der Eigenwerte sich ergibt mittels Koeffizientenvergleich der Polynome $$
+  \det{(H_f(x^\star)-\lambda\cdot E)}=\det{H_f(x^\star)}-\lambda\cdot\operatorname{tr}{H_f(x^\star)}+\lambda^2
+$$ und $$
+  \det{(H_f(x^\star)-\lambda\cdot E)}=\prod_{j=1}^2{(\lambda_j-\lambda)}=
+  (\lambda_1\cdot\lambda_2)-\lambda\cdot(\lambda_1+\lambda_2)+\lambda^2
+$$
+
+Ab $n>2$ ist ein Nachweis mit Hilfe des Determinanten-Kriteriums ~~nicht~~ mehr möglich. Warum?
+
+
 Sicher gewußt?
 =====
 
@@ -5824,7 +6274,7 @@ $$ Dies lässt sich durch Einsetzen in die Eigenwertaufgabe prüfen $$
   \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}=
   \begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}=
   2\cdot\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}
-$$ Der Eigenraum besitzt hier die Dimension $3-2=1$, da der Rang der Koeffizientenmatrix zwei ist. (Die Zeilen eins und drei der Koeffizientenmatrix des Gleichungssystems sind identisch. 
+$$ Der Eigenraum besitzt hier die Dimension $3-2=1$, da der Rang der Koeffizientenmatrix zwei ist. (Die Zeilen eins und drei der Koeffizientenmatrix des Gleichungssystems sind identisch.
 
 ****************************************
 
@@ -5834,3 +6284,240 @@ $$ Der Eigenraum besitzt hier die Dimension $3-2=1$, da der Rang der Koeffizient
 [^2]: Tritt ein Eigenwert $\lambda_j$ mehrfach auf, so ist dieser entsprechend seiner Vielfachheit zu berücksichtigen.
 
 [^3]: Nach Definition ist der Nullvektor $o$ kein Eigenvektor einer Matrix $A$, so dass dieser streng genommen aus $U_0$ zu entfernen ist.
+
+
+## Vektoranalysis
+
+
+### Vektorfelder
+
+
+In diesem Abschnitt werden räumliche Vektorfelder betrachtet.
+
+>**Definition 1.** Abbildungen des dreidimensionalen Raumes $$
+  v:\mathbb{R}^3\to\mathbb{R}^3\quad\text{mit}\quad x\mapsto v(x)
+$$ die dem Ortsvektor $x$ eines jeden Punktes den (ortgebundenen) Vektor $v(x)$ eindeutig zuordnen, heißen **räumliches Vektorfeld**.
+
+Im nachstehenden Video wird der Begriff eines (räumlichen) Vektorfeldes kurz erläutert.
+
+!?[Vektorfeld](https://www.youtube.com/watch?v=sQDDQ2dab2k)
+
+Unter [räumliche Vektorfelder](https://www.geogebra.org/m/M9SEYXSy) beziehungsweise [ebene Vektorfelder](https://www.geogebra.org/m/GsxSTgrE) finden Sie interaktive Beispiele.
+
+Werden die Vektoren $x$ und $v$ unter Benutzung ihrer Komponenten dargestellt, so lässt sich die Abbildung darstellen als $$
+  x=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto
+  v(x_1,x_2,x_3)=\begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix}(x_1,x_2,x_3)=
+  \begin{pmatrix} g_1(x_1,x_2,x_3) \\ g_2(x_1,x_2,x_3) \\ g_3(x_1,x_2,x_3) \end{pmatrix}
+$$ worin $g_j(x_1,x_2,x_3)$ mit $j\in\{1,2,3\}$ die $j$-te Koordinatenfunktion der Abbildung $v$ beschreibt.
+
+>**Definition 1.** Existiert eine differenzierbare Funktion $f:\mathbb{R}^3\to\mathbb{R}^3$ mit $$
+  v(x)=\operatorname{grad}{f}(x)\quad\text{bzw.}\quad v(x)=-\operatorname{grad}{f}(x)\quad\forall\; x\in\mathbb{R}^3
+$$ so heißt $f$ ein **Potential** des Vektorfeldes $v$. Es gilt dann: $$
+  g_j(x_1,x_2,x_3)=\frac{\partial f}{\partial x_j}(x_1,x_2,x_3)
+$$ für die Koordinatenfunktionen des Vektorfeldes $v$.
+
+**Bemerkung 1.** Die im Abschnitt [Gradientenvektorfeld](#Gradientenvektorfeld) konstruierten räumlichen Vektorfelder $$
+  x\mapsto v(x)=\operatorname{grad}{(x)}
+$$ zu differenzierbaren Funktionen $f:D\subseteq\mathbb{R}^n\to\mathbb{R}$ sind so genannte *Gradientenvektorfelder*. Die Funktion $f$ ist nach Definition 2 also ein zu $v$ gehöhrendes Potential.
+
+Hier wird nun die umgekehrte Frage gestellt: Existiert zu einem gegebenen Vektorfeld ein Potential?
+
+Nach Definition 2 lässt sich das Potential $f$ eines Vektorfeldes berechnen vermöge $$
+  f(x_1,x_2,x_3)=\left\{
+    \begin{array}{ll}
+      \int{g_{\red 1}(x_1,x_2,x_3)}\,\mathrm{d}{{\red {x_1}}}+c_{\red 1}({\purple {x_2}},{\blue {x_3}}) & \text{und} \\
+      \int{g_{\purple 2}(x_1,x_2,x_3)}\,\mathrm{d}{{\purple {x_2}}}+c_{\purple 2}({\blue {x_3}},{\red {x_1}}) & \text{und} \\
+      \int{g_{\blue 3}(x_1,x_2,x_3)}\,\mathrm{d}{{\blue {x_3}}}+c_{\blue 3}({\red {x_1}},{\purple {x_2}})
+    \end{array}
+  \right.
+$$ Jedes (!) der angegebenen unbestimmten Integrale muss dem Potential $f$ entsprechen, wobei die 'Integrationskonstanten' $c_1$, $c_2$ beziehungsweise $c_3$ jeweils an der unbestimmten Integration nichtbeteiligte Variablen enthalten dürfen.
+
+**Beispiel 1.** Gegeben ist das räumliche Vektorfeld $$
+  (x_1,x_2,x_3)\mapsto v(x_1,x_2,x_3)=
+  (x_1+x_2\cdot x_3,-x_2+x_1\cdot x_3,x_1\cdot x_2)^\top
+$$ d. h. mit den Koordinatenfunktionen $$
+  g_1(x_1,x_2,x_3)=x_1+x_2\cdot x_3\,,\quad
+  g_2(x_1,x_2,x_3)=-x_2+x_1\cdot x_3\quad\text{und}\quad
+  g_3(x_1,x_2,x_3)=x_1\cdot x_2
+$$ Durch gewöhnliche Integration ergeben sich $$
+  \int{g_1(x_1,x_2,x_3)}\,\mathrm{d}{x_1}=
+  \int{(x_1+x_2\cdot x_3)}\,\mathrm{d}{x_1}=
+  \frac{1}{2}\cdot x_1^2+x_1\cdot x_2\cdot x_3+c_1(x_2,x_3)
+$$ ebenso $$
+  \int{g_2(x_1,x_2,x_3)}\,\mathrm{d}{x_2}=
+  \int{(-x_2+x_1\cdot x_3)}\,\mathrm{d}{x_2}=
+  -\frac{1}{2}\cdot x_2^2+x_1\cdot x_2\cdot x_3+c_2(x_1,x_3)
+$$ und schließlich $$
+  \int{g_3(x_1,x_2,x_3)}\,\mathrm{d}{x_3}=
+  \int{(x_1\cdot x_2)}\,\mathrm{d}{x_3}=
+  x_1\cdot x_2\cdot x_3+c_3(x_1,x_2)
+$$ Aus den Integralen lässt sich durch geeignete Wahl der 'Integrationskonstanten' eine differenzierbare Funktion $$
+  f:\mathbb{R}^3\to\mathbb{R}
+$$ angeben mit $$
+  f(x_1,x_2,x_3)=\frac{x_1^2-x_2^2}{2}+x_1\cdot x_2\cdot x_3+c\,,\quad c\in\mathbb{R}
+$$ Nach Definition 2 ist $f$ Potential zum gegebenen Vektorfeld $v$, $v$ ist Gradientenvektorfeld von $f$.
+
+**Beispiel 2.** Ähnlich zu dem räumlichen Vektorfeld in Beispiel 1 wird hier $$
+  (x_1,x_2,x_3)\mapsto w(x_1,x_2,x_3)=
+  (x_1+x_2\cdot x_3,-x_2,x_1\cdot x_2)^\top
+$$ d. h. mit den Koordinatenfunktionen $$
+  g_1(x_1,x_2,x_3)=x_1+x_2\cdot x_3\,,\quad
+  g_2(x_1,x_2,x_3)=-x_2\quad\text{und}\quad
+  g_3(x_1,x_2,x_3)=x_1\cdot x_2
+$$ betrachtet. Die Koordinatenfunktionen $g_1$ und $g_3$ gleichen denen in Beispiel 1, so dass sich wie oben $$
+  \int{g_1(x_1,x_2,x_3)}\,\mathrm{d}{x_1} = \frac{1}{2}\cdot x_1^2+x_1\cdot x_2\cdot x_3+c_1(x_2,x_3)
+$$ ebenso $$
+  \int{g_3(x_1,x_2,x_3)}\,\mathrm{d}{x_3} = x_1\cdot x_2\cdot x_3+c_3(x_1,x_2)
+$$ ergeben. Abweichend von Beispiel 1 berechnet sich hingegen $$
+  \int{g_2(x_1,x_2,x_3)}\,\mathrm{d}{x_2}=
+  \int{(-x_2)}\,\mathrm{d}{x_2}=
+-\frac{1}{2}\cdot x_2^2+k_2(x_1,x_3)
+$$ worin $k_2$ einen Term in den Variablen $x_1$ und $x_2$ bezeichnet. Hieraus folgt, das das räumliche Vektorfeld $w$ kein Potential besitzt, da das letzte Integral außer $-1/2\cdot x_2^2$ keinen weiteren Term in $x_2$ enthält.
+
+Der Zusammenhang zwischen einem räumlichen Vektorfeld und einem Potential sowie die Berechnung eines Potentials zu einem gegebenen räumlichen Vektorfeld ist im nachstehenden Video an einem Beispiel erläutert.
+
+!?[Potential](https://www.youtube.com/watch?v=GRbglyWL5j4)
+
+**Beispiel 3.** Gegeben ist der Differentialausdruck $$
+  (x+y)\cdot\mathrm{d}x+(x-y)\cdot\mathrm{d}y
+$$ Zu prüfen ist, ob dieser totales Differential $$
+  \mathrm{d}f=\frac{\partial f}{\partial x}(x,y)\cdot\mathrm{d}x+\frac{\partial f}{\partial y}(x,y)\cdot\mathrm{d}y
+$$ eines Potentials $(x,y)\mapsto z=f(x,y)$ mit $(x,y)\in D\subseteq\mathbb{R}^2$ ist.
+
+Das Differential einer Funktion berechnet sich vermöge des Skalarproduktes $$
+  \mathrm{d}f=\operatorname{grad} f\cdot\begin{pmatrix} \mathrm{d}x \\ \mathrm{d}y \end{pmatrix}\quad\text{mit}\quad
+  \operatorname{grad}f=\begin{pmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{pmatrix}
+$$ Ein Potential $f$ existiert, falls für die partiellen ersten Ableitungen gelten $$
+  \frac{\partial f}{\partial x}=x+y\quad\text{und}\quad \frac{\partial f}{\partial y}=x-y
+$$ Hieraus ergibt sich $$
+  f(x,y)=\int{(x+y)}\,\mathrm{d}x=\frac{1}{2}\cdot x^2+x\cdot y+c_1(y)
+$$ Wird dieser Ausdruck partiell nach $y$ abgeleitet und dem Term $x-y$ gleichgesetzt, lässt sich $c_1(y)$ berechnen. $$
+  \frac{\partial f(x,y)}{\partial y}=\frac{\partial}{\partial y}{\left(\frac{1}{2}\cdot x^2+x\cdot y+c_1(y)\right)}=
+  x+\frac{\partial c_1(y)}{\partial y}=x-y\quad\leadsto\quad \frac{\partial c_1(y)}{\partial y}=-y\quad\leftrightarrow\quad
+  c_1(y)=-\frac{1}{2}\cdot y^2+c\quad (c\in\mathbb{R})
+$$ Damit existiert zu gegebenem Differentialausdruck ein Potential $f$ mit $$
+  f(x,y)=\frac{1}{2}\cdot x^2+x\cdot y+-\frac{1}{2}\cdot y^2+c=\frac{x^2-y^2}{2}+x\cdot y+c
+$$
+
+
+### Kurvenintegrale
+
+
+Begriffsbildung
+=====
+
+In diesem Abschnitt soll der Begriff eines *Kurvenintegrals* am Beispiel der durch Wirkung einer Kraft entlang eines Weges verrichteten mechanischen Arbeit hergeleitet werden. Aus methodischer Sicht wird beginnend mit einem Spezialfall hin zur allgemeinen Begriffsbildung gearbeitet.
+
+**Beispiel 1.** Es soll die mechanische Arbeit $W$ berechnet werden, die durch Wirkung einer Kraft entlang eines Weges verrichtet wird.
+
+1. Kraft und Weg sind durch die konstanten, ~~gleichgerichteten~~ Vektoren $\vec{F}$ beziehungsweise $\vec{s}$ gegeben, d. h. es gelten $$
+  \vec{F}=\lambda\cdot\vec{s}\,,\;\lambda\in[0,\infty)\quad\text{und}\quad F=\vert\vec{F}\vert=const.\,,\; s=\vert\vec{s}\vert=const.
+$$ Die verrichtete Arbeit $W$ lässt sich als Produkt der 'Beträge' berechnen, $$
+  W=\vert\vec{F}\vert\cdot\vert\vec{s}\vert=F\cdot s
+$$
+2. Sind hingegen Kraft und Weg zwar konstant, jedoch ~~nicht gleichgerichtet~~, so lässt sich $W$ unter Verwendung des Skalarproduktes der Vektoren $\vec{F}$ und $\vec{s}$ berechnen $$
+  W=\vec{F}\cdot\vec{s}=\vert\vec{F}\vert\cdot\vert\vec{s}\vert\cdot\cos{\varphi}\,,\quad
+  \varphi=\measuredangle{(\vec{F},\vec{s})}
+$$ da für die in Wegrichtung $\vec{s}$ wirkende Kraftkomponente $\vec{F}_s$ von $\vec{F}$ gilt $$
+  \vec{F}_s=\frac{\vec{F}\cdot\vec{s}}{\vec{s}\cdot\vec{s}}\cdot\vec{s}\quad\leadsto\quad
+  W=\vert\vec{F}_s\vert\cdot\vert\vec{s}\vert=\vec{F}\cdot\vec{s}
+$$ Siehe [Projektion auf einen Vektor](https://de.wikipedia.org/wiki/Orthogonalprojektion) und die nachstehende Abbildung. ![Projektion auf Vektor](img/mat-bild-12.png "_Fig._ Projektion des Vektors $\vec{F}$ auf die Gerade in Richtung $\vec{s}$, die Vektorkomponente $\vec{F}_s$.")
+3. Nun lässt sich anstelle des konstanten Vektors $\vec{s}$ das Polygon $k$ mit der Eckenliste $$
+  k:\;[P_1,P_2...,P_n,P_{n+1}]=[P_1,P_2]\cup[P_2,P_3]\cup...\cup[P_{n},P_{n+1}]
+$$ betrachtet, dessen Strecken $[P_j,P_{j+1}]$ die Wegrichtung $\vec{s}_j$ bestimmen. Die entlang $\vec{s}_j$ wirkende Kraft werde mit $\vec{F}_j$ bezeichnet. Die entlang $k$ verrichtete Arbeit $W$ wird nach dem vorangegangenen Gliederungspunkt berechnet mittels $$
+  W=\sum_{j=1}^{n}{\vec{F}_j\cdot\vec{s}_j}
+$$ d. h. als Summe der Skalarprodukte $\vec{F}_j\cdot\vec{s}_j$. Siehe nachstehende Abbildung. ![Projektion auf Streckenzug](img/mat-bild-13.png "_Fig._ Projektion der Vektoren $\vec{F}_j$ auf die Strecken in Richtung $\vec{s}_j$, die Vektorkomponenten $\vec{F}_{s_j}$. Hier für den Parameterwert $n=3$ graphisch dargestellt.")
+4. In Verallgemeinerung des vorstehenden Falls ist hier der Weg durch eine differenzierbare ('glatte') Kurve $k$ im dreidimensionalen Raum gegeben. Diese besitze die Parametrisierung $$
+  k:D\to\mathbb{R}^3\,,\; t\mapsto x(t)\,,\quad t\in[t_1,t_2]\subseteq D\subseteq{R}
+$$ des Weiteren bezeichne $\dot{x}$ den Tangentenvektor an $k$ in $x(t)$. Daneben ist die entlang $k$ wirkende, im Allgemeinen veränderliche Kraft $\vec{F}$ durch ein räumliches Vektorfeld gegeben $$
+  v:x\mapsto v(x)=\vec{F}_x
+$$ Die entlang $k$ verrichtete mechanische Arbeit $W$ berechnet sich dann nach einem zu vollziehenden Grenzprozess mittels $$
+  W=\int_{t=t_1}^{t_2}{\left(v(x)\cdot\dot{x}\right)}\,\mathrm{d}t
+$$
+
+>**Definition 1.** Unter dem [Kurvenintegral](https://de.wikipedia.org/wiki/Kurvenintegral) eines stetigen Vektorfeldes $$
+  v:\mathbb{R}^3\to\mathbb{R}^3\,,\; x\mapsto v(x)
+$$ längs eines stetig differenzierbaren Integrationsweges $k$ mit $$
+  k:D\to\mathbb{R}^3\,,\; t\mapsto x(t)\,,\quad t\in[t_1,t_2]\subseteq D\subseteq{R}
+$$ versteht man das Integral $$
+  \int_k{v(x)}\,\mathrm{d}x=
+  \int_{t=t_1}^{t_2}{\left(v(x(t))\cdot\dot{x}(t)\right)}\,\mathrm{d}t
+$$ beziehungsweise - unter Benutzung der Komponentendarstellung von $v(x)$ und $\dot{x}$ - $$
+  \int_k{v(x)}\,\mathrm{d}x=
+  \int_{t_1}^{t_2}{\left(
+    \begin{pmatrix} v_1(x_1(t),x_2(t),x_3(t)) \\ v_2(x_1(t),x_2(t),x_3(t)) \\ v_3(x_1(t),x_2(t),x_3(t)) \end{pmatrix}\cdot\begin{pmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \dot{x}_3(t) \end{pmatrix}
+  \right)}\,\mathrm{d}t
+$$ Das Multiplikationszeichen im Integranden bedeutet die Skalarmultiplikation der beteiligten Vektoren.
+
+**Bemerkung 1.**
+
+1. Die vorstehende Definition gilt sinngemäß auch für ebene Vektorfelder $v$ und ebene Integrationswege $k$.
+2. Wird über einen geschlossenen Weg $k$ integriert, so schreibt man für das Kurvenintegral $$
+  \oint_k{v(x)}\,\mathrm{d}x
+$$ In technischen Anwendungen wird ein solches Kurvenintegralauch als *Zirkulation* des Vektorfeldes $v(x)$ über einen geschlossenen Integrationsweg $k$ bezeichnet.
+
+>**Satz 1.** Eigenschaften von Kurvenintegralen
+>
+>1. Für beliebige Vektorfelder $v$ und $w$ im Sinne von Definition 1 gilt $$
+  \int_k\left[v(x)+w(x)\right]\,\mathrm{d}x=
+  \int_k{v(x)}\,\mathrm{d}x+
+  \int_k{w(x)}\,\mathrm{d}x
+$$ sowie für Skalare $\lambda\in\mathbb{R}$ $$
+  \int_k{[\lambda\cdot v(x)]}\,\mathrm{d}x=
+  \lambda\cdot\int_k{v(x)}\,\mathrm{d}x
+$$ Diese beiden Eigenschaften werden als *Linearität* des Kurvenintegrals bezeichnet.
+>2. Wird der Integrationsweg $k$ in umgekehrter Richtung durchlaufen (symbolisch $-k$), so ist das Kurvenintegral mit $(-1)$ zu multiplizieren $$
+  \int_{-k}{v(x)}\,\mathrm{d}x=(-1)\cdot\int_k{v(x)}\,\mathrm{d}x
+$$
+>3. Setzt sich der Integrationsweg $k$ aus den Wegen $k_1$ und $k_2$ zusammen (symbolisch $k_1+k_2$), so berechnet sich $$
+  \int_{k_1+k_2}{v(x)}\,\mathrm{d}x=
+  \int_{k_1}{v(x)}\,\mathrm{d}x+
+  \int_{k_2}{v(x)}\,\mathrm{d}x
+$$
+
+
+Berechnung von Kurvenintegralen
+=====
+
+
+Zur Berechnung der Kurvenintegrale aus Definition 1 ist das Skalarprodukt des Integranden zu berechnen. Für ein räumliches Vektorfeld mit $$
+  v(x)\vert_k=v(x(t))=\begin{pmatrix} v_1(x_1(t),x_2(t),x_3(t)) \\ v_2(x_1(t),x_2(t),x_3(t)) \\ v_3(x_1(t),x_2(t),x_3(t))\end{pmatrix}
+$$ und den infinitesimalen Vektor $$
+  \mathrm{d}x\vert_k=
+  \begin{pmatrix} \mathrm{d}x_1(t) \\ \mathrm{d}x_2(t) \\ \mathrm{d}x_3(t) \end{pmatrix}=
+  \begin{pmatrix} \dot{x}_1(t)\cdot\mathrm{d}t \\ \dot{x}_2(t)\cdot\mathrm{d}t \\ \dot{x}_3(t)\cdot\mathrm{d}t \end{pmatrix}=
+  \begin{pmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \dot{x}_3(t) \end{pmatrix}\cdot\mathrm{d}t
+$$ berechnet sich das Skalarprodukt zu $$
+  \begin{pmatrix} v_1(x_1(t),x_2(t),x_3(t)) \\ v_2(x_1(t),x_2(t),x_3(t)) \\ v_3(x_1(t),x_2(t),x_3(t))\end{pmatrix}\cdot
+  \begin{pmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \dot{x}_3(t) \end{pmatrix}=
+  \sum_{j=1}^3{\left(v_j(x_1(t),x_2(t),x_3(t))\cdot\dot{x}_j(t) \right)}
+$$ worin das Multiplikationszeichen in der Summe die gewöhnliche Multiplikation in $\mathbb{R}$ bezeichnet. (Zu bilden ist also die Summe der Produkte aus den einzelnen Komponenten der Vektoren.)
+
+**Beispiel 2.** Zu berechnen ist die an einem Massepunkt $X$ verrichtete Arbeit, der entlang einer Schraublinie $k$ mit der Parametrisierung $$
+  t\mapsto x(t)=\left(R\cdot\cos{t},R\cdot\sin{t},\frac{h}{2\cdot\pi}\cdot t\right)^\top\,,\quad t\in[0,2\cdot\pi]
+$$ bewegt wird, d. h. $x(t)$ bezeichnet den Ortsvektor des Ortes $X$ zur Zeit $t$. Der Massepunkt befindet sich in einem Kraftfeld $\vec{F}$, das durch das räumliche Vektorfeld $$
+  v:x\mapsto v(x)=\vec{F}(x)\quad\text{mit}\quad v(x)=-m\cdot g\cdot e_3-D\cdot x\,,\;
+  e_3=\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
+$$ beschrieben ist. Hierin bezeichnen $m>0$ die Masse des Massepunktes, $g$ die Schwerebeschleunigung und $D\not=0$ eine weitere Konstante. Der Anteil $$
+  \vec{F}_1:\; v_1(x)=m\cdot g\cdot e_3
+$$ ist unabhängig vom Ort $x$ des Massepunktes, während der zweite Anteil $$
+  \vec{F}_2:\; v_2(x)=-d\cdot x
+$$ mit dem Betrag $$
+  |v_2(x)|=\vert-D\cdot x\vert=|D|\cdot\vert x\vert
+$$ letzterer ist um so größer, je weiter der Massepunkt vom Ursprung des Koordinatensystems entfernt ist.
+
+![Kraftfeld](img/mat-bild-14.png "_Fig._ Massenpunkt $X$ bezüglich eines kartesischen Koordinatensystems mit der Achsenrichtung $e_3$. Es wirken auf $X$ die Gewichtskraft $\vec{F}_1$ entgegengesetzt zur Richtung $e_3$ und die zum Koordinatenursprung $O$ gerichtete Spannkraft $\vec{F}_2$.")
+
+Die zu berechnende Arbeit ergibt sich mit Satz 1 als der Summe der nachstehenden Kurvenintegrale $$
+  W=\int_0^{2\cdot\pi}{\left[(v_1(x(t))+v_2(x(t)))\cdot \dot{x}(t)\right]}\,\mathrm{d}t=
+  \int_0^{2\cdot\pi}{\left[v_1(x(t))\cdot \dot{x}(t)\right]}\,\mathrm{d}t+
+  \int_0^{2\cdot\pi}{\left[v_2(x(t))\cdot \dot{x}(t)\right]}\,\mathrm{d}t=:W_1+W_2
+$$ Mit dem Ableitungsvektor / Tangentenvektor $$
+  \dot{x}(t)=\left(-R\cdot\sin{t},R\cdot\cos{t},\frac{h}{2\cdot\pi}\right)^\top
+$$ ergibt sich zum einen der Arbeitsanteil $W_1$ aus dem Kraftfeld $\vec{F}_1$ $$
+  W_1=\int_0^{2\cdot\pi}{\left[v_1(x(t))\cdot \dot{x}(t)\right]}\,\mathrm{d}t=-m\cdot g\cdot\int_0^{2\cdot\pi}{\left[\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\cdot\begin{pmatrix} -R\cdot\sin{t} \\ R\cdot\cos{t} \\ \frac{h}{2\cdot\pi} \end{pmatrix}\right]}\,\mathrm{d}t=-m\cdot g\cdot\int_0^{2\cdot\pi}{\frac{h}{2\cdot\pi}}\,\mathrm{d}t=-m\cdot g\cdot h
+$$ der sich als verrichtete *Hubarbeit* interpretieren lässt, währenddessen sich der Anteil $W_2$ der verrichteten Arbeit mittels $$
+  W_2=\int_0^{2\cdot\pi}{\left[v_2(x(t))\cdot \dot{x}(t)\right]}\,\mathrm{d}t=-D\cdot\int_0^{2\cdot\pi}{\left[\begin{pmatrix} R\cdot\cos{t} \\ R\cdot\sin{t} \\ \frac{h}{2\cdot\pi}\cdot t \end{pmatrix}\cdot\begin{pmatrix} -R\cdot\sin{t} \\ R\cdot\cos{t} \\ \frac{h}{2\cdot\pi} \end{pmatrix}\right]}\,\mathrm{d}t=
+  -D\cdot\frac{h^2}{4\cdot\pi^2}\cdot\int_0^{2\cdot\pi}{t}\,\mathrm{d}t=
+  -D\cdot\frac{h^2}{2}
+$$ berechnet und als *Spannarbeit* interpretieren lässt.
