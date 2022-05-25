@@ -4038,7 +4038,7 @@ $$ das neutrale Element und $$
   y=(-f)(x)=(-1)\cdot(a\cdot x^2+b\cdot x+c)=-a\cdot x^2-b\cdot x-c
 $$ das zu $f$ inverse Element bezüglich der erklärten Addition. Die Menge $V$ der Polynomfunktionen bildet zusammen mit den erklärten Operationen einen Vektorraum über $\mathbb{R}$.
 
-In nachstehenden Video wird das Prüfen der Rechenregeln für die Vektoroperationem an je einem Beispiel erläutert.
+In nachstehenden Video wird das Prüfen der Rechenregeln für die Vektoroperationem an je einem der in 'Beispiel 3' aufgegriffenen Beispiele erläutert.
 
 !?[Vektorraum3](https://www.youtube.com/watch?v=wKP53tZPHKU)
 
@@ -4189,6 +4189,127 @@ $$ Diese kann schrittweise 'von oben nach unten' gelöst werden und besitzt die 
 $$ Damit ist $$
   f(t)=(-1)\cdot B_0^3(t)-\frac{2}{3}\cdot B_1^3(t)-\frac{2}{3}\cdot B_2^3(t)+B_3^3(t)
 $$
+
+
+Basen in Vektorräumen
+=====
+
+
+In diesem Abschnitt ergänzen wir den Begriff der Basis eines Vektorraums .
+
+>**Definition 5.** Sind in einem Vektorraum $V$ $n$ Vektoren linear unabhängig und stets $n+1$ Vektoren linear abhängig, so heißt $V$ endlich-dimensional. Die natürliche Zahl $n=\dim{V}$ mit $n\geq1$ wird **Dimension** des Vektorraums $V$ genannt.
+
+>**Definition 6.** In einem Vektorraum $V$ der Dimension $\dim{V}=n$ heißt jede Menge von $n$ linear unabhängigen Vektoren eine **Basis** $B$ von $V$. $$
+  B=\left\{x_1,x_2,...,x_n\right\}\subset V
+$$ Darin wird $x_j\in V$, $j\in \{1,2,...,n\}$ Basisvektor zum Index $j$ genannt.
+
+**Beispiel 8.** Die Vektoren $$
+  e_1=\begin{pmatrix} 1 \\ 0 \end{pmatrix}\quad\text{und}\quad
+  e_2=\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$ bilden eine Basis des Vektorraums $V=\mathbb{R}^2$. Diese Vektoren sind linear unabhängig, denn es folgt für die Linearkombination $$
+  \lambda_1\cdot e_1+\lambda_2\cdot e_2 =
+  \begin{pmatrix} \lambda_1 \\ \lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}\quad\rightarrow\quad \lambda_1=\lambda_2=0
+$$ Darüberhinaus kann jeder weitere Vektor $v$ als Linearkombination dieser Vektoren dargestellt werden. $$
+  v=\lambda_1\cdot e_1+\lambda_2\cdot e_2\quad \leadsto\quad v=\begin{pmatrix} \lambda_1 \\ \lambda_2 \end{pmatrix}
+$$ woraus die lineare Abhängigkeit von $\{v,e_1,e_2\}$ nach Proposition 2 folgt. Der Vektorraum $\mathbb{R}^2$ besitzt die Dimension $2$ $$
+  B=\{e_1,e_2\}
+$$ heißt *kanonische Basis* in $\mathbb{R}^2$.
+
+Das Bildungsprinzip lässt sich auf Vektorräume $V=\mathbb{R}^n$ mit $n\in\mathbb{N}$ und $n>0$ übertragen: Die Menge $$
+  B=\{e_1,e_2,...,e_n\}\quad\text{mit Basisvektoren}\quad e_j=\begin{pmatrix} \delta_{1j} \\ \delta_{2j} \\ \vdots \\ \delta_{nj} \end{pmatrix}\,, j\in\{1,2,...,n\}
+$$ unter Nutzung des [Kronecker-Symbols](https://de.wikipedia.org/wiki/Kronecker-Delta) $$
+  \delta_{ij}:=\left\{\begin{array}{rcl} 0 & \text{für} & i\not=j \\ 1 & \text{für} & i=j \end{array}\right.
+$$ bildet die kanonische Basis des Vektorraums $V=\mathbb{R}^n$.
+
+**Beispiel 9.** Die Menge $B$ der reellen Potenzfunktionen $$
+  f_i:x\mapsto y=f_i(x)=x^i\quad (i\in\{1,2,...,n\}\,,n>0)\,,\quad f_0:x\mapsto y=f_0(x)=1
+$$ mit gemeinsamem Definitionsbereich $D=\mathbb{R}$ bildet eine Basis im Vektorraum der reellen Polynomfunktionen vom Grad $k\leq n$ $$
+  V=\left\{f:\mathbb{R}\to\mathbb{R}\left|\; f(x)=\sum_{j=0}^n{(a_j\cdot x^j)}\,, a_j\in\mathbb{R}\right.\right\}
+$$ Die lineare Unabhängigkeit der Funktionen $f_i$ ist bereits im Beispiel 6 (2.) gezeigt worden. Es folgt $\dim{V}=n+1$.
+
+>**Satz 3.** Zu jedem Vektor $v\in V$ eines endlich-dimensionalen Vektorraums $V$ mit Dimension $\dim{V}=n$ über einem Zahlkörper $K$ existiert zu einer gegebenem Basis $$
+  B=\{x_1,x_2,...,x_n\}
+$$ von Vektoren aus $V$ genau ein Tupel $$
+  (\lambda_1,\lambda_2,...,\lambda_n)\in K^n
+$$ von Koeffizienten, so dass sich $v$ eindeutig als Linearkombination in den Basisvektoren darstellen lässt $$
+  v=\sum_{j=1}^n{(\lambda_j\cdot x_j)}
+$$ Die Koeffizienten $\lambda_j$ werden **Koordinaten** von $v$ bezüglich $B$ genannt; der Vektor $$
+  \begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \vdots \\ \lambda_n \end{pmatrix}\in K^n
+$$ heißt ** Koordinatenvektor** von $v$ bezüglich $B$.
+
+**Beweis.** Die Existenz der Koeffizienten $\lambda_j$ folgt aus Definition 6 und Proposition 2.
+
+Der Nachweis der Eindeutigkeit der Koeffizienten $\lambda_j$ in der Linearkombination bezüglich $B$ wird hier indirekt geführt: Angenommen, es gäbe zwei unterschiedliche Linearkombination zur Darstellung von $v$, d. h. zwei verschiedene Koordinatenvektoren $$
+  \begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \vdots \\ \lambda_n \end{pmatrix}\not=
+  \begin{pmatrix} \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{pmatrix}
+$$ so folgt aus den zugehörigen Linearkombinationen unter Verwendung der Rechenregeln für Vektoren $$
+  v=\sum_{j=1}^n{(\lambda_j\cdot x_j)}=
+  \sum_{j=1}^n{(\mu_j\cdot x_j)}\quad\rightarrow\quad
+  \sum_{j=1}^n{(\lambda_j\cdot x_j)}-\sum_{j=1}^n{(\mu_j\cdot x_j)}=
+  \sum_{j=1}^n{((\lambda_j-\mu)\cdot x_j)}=o
+$$ Aufgrund der linearen Unabhängigkeit der Vektoren $x_j$ folgt hieraus, dass alle Koeffizienten $\lambda_j-\mu_j$ 'verschwinden' müssen, d. h. $$
+  \lambda_j-\mu_j=0\quad\leftrightarrow\quad\lambda_j=\mu_j
+$$ für alle $j\in\{1,2,...,n\}$.
+
+$\square$
+
+**Beispiel 10.** Es werden die Koordinatenvektoren für Vektoren in verschidenen reellen Vektorräumen $V$ berechnet. Im letzten Punkt wird deutlich, dass $\mathbb{R}^n$ als Standardmodell für reelle Vektorräume genutzt werden kann.
+
+1. Gegeben ist der Vektorraum $V=\mathbb{R}^3$. Bezogen auf die kanonische Basis $B=\{e_1,e_2,e_3\}$ (vergleiche Beispiel 8) ist der Koordinatenvektor zum Vektor $$
+  v=\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
+$$ zu berechnen. $$
+  v=\sum_{j=1}^3{(\lambda_j\cdot e_j)}=
+  \lambda_1\cdot\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}+
+  \lambda_2\cdot\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}+
+  \lambda_3\cdot\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}=
+  \begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \lambda_3 \end{pmatrix}\quad\leadsto\quad
+  \begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \lambda_3 \end{pmatrix}=
+  \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
+$$ Der Vektor $v$ gleicht seinem zugehörigen Koordinatenvektor bezogen auf die kanonische Basis $B$.
+2. Gegeben ist der Vektorraum $V=\mathbb{R}^2$. Bezogen auf die Basis $$
+  B=\{b_1,b_2\}:=\left\{
+    \begin{pmatrix} 2 \\ 1 \end{pmatrix}\,,\begin{pmatrix} 1 \\ 2 \end{pmatrix}
+  \right\}
+$$ (für den Nachweis der Basiseigenschaft vergleiche Beispiel 8) ist der Koordinatenvektor zum Vektor $$
+  v=\begin{pmatrix} 3 \\ 3 \end{pmatrix}
+$$ zu berechnen. $$
+  v=\sum_{j=1}^2{(\lambda_j\cdot b_j)}=
+  \lambda_1\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+
+  \lambda_2\cdot\begin{pmatrix} 1 \\ 2 \end{pmatrix}=
+  \begin{pmatrix} 2\cdot\lambda_1+\lambda_2 \\ \lambda_1+2\cdot\lambda_2 \end{pmatrix}\quad\leadsto\quad
+  \begin{pmatrix} \lambda_1 \\ \lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$ Der Vektor $v$ besitzt bezogen auf die Basis $B$ den zugehörigen Koordinatenvektor $$
+  \begin{pmatrix} \lambda_1 \\ \lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$
+3. *Fortführung von Beispiel 9* für den Parameterwert $n=2$. Bezogen auf die Basis $$
+  B=\{f_0,f_1,f_2\}
+$$ mit den Basisfunktionen $$
+  f_0:x\mapsto y=f_0(x)=1\,,\quad
+  f_1:x\mapsto y=f_1(x)=x^1\quad\text{und}\quad
+  f_2:x\mapsto y=f_2(x)=x^2
+$$ ist der Koordinatenvektor zur Funktion $$
+  g:x\mapsto y=g(x)=3\cdot x^2-5\cdot x+7\,,\quad x\in\mathbb{R}
+$$ zu berechnen. $$
+  g(x)=\sum_{j=0}^2{(\lambda_j\cdot f_j(x))}=
+  \lambda_0\cdot 1+\lambda_1\cdot x+\lambda_2\cdot x^2=
+  \quad\leadsto\quad
+  \begin{pmatrix} \lambda_0 \\ \lambda_1 \\ \lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 7 \\ -5 \\ 3 \end{pmatrix}
+$$ Der Funktion $f$ wird bezogen auf die Basis $B$ der reelle Koordinatenvektor $$
+  \begin{pmatrix} \lambda_0 \\ \lambda_1 \\ \lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 7 \\ -5 \\ 3 \end{pmatrix}
+$$ zugeordnet. Dieser enthält die Koeffizienten des Polynoms als Komponenten. In gleicher Weise werden den Basisfunktionen die Vektoren der natürlichen Basis des $\mathbb{R}^3$ als Koordinatenvektoren zugeordnet $$
+  f_0\mapsto\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\,,\quad
+  f_1\mapsto\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}\,,\quad
+  f_2\mapsto\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
+$$
+
+Eine Zusammenstellung der Aussagen zur linearen Unabhängigkeit findet sich im nachstehenden Video. Darin enthalten sind nicht nur eine praktische Anleitung zum Prüfen der Basiseigenschaft, die an Beispielen ausgeführt wird. Es wird auch eine Einordnung des Begriffs 'Basis' in den allgemeineren Begriffskontext eines 'Erzeugendensystems' gegeben.
+
+!?[Erzeugendensystem](https://www.youtube.com/watch?v=Ot9Y24Xcsu8)
 
 [^1]: Die Vektoraddition erfolgt *komponentenweise*: d. h. dass die Summe der Komponenten an den $j$-ten Stellen beider Vektoren die $j$-te Komponente der Summe ergibt, $j\in\{1,...,n\}$.
 
