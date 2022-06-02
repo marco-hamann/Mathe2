@@ -1,4 +1,4 @@
-<!--
+ <!--
 author:   Marco Hamann
 
 email:    marco.hamann@htw-dresden.de
@@ -4310,6 +4310,136 @@ $$
 Eine Zusammenstellung der Aussagen zur linearen Unabhängigkeit findet sich im nachstehenden Video. Darin enthalten sind nicht nur eine praktische Anleitung zum Prüfen der Basiseigenschaft, die an Beispielen ausgeführt wird. Es wird auch eine Einordnung des Begriffs 'Basis' in den allgemeineren Begriffskontext eines 'Erzeugendensystems' gegeben.
 
 !?[Erzeugendensystem](https://www.youtube.com/watch?v=Ot9Y24Xcsu8)
+
+
+Untervektorraum
+=====
+
+In diesem Abschnitt wird der Begriff 'Untervektorraum' eines Vektorraums eingeführt. Dies treten beispielsweise als Lösungsmengen von Systemen homogener, linearer Gleichungen auf - vergleiche Abschnitt [Lineare Gleichungssysteme](#Lineare-Gleichungssysteme). Ebenso als Lösungsmengen von speziellen Differentialgleichungen, die in technischem Kontext beispielsweise zur Beschreibung von Schwingungsvorgängen verwendet werden - siehe [Fundamentalsystem einer Schwingungsgleichung](https://de.wikipedia.org/wiki/Schwingung).
+
+>**Definition 7.** Eine Teilmenge $M \subseteq V$ heißt [Untervektorraum](https://de.wikipedia.org/wiki/Untervektorraum) des Vektorraums $V$ über dem Körper $K$ genau dann, wenn die folgenden Bedingungen erfüllt sind.
+>
+>1. $M\not=\emptyset$ ~~und~~
+>2. $(\lambda_1\cdot v_1+\lambda_2\cdot v_2)\in M$ für beliebige Vektoren $v_1\in M$ und $v_2\in M$ sowie für beliebige Skalare $\lambda_1\in K$ uund $\lambda_2\in K$
+
+**Bemerkung 3.** Jeder Untervektorraum $M$ eines Vektorraums $V$ ist selbst ein Vektorraum. Warum?
+
+**Beispiel 11.**
+
+1. Das nach Definition 2 in jedem Vektorraum enthaltene Nullelement $o\in V$ bildet einen Untervektorraum $U=\{o\}$ in $V$. Prüfen Sie die beiden Bedingungen aus Definition 7 zum Nachweis der Eigenschaft, Untervektorraum zu sein. Der Untervektorraum $U\subseteq V$ besitzt die Dimension $\dim{U}=0$. Umgekehrt enthält jeder Untervektorraum das Nullelement $o\in V$.
+2. Jedes vom Nullelement $o\in V$ verschiedene Element $v\in V$ spannt einen eindimensionalen Untervektorraum $$
+  U=\{\lambda\cdot v|\;\lambda\in K\}\,,\quad\dim{U}=1
+$$ auf, worin $K$ den Skalarkörper zu V bezeichnet.
+3. Die linear unabhängigen Vektoren $$
+  e_1=\begin{pmatrix} 1 \\ 0 \end{pmatrix}\in\mathbb{R}^2\quad\text{und}\quad
+  e_2=\begin{pmatrix} 0 \\ 1 \end{pmatrix}\in\mathbb{R}^2
+$$ spannen den zweidimensionalen Untervektorraum $$
+  W=\{\lambda_1\cdot e_1+\lambda_2\cdot e_2|\;\lambda_j\in \mathbb{R}\,,j\in\{1,2\}\}\,,\quad\dim{W}=2
+$$ Es gilt sogar $W=V$, d. h. das Paar $(e_1,e_2)$ bildet eine Basis in $W$ und $V=\mathbb{R}^2$. Vergleiche 'kanonische Basis' in Beispiel 8.
+
+Unter Nutzen von Mengenoperationen lassen sich nun Untervektorräume eines Vektorraumes verknüpfen. Dabei stellt sich die Frage, ob die Struktur eines Untervektorraumes erhalten bleibt.
+
+>**Definition 8.** Der Durchschnitt zweier Untervektorräume $U_1\subseteq V$ und $U_2\subseteq V$ ist die Menge aller Elemente $$
+  U_1\cap U_2=\{v\in V|\; v\in U_1\;\wedge\;v\in U_2\}
+$$ d. h. alle Elemente $v\in V$, für die gleichzeitig $v\in U_1$ und $v\in U_2$ gelten.
+
+>**Proposition 4.** Für je zwei Untervektorräume $U_1\subseteq V$ und $U_2\subseteq V$ eines Vektorraums $V$ ist der Durchschnitt $U_1\cap U_2$ ein Untervektorraum von $V$.
+
+**Beweis.** Jeder Untervektorraum enthält offensichtlich das Nullelement $o\in V$, wonach $o\in (U_1\cap U_2)$ folgt. Vergleiche Beispiel 11 (1).
+
+Enthalten die Unterräume $U_1\subseteq V$ und $U_2\subseteq V$ jeweils Vektoren in $\{v_1,...,v_k\}$ mit $k\geq1$, so folgt nach Definition 7 unmittelbar $$
+   \{v_1,...,v_k\}\subset U_1\cap U_2
+$$ Nach Definition 7 (2) sind auch alle Linearkombinationen der Vektoren $\{v_1,...,v_k\}$ jeweils in $U_1\subseteq V$ und $U_2\subseteq V$ enthalten, woraus $$
+  (\lambda_1\cdot v_1+...+\lambda_k\cdot v_k)\in(U_1\cap U_2)
+$$ für beliebige Skalare $\lambda_j$ mit $j\in\{1,...,k\}$ folgt.
+
+$\square$
+
+**Bemerkung 4.** Im Gegensatz zum Durchschnitt ist die *Vereinigung* zweier Untervektorräume $U_1\subseteq V$ und $U_2\subseteq V$ $$
+  U_1\cup U_2=\{v\in V|\; v\in U_1\;\vee\;v\in U_2\}
+$$ im Allgemeinen ~~kein~~ Untervektorraum. Denn, sind beispielsweise - bezogen auf die Vektoren $e_1\in\mathbb{R}^2$ und $e_2\in\mathbb{R}^2$ in Beispiel 11 (3) - die Untervektorräume $$
+  U_1=\{\lambda_1\cdot e_1|\;\lambda_1\in \mathbb{R}\}\,,\quad\dim{U_1}=1\quad\text{sowie}\quad
+  U_2=\{\lambda_2\cdot e_2|\;\lambda_2\in \mathbb{R}\}\,,\quad\dim{U_2}=1
+$$ gegeben, so gilt mit Definition 8 $$
+  (2\cdot e_1)\in(U_1\cup U_2) \quad\wedge\quad ((-1)\cdot e_2)\in(U_1\cup U_2)
+$$ jedoch ist die Linearkombination $$
+  (2\cdot e_1+(-1)\cdot e_2)\not\in(U_1\cup U_2)
+$$ Nach Definition 7 (2) ist die Vereinigungsmenge $U_1\cup U_2$ kein Untervektorraum.
+
+Im Anliegen der Verknüpfung von Untervektorräumen kann mit der vorstehenden Bemerkung definiert werden:
+
+>**Definition 9.** Die [Summe](https://de.wikipedia.org/wiki/Untervektorraum#Summe) zweier Untervektorräume $U_1$ und $U_2$ eines Vektorraumes $V$ über dem Körper $K$ ist der Untervektorraum $$
+  W=U_1+U_2:=\{\lambda_1\cdot v_1+\lambda_2\cdot v_2|\;\lambda_j\in K\,,\;v_j\in U_j,j\in\{1,2\}\}
+$$ Gilt $U_1\cap U_2=\{o\}$ (aus Nullelement bestehender Untervektorraum), so heißt $U_1+U_2$ **direkte Summe** und wird mit $U_1\oplus U_2$ gekennzeichnet.
+
+>**Satz 5.** ([Dimensionssatz](https://de.wikipedia.org/wiki/Untervektorraum#Summe)) Für beliebige Untervektorräume $U_1$ und $U_2$ eines Vektorraumes $V$ über dem Körper $K$ gilt $$
+  \dim{U_1}+\dim{U_2}=\dim{(U_1\cap U_2)}+\dim{(U_1+U_2)}
+$$ (*ohne Beweis*)
+
+**Beispiel 12.** Gegeben sind die beiden Untervektorräume des $\mathbb{R}^2$ $$
+  U_1=\left\{\lambda_1\cdot \begin{pmatrix} 1 \\ 0 \end{pmatrix}|\;\lambda_1\in \mathbb{R}\right\}\,,\quad\dim{U_1}=1\quad\text{sowie}\quad
+  U_2=\left\{\lambda_2\cdot \begin{pmatrix} 1 \\ 1 \end{pmatrix}|\;\lambda_2\in \mathbb{R}\right\}\,,\quad\dim{U_2}=1
+$$ Es gilt einerseits für den Durchschnitt $$
+  \lambda_1\cdot \begin{pmatrix} 1 \\ 0 \end{pmatrix}=
+  \lambda_2\cdot \begin{pmatrix} 1 \\ 1 \end{pmatrix}\quad\leftrightarrow\quad
+  \begin{cases} \lambda_1=\lambda_2 \\ 0=\lambda_2 \end{cases}\quad\leftrightarrow\quad
+  \begin{cases} \lambda_1=0 \\ \lambda_2=0 \end{cases}\quad\leadsto \quad
+  U_1\cap U_2=\{o\}\,,\quad\dim{(U_1\cap U_2)}=0
+$$ andererseits für die Summe (bitte nachrechnen) $$
+  U_1+U_2=U_1\oplus U_2=\left\{\left.\lambda_1\cdot \begin{pmatrix} 1 \\ 0 \end{pmatrix}+
+  \lambda_2\cdot \begin{pmatrix} 1 \\ 1 \end{pmatrix}\right|\;\lambda_1\in\mathbb{R}\,,\;\lambda_2\in\mathbb{R}\right\}=\mathbb{R}^2\,,\quad\dim{(U_1+U_2)}=2
+$$ In diesem Beispiel zeigt sich der Dimensionssatz $$
+  \dim{U_1}+\dim{U_2}=1+1=0+2=\dim{(U_1\cap U_2)}+\dim{(U_1+U_2)}
+$$
+
+
+Sicher gewusst?
+=====
+
+Nutzen Sie die folgenden Fragen, um ihre über Vektoren erworbenen Kenntnisse zu prüfen.
+
+**Frage 1.** Für welches der folgenden Objekte ergibt die Aussage einen Sinn, "es sei linear abhängig" bzw. "linear unabhängig"?
+
+[( )] Ein $n$-Tupel $(v_1,...,v_n)$ von reellen Vektorräumen.
+[(X)] Ein $n$-Tupel $(v_1,...,v_n)$ von Elementen eines Vektorraumes.
+[( )] Eine Linearkombination $\lambda_1\cdot v_1+...+\lambda_n\cdot v_n$
+[[?]] Vergleiche Definition 4 in diesem Abschnitt zur linearen Unabhängigkeit.
+
+**Frage 2.** Welche der folgenden Aussagen bedeutet die lineare Unabhängigkeit des $n$-Tupels von Elementen aus $V$? Das Element $o$ kennzeichnet in allen drei Aussagen den Nullvektor in $V$.
+
+[( )] Wenn $\lambda_1=...=\lambda_n=0$ dann $\lambda_1\cdot v_1+...+\lambda_n\cdot v_n=o$
+[( )] $\lambda_1\cdot v_1+...+\lambda_n\cdot v_n=o$ für alle $(\lambda_1,...,\lambda_n)$ in $K^n$
+[(X)] $\lambda_1\cdot v_1+...+\lambda_n\cdot v_n=o$ nur, wenn $\lambda_1=...=\lambda_n=0$
+[[?]] Vergleiche Definition 4 in diesem Abschnitt zur linearen Unabhängigkeit.
+****************************************
+
+---
+
+Die erste Aussage ist ~~nicht~~ korrekt, da für $n=2$ z. B. gilt $$
+  0\cdot\begin{pmatrix} 1 \\ 0 \end{pmatrix}+ 0\cdot\begin{pmatrix} 0 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$ jedoch die Vektoren $$
+  v_1=\begin{pmatrix} 1 \\ 0 \end{pmatrix}\quad\text{und}\quad
+  v_2=\begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$ linear abhängig sind. Vergleiche Beispiel 5 (2.): Gehört der Nullvektor zur Menge von Elementen aus $V$, so ist diese Menge linear abhängig.
+
+Die zweite Aussage ist ebenso ~~nicht~~ korrekt, da z. B. für $n=1$ gilt $$
+  \lambda\cdot v=\begin{pmatrix} 0 \\ 0 \end{pmatrix}\;\forall\; \lambda\in\mathbb{R}\quad\leftrightarrow\quad
+  v=\begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$ letzterer ist der Nullvektor (beispielsweise in $\mathbb{R}^2$).
+
+Die dritte Aussage entspricht der in Definition 4 genutzten Implikation. Hiernach ist ein System von Elementen aus $V$ dann linear abhängig, wenn eine Linearkombination dieser alleinig für das Koeffiziententupel $(\lambda_1,...,\lambda_n)=(0,...,0)$ den Nullvektor erzeugt. Andernfalls heißen die Elemente aus $V$ linear abhängig.
+
+****************************************
+
+**Frage 3.** Die kanonische Basis von $(e_1,...,e_n)\subset\mathbb{R}^n$ ist definiert durch
+
+[( )] $$ (e_1,...,e_n)=(1,...,1) $$
+[(X)] $$ e_j=(0,...,0,\stackrel{j\text{-te Stelle}}{1},0,...,0) $$
+[( )] $$ e_j=(1,...,1,\stackrel{j\text{-te Stelle}}{0},1,...,1) $$
+[[?]] Vergleiche Definition 6 zum Begriff einer Basis und Beispiel 8 zur kanonischen Basis.
+
+
 
 [^1]: Die Vektoraddition erfolgt *komponentenweise*: d. h. dass die Summe der Komponenten an den $j$-ten Stellen beider Vektoren die $j$-te Komponente der Summe ergibt, $j\in\{1,...,n\}$.
 
