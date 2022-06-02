@@ -4639,6 +4639,17 @@ Da die Addition und Skalarvielfachbildung komponentenweise erklärt ist und - be
 
 auf den Vektorraum $K^{m,n}$ aller Matrizen anwenden.
 
+Zum Beispiel lassen Linearkombinationen typgleicher Matrizen konstruieren. Unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) lässt sich analog zu Beispiel 3 bilden.
+
+```javascript
+A=[[2,-3,4],[0,1,-2]]
+B=[[-2,2,-3],[1,2,2]]
+r=3
+s=-1
+r*A+s*B
+```
+@Algebrite.eval
+
 **Beispiel 4.** Im Vektorraum der reellen Matrizen vom Typ $(2,2)$ können die Matrizen $$
   E_{11}=\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\,,\quad
   E_{12}=\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\,,\quad
