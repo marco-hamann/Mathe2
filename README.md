@@ -1,4 +1,4 @@
- <!--
+<!--
 author:   Marco Hamann
 
 email:    marco.hamann@htw-dresden.de
@@ -9,8 +9,9 @@ language: de
 
 comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Fahrzeugtechnik im 2. Semester.
 
-script:   https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle-for-browser.js
+script: https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle-for-browser.js
 @Algebrite.eval: <script> Algebrite.run(`@input`)</script>
+
 -->
 
 
