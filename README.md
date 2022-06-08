@@ -3751,7 +3751,7 @@ Die Funktionaldeterminante $G(r,\varphi,x_3)$ der Substitutionsfunktion $g$ bere
     \begin{pmatrix} \cos{\varphi} & -r\cdot\sin{\varphi} & 0 \\ \sin{\varphi} & r\cdot\cos{\varphi} & 0 \\ 0 & 0 & 1
     \end{pmatrix}
   }(r,\varphi,x_3)=\textcolor{magenta}{r}
-$$ und ist unabhängig von den beiden Zylinderkoordinaten $(\varphi,x_3)$.
+$$ und ist unabhängig von den beiden Zylinderkoordinaten $(\varphi,x_3)$. Vergleiche Abschnitt [Determinanten](#Determinanten).
 
 >**Substitutionsregel.** Ein Dreifachintegral in kartesischen Koordinaten transformiert sich unter der Substitution in Zylinderkoordinaten vermöge der Substitutionsregel $$
 \iiint_{g(B_g)}{f(x_1,x_2,x_3)}\,\mathrm{d}x_1\mathrm{d}x_2\mathrm{d}x_3=\iiint_{B_g}{f(g_1(r,\varphi,x_3),g_2(r,\varphi,x_3),g_3(r,\varphi,x_3))}\,\textcolor{magenta}{r}\,\mathrm{d}r\,\mathrm{d}\varphi\,\mathrm{d}x_3
@@ -4799,7 +4799,14 @@ Die gegebene Matrix $A$ hat $m$ Zeilen und $n$ Spalten. Jeder Spaltenvektor ist 
 
 ****************************************
 
-**Frage 2.** Welche der folgenden Eigenschaften besitzt die Matrixmultiplikation ~~nicht~~?
+**Frage 2.** Es bezeichne $E$ die $n$-reihige reelle Einheitsmatrix. Dann ergibt sich die transponierte Matrix $E^\top$
+
+[( )] $$ \begin{pmatrix} & & 1 \\ & .^{.^.} & \\ 1 & & \end{pmatrix} $$
+[(X)] $$ \begin{pmatrix} \rm T & & \\ & \ddots & \\ & & \rm T \end{pmatrix} $$
+[(X)] $$ \begin{pmatrix} 1 & & \\ & \ddots & \\ & & 1 \end{pmatrix} $$
+
+
+**Frage 3.** Welche der folgenden Eigenschaften besitzt die Matrixmultiplikation ~~nicht~~?
 
 [( )] Assoziativität
 [(X)] Kommutativität
@@ -4905,7 +4912,7 @@ $$ worin $E$ die zweireihige Einheitsmatrix bezeichnet.[^1]
 
 >**Definition 1.** Für eine quadratische Matrix $A\in K^{2,2}$ mit Komponenten $a_{ij}\in K$ heißt $$
   \det{A}=\det{\begin{pmatrix} \textcolor{magenta}{a_{11}} & \textcolor{blue}{a_{12}} \\ \textcolor{blue}{a_{21}} & \textcolor{magenta}{a_{22}}  \end{pmatrix}}=\textcolor{magenta}{a_{11}\cdot a_{22}}-\textcolor{blue}{a_{12}\cdot a_{21}}\in K
-$$ die Determinante von $A$ (zweiter Ordnung).
+$$ die **Determinante** von $A$ (zweiter Ordnung). Vergleiche Abschnitt [Lokale Extrema](#Lokale-Extrema).
 
 Neben der Schreibweise $\det{A}$ sind auch $$
   D\,,\quad |A|\,,\quad\left|(a_{ij})_{i=1,2\,,\,j=1,2}\right|
@@ -5096,7 +5103,7 @@ $$ heißt $\det{A}\in K$ mit $$
       -a_{11}\cdot a_{23}\cdot a_{32}
       -a_{12}\cdot a_{21}\cdot a_{33}
   \end{array}
-$$ *Determinante dritter Ordnung* von $A$.
+$$ **Determinante** von $A$ (dritter Ordnung).
 
 Das **Rechenschema von Sarrus** bietet eine visuelle Unterstützung, die Determinante einer dreireihigen Matrix zu  berechnen.
 
@@ -5202,7 +5209,7 @@ $$ und Determinante $\det{A}\in K$.
 >1. $$ \det{A}=\sum_{i=1}^3{(a_{ik}\cdot A_{ik})}\,,\quad k\in\{1,2,3\} $$ durch Entwicklung nach der $k$-ten Spalte.
 >2. $$ \det{A}=\sum_{k=1}^3{(a_{ik}\cdot A_{ik})}\,,\quad i\in\{1,2,3\} $$ durch Entwicklung nach der $i$-ten Zeile.
 >
->Diese Aussage wird *Entwicklungssatz von Laplace* genannt. (Ohne Nachweis.)
+>Diese Aussage wird **Entwicklungssatz von Laplace** genannt. (Ohne Nachweis.)
 
 **Beispiel 6.** Gegeben ist die Matrix $$
   A=\begin{pmatrix} 1 & -5 & 3 \\ 4 & 0 & 2 \\ 3 & 6 & -7 \end{pmatrix}
@@ -5333,7 +5340,7 @@ Entscheiden Sie, welche der folgenden Aussage korrekt bzw. falsch sind.
 [(X) ( )]  $$ \det{(\lambda\cdot A)}=\lambda^2\cdot \det{A} $$
 [( ) (X)]  $$ \det{(\lambda\cdot A)}=\lambda\cdot \det{A} $$
 [( ) (X)]  $$ \det{(A+B)}=\det{A}+\det{B} $$
-[(X) ( )]  $$ \det{(A\cdot B)\cdot C}=\det{A}\cdot\det{B}\cdot\det{C} $$
+[(X) ( )]  $$ \det{((A\cdot B)\cdot C)}=\det{A}\cdot\det{B}\cdot\det{C} $$
 [[?]] Nutzen Sie die Regeln für das Rechnen mit Determinanten. Durch ein Gegenbeispiel kann nachgewiesen werden, dass eine Aussage falsch ist.
 ****************************************
 
@@ -5349,6 +5356,64 @@ Die dritte Aussage ist falsch, wie man sofort erkennt für $A=E$ und $B=-E$ mit 
 $$
 
 Die Gültigkeit der letzten Aussage folgt sofort aus dem Multiplikationssatz für Determinanten unter Benutzung der Assoziativität des Matrixproduktes. Siehe Satz 3 in diesem Abschnitt.
+
+****************************************
+
+**Frage 3.** Der Übergang von kartesischen Koordinaten $(x_1,x_2,x_3)$ in Zylinderkoordinaten $(r,\varphi,x_3)$ bezogen auf die $x_3$-Koordinatenachse ist beschrieben durch die Substitutionsfunktion $$
+  g:\begin{pmatrix} r \\ \varphi \\ x_3 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=
+  \begin{pmatrix} g_1(r,\varphi,x_3) \\ g_2(r,\varphi,x_3) \\ g_3(r,\varphi,x_3) \end{pmatrix}=
+  \begin{pmatrix} r\cdot\cos{\varphi} \\ r\cdot\sin{\varphi} \\ x_3 \end{pmatrix}
+$$
+Berechnen Sie die Funktionaldeterminante $G(r,\varphi,x_3)$ der Substitutionsfunktion $g$ $$
+  G(r,\varphi,x_3)=\det{
+    \begin{pmatrix} \frac{\partial{g_1}}{\partial{r}} & \frac{\partial{g_1}}{\partial{\varphi}} & \frac{\partial{g_1}}{\partial{x_3}} \\ \frac{\partial{g_2}}{\partial{r}} & \frac{\partial{g_2}}{\partial{\varphi}} & \frac{\partial{g_2}}{\partial{x_3}} \\ \frac{\partial{g_3}}{\partial{r}} & \frac{\partial{g_3}}{\partial{\varphi}} & \frac{\partial{g_3}}{\partial{x_3}}
+    \end{pmatrix}
+  }(r,\varphi,x_3)
+$$
+
+[( )] $1$
+[(X)] $r$
+[( )] $r^2\cdot\sin{\varphi}$
+[[?]] Die Funktionaldeterminante $G$ wird bei der Berechnung von Mehrfachintegralen unter Anwendung der Substitutionsregel benutzt. Erstere hängt eng mit dem Begriff 'Volumenelement' zusammen. Siehe 'Substitution in Zylinderkoordinaten' im Abschnitt [Substitutionsregel](#Substitutionsregel).
+****************************************
+
+---
+
+Mit Hilfe der [Regel von Sarrus](https://de.wikipedia.org/wiki/Regel_von_Sarrus) berechnet sich
+$$ G(r,\varphi,x_3)=\det{
+  \begin{pmatrix} \frac{\partial{g_1}}{\partial{r}} & \frac{\partial{g_1}}{\partial{\varphi}} & \frac{\partial{g_1}}{\partial{x_3}} \\ \frac{\partial{g_2}}{\partial{r}} & \frac{\partial{g_2}}{\partial{\varphi}} & \frac{\partial{g_2}}{\partial{x_3}} \\ \frac{\partial{g_3}}{\partial{r}} & \frac{\partial{g_3}}{\partial{\varphi}} & \frac{\partial{g_3}}{\partial{x_3}}
+  \end{pmatrix}
+}(r,\varphi,x_3)=\det{
+    \begin{pmatrix} \cos{\varphi} & -r\cdot\sin{\varphi} & 0 \\ \sin{\varphi} & r\cdot\cos{\varphi} & 0 \\ 0 & 0 & 1
+    \end{pmatrix}
+  }(r,\varphi,x_3)=
+  r\cdot(\cos{\varphi})^2-(-r\cdot(\sin{\varphi})^2)=
+  r\cdot\left(\cos{\varphi})^2+\sin{\varphi})^2\right)=r
+$$ Die Funktionaldeterminante ist damit unabhängig von den beiden Zylinderkoordinaten $(\varphi,x_3)$.
+
+****************************************
+
+**Frage 4.** Berechnen Sie $$
+  \det{\begin{pmatrix} \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \end{pmatrix}}\quad\forall\;\lambda\in\mathbb{R}
+$$
+
+[(X)] $0$
+[( )] $\lambda$
+[( )] $\lambda^2$
+[[?]] Für die Matrix gilt nach Anwendung einer der Rechenregeln aus Satz 4 in diesem Abschnitt $$
+  L=\begin{pmatrix} \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \end{pmatrix}=
+  \lambda\cdot\begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}
+$$
+****************************************
+
+---
+
+Für die Matrix gilt nach Anwendung der Rechenregeln aus Satz 4 in diesem Abschnitt $$
+  L=\begin{pmatrix} \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \end{pmatrix}=
+  \lambda\cdot\begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}\quad\leadsto\quad
+  \det{L}=\lambda^3\cdot\det{\begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}}=0\;\;\forall\;\lambda\in\mathbb{R}
+$$ da die Spalten / Zeilen der Matrix identisch, und damit linear abhängig sind.
 
 ****************************************
 
