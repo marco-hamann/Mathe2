@@ -5805,7 +5805,7 @@ Für die Untersuchung des Lösungsverhaltens wird ein allgemeines System lineare
       0 & 0 & \ldots & 0 & 0 & \ldots & 0 & \textcolor{blue}{b_{m}^\star} \\
     \end{array}\right)
 $$ wobei $$
-  \textcolor{magenta}{a_{ii}\neq 0\quad \forall i\in\{1,2,\ldots,r\}}
+  \textcolor{magenta}{a_{ii}^\star\neq 0\quad \forall i\in\{1,2,\ldots,r\}}
 $$ Zur Überführung in die gestaffelte Form sind gegebenenfalls
 
 1. elementare Zeilenumformungen auszuführen
@@ -6002,7 +6002,7 @@ Das dritte Gleichungssystem entspricht der üblichen allgemeinen Darstellung lin
 
 **Frage 2.**[^4] Gegeben ist die Matrix $A\in K^{n,n}$ mit $\det{A}=0$. Dann ist das lineare Gleichungssystem $A\cdot x=b$ mit $x\in K^{n,1}$
 
-[( )] Nur lösbar für $b=0$.
+[( )] Nur lösbar für $b=o$.
 [(X)] Lösbar nur für manche Vektoren $b$, jedoch für keines der Vektoren $b$ eindeutig lösbar.
 [( )] Lösbar für alle Vektoren $b$, jedoch nicht unbedingt eindeutig lösbar.
 [[?]] Für den Nachweis der Ungültigkeit einer Aussage reicht es aus, ein Gegenbeispiel (d. h. hier ein lineares Gleichungssystem, das nicht der Aussage entspricht) anzugeben.
