@@ -6061,7 +6061,7 @@ $$ mit den Eigenschaften
 >3. $$x\cdot(\lambda\cdot y)=\lambda\cdot(x\cdot y)$$
 >4. $$x\cdot x>0\quad\forall\;x\not=o$$
 >
-> für alle $x\in V$, $y\in V$ und $z\in V$ sowie $\lambda\in\mathbb{R}$ heißt *Skalarprodukt* auf $V$.[^1]
+> für alle $x\in V$, $y\in V$ und $z\in V$ sowie $\lambda\in\mathbb{R}$ heißt [Skalarprodukt](https://de.wikipedia.org/wiki/Skalarprodukt) auf $V$.[^1]
 
 Hiermit lässt sich der Begriff eines euklidischen Vektorraumes festlegen
 
@@ -6074,7 +6074,7 @@ $$ heißt $$
   a\cdot b=\sum_{i=1}^n{a_i\cdot b_i}=a_1\cdot b_1+...+a_n\cdot b_n\;(\in\mathbb{R})
 $$ das kanonische Skalarprodukt der Vektoren $a$ und $b$.
 
-Die kanonische Skalarprodukt kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) berechnet und die Eigenschaften 1. bis 4. an Beispielen nachfollzogen werden.
+Das kanonische Skalarprodukt kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) berechnet und die Eigenschaften 1. bis 4. an Beispielen nachvollzogen werden.
 
 ```javascript
 a=[a1,a2,a3]
@@ -6098,7 +6098,17 @@ $$ ein Skalarprodukt erklärt. Die Eigenschaften aus Definition 1 lassen sich un
 
 >**Definition 3.** Ist $(V,\cdot)$ ein euklidischer Vektorraum, so heißt für ein $x\in V$ die reelle Zahl $$
   |x|:=\sqrt{x\cdot x}\geq 0
-$$ die *Norm* von $x$. Besitzt ein Vektor $x\in V$ die Norm $|x|=1$, so wird er *Einheitsvektor* genannt.
+$$ die *Norm* von $x$. Besitzt ein Vektor $x\in V$ die Norm $|x|=1$, so wird er [Einheitsvektor](https://de.wikipedia.org/wiki/Einheitsvektor) genannt.
+
+Die durch das kanonische Skalarprodukt erklärte Norm kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) berechnet werden.
+
+```javascript
+a=[a1,a2,a3]
+b=[1,2,3]
+abs(a)
+abs(b)-(1^2+2^2+3^2)^(1/2)
+```
+@Algebrite.eval
 
 **Beispiel 3.** Es wird $n\geq 2$ angenommen. Des Weiteren $a\in\mathbb{R}^n$ und $b\in\mathbb{R}^n$ als Ortsvektoren zweier Punkte $A$ bzw. $B$ bezüglich eines Bezugspunktes $O$. Bezüglich der kanonischen Basis $$
   B=[e_1,\,...\,,e_n]=\left[
@@ -6116,7 +6126,7 @@ $$
 **Beispiel 4.** Berechnet werden die Normen von Vektoren.
 
 1. Der Vektor $b=\begin{pmatrix} 1 & 2 & 3 \end{pmatrix}^\top$ besitzt die Norm $$
-  |b|=\sqrt{1^2+2^2+3^2}=14
+  |b|=\sqrt{1^2+2^2+3^2}=\sqrt{14}
 $$
 2. Für die Vektoren der kanonischen Basis in $\mathbb{R}^n$, $n\in\mathbb{N}\setminus\{0\}$, siehe Beispiel 3, berechnen sich $$
   |e_i|=\sqrt{0^2+...+0^2+1^2+0^2+...+0^2}=1\quad\forall\;i\in\{1,...,n\}
@@ -6181,29 +6191,29 @@ Orthogonale Vektoren
 ====================
 
 >**Definition 5.** Ist $(V,\cdot)$ ein euklidischer Vektorraum und $M\not=\emptyset$ eine Teilmenge von Vektoren. Dann heißt $$
-  M^\top=\left\{x\in V\;(x\cdot y=0\;\,\forall\, y\in M)\right\}
+  M^\perp=\left\{x\in V\;(x\cdot y=0\;\,\forall\, y\in M)\right\}
 $$ das orthogonale Komplement von $M$.
 
 **Beispiel 6.** Gegeben ist der euklidische Vektorraum $\mathbb{R}^3$ mit dem kanonischen Skalarprodukt auf $\mathbb{R}^3$.
 
 1. Sei $M=\left\{\begin{pmatrix} 1 & 2 & 3 \end{pmatrix}^\top\right\}$. Dann berechnet sich das orthogonale Komplement $$
-  M^\top=\left\{x\in\mathbb{R}^3\;\,(x_1+2\cdot x_2+3\cdot x_3=0)\right\}
-$$ Die beschreibende Gleichung entspricht einem verschwindendem Skalarprodukt, d. h. $M^\top$ enthält neben dem Nullvektor alle Vektoren, die orthogonal zum Vektor $$
+  M^\perp=\left\{x\in\mathbb{R}^3\;\,(x_1+2\cdot x_2+3\cdot x_3=0)\right\}
+$$ Die beschreibende Gleichung entspricht einem verschwindendem Skalarprodukt, d. h. $M^\perp$ enthält neben dem Nullvektor alle Vektoren, die orthogonal zum Vektor $$
   m=\begin{pmatrix} 1 & 2 & 3 \end{pmatrix}^\top
 $$ sind. Dies entspricht einer Ebene in $\mathbb{R}^3$ (als Punktraum) zum Normalenvektor $m$.
 2. Gegeben ist die zweielementige Menge $$
   N=\left\{\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix},\,
   \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}\right\}
 $$ Das orthogonale Komplement ergibt sich $$
-  N^\top=\left\{x\in\mathbb{R}^3\;\,(x_1+2\cdot x_2+3\cdot x_3=0\;\wedge\; -x_1+x_3=0)\right\}
+  N^\perp=\left\{x\in\mathbb{R}^3\;\,(x_1+2\cdot x_2+3\cdot x_3=0\;\wedge\; -x_1+x_3=0)\right\}
 $$ Die beschreibenden Gleichungen bilden ein System zweier linearer Gleichungen vom Typ $(2,3)$ mit der Lösung $$
   x=\lambda\cdot\begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}\,,\quad \lambda\in\mathbb{R}
 $$ (Bitte nachrechnen.) Der Vektor $x$ ist orthogonal zu jedem der Vektoren aus $N$, steht also senkrecht auf jeder Linearkombination beider Vektoren.
 
-**Bemerkung 2.** Das orthogonale Komplement $M^\top$ einer Menge $M$ ist ein Untervektorraum von $M$, da
+**Bemerkung 2.** Das orthogonale Komplement $M^\perp$ einer Menge $M$ ist ein Untervektorraum von $M$, da
 
-1. $M^\top\not=\emptyset$ wegen $M^\top\ni o$.
-2. Sind $x\in M^\top$ und $y\in M^\top$, so folgt aus Eigenschaft 2 bzw. 3 von Definition 1, dass $x+y\in M^\top$ bzw. $\lambda\cdot x\in M^\top$ für alle $\lambda\in\mathbb{R}$ orthogonal zu $M$ sind.
+1. $M^\perp\not=\emptyset$ wegen $M^\perp\ni o$.
+2. Sind $x\in M^\perp$ und $y\in M^\perp$, so folgt aus Eigenschaft 2 bzw. 3 von Definition 1, dass $(x+y)\in M^\perp$ bzw. $\lambda\cdot x\in M^\perp$ für alle $\lambda\in\mathbb{R}$ orthogonal zu $M$ sind.
 
 Die Berechnung des Vektorproduktes zweier Vektoren aus $\mathbb{R}^3$ ist im nachstehenden Video an einem Beispiel erklärt. Des Weiteren werden einige Anwendungen des Vektorproduktes genannt.
 
@@ -6638,14 +6648,14 @@ Werden die Vektoren $x$ und $v$ unter Benutzung ihrer Komponenten dargestellt, s
   \begin{pmatrix} g_1(x_1,x_2,x_3) \\ g_2(x_1,x_2,x_3) \\ g_3(x_1,x_2,x_3) \end{pmatrix}
 $$ worin $g_j(x_1,x_2,x_3)$ mit $j\in\{1,2,3\}$ die $j$-te Koordinatenfunktion der Abbildung $v$ beschreibt.
 
->**Definition 1.** Existiert eine differenzierbare Funktion $f:\mathbb{R}^3\to\mathbb{R}^3$ mit $$
+>**Definition 2.** Existiert eine differenzierbare Funktion $f:\mathbb{R}^3\to\mathbb{R}$ mit $$
   v(x)=\operatorname{grad}{f}(x)\quad\text{bzw.}\quad v(x)=-\operatorname{grad}{f}(x)\quad\forall\; x\in\mathbb{R}^3
 $$ so heißt $f$ ein **Potential** des Vektorfeldes $v$. Es gilt dann: $$
   g_j(x_1,x_2,x_3)=\frac{\partial f}{\partial x_j}(x_1,x_2,x_3)
 $$ für die Koordinatenfunktionen des Vektorfeldes $v$.
 
 **Bemerkung 1.** Die im Abschnitt [Gradientenvektorfeld](#Gradientenvektorfeld) konstruierten räumlichen Vektorfelder $$
-  x\mapsto v(x)=\operatorname{grad}{(x)}
+  x\mapsto v(x)=\operatorname{grad}{f(x)}
 $$ zu differenzierbaren Funktionen $f:D\subseteq\mathbb{R}^n\to\mathbb{R}$ sind so genannte *Gradientenvektorfelder*. Die Funktion $f$ ist nach Definition 2 also ein zu $v$ gehöhrendes Potential.
 
 Hier wird nun die umgekehrte Frage gestellt: Existiert zu einem gegebenen Vektorfeld ein Potential?
