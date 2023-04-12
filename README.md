@@ -9,8 +9,7 @@ language: de
 
 comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Fahrzeugtechnik im 2. Semester.
 
-script: https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle-for-browser.js
-@Algebrite.eval: <script> Algebrite.run(`@input`)</script>
+import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.md
 
 -->
 
@@ -559,7 +558,7 @@ Simpson-Regel
 
 Zu einer besseren Näherung des bestimmten Integrals kommt man, wenn jeweils drei zur Zerlegung $Z$ gehörende, benachbarte Punkte auf dem Funktionsgraph $$ (x_k,f(x_k))\,,\quad (x_{k+1},f(x_{k+1}))\,,\quad (x_{k+2},f(x_{k+2})) $$ durch eine quadratische Funktion (Parabel) interpoliert werden. Für eine Näherung des bestimmten Integrals ist das Integrationsintervall $[a,b]$ hierfür in eine gerade Anzahl $m=2\cdot n$, $n\in\mathbb{N}\setminus\{0\}$, von Teilintervallen der Breite $$ h=\frac{b-a}{2\cdot n} $$ zu zerlegen.
 
-Das bestimmte Integral wird hierdurch genähert mittels $$ A=\int_a^b{f(x)}\mathbb{d}x\,\approx\,\frac{h}{3}\cdot\left(y_0+y_n+4\cdot\sum_{j=1}^{n}{y_{2\cdot j-1}}+2\cdot\sum_{k=1}^{n-1}{y_{2\cdot k}}\right) $$
+Das bestimmte Integral wird hierdurch genähert mittels $$ A=\int_a^b{f(x)}\mathbb{d}x\,\approx\,\frac{h}{3}\cdot\left(y_0+y_m+4\cdot\sum_{j=1}^{n}{y_{2\cdot j-1}}+2\cdot\sum_{k=1}^{n-1}{y_{2\cdot k}}\right) $$
 (Nachweis, siehe Abschnitt [Simpson-Regel](#Simpson-Regel))
 
 Wie bei den vorstehenden Methoden liefert diese Formel eine näherungsweise Berechnung des bestimmten Integrals unter Benutzung der Funktionswerte $y_k=f(x_k)$ der Zerlegung $Z$ und der Intervallbreite $h$.
@@ -1577,6 +1576,20 @@ das ist eine lineare Gleichung in den auftretenden Variablen $x_1$, $x_2$ und $y
   0=6\cdot x_1+8\cdot x_2-y-25
 $$
 
+Die Rechnung in den vorstehenden Beispielen kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) interaktiv nachvollzogen werden. Der letzte Befehl nutzt das [natürliche Skalarprodukt](#Euklidische-Vektorräume) von Vektoren und berechnet der Tangentialebene an den Funktionsgraph von $f$ im Punkt $P\left(x_0,y_0,f\left(x_0,y_0\right)\right)$, dargestellt in impliziter Form. Abweichend von den Beispielen werden hier die kartesischen Koordinaten $x$, $y$ und $z$ verwendet.
+
+```javascript
+f=x^2+y^2
+x0=3
+y0=4
+f0=subst(x0,x,subst(y0,y,f))
+g=d(f,[x,y])
+g0=subst(x0,x,subst(y0,y,g))
+h=[x-x0,y-y0]
+dot(h,g0)-(z-f0)
+```
+@Algebrite.eval
+
 Eine interaktive Darstellung der Tangentialebene in einem Punkt an den Funktionsgraphen dieser Funktion $f$ findet sich unter [Tangentialebene](https://www.geogebra.org/m/U2gTk4sZ). Durch Variation des Punktes auf dem Funktionsgraphen können Lage der Tangentialebene sowie deren Gleichung angepasst dargestellt werden.
 
 Die *Herleitung* der Gleichung für die Tangentialebene einer reellen partiell differenzierbaren Funktion $f$ zweier reeller Veränderlicher - in Gegenüberstellung zur Gleichung einer Tangente für differenzierbare Funktionen einer reellen Veränderlichen - ist im nachstehenden Video erläutert. Ebenfalls der Zusammenhang mit dem totalen Differential der Funktion.
@@ -1741,7 +1754,7 @@ Sicher gewusst?
 
 Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
-**Frage.** Aus der Zustandsgleichung eines idealen Gases lässt sich die Funktion $$
+**Frage 1.** Aus der Zustandsgleichung eines idealen Gases lässt sich die Funktion $$
   f:(V,T)\mapsto p=f(V,T)=\frac{R\cdot T}{V}
 $$ angeben, worin $R$ die allgemeine Gaskonstante bezeichnet.
 
@@ -1762,6 +1775,34 @@ Die ersten beiden Antwortoptionen betrachten jeweils nur das Differential der pa
 In der letzten Antwortoption sind die gebildeten partiellen Ableitungen falsch zugeordnet.
 
 ****************************************
+
+**Frage 2.** Gegeben ist eine Parallelschaltung aus zwei ohmschen Widerständen mit $R_1=(100\pm 10)\Omega$ und $R_2=(400\pm 20)\Omega$. Der elektriche Gesamtwiderstand $R$ der Parallelschaltung berechnet sich mittels der Formel $$
+  R=\frac{R_1\cdot R_2}{R_1+R_2}
+$$ Berechnen Sie unter Verwendung des vollständigen Differentials näherungsweise die maximale absolute Messunsicherheit $\delta R$ des elektrischen Widerstandes $R$ (in der Einheit $\Omega$).
+
+[( )] $30$
+[(X)] $\frac{36}{5}$
+[( )] $\frac{20}{3}$
+[[?]] Das vollständige Differential einer reellen Funktion $f:(x_1,x_2)\mapsto y=f(x_1,x_2)$ ist $$
+  \mathrm{d}f =
+  \frac{\partial f}{\partial x_1}\left(x_1^\ast,x_2^\ast\right)\cdot \mathrm{d}x_1 + \frac{\partial f}{\partial x_2}\left(x_1^\ast,x_2^\ast\right)\cdot \mathrm{d}x_2
+$$ worin $(x_1^\ast,x_2^\ast)$ die Stelle bezeichnet, an welcher die partiellen ersten Ableitungen von $f$ - sofern sie existieren - ausgewertet werden.
+****************************************
+
+Das vollständige Differential $\mathrm{d}f$ der Funktion $$
+  f:(R_1,R_2)\mapsto R=\frac{R_1\cdot R_2}{R_1+R_2}
+$$ ergibt sich zu $$
+  \mathrm{d}f =
+   \frac{\partial f}{\partial R_1}\left(100,400\right)\cdot \mathrm{d}R_1 +
+   \frac{\partial f}{\partial R_2}\left(100,400\right)\cdot \mathrm{d}R_2 =
+   \left(\frac{R_2}{R_1+R_2}\right)^2\mid_{\left(100,400\right)}\cdot\, \mathrm{d}R_1 +
+   \left(\frac{R_1}{R_1+R_2}\right)^2\mid_{\left(100,400\right)}\cdot\, \mathrm{d}R_2
+$$ Unter Verwendung der maximalen absoluten Messunsicherheiten $\delta R_1=10\Omega$ und $\delta R_2=20\Omega$ ergibt sich $\delta R$ $$
+  \delta R =\left(\frac{400}{500}\right)^2\cdot 10 + \left(\frac{100}{500}\right)^2\cdot 20 = \frac{36}{5} (\Omega)
+$$
+
+****************************************
+
 
 [^1]: Der Funktionsgraph der Funktion $f$ ist eine Fläche im $\mathbb{R}^3$.
 
@@ -1926,6 +1967,22 @@ $$ und $$
 $$ Es berechnen sich $\det{H(9,21)}=20>0$ und $\det{H(-1,1)}=-20<0$, womit an der Stelle $\bar{x}$ ein lokales Extremum der Funktion $f$ nachgewiesen ist, an der Stelle $\tilde{x}$ existiert hingegen kein lokales Extremum. Da für die Komponente der Hesse-Matrix gilt $f_{x_1x_1}(9,21)=18>0$, ist $$
   f(9,21)=\frac{1}{3}\cdot 9^3-4\cdot 9\cdot 21+21^2+3\cdot 9-6\cdot 21+\frac{1}{2}=-\frac{341}{2}
 $$ ein lokales Minimum.
+
+Die Rechnung im vorstehenden Beispiel kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) interaktiv nachvollzogen werden. ... Abweichend von den Beispielen werden hier die kartesischen Koordinaten $x$, $y$ und $z$ verwendet.
+
+```javascript
+f=1/3*x^3-4*x*y+y^2+3*x-6*y+1/2
+f1=d(f,[x,y])
+f1[1]
+f1[2]
+y0=roots(f1[1],y)
+x0=roots(subst(y0,y,f1[2]),x)
+x0
+subst(x0[1],x,y0)
+subst(x0[2],x,y0)
+d(f1[1],x)*d(f1[2],y)-d(f1[2],x)*d(f1[1],y)
+```
+@Algebrite.eval
 
 **Bemerkung 4.** Für eine reelle Funktion von $k>2$ unabhängigen reellen Variablen ist ein Nachweis lokaler Extrema vermöge der Determinante der Hesse-Matrix nicht möglich. Stattdessen werden die [Eigenwerte](https://de.wikipedia.org/wiki/Eigenwertproblem) der Hesse-Matrix untersucht, die im Abschnitt [Lineare Algebra](#Lineare-Algebra) betrachtet werden.
 
