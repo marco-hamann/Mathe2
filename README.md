@@ -1894,6 +1894,10 @@ $$ und $(x_1^\star,x_2^\star)\in D_f$ heißt die der Hesse-Matrix eindeutig zuge
   \det{{H}(x_1^\star,x_2^\star)}=f_{x_1x_1}(x_1^\star,x_2^\star)\cdot f_{x_2x_2}(x_1^\star,x_2^\star)-\left(f_{x_1x_2}(x_1^\star,x_2^\star)\right)^2
 $$ die **Determinante der Hesse-Matrix** an der Stelle $(x_1^\star,x_2^\star)$.
 
+Der Ansatz zur Berechnung der Hesse-Matrix zu einer gegebenen Funktion wird in folgendem Video erläutert.
+
+!?[Hesse-Matrix](https://www.youtube.com/watch?v=TFrWs79YvLs "Berechnung der Hesse-Matrix zu einer gegebenen Funktion, Video von Daniel Jung.")
+
 **Bemerkung 2.** Die Determinante einer quadratischen Matrix ist ein Begriff der linearen Algebra und wird im Abschnitt [Determinanten](#Determinanten) näher behandelt. Zur zweireihigen Hesse-Matrix $$
   H=\left(\begin{array}{rrrr}
     \textcolor{blue}{f_{x_1x_1}} & \textcolor{purple}{f_{x_1x_2}} \\
@@ -1968,7 +1972,7 @@ $$ Es berechnen sich $\det{H(9,21)}=20>0$ und $\det{H(-1,1)}=-20<0$, womit an de
   f(9,21)=\frac{1}{3}\cdot 9^3-4\cdot 9\cdot 21+21^2+3\cdot 9-6\cdot 21+\frac{1}{2}=-\frac{341}{2}
 $$ ein lokales Minimum.
 
-Die Rechnung im vorstehenden Beispiel kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) interaktiv nachvollzogen werden. ... Abweichend von den Beispielen werden hier die kartesischen Koordinaten $x$, $y$ und $z$ verwendet.
+Die Rechnung im vorstehenden Beispiel kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) interaktiv nachvollzogen werden. Abweichend von den Beispielen werden hier die kartesischen Koordinaten $x$, $y$ und $z$ verwendet. Der letzte Befehl berechnet die Determinante der Hesse-Matrix in Abhängigkeit der unabhängigen Variablen $(x,y)$.
 
 ```javascript
 f=1/3*x^3-4*x*y+y^2+3*x-6*y+1/2
@@ -1984,6 +1988,12 @@ d(f1[1],x)*d(f1[2],y)-d(f1[2],x)*d(f1[1],y)
 ```
 @Algebrite.eval
 
+Der Graph der Funktion $f$ in einer Umgebung um die stationären Stellen ist zusammen mit den zu den Niveaulinien gehörenden Flächenkurven in den nachstehenden beiden Abbildungen dargestellt. Anhand des Niveaulinienplanes lässt sich erkennen, ob und welche Art von lokalen Extrema vorliegt.
+
+![Niveaulinien und lokales Minimum](img/mat-bild-21.png "_Fig._ Graph der Funktion $f$ in einer Umgebung von $\bar{x}=(\bar{x}_1,\bar{x}_2)=(9,21)$ mit lokalem Minimum $f(9,21)$. Dargestellt mit Niveaulinien zu bestimmten Koten $z$.")
+
+![Niveaulinien und stationäre Stellen](img/mat-bild-20.png "_Fig._ Graph der Funktion $f$ in einer Umgebung von $\tilde{x}=(\tilde{x}_1,\tilde{x}_2)=(-1,1)$. Dargestellt mit Niveaulinien zu bestimmten Koten $z$. Der Punkt $P(-1,1,f(-1,1))$ ist ein Sattelpunkt der Fläche.")
+
 **Bemerkung 4.** Für eine reelle Funktion von $k>2$ unabhängigen reellen Variablen ist ein Nachweis lokaler Extrema vermöge der Determinante der Hesse-Matrix nicht möglich. Stattdessen werden die [Eigenwerte](https://de.wikipedia.org/wiki/Eigenwertproblem) der Hesse-Matrix untersucht, die im Abschnitt [Lineare Algebra](#Lineare-Algebra) betrachtet werden.
 
 
@@ -1992,7 +2002,25 @@ Sicher gewusst?
 
 Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
-**Frage 1.** Gegeben ist die reelle Funktion $$
+**Frage 1.** Gegeben ist die obere Kugelschale zur Funktion $$
+  f:(x,y)\mapsto z=f(x,y)=\sqrt{1-x^2-y^2}\quad\text{mit}\quad (x,y)\in D\subseteq\mathbb{R}^2\,,\; 1-x^2-y^2>0
+$$ Berechnen Sie die partiellen ersten Ableitungen von $f$ und geben Sie alle stationären Stellen $(x^\ast,y^\ast)\in D$ von $f$ an.
+
+[( )] $$ f_x(x,y)=-\frac{4}{3}\cdot x\cdot\left(1-x^2-y^2\right)^\frac{3}{2}\,,\quad f_y(x,y)=-\frac{4}{3}\cdot y\cdot\left(1-x^2-y^2\right)^\frac{3}{2}\quad\text{und}\quad (x^\ast,y^\ast)=(0,0) $$
+[( )] $$ f_x(x,y)=-\frac{x}{\sqrt{1-x^2-y^2}}\,,\quad f_y(x,y)=-\frac{y}{\sqrt{1-x^2-y^2}}\,,\quad\text{aber keine stationäre Stellen} \; (x^\ast,y^\ast) $$
+[(X)] $$ f_x(x,y)=-\frac{x}{\sqrt{1-x^2-y^2}}\,,\quad f_y(x,y)=-\frac{y}{\sqrt{1-x^2-y^2}}\quad\text{und}\quad (x^\ast,y^\ast)=(0,0) $$
+[[?]] Die stationären stellen berechnen sich - sofern diese existieren - als Lösungen der Gleichungen $f_x(x,y)=f_y(x,y)=0$.
+****************************************
+
+Die partiellen ersten Ableitungen der gegebenen Funktion berechnen sich unter Benutzung der Kettenregel zu $$
+  f_x(x,y)=-\frac{x}{\sqrt{1-x^2-y^2}}\quad\text{bzw.}\quad f_y(x,y)=-\frac{y}{\sqrt{1-x^2-y^2}}
+$$ Diese sind auf $D$ definiert. Beide partielle Ableitungen nehmen nur für $(x^\ast,y^\ast)=(0,0)$ den Wert Null an, genauer $$
+  f_x(x,y)=0\;\leftrightarrow\; x=0 \quad\text{und}\quad f_y(x,y)=0\;\leftrightarrow\; y=0
+$$
+
+****************************************
+
+**Frage 2.** Gegeben ist die reelle Funktion $$
   f:(x_1,x_2)\mapsto y=\exp{x_1}\cdot(2\cdot x_1+x_2^2)\,,\quad D=\mathbb{R}^2
 $$ Das Koordinatenpaar $x^\star=(-1,0)\in D$ beschreibt eine stationäre Stelle von $f$.  Entscheiden Sie, ob in $x^\star$ ein lokales Extremum der Funktion $f$ existiert oder nicht. Bestimmen Sie ggf. die Art des lokalen Extremums an der Stelle $x^\star=(-1,0)$.
 
@@ -2018,6 +2046,34 @@ $$ Somit sind $$
 $$ An der Stelle $x^\star$ liegt ein lokales Minimum mit $f(-1,0)=-\frac{2}{\exp{1}}$.
 
 ****************************************
+
+**Frage 3.** In der nachstehenden Abbildung ist der Graph der Funktion $$
+  f:(x,y)\mapsto z=x\cdot y\,,\quad (x,y)\in\mathbb{R}^2
+$$ in einem Gebiet des Definitionsbereichs mithilfe von Niveaulinien dargestellt, die eine farbliche Kodierung von Gelb nach Blau zu größer werdenden Koten $z$ aufweisen.
+
+Entscheiden Sie unter Bezugnahme auf die graphische Darstellung, ob der Flächenpunkt $P(0,0,f(0,0))$ zu einem lokalen Extremum der Funktion $f$ gehören kann oder nicht.
+
+[( )] $f(0,0)$ ist ein lokales Minimum der Funktion $f$.
+[( )] $f(0,0)$ ist ein lokales Maximum der Funktion $f$.
+[(X)] $f(0,0)$ ist kein lokales Extremum der Funktion $f$.
+[[?]] Untersuchen Sie das Verhalten der Funktionswerte $f(x,y)$ in einer Umgebung von $(0,0)$ mithilfe geeigneter Flächenkurven auf dem Graph der Funktion $f$.
+****************************************
+
+Betrachtet werden Geraden $y=k\cdot x$ mit $k\in\mathbb{R}$ beziehungsweise $x=0$ in der $xy$-Ebene, die den Definitionsbereich von $f$ darstellt. Die Geraden enthalten alle den Punkt zum Koordinatenpaar $(0,0)$.
+
+Werden die Flächenkurven über diesen Geraden betrachtet (Schneide den Graph der Funktion $f$ mit lotrechten Ebenen durch je eine dieser Geraden), so ergeben sich die Funktionswerte $$
+  z=f(x,k\cdot x)=g(x)=k\cdot x^2\quad\text{zu}\quad y=k\cdot x
+$$ beziehungsweise $$
+  z=f(0,y)=h(y)=0\quad\text{zu}\quad x=0
+$$ Die Flächenkurven sind demnach nach oben geöffnete Parabeln für $k>0$, nach unten geöffnete Parabeln für $k<0$ beziehungsweise Geraden $x=z=0$ und $y=z=0$.
+
+Damit existieren in jeder noch so kleinen Umgebung $U$ von $(0,0)$ Paare $(x,y)\in U$ mit $$
+f(x,y)>f(0,0)\,,\quad f(x,y)<f(0,0)\quad\text{beziehungsweise}\quad f(x,y)=f(0,0)
+$$ wonach $f(0,0)$ kein lokales Extremum sein kann.
+
+****************************************
+
+![Niveaulinien mit Sattelpunkt](img/mat-bild-22.png "_Fig._ Niveaulinienplan der Funktion $f$ in einem Gebiet des Definitionsbereichs. Dargestellt sind die Niveaulinien mit einer farblichen Kodierung wachsender Koten $z$ von Gelb nach Blau.")
 
 
 ### Methode der kleinsten Quadrate
