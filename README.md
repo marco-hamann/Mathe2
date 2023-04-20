@@ -2292,16 +2292,16 @@ Die Berechnung der Koeffizienten dieses Systems dreier linearer Gleichungen erfo
 p1=6*b0+15*b1+55*b2-2
 p2=15*b0+55*b1+225*b2+8
 p3=55*b0+225*b1+979*b2+68
-
 x0=roots(p1,b0)
 x1=roots(subst(x0,b0,p2),b1)
 B2=roots(subst(x1,b1,subst(x0,b0,p3)),b2)
 B1=subst(B2,b2,x1)
 B0=subst(B1,b1,subst(B2,b2,x0))
-
 B0
 B1
 B2
+g=B0+B1*x+B2*x^2
+g
 ```
 @Algebrite.eval
 
@@ -2316,7 +2316,7 @@ Sicher gewusst?
 
 Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
-**Frage.** Zu den Messpunkten mit den in der Tabelle aufgeführten Koordinaten soll mit Hilfe der Methode der kleinsten Quadrate eine Regressionsparabel
+**Frage 1.** Zu den Messpunkten mit den in der Tabelle aufgeführten Koordinaten soll mit Hilfe der Methode der kleinsten Quadrate eine Regressionsparabel
 
 $$
   x\mapsto y=p_2(x)=b_0+b_1\cdot x+b_2\cdot x^2\,,\quad x\in\mathbb{R}
@@ -2359,6 +2359,35 @@ Der Ansatz zur Berechnung der stationären Stellen für die Funktion $F$ lautet 
 
 ****************************************
 
+**Frage 2.** Zu einem Datensatz von Messpunkten $(x_i,y_i)$ mit $i\in\{1,2,...,M\}$ berechnet sich die Regressionsgerade mit der Gleichung $$
+  x\mapsto y=p_2(x)=b_0+b_1\cdot x\,,\quad x\in\mathbb{R}
+$$
+und reellen Koeffizienten $b_0$, $b_1$ als Lösung des nachstehenden Systems linearer Gleichungen
+$$
+\begin{array}{lclcl}
+  \sum_{i=1}^M{y_i} & = & b_0\cdot M & + & b_1\cdot\left(\sum_{i=1}^M{x_i}\right) \\
+  \sum_{i=1}^M{(x_i\cdot y_i)} & = & b_0\cdot\left(\sum_{i=1}^M{x_i}\right) & + &  b_1\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)
+\end{array}
+$$ Ermitteln Sie hieraus Formeln zur Berechnung von $b_0$ und $b_1$.
+
+[(X)] $$
+b_0=\frac{\left(\sum_{i=1}^M{y_i}\right)\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i\cdot y_i}\right)\cdot\left(\sum_{i=1}^M{x_i}\right)}{M\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i}\right)^2}\,,\quad
+b_1=\frac{M\cdot\left(\sum_{i=1}^M{x_i\cdot y_i}\right)-\left(\sum_{i=1}^M{y_i}\right)\cdot\left(\sum_{i=1}^M{x_i}\right)}{M\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i}\right)^2}
+$$
+[( )] $$
+b_0=\frac{M\cdot\left(\sum_{i=1}^M{x_i\cdot y_i}\right)-\left(\sum_{i=1}^M{y_i}\right)\cdot\left(\sum_{i=1}^M{x_i}\right)}{M\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i}\right)^2}\,,\quad
+b_1=\frac{\left(\sum_{i=1}^M{y_i}\right)\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i\cdot y_i}\right)\cdot\left(\sum_{i=1}^M{x_i}\right)}{M\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i}\right)^2}
+$$
+[( )] $$
+b_0=\frac{M\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i}\right)^2}{\left(\sum_{i=1}^M{y_i}\right)\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i\cdot y_i}\right)\cdot\left(\sum_{i=1}^M{x_i}\right)}\,,\quad
+b_1=\frac{M\cdot\left(\sum_{i=1}^M{(x_i)^2}\right)-\left(\sum_{i=1}^M{x_i}\right)^2}{M\cdot\left(\sum_{i=1}^M{x_i\cdot y_i}\right)-\left(\sum_{i=1}^M{y_i}\right)\cdot\left(\sum_{i=1}^M{x_i}\right)}
+$$
+[[?]] Die Lösung des Gleichungssystems lässt sich beispielsweise mit Hilfe des Additionsverfahrens lösen. Siehe auch [Cramersche Regel](https://de.wikipedia.org/wiki/Cramersche_Regel).
+****************************************
+
+Werden linke und rechte Seite der ersten linearen Gleichung des Systems mit $\left(\sum_{i=1}^M{(x_i)^2}\right)$ multipliziert, ebenso die zweite Gleichung mit $\left(\sum_{i=1}^M{x_i}\right)$, so lässt sich in der anschließenden Differenz beider Zeilen $b_1$ eliminieren. Analog verfährt man bezüglich $b_0$.
+
+****************************************
 
 [^1]: Hier werden also die Abstände der Messpunkte $(x_i,y_i)$ von den Punkten auf der Ausgleichsgerade mit gleicher Abszisse $x_i$ betrachtet, d. h. die Abstände entlang der $y$-Achse.
 
@@ -2371,8 +2400,6 @@ $$ können die Absolutbeträge weggelassen werden.
 
 ### Gradientenvektorfeld
 
-Definition
-==========
 
 In diesem Abschnitt wird der Zusammenhang zwischen den lokalen Extrema einer Funktion $f$ und dem Gradientenvektor hergestellt.
 
@@ -2386,7 +2413,7 @@ betrachtet. Wir setzen der besseren Lesbarkeit wegen $x=(x_1,...,x_k)$. Die Funk
   \mathrm{grad}{f(x_1^\star,...,x_k^\star)}=\left(\begin{array}{c} \frac{\partial{f}}{\partial{x_1}} \\ \vdots \\\frac{\partial{f}}{\partial{x_k}} \end{array}\right)(x_1^\star,...,x_k^\star)
 $$ heißt **Gradientenvektor** von $f$ an der Stelle $x^\star=(x_1^\star,...,x_k^\star)\in D$.[^1]
 
-**Bemerkung.** Für eine *geometrische Interpretation* des Gradientenvektors ist hier $k=2$ angenommen. Bei einer Änderung der Argumente in $x^\star$ in einer beliebigen Richtung
+**Bemerkung 1.** Für eine *geometrische Interpretation* des Gradientenvektors ist hier $k=2$ angenommen. Bei einer Änderung der Argumente in $x^\star$ in einer beliebigen Richtung
 $$
   \mathrm{d}x=\left(\begin{array}{c} x_1-x_1^\star \\ x_2-x_2^\star \end{array}\right)
 $$
@@ -2462,20 +2489,55 @@ $$ Ist $h$ eine reelle Funktion für die Werte von $f$, so gilt $$
   \mathrm{grad}{(h(f))}=\frac{\mathrm{d}h}{\mathrm{d}f}\cdot\mathrm{grad}{f}
 $$
 
-Mit Hilfe des Gradientenvektors an einer Stelle des Definitionsbereiches lässt sich nun erklären:
+**Beispiel 2.** Ein räumliches skalares Feld $f$ (siehe Abschnitt [Grundbegriffe](#Grundbegriffe)) heißt *radialsymmetrisch*, falls $f(x,y,z)$ im Ort $(x,y,z)$ ausschließlich abhängt von $$
+  r:=\sqrt{x^2+y^2+z^2}
+$$ Die Äquipotentialflächen von $f$ sind bezüglich des Koordinatenursprungs konzentrische Kugelschalen.
+
+1. Der Gradient $\mathrm{grad}{f}(x,y,z)$ berechnet sich mit Hilfe der Kettenregel in vorstehendem Satz $$
+  \mathrm{grad}{f}(x,y,z)=\frac{1}{\sqrt{x^2+y^2+z^2}}\cdot \begin{pmatrix} x \\ y \\z \end{pmatrix}
+$$
+2. Unter Nutzung der Produktregel berechnet sich damit $$
+  \mathrm{grad}{\left(\frac{(f(x,y,z))^2}{2}\right)}=\frac{1}{2}\cdot\left(\mathrm{grad}{f}(x,y,z)\cdot f(x,y,z)+f(x,y,z)\cdot \mathrm{grad}{f}(x,y,z)\right)=\begin{pmatrix} x \\ y \\z \end{pmatrix}
+$$
+3. Entsprechend berechnet sich $$
+  \mathrm{grad}{\left(\ln{(f(x,y,z)}\right)}=\frac{1}{f(x,y,z)}\cdot\mathrm{grad}{f}(x,y,z)=\frac{1}{r^2}\cdot\begin{pmatrix} x \\ y \\z \end{pmatrix}
+$$
+
+Die Rechnung im vorstehenden Beispiel kann unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) interaktiv nachvollzogen werden. Für die Berechnung des Gradienten lässt sich der Behehl `d(f,[x,y,z])` benutzen, der die partiellen ersten Ableitungen einer Funktion $f$ nach den unabhängigen Variablen $x$, $y$ und $z$ berechnet und als Vektor ausgibt.
+
+```javascript
+r=sqrt(x^2+y^2+z^2)
+f=log(r)
+d(f,[x,y,z])
+```
+@Algebrite.eval
+
+Mit Hilfe des Gradientenvektors an einer Stelle des Definitionsbereiches lässt sich erklären:
 
 >**Definition 2.** Existiert an jeder Stelle $x^\star\in D$ der Gradientenvektor $\mathrm{grad}{f(x^\star)}$, so heißt $$
   \mathrm{grad}f:D\to \mathbb{R}^k, (x_1,...,x_k)\mapsto \mathrm{grad}{f(x_1,..,x_k)}
 $$ das **Gradientenvektorfeld** von $f$ in $D$.
 
-
-Lokale Extrema
-==============
-
-Damit gilt für die Festlegung / Berechnung lokaler Extrema einer Funktion:
+**Bemerkung 2.** Für die Festlegung beziehungsweise Berechnung lokaler Extrema folgt damit:
 
 1. Besitzt $f$ in $x^\star\in D$ ein lokales Extremum, so ist $\mathrm{grad}{f(x^\star)}=o$ (Nullvektor).
 2. Jede Lösung $x$ der vektorwertigen Gleichung $\mathrm{grad}{f(x)}=o$ mit $x\in D$ und einer existierenden Umgebung $U(x)\subset D$ liefert eine stationäre Stelle.
+
+Gradientenvektoren lassen sich somit zur Untersuchung einer Funktion auf stationäre Stellen nutzen. Siehe nachstehende Rechnung für eine quadratische Funktion in den reellen Variablen $x$ und $y$.
+
+```javascript
+f=a*x^2+b*y^2+c*x
+g=d(f,[x,y])
+g1=g[1]
+g2=g[2]
+x1=roots(g1,x)
+y1=subst(x1,x,g2)
+y0=roots(y1,y)
+x0=subst(y0,y,x1)
+v=[x0,y0]
+v
+```
+@Algebrite.eval
 
 
 Sicher gewusst?
@@ -2525,6 +2587,28 @@ $$ besitzt die Lösungen $$
 $$ und $$
   x_1=k\cdot\pi\;\;\wedge\;\;x_2=\frac{2\cdot m+1}{2}\cdot\pi
 $$ mit Parametern $(k,m)\in\mathbb{Z}^2$.
+
+****************************************
+
+**Frage 3.** Gegeben ist das elektrostatische Potential eines Dipols vom Moment $(p,0,0)^\top$ am Ort $P(x,y,z)$ mit $$
+  \phi(x,y,z)=\frac{p\cdot x}{4\cdot\pi\cdot\epsilon_0\cdot \sqrt{x^2+y^2+z^2}}
+$$ Berechnen das zugehörige elektrische Feld $$
+  \vec{E}=-\mathrm{grad}{\,\phi(x,y,z)}
+$$
+
+[( )] $$ \vec{E}=-\frac{p\cdot x}{4\cdot\pi\cdot\epsilon_0}\cdot\frac{1}{\sqrt{x^2+y^2+z^2}^3}\cdot\begin{pmatrix} x \\ y \\ z \end{pmatrix} $$
+[(X)] $$ \vec{E}=\frac{p}{4\cdot\pi\cdot\epsilon_0}\cdot\left(\frac{1}{\sqrt{x^2+y^2+z^2}}\cdot\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}-\frac{1}{\sqrt{x^2+y^2+z^2}^3}\cdot\begin{pmatrix} x \\ y \\ z \end{pmatrix}\cdot x\right) $$
+[( )] $$ \vec{E}=\frac{p}{4\cdot\pi\cdot\epsilon_0}\cdot\left(\frac{1}{\sqrt{x^2+y^2+z^2}}\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}-\frac{1}{\sqrt{x^2+y^2+z^2}^3}\cdot\begin{pmatrix} x \\ y \\ z \end{pmatrix}\cdot x\right) $$
+[[?]] Nutzen Sie die Rechenregeln für Gradienten aus dem vorstehenden Satz. Verwenden Sie ggf. den in Beispiel 2 berechneten Gradienten $$
+  \mathrm{grad}{\left(\sqrt{x^2+y^2+z^2}\right)}=\frac{1}{\sqrt{x^2+y^2+z^2}}\cdot \begin{pmatrix} x \\ y \\z \end{pmatrix}
+$$
+****************************************
+
+Die Funktion $\phi(x,y,z)$ lässt sich darstellen als $$
+  \phi(x,y,z)=\frac{p}{4\cdot\pi\cdot\epsilon_0}\cdot \frac{x}{r}
+$$ mit $r(x,y,z)=\sqrt{x^2+y^2+z^2}$. Der erste Faktor ist konstant, so dass $\mathrm{grad}{(x/r)}$ zu bilden ist. Mit der Produktregel berechnet sich dieser zu $$
+  \mathrm{grad}{\left(\frac{x}{r}\right)}=\mathrm{grad}{\,x}\cdot\frac{1}{r}+x\cdot\mathrm{grad}{\left(\frac{1}{r}\right)}=\frac{1}{\sqrt{x^2+y^2+z^2}}\cdot\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}-\frac{1}{\sqrt{x^2+y^2+z^2}^3}\cdot\begin{pmatrix} x \\ y \\ z \end{pmatrix}\cdot x
+$$
 
 ****************************************
 
