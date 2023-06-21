@@ -3773,7 +3773,7 @@ so lässt sich dass unbestimmte Integral transformieren in
 $$
   \int{\tan{t}}\,\mathrm{d}t=-\int{-\frac{\sin{t}}{\cos{t}}}\,\mathrm{d}t=-\int{\frac{1}{x}}\,\mathrm{d}x
 $$
-Wegen $g(t)<0$ für alle Werte im Integrationsintervall, gilt
+Wegen $\dot{g}(t)<0$ für alle Werte im Integrationsintervall, gilt
 $$
   \left(\frac{\pi}{6}<\frac{\pi}{3}\right)\quad\leftrightarrow\quad
   \left(g\left(\frac{\pi}{6}\right)=
@@ -4086,6 +4086,15 @@ $$ ist.
 ## Lineare Algebra
 
 
+Ziel dieses Kapitels ist eine Einführung in den Themenbereich der linearen Algebra.
+
+![Integral](img/mat-bild-23.png "_Fig._ Zentrale Begriffe der linearen Algebra.")
+
+Schwerpunkte sind u. a. eine Vertiefung der aus der Schulmathematik bekannten Begriffe "Vektor" und "lineare Gleichungssysteme".
+
+Darüber hinaus werden allgemeinere algebraische Strukturen wie Vektorräume, Matrizen und Determinanten betrachtet. Eine Verbindung zur analytischen Geometrie der Ebene und des dreidimensionalen Raumes wird ebenso gezogen.
+
+
 ### Vektoren
 
 
@@ -4102,7 +4111,7 @@ Während skalare Größen durch eine Maßzahl und Einheit gekennzeichnet sind, b
 1. Obwohl der Betrag der Geschwindigkeit zu jedem Zeitpunkt der Bewegung konstant ist, verändert sich die Richtung der Geschwindigkleit zu jedem Zeitpunkt der Bewegung. Der Geschwindigkeitsvektor $\vec{v}$ ist tangential zur Bahnkurve im jeweiligen Kurvenpunkt.
 2. Die zum Mittelpunkt $D$ der Bahnkurve gerichtete Beschleunigung $\vec{a}$ von $m$ sorgt für eine kontinuierliche Richtungsänderung des Bewegungsvorgangs.
 
-![Gleichförmige Kreisbewegung](img/mat-bild-17.png "_Fig._ Schematisch Darstellung einer gleichförmigen Kreisbewegung eines Massepunktes der Masse $m$ um den Punkt $D$ mit Geschwindigkeitsvektor $\vec{v}$ und Vektor der Radialbeschleunigung $\vec{a}$ in einem Punkt der Bahnkurve.")
+![Gleichförmige Kreisbewegung](img/mat-bild-17.png "_Fig._ Schematische Darstellung einer gleichförmigen Kreisbewegung eines Massepunktes der Masse $m$ um den Punkt $D$ mit Geschwindigkeitsvektor $\vec{v}$ und Vektor der Radialbeschleunigung $\vec{a}$ in einem Punkt der Bahnkurve.")
 
 Einige weitere Beispiel skalarer beziehungsweise vektorieller Größen finden sich in nachstehender Tabelle, zusammen mit den Maßzahlen und ${\rm SI}$-Einheiten.
 
@@ -4322,7 +4331,7 @@ $$ Bitte nachrechnen!
   \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o
 $$ verschieden von 'Null' gewählt werden kann. O. B. d. A. ist $\lambda_1\not=0$ (ggf. nach Umordnen). Es folgt umkehrbar $$
   \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o\quad\stackrel{\lambda_1\not=0}{\longleftrightarrow}\quad
-  v_1=\frac{1}{\lambda_1}\cdot\left(-\lambda_2\cdot v_2+...+\lambda_n\cdot v_n\right)=
+  v_1=-\frac{1}{\lambda_1}\cdot\left(\lambda_2\cdot v_2+...+\lambda_n\cdot v_n\right)=
   \sum_{k=2}^n{\left(-\frac{\lambda_k}{\lambda_1}\cdot v_k\right)}
 $$ mit Koeffizienten $\mu_k:=-\frac{\lambda_k}{\lambda_1}$.
 
@@ -4454,7 +4463,7 @@ $$ für alle $j\in\{1,2,...,n\}$.
 
 $\square$
 
-**Beispiel 10.** Es werden die Koordinatenvektoren für Vektoren in verschidenen reellen Vektorräumen $V$ berechnet. Im letzten Punkt wird deutlich, dass $\mathbb{R}^n$ als Standardmodell für reelle Vektorräume genutzt werden kann.
+**Beispiel 10.** Es werden die Koordinatenvektoren für Vektoren in verschiedenen reellen Vektorräumen $V$ berechnet. Im letzten Punkt wird deutlich, dass $\mathbb{R}^n$ als Standardmodell für reelle Vektorräume genutzt werden kann.
 
 1. Gegeben ist der Vektorraum $V=\mathbb{R}^3$. Bezogen auf die kanonische Basis $B=\{e_1,e_2,e_3\}$ (vergleiche Beispiel 8) ist der Koordinatenvektor zum Vektor $$
   v=\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
@@ -5278,7 +5287,7 @@ Im Zusammenhang der Untersuchung der Lösbarkeit von Systemen linearer Gleichung
   b=\begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}\in\mathbb{R}^{3}
 $$ soll analog zu Beispiel 2 eine Matrix $B\in\mathbb{R}^{3,3}$ ermittelt werden, die $$
   x=E\cdot x=(\textcolor{magenta}{B}\cdot A)\cdot x=\textcolor{magenta}{B}\cdot (A\cdot x)= \textcolor{magenta}{B}\cdot b
-$$ erfüllt, worin $E$ die dreireihige Einheitsmatrix bezeichnet. der Lösungsvektor $x=B\cdot b$ kann - falls die Matrix $B$ existiert - eindeutig als Matrixprodukt berechnet werden.
+$$ erfüllt, worin $E$ die dreireihige Einheitsmatrix bezeichnet. Der Lösungsvektor $x=B\cdot b$ kann - falls die Matrix $B$ existiert - eindeutig als Matrixprodukt berechnet werden.
 
 ```javascript
 A=[[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]]
@@ -5372,7 +5381,7 @@ Ebenso lassen sich Ebenen als Verbindungsebenen dreier Punkte durch Determinante
 
 >**Definition 3.** Gegeben sei eine Matrix $A\in K^{3,3}$ mit Komponentendarstellung $$
   A=\left(a_{ij}\right)_{i=1,...,3\,,\; j=1,...,3}
-$$ Determinante dritter Ordnung $\det{A}\in K$.
+$$ mit der Determinante dritter Ordnung $\det{A}\in K$.
 >
 >Dann bezeichnet $D_{ij}$ die gebildete *Unterdeterminante* zweiter Ordnung der aus $A$ durch Streichen der $i$-ten Zeile und der $j$-ten Spalte resultierenden Matrix.
 >
@@ -5594,8 +5603,8 @@ $$ Die Funktionaldeterminante ist damit unabhängig von den beiden Zylinderkoord
 ****************************************
 
 **Frage 4.** Berechnen Sie $$
-  \det{\begin{pmatrix} \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \end{pmatrix}}\quad\forall\;\lambda\in\mathbb{R}
-$$
+  \det{\begin{pmatrix} \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \\ \lambda & \lambda & \lambda \end{pmatrix}}
+$$ in Abhängigkeit von $\lambda\in\mathbb{R}$.
 
 [(X)] $0$
 [( )] $\lambda$
@@ -5823,22 +5832,23 @@ Ziel des Verfahrens ist es, ein Gleichungssystem der Form $A\cdot x=b$ in ein Gl
   \end{pmatrix}\in K^{m,n}
 $$ d. h. eine (obere) Dreiecksmatrix ist oder Trapezform besitzt. Für die Komponenten ist $a_{ii}\not=0$ für alle $i\in\{1,...,n\}$ im Fall der Dreiecksmatrix beziehungsweise für alle $i\in\{1,...,r\}$ im Fall der Trapezform zu fordern.
 
-Elementare Umformungsschritte sind nachstehend aufgeführt. Diese ändern einsichtig nicht die Lösungsmenge eines Systems linearer Gleichungen, führen also zu äquivalenten Umformungen.
-
-1. *Vertauschen zweier Gleichungen*. Hierdurch vertauschen sich die entsprechenden Zeilen der Koeffizientenmatrix $A$ $$
+<!-- style="background-color: lightgray;"-->
+>Elementare Umformungsschritte sind nachstehend aufgeführt. Diese ändern einsichtig nicht die Lösungsmenge eines Systems linearer Gleichungen, führen also zu äquivalenten Umformungen.
+>
+>1. *Vertauschen zweier Gleichungen*. Hierdurch vertauschen sich die entsprechenden Zeilen der Koeffizientenmatrix $A$ $$
   A=\begin{pmatrix} ... & \textcolor{blue}{z_k} & ... & \textcolor{magenta}{z_l} & ... \end{pmatrix}^\top\quad\to\quad
   A'=\begin{pmatrix} ... & \textcolor{magenta}{z_l} & ... & \textcolor{blue}{z_k} & ... \end{pmatrix}^\top
 $$ und in gleicher Weise der erweiterten Koeffizientenmatrix $(A|b)$.
-2. *Multiplizieren einer Gleichung mit einem Skalar* $\lambda\in K\setminus\{0\}$. Hierdurch werden die Komponenten der entsprechenden Zeile von $A$ mit dem Faktor $\lambda$ multipliziert. $$
+>2. *Multiplizieren einer Gleichung mit einem Skalar* $\lambda\in K\setminus\{0\}$. Hierdurch werden die Komponenten der entsprechenden Zeile von $A$ mit dem Faktor $\lambda$ multipliziert. $$
   A=\begin{pmatrix} ... & \textcolor{blue}{z_k} & ... \end{pmatrix}^\top\quad\to\quad
   A'=\begin{pmatrix} ... & \textcolor{blue}{\lambda\cdot z_k} & ... \end{pmatrix}^\top
 $$ und in gleicher Weise für die erweiterte Koeffizientenmatrix $(A|b)$ .
-3. *Addieren des $\lambda$-fachen einer anderen Gleichung*. Hierdurch werden die Komponenten der Zeile und die $\lambda$-fachen der entsprechenden Komponenten der (anderen!) Zeile addiert. $$
+>3. *Addieren des $\lambda$-fachen einer anderen Gleichung*. Hierdurch werden die Komponenten der Zeile und die $\lambda$-fachen der entsprechenden Komponenten der (anderen!) Zeile addiert. $$
   A=\begin{pmatrix} ... & \textcolor{blue}{z_k} & ... & \textcolor{magenta}{z_l} & ... \end{pmatrix}^\top\quad\to\quad
   A'=\begin{pmatrix} ... & \textcolor{blue}{z_k}+\textcolor{magenta}{\lambda\cdot z_l} & ... & \textcolor{magenta}{z_l} & ... \end{pmatrix}^\top
 $$
-
-Die aufgeführten Umformungen der Gleichungen lassen sich also als Zeilenumformungen der Koeffizientenmatrix $A$ und erweiterten Koeffizientenmatrix $(A|b)$ darstellen und werden aus diesem Blick heraus auch **elementare Zeilenumformungen** genannt.
+>
+>Die aufgeführten Umformungen der Gleichungen lassen sich also als Zeilenumformungen der Koeffizientenmatrix $A$ und erweiterten Koeffizientenmatrix $(A|b)$ darstellen und werden aus diesem Blick heraus auch **elementare Zeilenumformungen** genannt.
 
 In der gestuften Form kann das Gleichungssystem schrittweise "von unten noch oben" nach den Variablen $x_r$, $x_{r-1}$, ..., $x_1$ gelöst werden.
 
