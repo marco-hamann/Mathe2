@@ -6054,8 +6054,8 @@ $$
 **Bemerkung 1.** Für die Untersuchung der Lösbarkeit eines linearen Gleichungssystems mit rationalen Koeffizienten sowie die Berechnung dessen Lösungsmenge kann die Website [Gauß-Verfahren](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/13723271171/CourseNode/95364212454741?5) genutzt werden. Gleichungssysteme können unter Wahl des Typs und Angabe der rationalen Koeffizienten und Absolutglieder interaktiv gestellt und automatisch berechnet werden.
 
 **Bemerkung 2.** Für eine System linearer Gleichungen $A\cdot x=b$ vom Typ $(n,n)$ gilt $$
-  \mathrm{rg}{A}=\mathrm{rg}{(A|b)}=n\quad\leftrightarrow\quad \det{A}=0
-$$
+  \mathrm{rg}{A}=\mathrm{rg}{(A|b)}=n\quad\leftrightarrow\quad \det{A}\not=0
+$$ Ist also die Koeffizientenmatrix $A$ regulär, besitzt das System linearer Gleichungen die eindeutige Lösung $x=A^{-1}\cdot b$. Ist zusätzlich $b=o$ der Nullvektor - das Gleichungssystem mithin homogen -, so ist die triviale Lösung die einzige Lösung.
 
 **Beispiel 7.** Gegeben ist ein lineares Gleichungssystem $A\cdot x=b$ mit $$
   A=\begin{pmatrix} 3 & -4 \\ -1 & 5 \\ 5 & 2 \end{pmatrix}\,,\quad
@@ -6229,7 +6229,7 @@ $$ und dem Vektor $b=\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ im Fall 1 beziehungsw
 
 [( )] $A$ ist die Nullmatrix.
 [( )] Die erste Zeile von $A$ ist eine Nullzeile.
-[(X)] Die erste Spalte von $A$ ist eine Nullzeile.
+[(X)] Die erste Spalte von $A$ ist eine Nullspalte.
 [[?]] Im ersten Schritt des Gauss-Verfahrens wird die erste Spalte der Koeffizientenmatrix $A$ mittels elementarer Zeilenumformungen in die Form $$
   s_1^\star=\begin{pmatrix} a_{11}^\star & 0 & ... & 0 \end{pmatrix}^\top
 $$ gebracht, worin $a_{11}^\star\not=0$.
@@ -6419,7 +6419,7 @@ $$ Die beschreibenden Gleichungen bilden ein System zweier linearer Gleichungen 
   x=\lambda\cdot\begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}\,,\quad \lambda\in\mathbb{R}
 $$ (Bitte nachrechnen.) Der Vektor $x$ ist orthogonal zu jedem der Vektoren aus $N$, steht also senkrecht auf jeder Linearkombination beider Vektoren.
 
-**Bemerkung 2.** Das orthogonale Komplement $M^\perp$ einer Menge $M$ ist ein Untervektorraum von $M$, da
+**Bemerkung 2.** Das orthogonale Komplement $M^\perp$ einer Menge $M$ ist ein Untervektorraum von $V$, da
 
 1. $M^\perp\not=\emptyset$ wegen $M^\perp\ni o$.
 2. Sind $x\in M^\perp$ und $y\in M^\perp$, so folgt aus Eigenschaft 2 bzw. 3 von Definition 1, dass $(x+y)\in M^\perp$ bzw. $\lambda\cdot x\in M^\perp$ für alle $\lambda\in\mathbb{R}$ orthogonal zu $M$ sind.
