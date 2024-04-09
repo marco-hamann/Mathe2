@@ -14,11 +14,11 @@ import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.m
 -->
 
 
-# Mathematik 2 (I995)
+# Mathematik 2 (I946)
 
-Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Fahrzeugtechnik im 2. Semester.
+Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Bachelor Maschinenbau im 2. Semester.
 
-Sie können diesen Kurs auf [LiaScript](https://liascript.github.io/course/?https://github.com/marco-hamann/Mathe2/blob/main/README.md) oder [Opal](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/16640933900) aufrufen. Das Repository zu diesem Kurs finden Sie unter
+Sie können diesen Kurs auf [LiaScript](https://liascript.github.io/course/?https://github.com/marco-hamann/Mathe2/blob/main/README.md) oder [Opal](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/42946134017) aufrufen. Das Repository zu diesem Kurs finden Sie unter
 
 https://github.com/marco-hamann/Mathe2
 
@@ -1994,7 +1994,52 @@ Der Graph der Funktion $f$ in einer Umgebung um die stationären Stellen ist zus
 
 ![Niveaulinien und stationäre Stellen](img/mat-bild-20.png "_Fig._ Graph der Funktion $f$ in einer Umgebung von $\tilde{x}=(\tilde{x}_1,\tilde{x}_2)=(-1,1)$. Dargestellt mit Niveaulinien zu bestimmten Koten $z$. Der Punkt $P(-1,1,f(-1,1))$ ist ein Sattelpunkt der Fläche.")
 
-**Bemerkung 4.** Für eine reelle Funktion von $k>2$ unabhängigen reellen Variablen ist ein Nachweis lokaler Extrema vermöge der Determinante der Hesse-Matrix nicht möglich. Stattdessen werden die [Eigenwerte](https://de.wikipedia.org/wiki/Eigenwertproblem) der Hesse-Matrix untersucht, die im Abschnitt [Lineare Algebra](#Lineare-Algebra) betrachtet werden.
+
+Eigenwerte der Hesse-Matrix
+=====
+
+
+Für eine reelle Funktion von $k>2$ unabhängigen reellen Variablen ist ein Nachweis lokaler Extrema vermöge der Determinante der Hesse-Matrix nicht möglich. Stattdessen werden die [Eigenwerte](https://de.wikipedia.org/wiki/Eigenwertproblem) der Hesse-Matrix untersucht.
+
+>**Satz 3.** Bezeichnet $x^\star=(x^\star_1,x^\star_2,...,x^\star_n)$ eine stationäre Stelle der Funktion $$
+  f:D\to\mathbb{R}\quad\text{mit}\quad f:(x_1,x_2,...,x_n)\mapsto y=f(x_1,x_2,...,x_n)
+$$ und $x^\star\in D_f\subseteq\mathbb{R}$, so existiert an $x^\star$
+>
+>1. ein lokales Minimum $y_{min}=f(x^\star)$, falls ~~alle~~ Eigenwerte von $H_f(x^\star)$ größer 'Null' sind.
+>2. ein lokales Maximum $y_{max}=f(x^\star)$, falls ~~alle~~ Eigenwerte von $H_f(x^\star)$ kleiner 'Null' sind.
+>3. kein lokales Extremum, falls $H_f(x^\star)$ positive ~~und~~ negative Eigenwerte besitzt.
+>
+> Falls die Hesse-Matrix $H_f(x^\star)$ den Eigenwert 'Null' besitzt, so versagt dieses Kriterium und die Existenz eines lokalen Extremums an der Stelle $x^\star$ muss mit einer anderen Methode untersucht werden.
+>
+> (*ohne Beweis*)
+
+**Bemerkung 4.** Für den Fall $n=2$ wurde zuvor in diesem Abschnitt der Nachweis lokaler Extrema einer Funktion $$
+  f: D\subseteq\mathbb{R}^2\to\mathbb{R}
+$$ mit Hilfe der Determinante der Hesse-Matrix $$
+  H_f(x^\star)=\begin{pmatrix} f_{x_1x_1} & f_{x_1x_2} \\ f_{x_2x_1} & f_{x_2x_2} \end{pmatrix}(x^\star)
+$$ geführt. Hierbei sind äquivalent
+
+| Lokale Extrema | Determinante | Eigenwerte |
+| :--------- | :--------- | :--------- |
+| Minimum | $\det{H_f(x^\star)}>0\quad\wedge\quad f_{x_1x_1}(x^\star)>0$ | $\lambda_1>0\quad\wedge\quad\lambda_2>0$ |
+| Maximum | $\det{H_f(x^\star)}>0\quad\wedge\quad f_{x_1x_1}(x^\star)<0$ | $\lambda_1>0\quad\wedge\quad\lambda_2<0$ |
+| kein Extremum | $\det{H_f(x^\star)}<0$ | $\lambda_1\cdot\lambda_2<0$ (verschiedene Vorzeichen) |
+| keine Entscheidung mit Kriterium möglich | $\det{H_f(x^\star)}=0$ | $\lambda_1\cdot\lambda_2=0$ (ein Eigenwert 'Null') |
+
+was sich unter Benutzung der Formel $$
+  \det{H_f(x^\star)}=\lambda_1\cdot\lambda_2
+$$ aus Satz 1 und der Gleichung $$
+  \operatorname{tr}{H_f(x^\star)}=f_{x1x1}(x^\star)+f_{x_2x_2}(x^\star)=\lambda_1+\lambda_2
+$$ unmittelbar nachvollziehen lässt. Der Ausdruck $$
+    \operatorname{tr}{H_f(x^\star)}=f_{x1x1}(x^\star)+f_{x_2x_2}(x^\star)
+$$ wird Spur der Hesse-Matrix $H_f(x^\star)$ genannt, dessen Gleichheit zur Summe der Eigenwerte sich ergibt mittels Koeffizientenvergleich der Polynome $$
+  \det{(H_f(x^\star)-\lambda\cdot E)}=\det{H_f(x^\star)}-\lambda\cdot\operatorname{tr}{H_f(x^\star)}+\lambda^2
+$$ und $$
+  \det{(H_f(x^\star)-\lambda\cdot E)}=\prod_{j=1}^2{(\lambda_j-\lambda)}=
+  (\lambda_1\cdot\lambda_2)-\lambda\cdot(\lambda_1+\lambda_2)+\lambda^2
+$$
+
+Ab $n>2$ ist ein Nachweis mit Hilfe des Determinanten-Kriteriums ~~nicht~~ mehr möglich. Warum?
 
 
 Sicher gewusst?
