@@ -25,23 +25,33 @@ https://github.com/marco-hamann/Mathe2
 
 ## Integralrechnung
 
-Thema dieses Kapitels ist die Vertiefung der Integralrechnung für reelle Funktionen einer reellen Veränderlichen.
 
-![Integral](img/mat-bild-8.png "_Fig._ Zentrale Begriffe der Integralrechnung für reelle Funktionen einer reellen Variablen.")
+In diesem ersten Kapitel vertiefen Sie Ihre Kenntnisse in der Integration reeller Funktionen einer reellen Veränderlichen. Dazu zählen u. a.
 
-Schwerpunkte sind u. a. die numerische Integration sowie Anwendungen der Integralrechnung in der Berechnung von Flächen- und Volumeninhalten, von Kurvenlängen, von Massenschwerpunkten etc.
+* Integrationmethoden
+* numerische Integration sowie 
+* Anwendungen der Integralrechnung
 
-__Zentrale Fragen__ sind dabei die folgenden:
+Für einen Überblick über die Themen dieses Kapitels sehen Sie in der nachstehenden Graphik einige zentrale Begriffe. Schlagen Sie diese in diesem Abschnitt nach.
 
-* Zusammenhang zwischen Integrierbarkeit einer Funktion und Infimum bzw. Supremum der Ober- bzw. Untersummen aller Zerlegungen des Integrationsintervalls
-* Verfahren wie Trapezformel und Simpsonsche Formel zur numerischen Integration (d. i. der näherungsweisen Berechnung von bestimmten Integralen)
-* Anwendung bestimmter Integrale zur Berechnung von Flächeninhalten, Volumen von Rotationskörpern, Massenschwerpunkten und Kurvenlängen
+![Integral](img/wc_integration.png "_Fig._ Zentrale Begriffe der Integralrechnung für reelle Funktionen einer reellen Variablen.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 1000px; " -->
+
+
+Lernziele
+-----
+
+
+* Sie kennen verschiedene Methoden zur unbestimmten Integration und können diese anwenden.
+* Sie kennen den Zusammenhang zwischen Integrierbarkeit einer Funktion und dem Infimum bzw. Supremum der Ober- bzw. Untersummen aller Zerlegungen des Integrationsintervalls.
+* Sie leiten daraus Verfahren zur numerischen Integration ab wie die Trapezformel und die Simpsonsche Formel.
+* Sie können bestimmte Integrale bei der Berechnung von Flächeninhalten, Volumen von Rotationskörpern, Massenschwerpunkten und Kurvenlängen etc. anwenden.
 
 
 ### Integrationsmethoden
 
 Substitution der Veränderlichen
 =====
+
 
 >**Satz 1. ** Ist das unbestimmte Integral einer als stetig angenommenen Funktion $t\mapsto g(t)$ mit $t\in D\subseteq\mathbb{R}$ bekannt, d. h. $$
   \int{g(t)}\,\mathrm{d}t=G(t)+c
@@ -724,7 +734,7 @@ Hieraus lässt sich schließen, dass sich bei Halbierung der Länge der Teilinte
 
 ### Flächeninhalte
 
- Zwischen Funktionsgraph und $x$-Achse eingeschlossenen Fläche
+Zwischen Funktionsgraph und $x$-Achse eingeschlossenen Fläche
 ==============================================================
 
 Ziel dieses Abschnitts ist die Berechnung von Flächeninhalten , die vom Graph einer reellen Funktion $f$ einer reellen Variablen und Geraden der Form $x=a$ mit $a\in\mathbb{R}$ begrenzt werden. Die Funktionen werden über dem betrachteten Intervall stetig vorausgesetzt.
@@ -1052,16 +1062,33 @@ $$
 
 ## Differentialrechnung 2
 
-Ziel dieses Kapitels ist die Übertragung der Differentialrechnung auf reelle Funktionen mehrerer reeller Veränderlicher.
 
-![Integral](img/mat-bild-15.png "_Fig._ Zentrale Begriffe der Differentialrechnung für reelle Funktionen in mehreren reellen Variablen.")
+In diesem ersten Kapitel werden Grundbegriffe der Differentialrechnung auf reelle Funktionen mehrerer reeller Veränderlicher übertragen. Dazu zählen u. a. 
 
-Schwerpunkte sind u. a. die Übertragung von zentralen Begriffen wie Ableitung, Differential einer Funktion und lokale Extrema.
+* Darstellungsformen für Funktionen mehrerer reeller Veränderlicher, z. B. der Graph einer Funktion
+* die partielle Differenzierbarkeit / die Bildung der partiellen Ableitungen an einer Stelle des Definitionsbereiches
+* das vollständige/totale Differential einer Funktion an einer Stelle des Definitionsbereiches
+* lokale Minima bzw. Maxima einer Funktion
+* Methode der kleinsten Quadrate / Regression
+* lokale Extrema unter Nebenbedingungen
 
-Darüber hinaus ergeben sich spezifische Fragen im Zusammenhang reeller Funktionen mehrerer unabhängiger Variablen. Beispielsweise bei der Beschreibung von Extremwertaufgaben unter Nebenbedingungen. Diese werden systematisch im Kontext der Differentialrechnung behandelt.
+Für einen Überblick über die Themen dieses Kapitels sehen Sie in der nachstehenden Graphik einige zentrale Begriffe. Schlagen Sie diese in diesem Abschnitt nach.
+
+![Differentiation2](img/wc_differentiation2.png "_Fig._ Zentrale Begriffe der Differentialrechnung für reelle Funktionen in mehreren reellen Variablen.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 1000px; " -->
+
+
+Lernziele
+-----
+
+* Sie leiten Darstellungsformen reeller Funktionen mehrerer reeller Veränderlicher aus den entsprechenden Formen von Funktionen einer reellen Veränderlichen ab.
+* Sie kennen zentrale Begriffe wie partielle Differenzierbarkeit einer Funktion an einer Stelle des Definitionsbereiches und können die partiellen Ableitungen unter Nutzung der Regeln für das partielle Differenzieren bilden.
+* Sie berechnen das vollständige Differential einer Funktion an einer differenzierbaren Stelle und können hiervon die Gleichung der Tangentialhyperebene ableiten.
+* Sie untersuchen eine gegebene Funktion auf die Existenz lokaler Extrema und können die Art der lokalen Extrema nachweisen.
+* Sie können spezifische Fragen im Zusammenhang reeller Funktionen mehrerer unabhängiger Variablen unter Verwendung analytischer Verfahren darstellen und lösen. Beispielsweise bei der Beschreibung von Extremwertaufgaben unter Nebenbedingungen.
 
 
 ### Grundbegriffe
+
 
 Hängt eine Zielgröße funktional von mehreren unabhängigen Einflussgrößen ab, so spricht man von Funktionen mehrerer unabhängiger Veränderlicher. Im Folgenden werden reelle Funktionen $$
   f:D\to\mathbb{R},(x_1,x_2,\ldots,x_n)\mapsto y=f(x_1,x_2,...,x_n)
@@ -2131,7 +2158,7 @@ $$ wonach $f(0,0)$ kein lokales Extremum sein kann.
 ![Niveaulinien mit Sattelpunkt](img/mat-bild-22.png "_Fig._ Niveaulinienplan der Funktion $f$ in einem Gebiet des Definitionsbereichs. Dargestellt sind die Niveaulinien mit einer farblichen Kodierung wachsender Koten $z$ von Gelb nach Blau.")
 
 
-### Methode der kleinsten Quadrate
+### Kleinste Quadrate
 
 Eine wichtige Anwendung der Bestimmung lokaler Extrema einer Funktion ist die *Methode der kleinsten Quadrate*. Sie wird hier im Zusammenhang der Berechnung einer Regressionsfunktion zu gegebenen Messpunkten behandelt.
 
@@ -2989,16 +3016,32 @@ $$ f(x,y)=x+y=c\quad\leftrightarrow\quad y=-x+c $$
 
 ## Mehrfachintegrale
 
-Ziel dieses Kapitels ist die Übertragung der Integration von reellen Funktionen einer reellen Variablen auf Funktionen in mehreren reellen Variablen.
 
-![Integral](img/mat-bild-16.png "_Fig._ Zentrale Begriffe zu Mehrfachintegralen für reelle Funktionen in mehreren reellen Variablen.")
+In diesem ersten Kapitel wird die bestimmte Integration von reellen Funktionen einer reellen Variablen auf Funktionen in mehreren reellen Variablen übertragen. Dazu zählen u. a. 
 
-Schwerpunkte sind u. a. die Berechnung von Mehrfachintegralen unter Benutzung der gewöhnlichen Integration, die Verwendung verschiedener, geeigneter Koordinatensysteme sowie die Transformation von Integralen (Substitutionsregel).
+* die Grundbegriffe eines Mehrfachintegrals, eines ebenen bzw. räumlichen Integrationsgebietes, insbesondere eines Normalbereiches bezogen auf ein Koordinatensystem
+* die Berechnung von Mehrfachintegralen über Normalbereichen durch gewöhnliche Integration
+* ebene und räumliche Koordinatensysteme, Wechsel zwischen Koorinatensystemen
+* Doppel- bzw. Dreifachintegrale in kartesischen Koordinaten, - Polarkoordinaten bzw. Zylinderkoordinaten, Dreifachintegrale in sphärischen Koordinaten
+* Substitutionsregel für Mehrfachintegrale
 
-Ebenso sollen verschiedene Anwendungen von Mehrfachintegralen diskutiert werden.
+Für einen Überblick über die Themen dieses Kapitels sehen Sie in der nachstehenden Graphik einige zentrale Begriffe. Schlagen Sie diese in diesem Abschnitt nach.
+
+![Mehrfachintegrale](img/wc_mehrfachintegral.png "_Fig._ Zentrale Begriffe zu Mehrfachintegralen für reelle Funktionen in mehreren reellen Variablen.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 1000px; " -->
+
+
+Lernziele
+-----
+
+* Sie kennen den Begriff eines Normalbereiches bezogen auf ein zugrundeliegendes ebenes / räumliches Koordinatensystem. Sie zerlegen Integrationsbereiche in Normalbereiche.
+* Sie berechnen Mehrfachintegrale über Normalbereichen unter Benutzung der gewöhnlichen Integration.
+* Sie verwenden bei der Berechnung von Mehrfachintegralen geeignete Koordinatensysteme, in denen sich der Integrationsbereich als Normalbereich darstellen lässt.  
+* Sie transformieren ein gegebenes Integrale bezogen auf ein geeignetes Koordinatensystem unter Verwendung der Substitutionsregel. Sie berechnen hierzu die Determinante der Funktionalmatrix.
+* Sie diskutieren verschiedene Anwendungen von Mehrfachintegralen in geometrischen, technischen und physikalischen Kontexten.
 
 
 ### Begriffsbildung
+
 
 Gegeben ist eine reelle Funktion $f$ in $n$ reellen unabhängigen Veränderlichen
 $$
@@ -4425,7 +4468,7 @@ $$ der sich als verrichtete *Hubarbeit* interpretieren lässt, währenddessen si
 $$ berechnet und als *Spannarbeit* interpretieren lässt.
 
 
-## Wahrscheinlichkeitsrechnung
+## Stochastik
 
 
 ### Zufällige Ereignisse
