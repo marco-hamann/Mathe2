@@ -11,6 +11,8 @@ comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik un
 
 import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.md
 
+import: https://raw.githubusercontent.com/LiaScript/CodeRunner/master/README.md
+
 -->
 
 
@@ -1463,8 +1465,8 @@ Sicher gewusst
 Sie können gern Ihr Wissen bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Entscheiden Sie: Die partielle Ableitung einer Funktion $$
-  f:(x_1,..,x_k)\mapsto y=f(x_1,..x_k)\,,\quad D\subseteq\mathbb{R}^k
-$$ nach der Variablen $x_j$, $j\in\{1,...,k\}$, an der Stelle $x^\star=(x_1^\star,...,x_k^\star)$ ist die gewöhnliche Ableitung der partiellen Funktion $$
+  f:(x_1,...,x_k)\mapsto y=f(x_1,...,x_k)\,,\quad D\subseteq\mathbb{R}^k
+$$ nach der Variablen $x_j$, $j\in\{1,...,k\}$, an der Stelle $x^\star=(x_1^\star,...,x_k^\star)$ ist die gewöhnliche Ableitung der reellen Funktion $$
   x_j\mapsto y=f(x_1^\star,...,x_{j-1}^\star,x_j,x_{j+1}^\star,...,x_k^\star)\,,\quad D_j\subseteq\mathbb{R}
 $$ an der Stelle $x_j^\star$.
 
@@ -4816,7 +4818,7 @@ $$ Gilt speziell $B=\bar{A}$, so folgt aus dieser Gleichung mit $A\cap\bar{A}=\e
 
 Die Begriffe 'absolute' und 'relative Häufigkeit' werden im nachstehenden Video noch einmal kurz angesprochen.
 
-!?[Häufigkeit](https://www.youtube.com/watch?v=kIZ9-mGbuN8&list=RDCMUCPtUzxTfdaxAmr4ie9bXZVA&index=2 "Daniel Jung, absolute und relative Häufigkeit, Statistik")
+!?[Häufigkeit](https://www.youtube.com/watch?v=kIZ9-mGbuN8 "Daniel Jung, absolute und relative Häufigkeit, Statistik")
 
 Die Eigenschaften für relative Häufigkeiten motivieren entsprechende Eigenschaften für Wahrscheinlichkeiten.
 
@@ -4846,7 +4848,7 @@ $$ d. h. die Wahrscheinlichkeit von $A$ wird gebildet als Quotient "*Anzahl alle
 
 Im nachstehenden Video wird ein einfaches Beispiel einer Laplaceschen Wahrscheinlichkeit erläutert.
 
-!?[Laplace](https://www.youtube.com/watch?v=-mh5nBMyZPk&list=RDCMUCPtUzxTfdaxAmr4ie9bXZVA&index=3 "Daniel Jung, Stochastik Grundlagen, Wahrscheinlichkeit.")
+!?[Laplace](https://www.youtube.com/watch?v=-mh5nBMyZPk "Daniel Jung, Stochastik Grundlagen, Wahrscheinlichkeit.")
 
 Für große Zahlen $k$ beziehungsweise $n$ erweist es sich oft günstig, Hilfsmittel aus der Kombinatorik zu nutzen. Im folgenden wird die Anzahl aller Möglichkeiten zu folgender Aufgabe berechnet:
 
@@ -4873,7 +4875,7 @@ $$ Der Ausdruck auf der rechten Seite wird [Binomialkoeffizient](https://de.wiki
   (\underbrace{0,...,0}_{a_1},1,\underbrace{0,...,0}_{a_2},1,\quad...\quad ,1,\underbrace{0,...,0}_{a_n})
 $$ mit $n-1$ Einsen als Trenner und $k$ Nullen für das Tupel $(a_1,a_2,...,a_n)$ der jeweiligen Anzahl. Für die Wahl von $n-1$ Positionen aus $n-1+k$ möglichen Positionen ~~ohne~~ Wiederholung und ~~ohne~~ Berücksichtigung der Reihenfolge ergeben sich $$
   \binom{n-1+k}{n-1}=\frac{(n-1+k)!}{(n-1+k-(n-1))!\cdot(n-1)!}=\frac{(n-1+k)!}{k!\cdot(n-1)!}=\binom{n-1+k}{k}
-$$ viele Möglichkeiten. $\square}$
+$$ viele Möglichkeiten. $\square$
 
 **Bemerkung 3.** Aus der Definition des Binomialkoeffizienten ergeben sich für beliebige Zahlen $n\in\mathbb{N}$ und $k\in\mathbb{N}$ mit $k\leq n$ unter anderem:
 
@@ -4957,9 +4959,7 @@ $$ Daneben ist nach Definition $P(\Omega)=1$ (Normierung) und $P(\emptyset)=0$ n
 2. Sind $\left\{P(A),P(\bar{A})\right\}$ gegeben, so gilt offensichtlich $P(A)+P(\bar{A})=P(\Omega)=1$. Hieraus lässt sich $$
   P(B)+P(C)=P(\bar{A})
 $$ für die gesuchten Wahrscheinlichkeiten $P(B)$ und $P(C)$ ableiten, jedoch sind diese einzelnen nicht bestimmt.
-3. Aus den gegebenen Wahrscheinlichkeiten $\left\{P(A\cup B),P(A)\right\}$ folgt unmittelbar $$
-  P(B)=P(A\cup B)-P(A)
-$$ Damit wie in Teilaufgabe 1 weiter.
+3. Aus den gegebenen Wahrscheinlichkeiten $\left\{P(A\cup B),P(A)\right\}$ folgt unmittelbar $$ P(B)=P(A\cup B)-P(A) $$ Damit wie in Teilaufgabe 1 weiter.
 
 ****************************************
 
@@ -4969,4 +4969,173 @@ $$ Damit wie in Teilaufgabe 1 weiter.
 ### Bedingte Wahrscheinlichkeit
 
 
-..
+In diesem Abschnitt wird der Begriff 'bedingte Wahrscheinlichkeit' eingeführt. Dieser lässt sich anhand eines mehrstufigen Zufallsexperiments erläutern, in dem Abhängigkeiten von zufälligen Ereignissen betrachtet werden. Neben Eigenschaften bedingter Wahrscheinlichkeiten werden zufällige Ereignisse betrachtet, die 'unabhängig' von anderen zufälligen Ereignissen sind.
+
+Unter einer Interpretation der Wahrscheinlichkeit $P(A)$ eines zufälligen Ereignisses $A$ als relative Häufigkeit, mit der $A$ unter den gleichen äußeren Bedingungen einzutreten pflegt, wird zunächst der Begriff der bedingten Wahrscheinlichkeit motiviert. Hierfür seien zwei beliebige zufällige Ereignisse $A$ und $B$ eines Zufallsversuchs vorausgesetzt. Wir betrachten das Eintreten von $A$ unter der Bedingung, dass das Ereignis $B$ eingetreten ist.
+
+![bedingte Wahrscheinlichkeit](img/mat-bild-27.png  "Graphische Darstellung zweier zufälliger Ereignisse $A$ (links, Schraffur mit Winkel $45^\circ$) und $B$ (rechts, Schraffur mit Winkel $135^\circ$) eines Zufallversuchs als Mengen: Das Produktereignis $A\cap B$ (lies: $A$ und $B$) besitzt beide Schraffuren.")
+
+Treten nun bei insgesamt $n\in\mathbb{N}$ Wiederholungen ($n>0$) das Ereignis $B\setminus A$ (lies: $B$ aber nicht $A$) $k_1$-mal und das Ereignis $A\cap B$ $k_2$-mal auf, so folgen die nachstehenden Aussagen:
+
+1. Für die relativen Häufigkeiten beider zufälliger Ereignisse ergeben sich $$ r_n(B\setminus A)=\frac{k_1}{n}\quad\text{bzw.}\quad r_n(A\cap B)=\frac{k_2}{n} $$
+2. Die beiden zufälligen Ereignisse $B\setminus A$ und $A\cap B$ sind unvereinbar, denn mit Proposition 1 aus Abschnitt [Zufällige Ereignisse](#Zufällige-Ereignisse) berechnet sich $$ (B\setminus A)\cap(A\cap B)=(B\cap\bar{A})\cap(A\cap B)=(A\cap\bar{A})\cap B=\emptyset\cap B=\emptyset $$ worin $\bar{A}$ das Komplement von $A$ (bezüglich $\Omega$) bezeichnet. Nach Satz 1 des vorigen Abschnitts folgt in der Interpretation der Wahrscheinlichkeit für die relative Häufigkeit $$ r_n(B)= r_n(B\setminus A)+r_n(A\cap B)=\frac{k_1+k_2}{n} $$
+3. Wird für die relative Häufigkeit des Eintretens von $A$ unter der Bedingung, dass $B$ eingetreten ist, das Symbol $r_n(A|B)$ verwendet, so berechnet sich $$ r_n(A|B)=\frac{k_2}{k_1+k_2}=\frac{k_2}{n}\cdot\frac{n}{k_1+k_2}=\frac{r_n(A\cap B)}{r_n(B)} $$ Der Ausdruck $$r_n(A|B)$$ wird **bedingte relative Häufigkeit** des Eintretens von $A$ unter der Bedingung, dass $B$ eingetreten ist, genannt.
+
+>**Definition 1.** Für zwei zufällige Ereignisse $A\in\mathcal{F}$ und $B\in\mathcal{F}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$ mit $P(B)>0$ heißt $$ P(A|B)=\frac{P(A\cap B)}{P(B)} $$ [bedingte Wahrscheinlichkeit](https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit) für das Eintreten von $A$ unter der Bedingung, dass $B$ eingetreten ist. Ist $P(B)=0$, so setzt man für die bedingte Wahrscheinlichkeit $P(A|B)=0$.
+
+**Bemerkung 1.** Analog wird unter der Voraussetzung $P(A)>0$ $$ P(B|A)=\frac{P(B\cap A)}{P(A)}=\frac{P(A\cap B)}{P(A)} $$ bedingte Wahrscheinlichkeit für das Eintreten von $B$ unter der Bedingung, dass $A$ eingetreten genannt. Hieraus ist zu erkennen, dass gilt $$ P(A|B)=P(B|A)\quad\leftrightarrow\quad P(A)=P(B) $$ d. h. im Allgemeinen stimmen $P(A|B)$ und $P(B|A)$ nicht überein.
+
+Aus der vorstehenden Definition der bedingte Wahrscheinlichkeit lassen sich die nachstehenden Eigenschaften ableiten.
+
+>**Satz 1.**  Für beliebige zufällige Ereignisse $A\in\mathcal{F}$ und $B\in\mathcal{F}$ mit $P(B)>0$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$ gelten die nachstehenden Eigenschaften.[^1]
+>
+>1. $0\leq P(A|B)\leq 1$
+>2. Speziell gelten $P(\Omega|B)=P(\Omega)=1$ sowie $P(\emptyset|B)=P(\emptyset)=0$.
+>3. Für zufällige Ereignisse $\{A_1,A_2,...,A_n\}\subset\mathcal{F}$ mit $A_i\cap A_j=\emptyset$ für alle $i,j\in\{1,2,...,n\}$ und $i\not=j$[^2] gilt $$ P\left(\left.\left(\bigcup_{i=1}^n{A_i}\right)\right|B\right)=\sum_{i=1}^n{P\left(A_i|B\right)} $$
+>4. Aus Eigenschaft 3 folgt speziell für $\{A,\bar{A}\}$ $$ 1=P(\Omega|B)=P\left(\left(A\cup\bar{A}\right)|B\right)=P(A|B)+P\left(\bar{A}|B\right) $$
+>5. Für $B\subseteq A$ gilt $$ P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{P(B)}{P(B)}=1 $$
+
+Die Eigenschaft 2 kann als Sonderfall für $A=\Omega$ beziehungsweise $A=\emptyset$ angesehen werden. Weitere Sonderfälle ergeben sich 
+
+1. Für $A\cap B=\emptyset$ ergibt sich $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(\emptyset)}{P(B)}=\frac{0}{P(B)}=0 $$ Wenn $B$ eingetreten ist, kann daher $A$ nicht eintreten.
+2. Für $A\cap B=A$ berechnet sich $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)}{P(B)} $$ Hier genügt die Kenntnis der Wahrscheinlichkeiten $P(A)$ und $P(B)$.
+3. Für $A\cap B$ ergibt sich $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(B)}{P(B)}=1 $$ Wenn $B$ eingetreten ist, muss daher auch $A$ eintreten.
+
+>**Definition 2.** Gilt für zwei zufällige Ereignisse $A\in\mathcal{F}$ und $B\in\mathcal{F}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$ die Relation $$ P(A)=P(A|B) $$ dann heißt $A$ [(stochastisch) unabhängig](https://de.wikipedia.org/wiki/Stochastisch_unabh%C3%A4ngige_Ereignisse) vom zufälligen Ereignis $B$.
+
+**Bemerkung 2.** Wird in vorstehender Definition zusätzlich $P(B)>0$ vorausgesetzt, so ist $$ P(A)=P(A|B)=\frac{P(A\cap B)}{P(B)}\quad\leftrightarrow\quad P(A\cap B)=P(A)\cdot P(B) $$ Unter der Annahme $P(A)>0$ und $P(B)>0$ folgt hieraus unmittelbar, dass die stochastische Unabhängigkeit zweier zufälliger Ereignisse wechselseitig ist: Mit der Unabhängigkeit $A$ von $B$ ist dann auch $B$ unabhängig von $A$.
+
+Wird zusätzlich angenommen, dass $P(A)<1$ und $P(B)<1$ gelten[^3], sind mit $(A,B)$ sowohl auch die zufälligen Ereignisse $\left(\bar{A},\bar{B}\right)$ als auch $\left(\bar{A},B\right)$ sowie $\left(A,\bar{B}\right)$ stochastisch unabhängig, da z. B. gilt $$ P(A)=P(A|B) \quad\leftrightarrow\quad 1-P(A)=1-P(A|B) \quad\leftrightarrow\quad P\left(\bar{A}\right)=P\left(\left.\bar{A}\right|B\right) $$ unter Anwendung von Regel 4 aus Satz 1.
+
+<!-- style="background-color: lightgray;"-->
+> Die Unabhängigkeit eines zufälligen Ereignisses $A$ von einem zufälligen Ereignis $B$ besagt, dass das Eintreten von $B$ nicht das Eintreten von $A$ beeinflusst bzw. genauer, dass die Wahrscheinlichkeit für das Eintreten von $A$ sich nicht ändert, wenn $B$ eintritt. Die stochstische Unabhängigkeit ist somit eine Aussage über Ereignisse ~~und~~ deren Wahrscheinlichkeiten. 
+
+Ein einfaches Beispiel für stochastische Unabhängigkeit im Maschinenbau soll dies verdeutlichen:
+
+**Beispiel 1.** In einem mechanischen System werden zwei Bauteile verwendet. Das erste ist ein wichtiger Bestandteil eines Getriebes. Das zweite Bauteil ist Teil einer anderen mechanischen Komponente, die unabhängig vom Getriebe arbeitet. Wird angenommen, dass die Wahrscheinlichkeit, dass das erste Bauteil ausfällt (Ereignis $A_1$), bei $P(A_1)=0.05$ liegt und die Wahrscheinlichkeit, dass das zweite Bauteil ausfällt (Ereignis $A_2$), bei $P(A_2)=0.03$, so berechnet sich die Wahrscheinlichkeit, dass beide Bauteile (gleichzeitig) ausfallen, als Produkt der Einzelwahrscheinlichkeiten, d. h. $$ P(A_1\cap A_2)=P(A_1)\cdot P(A_2)=0.05\cdot0.03 = 0.0015 $$ Beide zufällige Ereignisse - $A_1$ und $A_2$ - sind hier stochastisch unabhängig voneinander.
+
+**Bemerkung 3.** Es ist nicht unwichtig zu betonen, dass das Konzept der stochastischen Unabhängigkeit von zufälligen Ereignissen nicht mit kausaler Unabhängigkeit[^4] gleichzusetzen ist: Während die stochastische Unabhängigkeit wechselseitig ist, ist dies bei kausaler Unabhängigkeit nicht so. Vergleichen Sie hierzu auch [Unabhängigkeit und Kausalität](https://de.wikipedia.org/wiki/Stochastisch_unabh%C3%A4ngige_Ereignisse#Unabh%C3%A4ngigkeit_und_Kausalit%C3%A4t).
+
+Außerdem ist zu erwähnen, dass stochstische Unabhängigkeit zufälliger Ereignisse von der Unvereinbarkeit zufälliger Ereignisse zu unterscheiden ist. Denn sind zwei zufällige Ereignissse $A$ und $B$ unvereinbar, d. h. gilt $A\cap B=\emptyset$ und wird $P(A)>0$ sowie $P(B)>0$ angenommen, so folgt unmittelbar $$ 0=P(\emptyset)=P(A\cap B)\not=P(A)\cdot P(B) $$ wonach die zufälligen Ereignisse $A$ und $B$ stochastisch abhängig (also nicht stochastisch unabhängig) sind. Vergleiche hierzu Definition 2 im Abschnitt [Zufällige Ereignisse](#Zufällige-Ereignisse).
+
+Bisher wurde die stochastische Unabhängigkeit für zwei zufällige Ereignisse definiert. Nun soll noch die Unabhängigkeit von mehreren zufälligen Ereignissen ergänzt werden.
+
+>**Definition 3.** Eine Menge zufälliger Ereignisse $(A_j)_{j\in J}\subset\mathcal{F}$ mit nichtleerer Indexmenge $J\subseteq\mathbb{N}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$ heißt **unabhängig**, falls $$ P\left(\bigcap{\left(A_{j_k}\right)_{j_k\in I}}\right)=\prod_{j_k\in I}{P(A_{j_k})} $$ für jede nichtleere Teilmenge $I\subset J$ mit $|I|<\infty$ gilt.
+
+
+Multiplikationssatz
+===
+
+
+Durch die Umformung der definierenden Formel für die bedingte Wahrscheinlichkeit erhält man unmittelbar $$ P(A\cap B)=P(A|B)\cdot P(B) $$ Wird das Eintreten der zufälligen Ereignisse $A$ ("bedingt") und $B$ ("bedingend") in einem zweistufigen Zufallsexperiment dargestellt, so lässt sich in einem [Baumdiagramm](https://de.wikipedia.org/wiki/Baumdiagramm) die vorstehende Formel als Produkt der Wahrscheinlichkeiten entlang des Pfades zum Ereignis $A\cap B$ deuten. Dies motiviert den nachstehenden Satz.
+
+![Pfadregel](img/Probability_tree.svg "_Fig._ Zweistufiges Zufallsexperiment mit den zufälligen Ereignissen $B$ bzw. $B^c$ (Komplement von $B$) sowie $A$ bzw. $A^c$ (Komplement von $A$). Abbildung von <a href="//commons.wikimedia.org/wiki/User:Erzbischof" title="User:Erzbischof">Erzbischof</a> - <span class="int-own-work" lang="de">Eigenes Werk</span>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=26349319">Link</a> ")
+
+>**Satz 2.** ([Multiplikationssatz](https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Multiplikationssatz)) Gegeben sind die zufälligen Ereignisse $A_1$, $A_2$, ..., $A_n$ mit $n\in\mathbb{N}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$. Für das Produktereignis aller $A_k$ erhält man die Wahrscheinlichkeit $$ 
+\begin{split}
+P\left( \bigcap_{k = 1}^n A_k \right)=P\left(A_1\cap A_2\cap\dotsb\cap A_n\right)
+& = P\left( A_1 \right)\cdot \prod_{k=2}^n P \left(A_k \left| \bigcap_{j = 1}^{k-1} A_j \right. \right) \\
+& = P\left(A_1\right)\cdot\frac{P\left(A_1\cap A_2\right)}{P\left(A_1\right)}\cdot\frac{P\left(A_1\cap A_2\cap A_3\right)}{P\left(A_1\cap A_2\right)}\cdot\;\;\ldots\;\;\cdot\frac{P\left(A_1\cap\dotsb\cap A_n\right)}{P\left(A_1\cap\dotsb\cap A_{n-1}\right)} \\
+& = P(A_1)\cdot P\left(A_2\mid A_1\right)\cdot P\left(A_3\mid A_1\cap A_2\right) \cdot\;\;\ldots\;\;\cdot P\left(A_n\mid A_1\cap\dotsb\cap A_{n-1}\right)
+\end{split} $$ Dabei ist vorausgesetzt, dass alle bedingenden Ereignisse positive Wahrscheinlichkeit besitzen.
+
+Die Formel des Multiplikationssatzes stellt sich für unterschiedlich viele zufällige Ereignisse wie in der nachstehenden Tabelle dar. Eine Interpretation als Produkt der Wahrscheinlichkeiten entlang des Pfades zum Ereignis $A_1\cap A_2\cap ...\cap A_n$ ist analog zu $n=2$ möglich.
+
+| $$n$$ | $$P\left(A_1\cap A_2\cap ...\cap A_n\right)$$ |
+| :---: | :--------- |
+| $2$ | $P\left(A_1\cap A_2\right)=P(A_1)\cdot P\left(A_2\mid A_1\right)$ |
+| $3$ | $P\left(A_1\cap A_2\cap A_3\right)=P(A_1)\cdot P\left(A_2\mid A_1\right)\cdot P\left(A_3\mid A_1\cap A_2\right)$ |
+| $4$ | $P\left(A_1\cap A_2\cap A_3\cap A_4\right)=P(A_1)\cdot P\left(A_2\mid A_1\right)\cdot P\left(A_3\mid A_1\cap A_2\right)\cdot P\left(A_4\mid A_1\cap A_2\cap A_3\right)$ |
+
+![Multiplikationssatz](img/mat-bild-28.png "_Fig._ Multiplikationssatz für die Wahrscheinlichkeit des Produktereignis $A_1\cap A_2\cap A_3\cap ...\cap A_{n-1}\cap A_n$ als Produkt der Pfadwahrscheinlichkeiten.")
+
+
+Fallunterscheidungsformel
+===
+
+
+>**Satz 3.** Gegeben ist ein vollständiges System[^5] von abzählbar vielen zufälligen Ereignissen $A_j\in\mathcal{F}$ mit $j\in J\subseteq\mathbb{N}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$, für das $P(A_j)>0$ für alle $j$ angenommen wird. Die Wahrscheinlichkeit $P(B)$ eines beliebigen zufälligen Ereignisses $B\in\mathcal{F}$ berechnet sich gemäß der Formel $$ P(B)=\sum_{j\in J}{\left(P(B\mid A_j)\cdot P(A_j)\right)} $$ unter Benutzung der bedingten Wahrscheinlichkeiten $P(B\mid A_j)$ und der bedingenden Wahrscheinlichkeiten $P(A_j)$. Mit Blick auf die Berechnung wird $P(B)$ auch **totale Wahrscheinlichkeit** genannt.
+>
+> Speziell für die komplementären zufälligen Ereignisse $(A,\bar{A})$ mit $P(A)\in(0,1)$ ergibt sich $$ P(B)=P(B\mid A)\cdot P(A)+P(B\mid \bar{A})\cdot P(\bar{A}) $$
+
+**Beweis.** Der Nachweis der Formel lässt sich unmittelbar durch Anwendung der Definition der Formel für die bedingte Wahrscheinlichkeit und der $\sigma$-Additivität von $P$ erbringen. Vergleiche hierzu Definition 2 im Abschnitt [Wahrscheinlichkeit](#Wahrscheinlichkeit).
+
+
+Formel von Bayes
+===
+
+
+>**Satz 4.** Gegeben ist ein vollständiges System[^5] von abzählbar vielen zufälligen Ereignissen $A_j\in\mathcal{F}$ mit $j\in J\subseteq\mathbb{N}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$. Für ein betrachtetes zufälliges Ereignis $B\in\mathcal{F}$ mit $P(B)>0$ gilt die Formel $$ P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{P(B)}=\frac{P(A_j)\cdot P(B\mid A_j)}{\sum_{j\in J}{\left(P(B\mid A_j)\cdot P(A_j)\right)}} $$ für alle $j\in J$.
+
+**Beweis.** Der Nachweis der Formel lässt sich unmittelbar durch Anwendung der Fallunterscheidungsformel (Satz 3) und der Definition der bedingten Wahrscheinlichkeit erbringen. Denn $$ P(A_j\mid B)=P(B\mid A_j)\quad\leftrightarrow\quad P(B)\cdot P(A_j\mid B)=P(A_j)\cdot P(B\mid A_j)\quad\leftrightarrow\quad P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{P(B)} $$ falls $P(B)>0$ angenommen werden kann.
+
+$\square$
+
+**Bemerkung 4.** Mit der Formel von Bayes im vorstehenden Satz lassen sich die Wahrscheinlichkeiten $P(B\mid A_j)$ und $P(A_j\mid B)$ miteinander in Beziehung setzen. Wird $B$ als Beobachtung eines Ereignisses interpretiert, dass mit den Ereignissen $A_j$ in statistischer Abhängigkeit steht, so lässt sich aus $B$ der Wissensstand über die (nicht notwendig bekannten) zufälligen Ereignisse $A_j$ ableiten. Die Wahrscheinlichkeiten $P(B\mid A_j)$ werden in dieser Interpretation auch [a-priori-Wahrscheinlichkeiten](https://de.wikipedia.org/wiki/A-priori-Wahrscheinlichkeit) bzw. $P(A_j\mid B)$ [a-posteriori-Wahrscheinlichkeiten](https://de.wikipedia.org/wiki/A-posteriori-Wahrscheinlichkeit) genannt. Diese dürfen im Wesen nicht mit Ursache und Wirkung verwechselt werden. Siehe Bemerkung 3 und Frage 1 im Reflexionsteil.
+
+**Beispiel 2.** Ein Erzeugnis wird auf vier Maschinen hergestellt. Es seien:
+
+| Maschine   | $1$ | $2$ | $3$ | $4$ |
+| :--------- | :--------- | :--------- | :--------- | :--------- |
+| Anteil (in $\%$)  | $40$ | $30$ | $20$ | $10$ |
+| Ausschuss (in $\%$)  | $1$ | $2$ | $4$ | $5$ |
+
+Für die folgenden Fragen werden die beiden nachstehenden zufälligen Ereignisse betrachtet.
+
+* $A_j$ ... Das Erzeugnis wurde auf Maschine $j$ gefertigt.
+* $B$ ... Das Erzeugnis entspricht nicht den Qualitätsanforderungen.
+
+1. Zunächst soll die Wahrscheinlichkeit dafür berechnet werden, dass ein Erzeugnis ~~nicht~~ den Qualitätsanforderungen genügt, in diesem Sinn also "Ausschuss" ist. Hierfür werden aus den statistischen Daten der vorstehenden Tabelle die entsprechenden Wahrscheinlichkeiten abgeleitet $$ P(A_1)=0.4\,,\quad P(A_2)=0.3\,,\quad P(A_3)=0.2\quad\text{und}\quad P(A_4)=0.1 $$ für den Anteil eines (z. B. im Rahmen einer Stichprobe) entnommenen Erzeugnisses an der Produktion sowie $$ P(B\mid A_1)=0.01\,,\quad P(B\mid A_2)=0.02\,,\quad P(B\mid A_3)=0.04\quad\text{und}\quad P(B\mid A_4)=0.05 $$ für den Ausschuss unter der Bezugnahme auf die jeweilige Maschine (bedingte Wahrscheinlichkeit!). Zur Berechnung der Ausschusswahrscheinlichkeit $P(B)$ wird die Fallunterscheidungsformel verwendet, also $$ P(B)=P(B\mid A_1)\cdot P(A_1)+P(B\mid A_2)\cdot P(A_2)+P(B\mid A_3)\cdot P(A_3)+P(B\mid A_4)\cdot P(A_4)=0.4\cdot0.01+0.3\cdot0.02+0.2\cdot0.04+0.1\cdot0.05=0.023 $$ Dies entspricht einer totalen (prozentualen) Wahrscheinlichkeit von $2.3$ Prozent, dass ein zufällig entnommenes Erzeugnis nicht den Qualitätsanforderungen entspricht (ohne Bezugnahme auf eine Maschine).
+2. Nun sind die Wahrscheinlichkeiten zu berechnen, dass entnommenes Erzeugnis, das nicht den Qualitätsanforderungen entspricht, auf der $j$-ten Maschine ($j\in\{1,2,3,4\}$) gefertigt wurde. Hierfür wird die Formel von Bayes verwendet, die den Zusammenhang zwischen den a-priori und den a-posteriori Wahrscheinlichkeiten herstellt. Unter Verwendung des Ergebnisses in der ersten Teilaufgabe ergibt sich $$ P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{P(B)}\,,\quad j\in\{1,2,3,4\} $$ und somit $$ \begin{split} P(A_1\mid B) & =\frac{P(A_1)\cdot P(B\mid A_1)}{P(B)}=\frac{0.4\cdot 0.01}{0.023}\approx 0.174\,,\quad P(A_2\mid B)=\frac{P(A_2)\cdot P(B\mid A_2)}{P(B)}=\frac{0.3\cdot 0.02}{0.023}\approx 0.261\,, \\ P(A_3\mid B) & =\frac{P(A_3)\cdot P(B\mid A_3)}{P(B)}=\frac{0.2\cdot 0.04}{0.023}\approx 0.348\,,\quad P(A_4\mid B)=\frac{P(A_4)\cdot P(B\mid A_4)}{P(B)}=\frac{0.1\cdot 0.05}{0.023}\approx 0.217 \end{split} $$ Diese lassen sich deuten als Wahrscheinlichkeiten, "dass ein Erzeugnis, welches nicht den Qualitätsanforderungen entspricht, auf Maschine $j$ gefertigt wurde".
+
+
+Sicher gewusst
+===
+
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
+**Frage 1.** Aus einer [Urne](https://de.wikipedia.org/wiki/Urnenmodell) mit zwei Kugeln - die eine mit der Aufschrift „$0$", die andere mit der „$1$“ - werde dreimal nacheinander eine Kugel gezogen, die Aufschrift notiert und die Kugel anschließend wieder zurückgelegt. Die nachfolgenden zufälligen Ereignisse werden betrachtet:
+
+* $A$: Der erste Wurf zeigt eine „$0$“
+* $B$: Die Summe der Aufschriften ist $2$
+
+Entscheiden Sie, ob die zufälligen Ereignisse stochastisch beziehungsweise kausal unabhängig sind.
+
+[[Ja] [Nein]]
+[( ) (X)]  stochasische Unabhängigkeit
+[(X) ( )]  kausale Unabhängigkeit
+[[?]] Berechnen Sie die Wahrscheinlichkeiten der Ereignisse $A$, $B$ und $A\cap B$. Prüfen Sie außerdem auf kausale Unabhängigkeit, vergleiche Bemerkung 3.
+****************************************
+
+Die möglichen Wurfresultate sind - angegeben als geordnete Tripel der Aufschrift - $000$, $001$, $010$, $011$, $100$, $101$, $110$ sowie $111$. Es ist weder so, dass man von $A$ auf $B$ schließen kann noch von $B$ auf $A$. Die beiden Ereignisse sind mithin kausal unabhängig. 
+
+Andererseits sind sie wegen $$ P(A)=\frac{1}{2}\,,\quad P(B)=\frac{3}{8}\quad\text{und}\quad P(A\cap B)=\frac{1}{8} $$ nicht stochastisch unabhängig.
+
+****************************************
+
+**Frage 2.** Für die zufälligen Ereignisse $A$ und $B$ gelten die Relation $A\subset B$ sowie die Wahrscheinlichkeiten $P(A)=0.6$ und $P(B)=0.8$. Berechnen Sie die Wahrscheinlichkeiten der nachstehenden Ereignisse.
+
+[[$P(A\cap B)$] [$P(A\mid B)$] [$P(B\mid A)$] [$P(\bar{A}\mid B)$] [$P(B\mid \bar{A})$]]
+[( ) ( ) (X) ( ) ( )] $1$ 
+[(X) ( ) ( ) ( ) ( )] $0.6$
+[( ) ( ) ( ) ( ) ( )] $$ 
+[( ) (X) ( ) ( ) (X)] $0.5$ 
+[( ) ( ) ( ) (X) ( )] $0.25$ 
+[[?]] Nutzen Sie zur Berechnung die Definition der bedingten Wahrscheinlichkeit, deren Eigenschaften sowie die Formel von Bayes.
+****************************************
+
+1. Wegen $A\subset B$ ist $A\cap B=A$ berechnet sich $P(A\cap B)=P(A)=0.6$.
+2. Mit der Definition der bedingten Wahrscheinlichkeit berechnet sich $P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)}{P(B)}=\frac{0.6}{0.8}=0.75$.
+3. Mit Hilfe der Formel von Bayes berechnet sich $$ P(B\mid A)=\frac{P(A\mid B)\cdot P(B)}{P(A)}\overset{(b)}{=}\frac{0.75\cdot 0.8}{0.6}=1 $$ oder - alternativ - unter Benutzung der Definition der bedingten Wahrscheinlichkeit $$ P(B\mid A)=\frac{P(B\cap A)}{P(A)}=\frac{P(A)}{P(A)}=1 $$
+4. Unter Nutzung der Eigenschaft 4 aus Satz 1 berechnet sich $P(\bar A\mid B)=1-P(A\mid B)=1-0.75=0.25$.
+5. Mit Hilfe der Formel von Bayes berechnet sich $$ P(B\mid \bar A)=\frac{P(\bar A\mid B)\cdot P(B)}{P(\bar A)}=\frac{0.25\cdot 0.8}{0.4}=0.5 $$
+
+****************************************
+
+
+[^1]: Die Eigenschaften 1 bis 4 gleichen dabei den entsprechenden Eigenschaften für nichtbedingte Wahrscheinlichkeiten, vergleiche Definition 2 und Satz 1 im Abschnitt [Wahrscheinlichkeit](#Wahrscheinlichkeit).
+[^2]: Die Ereignisse $A_j$ mit $A_i\cap A_j=\emptyset$ für alle $i,j\in\{1,2,...,n\}$ und $i\not=j$ sind paarweise unvereinbar, vergleiche Definition 2 im Abschnitt [Zufällige Ereignisse](#Zufällige-Ereignisse).
+[^3]: Mit der zuvor getätigten Annahme wird also $P(A)\in(0,1)$ und $P(B)\in(0,1)$ vorausgesetzt.
+[^4]: Zwei Aussagen können *kausal abhängig* genannt werden, wenn aus der einen die andere oder das logische Gegenteil der anderen folgt. Zwei Aussagen sind dann *kausal unabhängig* genau dann, wenn sie nicht kausal voneinander abhängig sind.
+[^5]: Siehe Abschnitt [Zufällige Ereignisse](#Zufällige-Ereignisse), Definition 3.

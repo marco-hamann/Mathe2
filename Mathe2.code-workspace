@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../Geometrie"
-		},
-		{
-			"path": "../Mathe1"
 		}
 	],
 	"settings": {}
