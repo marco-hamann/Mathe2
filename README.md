@@ -4468,6 +4468,15 @@ $$ der sich als verrichtete *Hubarbeit* interpretieren lässt, währenddessen si
 $$ berechnet und als *Spannarbeit* interpretieren lässt.
 
 
+### Oberflächenintegrale
+
+>**Definition 1.** Ein kompaktes Gebiet mit glattem Rand ist eine Teilmenge $G\subset\mathbb{R}^n$ ($n\in\mathbb{N}, n>1$), welche beschränkt und abgeschlossen ist und deren Rand $\partial G$ lokal Graph einer
+>stetig differenzierbaren Funktion ist.
+
+
+
+
+
 ## Stochastik
 
 
