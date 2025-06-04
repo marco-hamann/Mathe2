@@ -4993,13 +4993,12 @@ Aus der vorstehenden Definition der bedingte Wahrscheinlichkeit lassen sich die 
 >2. Speziell gelten $P(\Omega|B)=P(\Omega)=1$ sowie $P(\emptyset|B)=P(\emptyset)=0$.
 >3. Für zufällige Ereignisse $\{A_1,A_2,...,A_n\}\subset\mathcal{F}$ mit $A_i\cap A_j=\emptyset$ für alle $i,j\in\{1,2,...,n\}$ und $i\not=j$[^2] gilt $$ P\left(\left.\left(\bigcup_{i=1}^n{A_i}\right)\right|B\right)=\sum_{i=1}^n{P\left(A_i|B\right)} $$
 >4. Aus Eigenschaft 3 folgt speziell für $\{A,\bar{A}\}$ $$ 1=P(\Omega|B)=P\left(\left(A\cup\bar{A}\right)|B\right)=P(A|B)+P\left(\bar{A}|B\right) $$
->5. Für $B\subseteq A$ gilt $$ P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{P(B)}{P(B)}=1 $$
 
 Die Eigenschaft 2 kann als Sonderfall für $A=\Omega$ beziehungsweise $A=\emptyset$ angesehen werden. Weitere Sonderfälle ergeben sich 
 
 1. Für $A\cap B=\emptyset$ ergibt sich $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(\emptyset)}{P(B)}=\frac{0}{P(B)}=0 $$ Wenn $B$ eingetreten ist, kann daher $A$ nicht eintreten.
 2. Für $A\cap B=A$ berechnet sich $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)}{P(B)} $$ Hier genügt die Kenntnis der Wahrscheinlichkeiten $P(A)$ und $P(B)$.
-3. Für $A\cap B$ ergibt sich $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(B)}{P(B)}=1 $$ Wenn $B$ eingetreten ist, muss daher auch $A$ eintreten.
+3. Für $A\cap B=B$, d. h. $B\subseteq A$, ergibt sich $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(B)}{P(B)}=1 $$ Wenn $B$ eingetreten ist, muss daher auch $A$ eintreten ("$B$ zieht $A$ nach sich").
 
 >**Definition 2.** Gilt für zwei zufällige Ereignisse $A\in\mathcal{F}$ und $B\in\mathcal{F}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$ die Relation $$ P(A)=P(A|B) $$ dann heißt $A$ [(stochastisch) unabhängig](https://de.wikipedia.org/wiki/Stochastisch_unabh%C3%A4ngige_Ereignisse) vom zufälligen Ereignis $B$.
 
@@ -5119,17 +5118,17 @@ Andererseits sind sie wegen $$ P(A)=\frac{1}{2}\,,\quad P(B)=\frac{3}{8}\quad\te
 [[$P(A\cap B)$] [$P(A\mid B)$] [$P(B\mid A)$] [$P(\bar{A}\mid B)$] [$P(B\mid \bar{A})$]]
 [( ) ( ) (X) ( ) ( )] $1$ 
 [(X) ( ) ( ) ( ) ( )] $0.6$
-[( ) ( ) ( ) ( ) ( )] $$ 
-[( ) (X) ( ) ( ) (X)] $0.5$ 
+[( ) (X) ( ) ( ) ( )] $0.75$ 
+[( ) ( ) ( ) ( ) (X)] $0.5$ 
 [( ) ( ) ( ) (X) ( )] $0.25$ 
 [[?]] Nutzen Sie zur Berechnung die Definition der bedingten Wahrscheinlichkeit, deren Eigenschaften sowie die Formel von Bayes.
 ****************************************
 
 1. Wegen $A\subset B$ ist $A\cap B=A$ berechnet sich $P(A\cap B)=P(A)=0.6$.
-2. Mit der Definition der bedingten Wahrscheinlichkeit berechnet sich $P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)}{P(B)}=\frac{0.6}{0.8}=0.75$.
-3. Mit Hilfe der Formel von Bayes berechnet sich $$ P(B\mid A)=\frac{P(A\mid B)\cdot P(B)}{P(A)}\overset{(b)}{=}\frac{0.75\cdot 0.8}{0.6}=1 $$ oder - alternativ - unter Benutzung der Definition der bedingten Wahrscheinlichkeit $$ P(B\mid A)=\frac{P(B\cap A)}{P(A)}=\frac{P(A)}{P(A)}=1 $$
-4. Unter Nutzung der Eigenschaft 4 aus Satz 1 berechnet sich $P(\bar A\mid B)=1-P(A\mid B)=1-0.75=0.25$.
-5. Mit Hilfe der Formel von Bayes berechnet sich $$ P(B\mid \bar A)=\frac{P(\bar A\mid B)\cdot P(B)}{P(\bar A)}=\frac{0.25\cdot 0.8}{0.4}=0.5 $$
+2. Mit der Definition der bedingten Wahrscheinlichkeit berechnet sich unter Benutzung von Teilaufgabe 1 $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)}{P(B)}=\frac{0.6}{0.8}=0.75 $$
+3. Mit Hilfe der Formel von Bayes berechnet sich unter Benutzung von Teilaufgabe 2 $$ P(B\mid A)=\frac{P(A\mid B)\cdot P(B)}{P(A)}=\frac{0.75\cdot 0.8}{0.6}=1 $$ oder - alternativ - unter Benutzung der Definition der bedingten Wahrscheinlichkeit und dem Ergebnis aus Teilaufgabe 1 $$ P(B\mid A)=\frac{P(B\cap A)}{P(A)}=\frac{P(A)}{P(A)}=1 $$
+4. Unter Nutzung der Eigenschaft 4 aus Satz 1 berechnet sich $P(\bar A\mid B)=1-P(A\mid B)=1-0.75=0.25$, worin das Ergebnis aus Teilaufgabe 2 verwendet wurde.
+5. Mit Hilfe der Formel von Bayes berechnet sich $$ P(B\mid \bar A)=\frac{P(\bar A\mid B)\cdot P(B)}{P(\bar A)}=\frac{0.25\cdot 0.8}{0.4}=0.5 $$ worin das Ergebnis aus Teilaufgabe 4 verwendet wurde.
 
 ****************************************
 
