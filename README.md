@@ -5068,6 +5068,10 @@ Fallunterscheidungsformel
 
 **Beweis.** Der Nachweis der Formel lässt sich unmittelbar durch Anwendung der Definition der Formel für die bedingte Wahrscheinlichkeit und der $\sigma$-Additivität von $P$ erbringen. Vergleiche hierzu Definition 2 im Abschnitt [Wahrscheinlichkeit](#Wahrscheinlichkeit).
 
+Im nachstehenden Video wird der Satz der totalen Wahrscheinlichkeit an einem Beispiel erläutert.
+
+!?[totale Wahrscheinlichkeit](https://www.youtube.com/watch?v=gyYarap5pUw "Youtube, Satz der totalen Wahrscheinlichkeit | Definition, Voraussetzungen + Beispiel Bewerber an Hochschule.")
+
 
 Formel von Bayes
 ===
@@ -5095,6 +5099,11 @@ Für die folgenden Fragen werden die beiden nachstehenden zufälligen Ereignisse
 
 1. Zunächst soll die Wahrscheinlichkeit dafür berechnet werden, dass ein Erzeugnis ~~nicht~~ den Qualitätsanforderungen genügt, in diesem Sinn also "Ausschuss" ist. Hierfür werden aus den statistischen Daten der vorstehenden Tabelle die entsprechenden Wahrscheinlichkeiten abgeleitet $$ P(A_1)=0.4\,,\quad P(A_2)=0.3\,,\quad P(A_3)=0.2\quad\text{und}\quad P(A_4)=0.1 $$ für den Anteil eines (z. B. im Rahmen einer Stichprobe) entnommenen Erzeugnisses an der Produktion sowie $$ P(B\mid A_1)=0.01\,,\quad P(B\mid A_2)=0.02\,,\quad P(B\mid A_3)=0.04\quad\text{und}\quad P(B\mid A_4)=0.05 $$ für den Ausschuss unter der Bezugnahme auf die jeweilige Maschine (bedingte Wahrscheinlichkeit!). Zur Berechnung der Ausschusswahrscheinlichkeit $P(B)$ wird die Fallunterscheidungsformel verwendet, also $$ P(B)=P(B\mid A_1)\cdot P(A_1)+P(B\mid A_2)\cdot P(A_2)+P(B\mid A_3)\cdot P(A_3)+P(B\mid A_4)\cdot P(A_4)=0.4\cdot0.01+0.3\cdot0.02+0.2\cdot0.04+0.1\cdot0.05=0.023 $$ Dies entspricht einer totalen (prozentualen) Wahrscheinlichkeit von $2.3$ Prozent, dass ein zufällig entnommenes Erzeugnis nicht den Qualitätsanforderungen entspricht (ohne Bezugnahme auf eine Maschine).
 2. Nun sind die Wahrscheinlichkeiten zu berechnen, dass entnommenes Erzeugnis, das nicht den Qualitätsanforderungen entspricht, auf der $j$-ten Maschine ($j\in\{1,2,3,4\}$) gefertigt wurde. Hierfür wird die Formel von Bayes verwendet, die den Zusammenhang zwischen den a-priori und den a-posteriori Wahrscheinlichkeiten herstellt. Unter Verwendung des Ergebnisses in der ersten Teilaufgabe ergibt sich $$ P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{P(B)}\,,\quad j\in\{1,2,3,4\} $$ und somit $$ \begin{split} P(A_1\mid B) & =\frac{P(A_1)\cdot P(B\mid A_1)}{P(B)}=\frac{0.4\cdot 0.01}{0.023}\approx 0.174\,,\quad P(A_2\mid B)=\frac{P(A_2)\cdot P(B\mid A_2)}{P(B)}=\frac{0.3\cdot 0.02}{0.023}\approx 0.261\,, \\ P(A_3\mid B) & =\frac{P(A_3)\cdot P(B\mid A_3)}{P(B)}=\frac{0.2\cdot 0.04}{0.023}\approx 0.348\,,\quad P(A_4\mid B)=\frac{P(A_4)\cdot P(B\mid A_4)}{P(B)}=\frac{0.1\cdot 0.05}{0.023}\approx 0.217 \end{split} $$ Diese lassen sich deuten als Wahrscheinlichkeiten, "dass ein Erzeugnis, welches nicht den Qualitätsanforderungen entspricht, auf Maschine $j$ gefertigt wurde".
+
+Im nachfolgenden Video werden anhand eines weiteren Beispiels die Begriffe 'bedingte Wahrscheinlichkeit', 'Baumdiagramm' und 'Formel von Bayes' erläutert.
+
+!?[Formel von Bayes](https://www.youtube.com/watch?v=THpkWwxYEdc "Youtube, Bedingte Wahrscheinlichkeit, umgekehrtes Baumdiagramm, Satz von Bayes, Mathe by Daniel Jung.")
+
 
 
 Sicher gewusst
@@ -5147,3 +5156,5 @@ Andererseits sind sie wegen $$ P(A)=\frac{1}{2}\,,\quad P(B)=\frac{3}{8}\quad\te
 [^3]: Mit der zuvor getätigten Annahme wird also $P(A)\in(0,1)$ und $P(B)\in(0,1)$ vorausgesetzt.
 [^4]: Zwei Aussagen können *kausal abhängig* genannt werden, wenn aus der einen die andere oder das logische Gegenteil der anderen folgt. Zwei Aussagen sind dann *kausal unabhängig* genau dann, wenn sie nicht kausal voneinander abhängig sind.
 [^5]: Siehe Abschnitt [Zufällige Ereignisse](#Zufällige-Ereignisse), Definition 3.
+
+
