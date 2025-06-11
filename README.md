@@ -4782,7 +4782,7 @@ $$ auch $A\cup B\in\mathcal{F}$
   \bigcap_{i\geq1}{A_i}=A_1\cap A_2\cap ...\;\in\mathcal{F}
 $$
 
->**Definition 2.** Sei $(\omega,\mathcal{F})$ ein Ereignisraum. Eine Funktion $$
+>**Definition 2.** Sei $(\Omega,\mathcal{F})$ ein Ereignisraum. Eine Funktion $$
   P:\mathcal{F}\to[0,1]
 $$ mit den Eigenschaften
 >
@@ -5042,7 +5042,7 @@ Durch die Umformung der definierenden Formel für die bedingte Wahrscheinlichkei
 >**Satz 2.** ([Multiplikationssatz](https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Multiplikationssatz)) Gegeben sind die zufälligen Ereignisse $A_1$, $A_2$, ..., $A_n$ mit $n\in\mathbb{N}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$. Für das Produktereignis aller $A_k$ erhält man die Wahrscheinlichkeit $$ 
 \begin{split}
 P\left( \bigcap_{k = 1}^n A_k \right)=P\left(A_1\cap A_2\cap\dotsb\cap A_n\right)
-& = P\left( A_1 \right)\cdot \prod_{k=2}^n P \left(A_k \left| \bigcap_{j = 1}^{k-1} A_j \right. \right) \\
+& = P\left( A_1 \right)\cdot \prod_{k=2}^n \left(P \left(A_k \left| \bigcap_{j = 1}^{k-1} A_j \right. \right)\right) \\
 & = P\left(A_1\right)\cdot\frac{P\left(A_1\cap A_2\right)}{P\left(A_1\right)}\cdot\frac{P\left(A_1\cap A_2\cap A_3\right)}{P\left(A_1\cap A_2\right)}\cdot\;\;\ldots\;\;\cdot\frac{P\left(A_1\cap\dotsb\cap A_n\right)}{P\left(A_1\cap\dotsb\cap A_{n-1}\right)} \\
 & = P(A_1)\cdot P\left(A_2\mid A_1\right)\cdot P\left(A_3\mid A_1\cap A_2\right) \cdot\;\;\ldots\;\;\cdot P\left(A_n\mid A_1\cap\dotsb\cap A_{n-1}\right)
 \end{split} $$ Dabei ist vorausgesetzt, dass alle bedingenden Ereignisse positive Wahrscheinlichkeit besitzen.
@@ -5079,7 +5079,7 @@ Formel von Bayes
 
 >**Satz 4.** Gegeben ist ein vollständiges System[^5] von abzählbar vielen zufälligen Ereignissen $A_j\in\mathcal{F}$ mit $j\in J\subseteq\mathbb{N}$ eines Wahrscheinlichkeitsraums $(\Omega,\mathcal{F},P)$. Für ein betrachtetes zufälliges Ereignis $B\in\mathcal{F}$ mit $P(B)>0$ gilt die Formel $$ P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{P(B)}=\frac{P(A_j)\cdot P(B\mid A_j)}{\sum_{j\in J}{\left(P(B\mid A_j)\cdot P(A_j)\right)}} $$ für alle $j\in J$.
 
-**Beweis.** Der Nachweis der Formel lässt sich unmittelbar durch Anwendung der Fallunterscheidungsformel (Satz 3) und der Definition der bedingten Wahrscheinlichkeit erbringen. Denn $$ P(A_j\mid B)=P(B\mid A_j)\quad\leftrightarrow\quad P(B)\cdot P(A_j\mid B)=P(A_j)\cdot P(B\mid A_j)\quad\leftrightarrow\quad P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{P(B)} $$ falls $P(B)>0$ angenommen werden kann.
+**Beweis.** Der Nachweis der Formel lässt sich unmittelbar durch Anwendung der Fallunterscheidungsformel (Satz 3) und der Definition der bedingten Wahrscheinlichkeit erbringen. Denn $$ P(A_j\cap B)=P(B\cap A_j)\quad\leftrightarrow\quad P(B)\cdot P(A_j\mid B)=P(A_j)\cdot P(B\mid A_j)\quad\leftrightarrow\quad P(A_j\mid B)=\frac{P(A_j)\cdot P(B\mid A_j)}{P(B)} $$ falls $P(B)>0$ angenommen werden kann.
 
 $\square$
 
@@ -5158,3 +5158,22 @@ Andererseits sind sie wegen $$ P(A)=\frac{1}{2}\,,\quad P(B)=\frac{3}{8}\quad\te
 [^5]: Siehe Abschnitt [Zufällige Ereignisse](#Zufällige-Ereignisse), Definition 3.
 
 
+### Zufallsgrößen
+
+
+In diesem Anbschnitt wird das zentrale Konzept der Zufallsgröße/-variable eingeführt. 
+
+>**Definition 1.** Gegeben ist ein Ereignisraum $(\Omega,\mathcal{F})$, dessen atomare Ereignisse $\omega\in\Omega$ bezeichnet werden. Eine Funktion $$ X:\Omega\to\mathbb{R}\quad\text{mit}\quad \left\{\omega: X(\omega)\leq t\right\}\in\mathcal{F} $$ für alle $t\in\mathbb{R}$ heißt reelle [Zufallsvariable](https://de.wikipedia.org/wiki/Zufallsvariable).[^1]
+>
+> Eine reelle Zufallsgröße $X$ heißt **diskret**, falls der Wertebereich von $X$ endlich viele beziehungsweise abzählbar unendlich viele Werte enthält, $X$ heißt **stetig**, falls der Wertebereich ein Intervall ist.
+
+**Bemerkung 1.** Zufallsvektor
+
+**Beispiel 1.** Überprüfung einer Warensendung auf Belastbarkeit mit Abnahmewahrscheinlichkeit $p=\frac{4}{5}$ (unabhängig).
+
+Die Überprüfung wird nach der ersten Ware abgebrochen, die Test nicht Übersteht.
+
+1. Ermitteln Sie die Wahrscheinlichkeitsverteilung zur Prüfanzahl $X$ mit den Werten der Zufallsgröße $X$ $$ X\in\left\{1,2,\ldots,99,100,\ldots,n\right\}\,,\quad n\in\mathbb{N}\,,\;n>0 $$ 
+2. Ermittleln Sie die Verteilungsfunktion zur Prüfanzahl $X$, $$ F_X(t)=P(X\leq t) $$ d. h. die Wahrscheinlichkeit dafür, dass $X$ Werte kleiner/gleich $t$ annimmt.
+
+[^1]: Dies bedeutet, dass die Menge aller atomaren Ereignisse, deren Funktionswert $X(\omega)$ kleiner oder gleich einem reellen Wert $t$ ist, ein Ereignis aus $\mathcal{F}$ bilden muss.
